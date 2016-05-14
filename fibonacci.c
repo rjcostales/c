@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-long fibonacci(int  n)
+long fibonacci(int n)
 {
     if (n == 0)
 	return 0;
