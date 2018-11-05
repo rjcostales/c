@@ -3,25 +3,27 @@
 #include <stdbool.h>
 
 
-bool isPrime(int n)
+bool
+isPrime (int n)
 {
-    if ((n % 2) == 0)
+  if ((n % 2) == 0)
+    return false;
+  else
+    for (int i = 3; i * i <= n; i += 2)
+      if ((n % i) == 0)
 	return false;
-    else
-	for (int i = 3; i * i <= n; i += 2)
-	    if ((n % i) == 0)
-		return false;
 
-    return true;
+  return true;
 }
 
-int main(int argc, char *argv[])
+int
+main (int argc, char *argv[])
 {
-    int c = 0;
+  int c = 0;
 
-    for (int i = 1; i < 0xFFFFFFFF; i++)
-	if (isPrime(i))
-	    c++;
+  for (int i = 1; i < 0xFFFFFFFF; i++)
+    if (isPrime (i))
+      c++;
 
-    printf("%u\n", c);
+  printf ("%u\n", c);
 }
