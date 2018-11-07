@@ -1,2 +1,7 @@
+# Mac
+.DS_Store
 a.out
+a.exe
+
+# indent
 *.c~
