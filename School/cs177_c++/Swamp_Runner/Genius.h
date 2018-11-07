@@ -6,36 +6,38 @@
 #define GENIUS_H
 #include <ostream.h>
 #include"Wit.h"
-class Genius : public Wit
-{
+class Genius:public Wit {
 public:
 // constructor
-	Genius(Swamp&);
+  Genius (Swamp &);
 // member functions
-	void draw(int);
-	void setPos(Coord);
+  void draw (int);
+  void setPos (Coord);
 protected:
-	Coord step();  // value returned by virtual function move
+    Coord step ();              // value returned by virtual function move
 };
-//	implementation
-Genius::Genius(Swamp& swamp) : Wit(swamp) {}
-void Genius::draw(int isSafe)
-{
-	cout << (isSafe ? 'G' : '*');
+//      implementation
+Genius::Genius (Swamp & swamp):Wit (swamp) {
 }
-void Genius::setPos(Coord p)
-{
-	Runner::setPos(p);
+
+void
+Genius::draw (int isSafe) {
+  cout << (isSafe ? 'G' : '*');
 }
-Coord Genius::step()
-{
-	Coord temp = mPos;
-	do
-	{
-		mPos = temp;
-		Wit::step();
-	} while (!mSwamp->isSafe(mPos));	// check if step is safe
-	return mPos;
+
+void
+Genius::setPos (Coord p) {
+  Runner::setPos (p);
+}
+
+Coord
+Genius::step () {
+  Coord temp = mPos;
+  do {
+    mPos = temp;
+    Wit::step ();
+  } while (!mSwamp->isSafe (mPos));     // check if step is safe
+  return mPos;
 }
 #endif
 // EOF

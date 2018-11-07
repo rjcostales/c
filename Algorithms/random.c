@@ -3,14 +3,13 @@
 #include <time.h>
 #include <math.h>
 
-main()
-{
-  int     i = 30, r, min = 10000, max = 0, average = 0;
+main () {
+  int i = 30, r, min = 10000, max = 0, average = 0;
 
-  srand(time(NULL));
+  srand (time (NULL));
 
   while (i--) {
-    r = rand();
+    r = rand ();
     if (r < min)
       min = r;
     if (r > max)

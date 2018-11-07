@@ -4,30 +4,30 @@
 
 WINDOW *w;
 
-void poll()
-{
-  char    c;
+void
+poll () {
+  char c;
 
-  c = wgetch(w);
+  c = wgetch (w);
 
   if (c == 'p')
-    mvprintw(10, 10, "p pressed");
+    mvprintw (10, 10, "p pressed");
 
 }
 
-int main()
-{
+int
+main () {
 
-  w = initscr();
-  nonl();
-  nodelay(w, 1);
-  noecho();
+  w = initscr ();
+  nonl ();
+  nodelay (w, 1);
+  noecho ();
 
   while (1) {
-    poll();
+    poll ();
 
     cout << "this is a test\n";
   }
 
-  endwin();
+  endwin ();
 }

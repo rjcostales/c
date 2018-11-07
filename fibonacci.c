@@ -2,8 +2,7 @@
 #include <stdlib.h>
 
 long
-fibonacci (int n)
-{
+fibonacci (int n) {
   if (n == 0)
     return 0;
   if (n == 1)
@@ -12,8 +11,7 @@ fibonacci (int n)
 }
 
 int
-main (int argc, char *argv[])
-{
+main (int argc, char *argv[]) {
   int n = 47;
   if (argc == 2)
     n = atoi (argv[1]);

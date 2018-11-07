@@ -34,58 +34,49 @@ extern int atoi();
 extern int getpid();
 extern int getppid();
 
-int
-main( int argc, char** argv )
-    {
+int main(int argc, char **argv) {
     int argn;
     unsigned long seed, val;
     struct tms t;
     int n;
-    char* usage = "usage:  %s [-s seed] <number> ...\n";
+    char *usage = "usage:  %s [-s seed] <number> ...\n";
 
     /* This stuff is pretty non-portable.  Modify as necessary for
-    ** your system.
-    */
-    seed = time( (long*) 0 );
+     ** your system.
+     */
+    seed = time((long *) 0);
     seed ^= getpid();
     seed ^= getppid();
-    seed ^= times( &t );
+    seed ^= times(&t);
 
     argn = 1;
-    while ( argn < argc && argv[argn][0] == '-' )
-	{
-	if ( strcmp( argv[argn], "-s" ) == 0 )
-	    {
-	    ++argn;
-	    seed = atoi( argv[argn] );
-	    }
-	else
-	    {
-	    (void) fprintf( stderr, usage, argv[0] );
-	    exit( 1 );
-	    }
-	++argn;
-	}
-    if ( argc - argn < 1 )
-	{
-	(void) fprintf( stderr, usage, argv[0] );
-	exit( 1 );
-	}
-
-    srandom( seed );
-    for ( ; argn < argc; ++argn )
-	{
-	n = atoi( argv[argn] );
-	if ( n <= 0 )
-	    {
-	    (void) fprintf( stderr, usage, argv[0] );
-	    exit( 1 );
-	    }
-	val = random();
-	val = val ^ ( random() >> 6 );
-	val = ( val % n ) + 1;
-	(void) printf( "%ld\n", val );
-	}
-
-    exit( 0 );
+    while (argn < argc && argv[argn][0] == '-') {
+        if (strcmp(argv[argn], "-s") == 0) {
+            ++argn;
+            seed = atoi(argv[argn]);
+        } else {
+            (void) fprintf(stderr, usage, argv[0]);
+            exit(1);
+        }
+        ++argn;
     }
+    if (argc - argn < 1) {
+        (void) fprintf(stderr, usage, argv[0]);
+        exit(1);
+    }
+
+    srandom(seed);
+    for (; argn < argc; ++argn) {
+        n = atoi(argv[argn]);
+        if (n <= 0) {
+            (void) fprintf(stderr, usage, argv[0]);
+            exit(1);
+        }
+        val = random();
+        val = val ^ (random() >> 6);
+        val = (val % n) + 1;
+        (void) printf("%ld\n", val);
+    }
+
+    exit(0);
+}

@@ -4,14 +4,13 @@
 #define MAXLINE 80
 #define MAXSIZE 1200
 
-main(int argc, char *argv[])
-{
-  int     i, j, min, count;
-  char    line[MAXLINE], *temp, *page[MAXSIZE];
+main (int argc, char *argv[]) {
+  int i, j, min, count;
+  char line[MAXLINE], *temp, *page[MAXSIZE];
 
-  for (i = 0; fgets(line, MAXLINE, stdin); i++) {
-    page[i] = calloc(strlen(line) + 1, sizeof(char));
-    strcpy(page[i], line);
+  for (i = 0; fgets (line, MAXLINE, stdin); i++) {
+    page[i] = calloc (strlen (line) + 1, sizeof (char));
+    strcpy (page[i], line);
   }
 
   count = i;
@@ -21,7 +20,7 @@ main(int argc, char *argv[])
     min = i;
 
     for (j = i; j < count; j++) {
-      if ((strcmp(page[min], page[j]) > 0))
+      if ((strcmp (page[min], page[j]) > 0))
         min = j;
     }
 
@@ -31,5 +30,5 @@ main(int argc, char *argv[])
   }
 
   for (i = 0; i < count; i++)
-    fputs(page[i], stdout);
+    fputs (page[i], stdout);
 }

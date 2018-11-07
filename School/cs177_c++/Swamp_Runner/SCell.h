@@ -6,18 +6,19 @@
 #define SCELL_H
 #include <ostream.h>
 #include <iostream.h>
-class SCell
-{
+class SCell {
 public:
 // Constructor
-	SCell(char image) { mImage = image; }
-	
-	virtual int safe() = 0;	 // returns true is cell can be stood on
-		
-	void draw() { cout << mImage; }
-	
+  SCell (char image) {
+    mImage = image;
+  } virtual int safe () = 0;    // returns true is cell can be stood on
+
+  void draw () {
+    cout << mImage;
+  }
+
 protected:
-	char mImage;
+  char mImage;
 };
 #endif
 // EOF

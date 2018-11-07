@@ -2,16 +2,15 @@
 
 #include <stdio.h>
 
-int     bytes, sum;
+int bytes, sum;
 
-main()
-{
+main () {
   register i, v;
   register n;
 
   n = 0;
   v = 0;
-  while ((i = getchar()) != EOF) {
+  while ((i = getchar ()) != EOF) {
     i &= 0177;
     if (i == '|')
       break;
@@ -19,7 +18,7 @@ main()
       continue;
     v = (v << 4) | (i & 0xF);
     if ((++n & 1) == 0) {
-      putchar(v);
+      putchar (v);
       sum += v;
       v = 0;
       bytes++;
@@ -27,10 +26,10 @@ main()
   }
   n = 0;
   for (i = 0; i < 8; i++)
-    n = (n << 4) | (getchar() & 0xF);
+    n = (n << 4) | (getchar () & 0xF);
   if (n != (bytes + sum))
-    fprintf(stderr, "bad checksum\n");
+    fprintf (stderr, "bad checksum\n");
   else
-    fprintf(stderr, "checksum good!\n");
-  exit(0);
+    fprintf (stderr, "checksum good!\n");
+  exit (0);
 }

@@ -5,9 +5,9 @@
 
 #define KEYSIZE 15
 
-void merge(int a[], int b[], int c[], int m, int n)
-{
-  int     i = 0, j = 0, k = 0;
+void
+merge (int a[], int b[], int c[], int m, int n) {
+  int i = 0, j = 0, k = 0;
 
   while (i < m && j < n)
     if (a[i] < b[j])
@@ -20,51 +20,50 @@ void merge(int a[], int b[], int c[], int m, int n)
     c[k++] = b[j++];
 }
 
-void mergesort(int key[], int n)
-{
-  int     i, j, k, *w;
+void
+mergesort (int key[], int n) {
+  int i, j, k, *w;
 
   if (n > 1) {
     j = n / 2;
     k = n - j;
 
-    mergesort(key, j);
-    mergesort(key + j, k);
+    mergesort (key, j);
+    mergesort (key + j, k);
 
-    w = calloc(n, sizeof(int));
+    w = calloc (n, sizeof (int));
 
-    merge(key, key + j, w, j, k);
+    merge (key, key + j, w, j, k);
 
     for (i = 0; i < n; i++)
       key[i] = w[i];
 
-    free(w);
+    free (w);
   }
 }
 
-int randint(int bound)
-{
-  return rand() % bound;
+int
+randint (int bound) {
+  return rand () % bound;
 }
 
-main()
-{
-  int     i, key[KEYSIZE];
+main () {
+  int i, key[KEYSIZE];
 
-  srand(time(NULL));
+  srand (time (NULL));
   for (i = 0; i < KEYSIZE; i++)
-    key[i] = randint(100) - 50;
+    key[i] = randint (100) - 50;
 
-  printf("Before mergesort:\n");
+  printf ("Before mergesort:\n");
   for (i = 0; i < KEYSIZE; i++)
-    printf("%4d", key[i]);
-  putchar('\n');
+    printf ("%4d", key[i]);
+  putchar ('\n');
 
-  mergesort(key, KEYSIZE);
+  mergesort (key, KEYSIZE);
 
-  printf("After mergesort:\n");
+  printf ("After mergesort:\n");
   for (i = 0; i < KEYSIZE; i++)
-    printf("%4d", key[i]);
-  putchar('\n');
+    printf ("%4d", key[i]);
+  putchar ('\n');
 
 }

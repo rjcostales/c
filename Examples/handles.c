@@ -1,19 +1,19 @@
 #include <stdio.h>
 
 typedef struct complex {
-  short   real;
-  short   imaginary;
+  short real;
+  short imaginary;
 } complex_t, *complex_p;
 
-void    foo(complex * x);
+void foo (complex * x);
 
-void foo(complex * x)
-{
+void
+foo (complex * x) {
   x->real = 200;
 }
 
-int main()
-{
+int
+main () {
 
   complex a;
   complex_t b;
@@ -24,7 +24,7 @@ int main()
 
   p = &a;
 
-  printf("%d\n", p->real);
-  foo(&a);
-  printf("%d\n", p->real);
+  printf ("%d\n", p->real);
+  foo (&a);
+  printf ("%d\n", p->real);
 }

@@ -7,9 +7,9 @@ typedef struct node {
   identifier name;
   identifier type;
   struct node *left, *right;
-} node , *tree;
+} node, *tree;
 
-int     insert(tree *, char[]);
-node   *locate(tree, char[]);
-void    dispose(tree *);
-void    print(tree);
+int insert (tree *, char[]);
+node *locate (tree, char[]);
+void dispose (tree *);
+void print (tree);

@@ -7,24 +7,23 @@
 #ifndef COORD_H
 #define COORD_H
 #include <iostream.h>
-class Coord
-{
-	friend ostream& operator<<(ostream&, const Coord&);
+class Coord {
+  friend ostream & operator<< (ostream &, const Coord &);
 public:
 // constructors
-	Coord(int, int);
-	Coord();
-	Coord(Coord&);
-	
+    Coord (int, int);
+    Coord ();
+    Coord (Coord &);
+
 // operators
-	void operator=(Coord&);
-	Coord operator+(Coord&);
-	int operator==(Coord&) const;
-	int operator!=(Coord&) const;
-	
+  void operator= (Coord &);
+  Coord operator+ (Coord &);
+  int operator== (Coord &) const;
+  int operator!= (Coord &) const;
+
 // data members
-	int x;	 // made x & y public for ease
-	int y;	 // and more readable code.
+  int x;                        // made x & y public for ease
+  int y;                        // and more readable code.
 };
 #endif
 // EOF

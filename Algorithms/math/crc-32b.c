@@ -4,8 +4,8 @@
 #endif
 
 /* generate the crc table. Must be called before calculating the crc value */
-void    gen_table(void);
-unsigned long get_crc(FILE *);  /* calculate the crc32 value */
+void gen_table (void);
+unsigned long get_crc (FILE *); /* calculate the crc32 value */
 
 /*-----------------------------------------------------------*/
 
@@ -13,10 +13,10 @@ unsigned long get_crc(FILE *);  /* calculate the crc32 value */
 
 static unsigned long crc_table[256];
 
-void gen_table(void)
-{                               /* build the crc table */
+void
+gen_table (void) {              /* build the crc table */
   unsigned long crc, poly;
-  int     i, j;
+  int i, j;
 
   poly = 0xEDB88320L;
   for (i = 0; i < 256; i++) {
@@ -31,13 +31,13 @@ void gen_table(void)
   }
 }
 
-unsigned long get_crc(FILE * fp)
-{                               /* calculate the crc value */
+unsigned long
+get_crc (FILE * fp) {           /* calculate the crc value */
   register unsigned long crc;
   int char;
 
   crc = 0xFFFFFFFF;
-  while ((char = getc(fp)) !=EOF)
+  while ((char = getc (fp)) !=EOF)
     crc = ((crc >> 8) & 0x00FFFFFF) ^ crc_table[(crc ^ char) &0xFF];
 
   return (crc ^ 0xFFFFFFFF);

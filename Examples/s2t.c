@@ -3,13 +3,12 @@
 
 #define TAB 4
 
-main()
-{
-  int     i, pos, spc, flag;
-  char    chr;
+main () {
+  int i, pos, spc, flag;
+  char chr;
 
   pos = spc = flag = 0;
-  while ((chr = getchar()) != EOF) {
+  while ((chr = getchar ()) != EOF) {
     pos++;
 
     if (chr == '\n')
@@ -17,9 +16,9 @@ main()
 
     if (flag) {
       if (chr == ' ')
-        putchar('\t');
+        putchar ('\t');
       else
-        (spc == 1) ? putchar(' ') : putchar('\t');
+        (spc == 1) ? putchar (' ') : putchar ('\t');
 
       spc = flag = 0;
     }
@@ -28,9 +27,9 @@ main()
 
       if (spc < TAB)
         for (i = (spc - (pos % TAB)); spc; spc--)
-          putchar(' ');
+          putchar (' ');
 
-      putchar(chr);
+      putchar (chr);
       spc = flag = 0;
 
     } else {
@@ -40,7 +39,7 @@ main()
         flag = 1;
 
       if (spc == TAB) {
-        putchar('\t');
+        putchar ('\t');
         spc = flag = 0;
       }
 

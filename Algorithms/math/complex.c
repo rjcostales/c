@@ -2,7 +2,7 @@
 
 #ifndef _FCOMPLEX_DECLARE_T_
 typedef struct {
-  float   r, i;
+  float r, i;
 } fcomplex;                     /* type for a complex no */
 
 #define _FCOMPLEX_DECLARE_T_
@@ -10,19 +10,19 @@ typedef struct {
 
 /* function prototypes */
 /***********************/
-fcomplex Cadd(fcomplex a, fcomplex b);
-fcomplex Csub(fcomplex a, fcomplex b);
-fcomplex Cmul(fcomplex a, fcomplex b);
-fcomplex Complex(float re, float im);
-fcomplex Conjg(fcomplex z);
-fcomplex Cdiv(fcomplex a, fcomplex b);
-float   Cabs(fcomplex z);
-fcomplex Csqrt(fcomplex z);
-fcomplex RCmul(float x, fcomplex a);
-fcomplex Cinv(complex z);
+fcomplex Cadd (fcomplex a, fcomplex b);
+fcomplex Csub (fcomplex a, fcomplex b);
+fcomplex Cmul (fcomplex a, fcomplex b);
+fcomplex Complex (float re, float im);
+fcomplex Conjg (fcomplex z);
+fcomplex Cdiv (fcomplex a, fcomplex b);
+float Cabs (fcomplex z);
+fcomplex Csqrt (fcomplex z);
+fcomplex RCmul (float x, fcomplex a);
+fcomplex Cinv (complex z);
 
-fcomplex Cadd(fcomplex a, fcomplex b)
-{
+fcomplex
+Cadd (fcomplex a, fcomplex b) {
   fcomplex c;
 
   c.r = a.r + b.r;
@@ -30,8 +30,8 @@ fcomplex Cadd(fcomplex a, fcomplex b)
   return c;
 }
 
-fcomplex Csub(fcomplex a, fcomplex b)
-{
+fcomplex
+Csub (fcomplex a, fcomplex b) {
   fcomplex c;
 
   c.r = a.r - b.r;
@@ -39,10 +39,10 @@ fcomplex Csub(fcomplex a, fcomplex b)
   return c;
 }
 
-fcomplex Cmul(fcomplex a, fcomplex b)
-{                               /* Using only 3 multiplications! */
+fcomplex
+Cmul (fcomplex a, fcomplex b) { /* Using only 3 multiplications! */
   fcomplex c;
-  float   t1, t2;
+  float t1, t2;
 
   t1 = a.r * b.r;
   t2 = a.i * b.i;
@@ -52,8 +52,8 @@ fcomplex Cmul(fcomplex a, fcomplex b)
   return c;
 }
 
-fcomplex Complex(float re, float im)
-{
+fcomplex
+Complex (float re, float im) {
   fcomplex c;
 
   c.r = re;
@@ -61,8 +61,8 @@ fcomplex Complex(float re, float im)
   return c;
 }
 
-fcomplex Conjg(fcomplex z)
-{
+fcomplex
+Conjg (fcomplex z) {
   fcomplex c;
 
   c.r = z.r;
@@ -70,12 +70,12 @@ fcomplex Conjg(fcomplex z)
   return c;
 }
 
-fcomplex Cdiv(fcomplex a, fcomplex b)
-{
+fcomplex
+Cdiv (fcomplex a, fcomplex b) {
   fcomplex c;
-  float   den;
+  float den;
 
-  if (fabs(b.r) >= fabs(b.i)) {
+  if (fabs (b.r) >= fabs (b.i)) {
     r = b.i / b.r;
     den = b.r + r * b.i;
     c.r = (a.r + r * a.i) / den;
@@ -89,36 +89,36 @@ fcomplex Cdiv(fcomplex a, fcomplex b)
   return c;
 }
 
-float Cabs(fcomplex z)
-{
-  float   x, y, ans, temp;
+float
+Cabs (fcomplex z) {
+  float x, y, ans, temp;
 
-  x = fabs(z.r);
-  y = fabs(z.i);
+  x = fabs (z.r);
+  y = fabs (z.i);
   if (x == 0.0)
     ans = y;
   else if (y == 0.0)
     ans = x;
   else if (x > y) {
     temp = y / x;
-    ans = x * sqrt(1.0 + temp * temp);
+    ans = x * sqrt (1.0 + temp * temp);
   } else {
     temp = x / y;
-    ans = y * sqrt(1.0 + temp * temp);
+    ans = y * sqrt (1.0 + temp * temp);
   }
   return ans;
 }
 
-fcomplex Csqrt(fcomplex z)
-{
+fcomplex
+Csqrt (fcomplex z) {
   fcomplex c;
-  float   w;
+  float w;
 
   if ((z.r == 0.0) && (z.i == 0.0)) {
     c.r = 0.0;
     c.i = 0.0;
   } else {
-    w = sqrt((sqrt(z.r * z.r + z.i * z.i) + fabs(z.r)) * 0.5);
+    w = sqrt ((sqrt (z.r * z.r + z.i * z.i) + fabs (z.r)) * 0.5);
     if (z.r >= 0.0) {
       c.r = w;
       c.i = z.i / (2.0 * w);
@@ -130,8 +130,8 @@ fcomplex Csqrt(fcomplex z)
   return c;
 }
 
-fcomplex RCmul(float x, fcomplex a)
-{
+fcomplex
+RCmul (float x, fcomplex a) {
   fcomplex c;
 
   c.r = x * a.r;
@@ -139,10 +139,10 @@ fcomplex RCmul(float x, fcomplex a)
   return c;
 }
 
-fcomplex Cinv(fcomplex z)
-{
+fcomplex
+Cinv (fcomplex z) {
   fcomplex c;
-  float   s = 1.0 / (z.r * z.r + z.i * z.i);
+  float s = 1.0 / (z.r * z.r + z.i * z.i);
 
   c.r = z.r * s;
   c.i = -z.i * s;

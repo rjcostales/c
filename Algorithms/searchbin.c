@@ -1,9 +1,9 @@
 /* binary search example  */
-void main()
-{
-  int     high, lo, mid, found = false;
-  int     target = 367;
-  int     a[10];
+void
+main () {
+  int high, lo, mid, found = false;
+  int target = 367;
+  int a[10];
 
   /* seed the array */
   a[0] = 3;
@@ -35,8 +35,8 @@ void main()
     found = true;
 
   if (found)
-    printf("found target: %d\n", target);
+    printf ("found target: %d\n", target);
   else
-    printf("target %d not found\n", target);
+    printf ("target %d not found\n", target);
 
 }

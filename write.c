@@ -3,8 +3,7 @@
 #include <time.h>
 
 int
-main (int argc, char *argv[])
-{
+main (int argc, char *argv[]) {
   char string[1001] = { '\0' };
 
   srand (time (0));

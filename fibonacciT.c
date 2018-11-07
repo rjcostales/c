@@ -4,8 +4,7 @@
 int count = 0;
 
 int
-fibonacci (int n, int a, int b)
-{
+fibonacci (int n, int a, int b) {
   count++;
 
   if (n == 0)
@@ -16,8 +15,7 @@ fibonacci (int n, int a, int b)
 }
 
 int
-main (int argc, char *argv[])
-{
+main (int argc, char *argv[]) {
   int n = 47;
   if (argc == 2)
     n = atoi (argv[1]);

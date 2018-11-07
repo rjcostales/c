@@ -6,22 +6,21 @@
 #define GROUND_H
 #include <ostream.h>
 #include"SCell.h"
-class Ground : public SCell
-{
+class Ground:public SCell {
 public:
 // constructor
-	Ground(char image);
-	
+  Ground (char image);
+
 // member funtions
-	int safe();
+  int safe ();
 };
-//	implementation
-Ground::Ground(char image = ' ') : SCell(image)
-{
+//      implementation
+Ground::Ground (char image = ' '):SCell (image) {
 }
-int Ground::safe()
-{
-	return 1;
+
+int
+Ground::safe () {
+  return 1;
 }
 #endif
 // EOF

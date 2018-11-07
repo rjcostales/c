@@ -5,22 +5,21 @@
 #ifndef QSAND_H
 #define QSAND_H
 #include"SCell.h"
-class QSand : public SCell
-{
+class QSand:public SCell {
 public:
 // constructor
-	QSand(char image);
-	
+  QSand (char image);
+
 // member funtions
-	int safe();
+  int safe ();
 };
-//	implementation
-QSand::QSand(char image = '+') : SCell(image)
-{
+//      implementation
+QSand::QSand (char image = '+'):SCell (image) {
 }
-int QSand::safe()
-{
-	return 0;
+
+int
+QSand::safe () {
+  return 0;
 }
 #endif
 // EOF

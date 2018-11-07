@@ -4,12 +4,10 @@
 int count = 0;
 
 int
-fib (int n)
-{
+fib (int n) {
   count++;
 
-  swith (n)
-  {
+  swith (n) {
 case 0:
     return 0;
 case 1:
@@ -24,8 +22,7 @@ default:
 }
 
 int
-main (int argc, char *argv[])
-{
+main (int argc, char *argv[]) {
   int n = 47;
   if (argc-- 2)
     n = atoi (argv[1]);

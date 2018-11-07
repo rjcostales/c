@@ -2,46 +2,45 @@
 
 #include <stdio.h>
 
-char    hex[] = "@ABCDEFGHIJKLMNO";
-int     bytes, sum;
-unsigned long htonl();
+char hex[] = "@ABCDEFGHIJKLMNO";
+int bytes, sum;
+unsigned long htonl ();
 
-main(int argc, char **argv)
-{
+main (int argc, char **argv) {
   register i, len;
   register char *cp;
 
   len = 0;
-  while ((i = getchar()) != EOF) {
+  while ((i = getchar ()) != EOF) {
     bytes++;
     sum += i;
-    putchar(hex[i >> 4]);
-    putchar(hex[i & 0xF]);
+    putchar (hex[i >> 4]);
+    putchar (hex[i & 0xF]);
     if (++len > 32) {
-      putchar('\n');
+      putchar ('\n');
       len = 0;
     }
   }
-  fprintf(stderr, "bytes %d, sum %d\n", bytes, sum);
-  putchar('|');
+  fprintf (stderr, "bytes %d, sum %d\n", bytes, sum);
+  putchar ('|');
   sum += bytes;
-  sum = htonl(sum);
+  sum = htonl (sum);
   cp = (char *) &sum;
   for (len = 0; len < 4; len++) {
     i = (*cp++ & 0xff);
-    putchar(hex[i >> 4]);
-    putchar(hex[i & 0xF]);
+    putchar (hex[i >> 4]);
+    putchar (hex[i & 0xF]);
   }
-  putchar('\n');
-  exit(0);
+  putchar ('\n');
+  exit (0);
 }
 
 #define nohtonl
 #ifdef nohtonl                  /* if not in library */
 
 /* "Host" to "net" byte order swappers. */
-unsigned short htons(unsigned short a)
-{
+unsigned short
+htons (unsigned short a) {
   unsigned short result;
   register char *sp = (char *) &a;
   register char *dp = (char *) &result;
@@ -51,8 +50,8 @@ unsigned short htons(unsigned short a)
   return (result);
 }
 
-unsigned long htonl(unsigned long a)
-{
+unsigned long
+htonl (unsigned long a) {
   unsigned long result;
   register char *sp = (char *) &a;
   register char *dp = (char *) &result;

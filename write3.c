@@ -4,8 +4,7 @@
 #include <fcntl.h>
 
 int
-main (int argc, char *argv[])
-{
+main (int argc, char *argv[]) {
   char buffer[] =
     " 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz\n";
 
@@ -18,20 +17,17 @@ main (int argc, char *argv[])
 
   int urandom = open ("/dev/urandom", O_RDONLY);
 
-  for (int n = 0; n < 1000000; n++)
-    {
-      read (urandom, rand, 800);
-      for (int i = 0; i < 200; i++)
-	{
-	  int r = rand[i];
-	  for (int j = 0; j < 5; j++)
-	    {
-	      strings[i][j] = buffer[r & 0x3f];
-	      r >>= 6;
-	    }
-	}
-      printf ("%s", string);
+  for (int n = 0; n < 1000000; n++) {
+    read (urandom, rand, 800);
+    for (int i = 0; i < 200; i++) {
+      int r = rand[i];
+      for (int j = 0; j < 5; j++) {
+        strings[i][j] = buffer[r & 0x3f];
+        r >>= 6;
+      }
     }
+    printf ("%s", string);
+  }
 
   close (urandom);
 }

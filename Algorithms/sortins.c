@@ -3,14 +3,13 @@
 #define MAXLINE 128
 #define MAXSIZE 1200
 
-main(int argc, char *argv[])
-{
-  int     i, r, min, size;
-  char    line[MAXLINE], *remove, *page[MAXSIZE];
+main (int argc, char *argv[]) {
+  int i, r, min, size;
+  char line[MAXLINE], *remove, *page[MAXSIZE];
 
-  for (size = 0; fgets(line, MAXLINE, stdin); size++) {
-    page[size] = (char *) malloc(strlen(line));
-    strcpy(page[size], line);
+  for (size = 0; fgets (line, MAXLINE, stdin); size++) {
+    page[size] = (char *) malloc (strlen (line));
+    strcpy (page[size], line);
   }
 
   // insertion sort 
@@ -19,7 +18,7 @@ main(int argc, char *argv[])
     remove = page[r];
     i = r;
 
-    while (i && (strcmp(page[i - 1], remove) > 0)) {
+    while (i && (strcmp (page[i - 1], remove) > 0)) {
       page[i] = page[i - 1];
       i--;
     }
@@ -28,5 +27,5 @@ main(int argc, char *argv[])
   }
 
   for (i = 0; i < size; i++)
-    fputs(page[i], stdout);
+    fputs (page[i], stdout);
 }

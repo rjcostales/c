@@ -6,15 +6,15 @@
 
 #include <stdio.h>
 
-int main()
-{
-    char chr;
+int
+main () {
+  char chr;
 
-    while ((chr = getchar()) != EOF)
-	if (((chr != 95) && (chr >= 32) && (chr < 127)) || (chr == '\n')) {
-	    if (chr == 96)
-		chr = 39;
-	    putchar(chr);
-	}
-    return 0;
+  while ((chr = getchar ()) != EOF)
+    if (((chr != 95) && (chr >= 32) && (chr < 127)) || (chr == '\n')) {
+      if (chr == 96)
+        chr = 39;
+      putchar (chr);
+    }
+  return 0;
 }
