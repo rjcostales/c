@@ -1,42 +1,37 @@
 /* binary search example  */
-void
-main () {
-  int high, lo, mid, found = false;
-  int target = 367;
-  int a[10];
+#include <stdio.h>
+#include <stdbool.h>
 
-  /* seed the array */
-  a[0] = 3;
-  a[1] = 6;
-  a[2] = 19;
-  a[3] = 43;
-  a[4] = 58;
-  a[5] = 112;
-  a[6] = 367;
-  a[7] = 390;
-  a[8] = 427;
-  a[9] = 471;
+void main()
+{
+    int high, lo, mid, found = false;
+    int target = 367;
+    int a[1000];
 
-  lo = 0;
-  high = 9;
-  mid = (high + lo) / 2;
+    /* seed the array */
+    for(int i =0; i<1000; i++)
+        a[i]=i;
 
-  while (lo < high) {
-
-    if (target <= a[mid])
-      high = mid;
-    else
-      lo = mid + 1;
-
+    lo = 0;
+    high = 1000;
     mid = (high + lo) / 2;
-  }
 
-  if (a[mid] == target)
-    found = true;
+    while (lo < high) {
+        printf("%d\n", mid);
+        if (target <= a[mid])
+            high = mid;
+        else
+            lo = mid + 1;
 
-  if (found)
-    printf ("found target: %d\n", target);
-  else
-    printf ("target %d not found\n", target);
+        mid = (high + lo) / 2;
+    }
+
+    if (a[mid] == target)
+        found = true;
+
+    if (found)
+        printf("found target: %d\n", target);
+    else
+        printf("target %d not found\n", target);
 
 }

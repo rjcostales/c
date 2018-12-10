@@ -9,12 +9,12 @@
 #include <stdio.h>
 #include "prog9.h"
 
-int
-rand (int lower, int upper) {
-  const int a = 477;
-  const int c = 3461;
-  const int m = 32768;
-  static int r = INITIAL_SEED;
-  r = (a * r + c) % m;
-  return ((r / (float) m) * (upper - lower + 1) + lower);
+int rand(int lower, int upper)
+{
+    const int  a = 477;
+    const int  c = 3461;
+    const int  m = 32768;
+    static int r = INITIAL_SEED;
+    r = (a * r + c) % m;
+    return((r / (float) m) * (upper - lower + 1) + lower);
 }

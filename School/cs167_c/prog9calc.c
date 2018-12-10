@@ -10,12 +10,12 @@
 #include <stdio.h>
 #include "prog9.h"
 
-int *
-freq (int array[], int size) {
-  int i;
-  static int list[RANGE];       /* keep it from disappearing */
+int *freq(int array[], int size)
+{
+    int        i;
+    static int list[RANGE];     /* keep it from disappearing */
 
-  for (i = 0; i < size; i++)
-    list[array[i] - LOWER] += 1;
-  return list;
+    for (i = 0; i < size; i++)
+        list[array[i] - LOWER] += 1;
+    return list;
 }

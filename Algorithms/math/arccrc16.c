@@ -4,10 +4,10 @@
 
 static WORD crc_table[256];
 
-void
-init_crc_table (void) {
-  int i, j;
-  WORD k;
+void init_crc_table(void)
+{
+  int     i, j;
+  WORD    k;
 
   for (i = 0; i < 256; i++) {
     k = 0xC0C1;
@@ -21,8 +21,8 @@ init_crc_table (void) {
 
 /* crc_calc() -- calculate cumulative crc-16 for buffer */
 
-WORD
-crc_calc (WORD crc, char *buf, unsigned nbytes) {
+WORD crc_calc(WORD crc, char *buf, unsigned nbytes)
+{
   unsigned char *p, *lim;
 
   p = (unsigned char *) buf;
@@ -33,38 +33,38 @@ crc_calc (WORD crc, char *buf, unsigned nbytes) {
   return crc;
 }
 
-void
-do_file (char *fn) {
+void do_file(char *fn)
+{
   static char buf[bufsiz];
-  FILE *f;
-  int k;
-  WORD crc;
+  FILE   *f;
+  int     k;
+  WORD    crc;
 
-  f = fopen (fn, "rb");
+  f = fopen(fn, "rb");
   if (f == NULL) {
-    printf ("%s: can't open file\n", fn);
+    printf("%s: can't open file\n", fn);
     return;
   }
   crc = 0;
-  while ((k = fread (buf, 1, bufsiz, f)) != 0)
-    crc = crc_calc (crc, buf, k);
-  fclose (f);
-  printf ("%-14s %04X\n", fn, crc);
+  while ((k = fread(buf, 1, bufsiz, f)) != 0)
+    crc = crc_calc(crc, buf, k);
+  fclose(f);
+  printf("%-14s %04X\n", fn, crc);
 }
 
 #ifdef TEST
 
-int
-main (int argc, char **argv) {
-  int i;
+int main(int argc, char **argv)
+{
+  int     i;
 
   if (argc < 2) {
-    fprintf (stderr, "Usage: crc filename [filename...]\n");
+    fprintf(stderr, "Usage: crc filename [filename...]\n");
     return EXIT_FAILURE;
   }
-  init_crc_table ();
+  init_crc_table();
   for (i = 1; i < argc; i++)
-    do_file (argv[i]);
+    do_file(argv[i]);
   return EXIT_SUCCESS;
 }
 
