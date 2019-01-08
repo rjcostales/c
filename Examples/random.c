@@ -1,14 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
 
 int main(int argc, char *argv[])
 {
-    int i, j;
+    int random = open("/dev/random", O_RDONLY);
 
-    srand(time(0));
+    int randint[25];
+    for (int i = 0; i < 25; i++)
+        randint[i] = -1;
 
-    for (i = 0; i < 32; i++) {
-        printf("%i\n", rand());
-    }
+    read(random, randint, 99);
+
+    for (int i = 0; i < 25; i++)
+        printf("%2d %08X\n", i + 1, randint[i]);
+
+
+    close(random);
 }

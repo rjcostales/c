@@ -5,7 +5,7 @@
 #include <unistd.h>
 #include "io.h"
 
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
     char characters[] =
         "0123456789 ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz";
@@ -29,6 +29,5 @@ int main(int argc, char **argv)
         strings[199][4] = '\n';
         fputs(ptr, stdout);
     }
-
     close(urandom);
 }
