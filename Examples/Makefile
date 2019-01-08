@@ -1,13 +1,9 @@
-obj = fibonacci fibonacciT math pi primes sizes random
+obj = a.out array math pi primes randgen random sizes
 src = *.c
 
-all: fibonacci fibonacciT math pi primes sizes random
+all: array math pi primes randgen random sizes
 
-fibonacci: fibonacci.c
-	gcc fibonacci.c -o fibonacci
-
-fibonacciT: fibonacciT.c
-	gcc fibonacciT.c -o fibonacciT
+array: array.c
 
 math: math.c
 	gcc math.c -o math
@@ -20,6 +16,9 @@ primes: primes.c
 
 sizes: sizes.c
 	gcc sizes.c -o sizes
+
+randgen: randgen.c
+	gcc randgen.c -o randgen
 
 random: random.c
 	gcc random.c -o random

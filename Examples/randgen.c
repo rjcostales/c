@@ -6,13 +6,17 @@
 
 int main(int argc, char *argv[])
 {
-    unsigned int rand[20];
-    int urandom = open("/dev/urandom", O_RDONLY);
+    int random = open("/dev/random", O_RDONLY);
 
-    read(urandom, rand, 50);
+    int randint[25];
+    for (int i = 0; i < 25; i++)
+        randint[i] = -1;
 
-    for (int i = 0; i < 20; i++)
-        printf("%u\n", rand[i]);
+    read(random, randint, 99);
 
-    close(urandom);
+    for (int i = 0; i < 25; i++)
+        printf("%2d %08X\n", i + 1, randint[i]);
+
+
+    close(random);
 }

@@ -16,7 +16,7 @@ void permute(int i) {
 
   int     j, k;
 
-  if (j = i) {
+  if (j == i) {
     while (j--) {
       swap(i - 1, j);
       permute(i - 1);
