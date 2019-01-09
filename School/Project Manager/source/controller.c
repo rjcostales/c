@@ -10,63 +10,63 @@
  *
  */
 
-#include"project_manager.h"
+#include "project_manager.h"
 
 /*	GLOBALS */
 
-list			attribute_names = NULL;
-list			relation_names = NULL;
-list			undeclared = NULL;
-list			unused_globals = NULL;
-list			unused_subroutines = NULL;
+list attribute_names = NULL;
+list relation_names = NULL;
+list undeclared = NULL;
+list unused_globals = NULL;
+list unused_subroutines = NULL;
 
-ot_tree			object_types = NULL;
-rd_tree			relation_defs = NULL;
+ot_tree object_types = NULL;
+rd_tree relation_defs = NULL;
 
-object			Object_Table[MAX_OBJECTS] = {NULL};
-relationship	Relation_Table[MAX_RELATIONS] = {NULL};
+object Object_Table[MAX_OBJECTS] = {NULL};
+relationship Relation_Table[MAX_RELATIONS] = {NULL};
 
 main()
 {
-	dispose_vocab();
-	dispose_desc();
-	MenuTitle();
-	MenuMain();
-	return 0;
+    dispose_vocab();
+    dispose_desc();
+    MenuTitle();
+    MenuMain();
+    return 0;
 }
 
 /*	Private Functions of the Controller */
 
 void wait(void)
 {
-	char			response[10];
+    char response[10];
 
-	printf("\n Press enter to continue ");
-	gets(response);
+    printf("\n Press enter to continue ");
+    gets(response);
 }
 
 void InputDesc(void)
 {
-	char			filename[32];
+    char filename[32];
 
-	printf("\n Read in Description File.");
-	printf("\n Enter a valid File Name: ");
+    printf("\n Read in Description File.");
+    printf("\n Enter a valid File Name: ");
 
-	gets(filename);
+    gets(filename);
 
-	if (is_empty_vocab())
-	{
-		printf(" No vocabulary definition!\n");
-		return;
-	}
+    if (is_empty_vocab())
+    {
+        printf(" No vocabulary definition!\n");
+        return;
+    }
 
-	if (!parse_desc(filename))
-	{
-		printf("\n ERRORS DETECTED IN %s\n", filename);
-		dispose_desc();
-		wait();
-		return;
-	}
+    if (!parse_desc(filename))
+    {
+        printf("\n ERRORS DETECTED IN %s\n", filename);
+        dispose_desc();
+        wait();
+        return;
+    }
 }
 
 void InputVocab(void)
@@ -80,246 +80,246 @@ void InputVocab(void)
 //	  if (!strlen(filename))
 //		 strcpy(filename,"vocabulary");
 
-	dispose_vocab();
-	dispose_desc();
+    dispose_vocab();
+    dispose_desc();
 
-	if (!parse_vocab("vocabulary"))
-	{
-		printf("\n ERRORS DETECTED IN %s\n", "vocabulary");
-		dispose_vocab();
-		wait();
-		return;
-	}
+    if (!parse_vocab("vocabulary"))
+    {
+        printf("\n ERRORS DETECTED IN %s\n", "vocabulary");
+        dispose_vocab();
+        wait();
+        return;
+    }
 }
 
 void MenuTitle(void)
 {
-	printf("%s\n%s\n%s\n%s\n%s\n%s\n%s\n",
-		"**************************************************",
-		"**                                              **",
-		"**                PROJECT MANAGER               **",
-		"**                                              **",
-		"**                  Version 1.5                 **",
-		"**                                              **",
-		"**************************************************");
+    printf("%s\n%s\n%s\n%s\n%s\n%s\n%s\n",
+           "**************************************************",
+           "**                                              **",
+           "**                PROJECT MANAGER               **",
+           "**                                              **",
+           "**                  Version 1.5                 **",
+           "**                                              **",
+           "**************************************************");
 
-	while (is_empty_vocab())
-		InputVocab();
+    while (is_empty_vocab())
+        InputVocab();
 
 //	  wait();
 
-	while (is_empty_desc())
-		InputDesc();
+    while (is_empty_desc())
+        InputDesc();
 
-	update_relations();
-	wait();
+    update_relations();
+    wait();
 }
 
 void MenuMain(void)
 {
-	char			choice[2];
+    char choice[2];
 
-	system("clear");
-	printf("\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n",
-		"   MAIN MENU",
-		"===================================================",
-		"   (1). Read in a New Vocabulary File              ",
-		"   (2). Read in a New Description File             ",
-		"   (3). Metrics Menu                               ",
-		"   (4). Print Menu                                 ",
-		"   (5). EXIT                                       ",
-		"===================================================");
-	printf("\n Make a selection: ");
-	gets(choice);
+    system("clear");
+    printf("\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n",
+           "   MAIN MENU",
+           "===================================================",
+           "   (1). Read in a New Vocabulary File              ",
+           "   (2). Read in a New Description File             ",
+           "   (3). Metrics Menu                               ",
+           "   (4). Print Menu                                 ",
+           "   (5). EXIT                                       ",
+           "===================================================");
+    printf("\n Make a selection: ");
+    gets(choice);
 
-	switch (atoi(choice))
-	{
-	case 1:
-		/*	Read in a new vocabulary file */
-		dispose_vocab();
-		while (is_empty_vocab())
-			InputVocab();
-		wait();
+    switch (atoi(choice))
+    {
+    case 1:
+        /*	Read in a new vocabulary file */
+        dispose_vocab();
+        while (is_empty_vocab())
+            InputVocab();
+        wait();
 
-	case 2:							/*	Read in a new description file */
-		dispose_desc();
-		while (is_empty_desc())
-			InputDesc();
-		update_relations();
-		wait();
-		break;
+    case 2:                         /*	Read in a new description file */
+        dispose_desc();
+        while (is_empty_desc())
+            InputDesc();
+        update_relations();
+        wait();
+        break;
 
-	case 3:							/*	Display Metrics Menu */
-		MenuMetrics();
-		break;
+    case 3:                         /*	Display Metrics Menu */
+        MenuMetrics();
+        break;
 
-	case 4:							/*	Display Print Menu */
-		MenuPrint();
-		break;
+    case 4:                         /*	Display Print Menu */
+        MenuPrint();
+        break;
 
-	case 5:							/*	To exit out of the program manager */
-		printf(" Type y to exit ");
-		if (tolower(getchar()) == 'y')
-			exit(1);
-		break;
+    case 5:                         /*	To exit out of the program manager */
+        printf(" Type y to exit ");
+        if (tolower(getchar()) == 'y')
+            exit(1);
+        break;
 
-	default:						/*	Any other selection will display main menu */
-		MenuMain();
-	}
+    default:                        /*	Any other selection will display main menu */
+        MenuMain();
+    }
 
-	MenuMain();
+    MenuMain();
 }
 
 void MenuMetrics(void)
 {
-	char			choice[2];
-	char			type[32];
-	char			relation[32];
-	char			path[32];
+    char choice[2];
+    char type[32];
+    char relation[32];
+    char path[32];
 
-	system("clear");
-	printf("\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n",
-		"   METRICS MENU",
-		"===================================================",
-		"   (1). Print McCabe Complexity                    ",
-		"   (2). Print Henry Kafura Number                  ",
-		"   (3). Current State of the Project               ",
-		"   (4). Return to MAIN MENU                        ",
-		"===================================================");
+    system("clear");
+    printf("\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n",
+           "   METRICS MENU",
+           "===================================================",
+           "   (1). Print McCabe Complexity                    ",
+           "   (2). Print Henry Kafura Number                  ",
+           "   (3). Current State of the Project               ",
+           "   (4). Return to MAIN MENU                        ",
+           "===================================================");
 
-	printf("\n Make a selection: ");
-	gets(choice);
+    printf("\n Make a selection: ");
+    gets(choice);
 
-	switch (atoi(choice))
-	{
-	case 1:							/*	Displays the McCabe Complexity */
-		printf(" What object type do you want, default is function? ");
-		gets(type);
+    switch (atoi(choice))
+    {
+    case 1:                         /*	Displays the McCabe Complexity */
+        printf(" What object type do you want, default is function? ");
+        gets(type);
 
-		printf(" What attribute do you want, default is path? ");
-		gets(path);
+        printf(" What attribute do you want, default is path? ");
+        gets(path);
 
-		if (!strlen(type))
-			strcpy(type,"function");
+        if (!strlen(type))
+            strcpy(type,"function");
 
-		if (!strlen(path))
-			strcpy(path,"path");
+        if (!strlen(path))
+            strcpy(path,"path");
 
-		compute_complexity(type, path);
-		wait();
-		break;
+        compute_complexity(type, path);
+        wait();
+        break;
 
-	case 2:							/*	Displays Henry Kafura Number */
-		printf(" What object type do you want, default is function? ");
-		gets(type);
+    case 2:                         /*	Displays Henry Kafura Number */
+        printf(" What object type do you want, default is function? ");
+        gets(type);
 
-		printf(" What relation do you want, default is calls? ");
-		gets(relation);
+        printf(" What relation do you want, default is calls? ");
+        gets(relation);
 
-		if (!strlen(type))
-			strcpy(type,"function");
+        if (!strlen(type))
+            strcpy(type,"function");
 
-		if (!strlen(relation))
-			strcpy(relation,"calls");
+        if (!strlen(relation))
+            strcpy(relation,"calls");
 
-		compute_calls(type, relation);
-		wait();
-		break;
+        compute_calls(type, relation);
+        wait();
+        break;
 
-	case 3:							/*	Displays information about current state of the project */
-		printf(" What object type do you want, default is function? ");
-		gets(type);
+    case 3:                         /*	Displays information about current state of the project */
+        printf(" What object type do you want, default is function? ");
+        gets(type);
 
-		printf(" What relation do you want, default is calls? ");
-		gets(relation);
+        printf(" What relation do you want, default is calls? ");
+        gets(relation);
 
-		if (!strlen(type))
-			strcpy(type,"function");
+        if (!strlen(type))
+            strcpy(type,"function");
 
-		if (!strlen(relation))
-			strcpy(relation,"calls");
+        if (!strlen(relation))
+            strcpy(relation,"calls");
 
-		compute_levels(type, relation);
-		wait();
-		break;
+        compute_levels(type, relation);
+        wait();
+        break;
 
-	case 4:							/*	Displays Main Menu */
-		MenuMain();
-		break;
+    case 4:                         /*	Displays Main Menu */
+        MenuMain();
+        break;
 
-	default:						/*	Any other selection will display metrics menu */
-		MenuMetrics();
-	}
+    default:                        /*	Any other selection will display metrics menu */
+        MenuMetrics();
+    }
 
-	MenuMetrics();
+    MenuMetrics();
 }
 
 void MenuPrint(void)
 {
-	char			choice[2];
-	char			filename[32];
+    char choice[2];
+    char filename[32];
 
-	system("clear");
-	printf("\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n",
-		"   PRINT MENU",
-		"===================================================",
-		"   (1). Print Objects Alphabetically               ",
-		"   (2). Print Objects by Type                      ",
-		"   (3). Print Objects by Relation                  ",
-		"   (4). Print Vocabulary                           ",
-		"   (5). Print Description File                     ",
-		"   (6). Print Levels                               ",
-		"   (7). Return to MAIN MENU                        ",
-		"===================================================");
+    system("clear");
+    printf("\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n",
+           "   PRINT MENU",
+           "===================================================",
+           "   (1). Print Objects Alphabetically               ",
+           "   (2). Print Objects by Type                      ",
+           "   (3). Print Objects by Relation                  ",
+           "   (4). Print Vocabulary                           ",
+           "   (5). Print Description File                     ",
+           "   (6). Print Levels                               ",
+           "   (7). Return to MAIN MENU                        ",
+           "===================================================");
 
-	printf("\n Make a selection: ");
-	gets(choice);
+    printf("\n Make a selection: ");
+    gets(choice);
 
-	if ((atoi(choice) < 7) && (atoi(choice) > 0))
-	/*	Provides user to save print output in a file */
-	{
-		printf(" Enter filename or enter to print to screen: ");
-		gets(filename);
-	}
+    if ((atoi(choice) < 7) && (atoi(choice) > 0))
+    /*	Provides user to save print output in a file */
+    {
+        printf(" Enter filename or enter to print to screen: ");
+        gets(filename);
+    }
 
-	switch (atoi(choice))
-	{
-	case 1:							/*	Displays Objects Alphabetically */
-		report_obj_by_name(filename);
-		wait();
-		break;
+    switch (atoi(choice))
+    {
+    case 1:                         /*	Displays Objects Alphabetically */
+        report_obj_by_name(filename);
+        wait();
+        break;
 
-	case 2:							/*	Displays Objects by Type */
-		report_obj_by_type(filename);
-		wait();
-		break;
+    case 2:                         /*	Displays Objects by Type */
+        report_obj_by_type(filename);
+        wait();
+        break;
 
-	case 3:							/*	Displays Objects by Relation */
-		report_relations(filename);
-		wait();
-		break;
+    case 3:                         /*	Displays Objects by Relation */
+        report_relations(filename);
+        wait();
+        break;
 
-	case 4:							/*	Displays Description file */
-		report_vocab(filename);
-		wait();
-		break;
+    case 4:                         /*	Displays Description file */
+        report_vocab(filename);
+        wait();
+        break;
 
-	case 5:							/*	Displays Description file */
-		report_desc(filename);
-		wait();
-		break;
+    case 5:                         /*	Displays Description file */
+        report_desc(filename);
+        wait();
+        break;
 
-	case 6:							/*	Displays level file */
-		report_levels(filename);
-		wait();
-		break;
+    case 6:                         /*	Displays level file */
+        report_levels(filename);
+        wait();
+        break;
 
-	case 7:
-		MenuMain();
+    case 7:
+        MenuMain();
 
-	default:						/*	Any other selection will display print menu */
-		MenuPrint();
-	}
+    default:                        /*	Any other selection will display print menu */
+        MenuPrint();
+    }
 
-	MenuPrint();
+    MenuPrint();
 }
