@@ -7,7 +7,7 @@ void primeFactors(unsigned int n)
 {
     // Print the number of 2s that divide n
     while (n % 2 == 0) {
-        printf("%u ", 2);
+        printf("2 ");
         n = n / 2;
     }
 

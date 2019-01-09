@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
 {
     FILE *input;
     char *mode, *filename;
-    int  i = 0, j;
+    int i = 0, j;
     char *list[MAX];
     char word[SIZE];
     if (argc != 3)                  /* check for correct number of parameters */
@@ -76,7 +76,7 @@ int main(int argc, char* argv[])
 
 void sort(char **list, int size)        /* list is ragged array of strings of size */
 {
-    int  i, j;
+    int i, j;
     char *temp;
     for (i = 0; i < size; ++i)
         for (j = i + 1; j < size; ++j)

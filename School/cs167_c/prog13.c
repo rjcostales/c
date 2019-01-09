@@ -10,7 +10,7 @@
 
 typedef struct node
 {
-    int          value;
+    int value;
     struct  node *next;
 }   node;
 
@@ -25,9 +25,9 @@ FILE *input, *output;
 
 int main(int argc, char* argv[])
 {
-    int  i;
-    int  num_values;
-    int  value;
+    int i;
+    int num_values;
+    int value;
     node *head = NULL;
     input  = stdin;
     output = stdout;

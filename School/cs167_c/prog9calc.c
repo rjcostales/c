@@ -12,7 +12,7 @@
 
 int *freq(int array[], int size)
 {
-    int        i;
+    int i;
     static int list[RANGE];     /* keep it from disappearing */
 
     for (i = 0; i < size; i++)
