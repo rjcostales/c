@@ -9,7 +9,7 @@
 void    bit_print(int);
 int majority(int, int, int);
 
-int main()
+int main(int argc, char* argv[])
 {
     int a, b, c;
     printf("Enter a integers, representing Alice's votes\n");
@@ -28,10 +28,12 @@ int main()
     printf("Majority >");
     bit_print(majority(a, b, c));
 }
+
 int majority(int a, int b, int c)
 {
     return((a & b) | (b & c) | (a & c));
 }
+
 void bit_print(int b)
 {
     int i, mask = 1 << 15;

@@ -6,6 +6,7 @@
 #define GENIUS_H
 #include <ostream.h>
 #include"Wit.h"
+
 class Genius : public Wit
 {
 public:

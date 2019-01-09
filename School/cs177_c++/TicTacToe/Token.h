@@ -5,6 +5,7 @@
  * Also determines loses, draw
  */
 #include <iostream>
+
 class Token
 {
 public:

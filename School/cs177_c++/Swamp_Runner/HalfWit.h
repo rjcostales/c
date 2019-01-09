@@ -6,19 +6,20 @@
 #define HALFWIT_H
 #include <ostream.h>
 #include"DimWit.h"
+
 class HalfWit : public DimWit
 {
 public:
 // constructor
 	HalfWit(Swamp&);
-	
+
 // member functions
 	void draw(int);
 	void setPos(Coord);
-	
+
 protected:
 	Coord step();  // value returned by virtual function move
-	
+
 	List mCurrPath;
 	List mQSandCells;
 };

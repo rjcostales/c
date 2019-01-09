@@ -3,7 +3,7 @@
  * Asst 4 - Prog 9
  *
  */
- 
+
 #define INITIAL_SEED  58102
 #define LOWER	1
 #define UPPER	12

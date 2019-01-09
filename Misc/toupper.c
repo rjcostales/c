@@ -6,19 +6,19 @@
 char   *strtoupper(char *str);
 char   *strtoupper(char *str)
 {
-  register char *s = str;
+    register char *s = str;
 
-  while (*s) {
-    *s = toupper(*s);
-    *s++;
-  }
-  return str;
+    while (*s) {
+        *s = toupper(*s);
+        *s++;
+    }
+    return str;
 }
 
-main()
+int main(int argc, char *argv[])
 {
-  char    str[] = "This is a test\n";
+    char str[] = "This is a test\n";
 
-  printf(strtoupper(str));
-  printf(str);
+    printf(strtoupper(str));
+    printf(str);
 }

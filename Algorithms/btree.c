@@ -21,7 +21,7 @@ int insert(tree * root, char *name)
     }
 }
 
-node   *locate(tree root, char name[])
+node *locate(tree root, char name[])
 {
     if (!root)
         return NULL;
@@ -67,7 +67,7 @@ void print(tree root)
 
 tree test = NULL;
 
-main()
+int main(int argc, char *argv[])
 {
     node   *temp;
     int i;

@@ -1,5 +1,5 @@
 CC = clang
-CFLAGS = -O3 -Wall
+CFLAGS = -Ofast
 LFLAGS = -Lm
 TARGETS = backtrack bruteforce permutation random
 SOURCES = *.c

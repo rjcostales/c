@@ -14,7 +14,7 @@
 void    fill(int *, int);
 void    show(int *, int, char *);
 
-int main()
+int main(int argc, char* argv[])
 {
     int array[SIZE];
     fill(array, SIZE);

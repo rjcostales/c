@@ -6,12 +6,13 @@
 #define GROUND_H
 #include <ostream.h>
 #include"SCell.h"
+
 class Ground : public SCell
 {
 public:
 // constructor
 	Ground(char image);
-	
+
 // member funtions
 	int safe();
 };

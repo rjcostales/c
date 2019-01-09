@@ -34,6 +34,6 @@ void permute(int i) {
     }
 }
 
-main() {
+int main(int argc, char *argv[]) {
     permute(4);
 }

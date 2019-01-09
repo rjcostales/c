@@ -3,7 +3,7 @@
 #define MAXLINE 128
 #define MAXSIZE 1200
 
-main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
     int i, r, min, size;
     char line[MAXLINE], *remove, *page[MAXSIZE];

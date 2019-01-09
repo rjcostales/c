@@ -6,9 +6,9 @@
 
 #include <stdio.h>
 
-int main()
+int main(int argc, char *argv[])
 {
-    char    chr;
+    char chr;
 
     while ((chr = getchar()) != EOF)
         if (((chr != 95) && (chr >= 32) && (chr < 127)) || (chr == '\n')) {

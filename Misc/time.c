@@ -4,14 +4,14 @@
 #include <ctype.h>
 #include <timer.h>
 
-int main(void)
+int main(int argc, char *argv[])
 {
 
     UnsignedWide a, b, c;
-    int   pdw[1024];
-    int   tom[1024];
-    int   buffer[2024];
-    int   i, j, p = 0, t = 0;
+    int pdw[1024];
+    int tom[1024];
+    int buffer[2024];
+    int i, j, p = 0, t = 0;
 
     FILE *in;
 

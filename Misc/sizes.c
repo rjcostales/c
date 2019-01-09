@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
     printf("short decimal\t:%d\n", USHRT_MAX);
     printf("short hexadecimal:0x%x\n", USHRT_MAX);
     printf("short octal\t:o%o\n", USHRT_MAX);
-    
+
     printf("long\n");
     printf("long max\t:%li\n", LONG_MAX);
     printf("long min\t:%li\n", LONG_MIN);
@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
     printf("long decimal\t:%ld\n", ULONG_MAX);
     printf("long hexadecimal:0x%lx\n", ULONG_MAX);
     printf("long octal\t:o%lo\n", ULONG_MAX);
-    
+
     printf("int\n");
     printf("int max\t:%i\n", INT_MAX);
     printf("int min\t:%i\n", INT_MIN);

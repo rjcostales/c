@@ -18,47 +18,47 @@
 #define LOOP_NEST       31
 
 enum tok_types {
-   DELIMITER, IDENTIFIER, NUMBER, KEYWORD, TEMP, BLOCK, QUOTE
+    DELIMITER, IDENTIFIER, NUMBER, KEYWORD, TEMP, BLOCK, QUOTE
 };
 
 /* add additional C keyword tokens here */
 enum tokens {
-   ARG, CHAR, INT, IF, ELSE, FOR, DO, WHILE, SWITCH, RETURN, EOL,
-   FINISHED, END
+    ARG, CHAR, INT, IF, ELSE, FOR, DO, WHILE, SWITCH, RETURN, EOL,
+    FINISHED, END
 };
 
 /* add additional double operators here (such as ->) */
 enum double_ops {
-   LT = 1, LE, GT, GE, EQ, NE
+    LT = 1, LE, GT, GE, EQ, NE
 };
 
 /* These are the constants used to call sntx_err() when a syntax error occurs.
  * Add more if you like.
- * NOTE: SYNTAX is a generic error message used when nothing else seems 
+ * NOTE: SYNTAX is a generic error message used when nothing else seems
  * appropriate.
  */
 enum error_msg {
-   SYNTAX, UNBAL_PARENS, NO_EXP, EQUALS_EXPECTED, NOT_VAR, PARAM_ERR,
-   SEMI_EXPECTED, UNBAL_BRACES, FUNC_UNDEF, TYPE_EXPECTED, NEST_FUNC,
-   RET_NOCALL, PAREN_EXPECTED, WHILE_EXPECTED, QUOTE_EXPECTED, NOT_TEMP,
-   TOO_MANY_LVARS
+    SYNTAX, UNBAL_PARENS, NO_EXP, EQUALS_EXPECTED, NOT_VAR, PARAM_ERR,
+    SEMI_EXPECTED, UNBAL_BRACES, FUNC_UNDEF, TYPE_EXPECTED, NEST_FUNC,
+    RET_NOCALL, PAREN_EXPECTED, WHILE_EXPECTED, QUOTE_EXPECTED, NOT_TEMP,
+    TOO_MANY_LVARS
 };
 
 /* An array of these structures holds the info for global variables. */
 typedef struct variable_type {
-   char        var_name[ID_LEN];
-   int         var_type;
-   int         value;
+    char var_name[ID_LEN];
+    int var_type;
+    int value;
 } variable_type;
 
 typedef struct func_type {
-   char        func_name[ID_LEN];
-   char       *loc;             /* location of entry point in file */
+    char func_name[ID_LEN];
+    char       *loc;            /* location of entry point in file */
 } func_type;
 
 typedef struct commands {       /* keyword lookup table */
-   char        command[20];
-   char        tok;
+    char command[20];
+    char tok;
 } commands;
 
 /* LittleC.c */

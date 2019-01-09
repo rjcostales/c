@@ -94,7 +94,7 @@ void print(list head)
     }
 }
 
-main()
+int main(int argc, char *argv[])
 {
     list test = NULL;
     node   *temp;
@@ -118,5 +118,4 @@ main()
     print(test);
 
     dispose(&test);
-
 }

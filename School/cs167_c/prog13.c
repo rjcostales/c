@@ -7,11 +7,13 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+
 typedef struct node
 {
     int          value;
     struct  node *next;
 }   node;
+
 void    insert_node(node **, int);
 int     list_length(node *);
 int     access_node(node *, int);
@@ -21,7 +23,7 @@ void    reverse_print(node *);
 void    delete_node(node **, int);
 FILE *input, *output;
 
-int main(int argc, char **argv)
+int main(int argc, char* argv[])
 {
     int  i;
     int  num_values;
@@ -88,6 +90,7 @@ int main(int argc, char **argv)
     fprintf(output, "\n");
     print_reverse(head, "reverse");
 }
+
 void insert_node(node ** head, int val)
 {
     node *p, *lag = NULL, *q;
@@ -121,6 +124,7 @@ void insert_node(node ** head, int val)
         lag->next = q;
     }
 }
+
 int list_length(node * list)
 {
     int i;
@@ -128,6 +132,7 @@ int list_length(node * list)
         list = list->next;
     return i;
 }
+
 void print_list(node * list, char *title)
 {
     fprintf(output, "%s\n", title);
@@ -137,6 +142,7 @@ void print_list(node * list, char *title)
         list = list->next;
     }
 }
+
 int access_node(node * list, int n)
 {
     if (n > list_length(list)) /* check if in range */
@@ -145,17 +151,20 @@ int access_node(node * list, int n)
         list = list->next;
     return list->value;
 }
+
 void print_reverse(node * list, char *title)
 {                                   /* intermediate call to print title */
     fprintf(output, "%s\n", title); /* call recursive function */
     reverse_print(list);
 }
+
 void reverse_print(node * list)
 {
     if (list->next != NULL)
         reverse_print(list->next);
     fprintf(output, "%d\n", list->value);
 }
+
 void delete_node(node ** head, int num)
 {
     node *p, *lag = NULL;

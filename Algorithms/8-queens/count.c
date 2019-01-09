@@ -6,7 +6,7 @@
 #define N   8
 #define LEN 80
 
-int main(int argc, char *argv[])
+int main(int argc, char* argv[])
 {
     char string[10] = { 0 };
     int counts[8][8] = { 0 };

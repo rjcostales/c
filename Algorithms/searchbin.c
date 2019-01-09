@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-void main()
+int main(int argc, char *argv[])
 {
     int high, lo, mid, found = false;
     int target = 367;

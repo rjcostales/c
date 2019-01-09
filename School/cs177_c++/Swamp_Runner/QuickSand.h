@@ -5,12 +5,13 @@
 #ifndef QSAND_H
 #define QSAND_H
 #include"SCell.h"
+
 class QSand : public SCell
 {
 public:
 // constructor
 	QSand(char image);
-	
+
 // member funtions
 	int safe();
 };

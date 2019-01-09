@@ -5,6 +5,7 @@
 #ifndef RUNNER_H
 #define RUNNER_H
 #include <ostream.h>
+
 class Runner
 {
 public:
@@ -14,10 +15,10 @@ public:
 	Coord move();
 	Coord& pos() { return mPos; }
 	void statistics();
-	
+
 protected:
 	virtual Coord step();
-	
+
 	Coord mPos;		// current position
 	int mAttemps;	// current attempt
 	int mMoves;		// total moves

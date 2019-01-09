@@ -1,14 +1,14 @@
 #include "math.h"
-int
-factorial(int f)
+
+int factorial(int f)
 {
     if (f == 1)
         return 1;
     else
         return f * factorial(f - 1);
 }
-int
-fibonacci(int f)
+
+int fibonacci(int f)
 {
     if (f == 0)
         return 1;
@@ -17,6 +17,7 @@ fibonacci(int f)
     else
         return fibonacci(f - 1) + fibonacci(f - 2);
 }
+
 /*****
    int gcd(int a, int b)
    {
@@ -28,29 +29,29 @@ fibonacci(int f)
        return gcd(b, a);
    }
 *****/
-int
-lcm(int a, int b)
+
+int lcm(int a, int b)
 {
     (a / gcd(a, b)) * b;
 }
-int
-gcd(int a, int b)
+
+int gcd(int a, int b)
 {
     if (a % b)
         return gcd(b, a % b);
     else
         return b;
 }
-int
-mod(int a, int b)
+
+int mod(int a, int b)
 {
     if (a < b)
         return a;
     else
         return mod(a - b, b);
 }
-int
-power(int a, int b)
+
+int power(int a, int b)
 {
     if (b == 0)
         return 1;

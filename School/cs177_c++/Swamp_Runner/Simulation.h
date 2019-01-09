@@ -18,6 +18,7 @@
 #include"Swamp.h"
 #include"Ground.h"
 #include"QuickSand.h"
+
 class Simulation
 {
 public:
@@ -25,15 +26,15 @@ public:
 	Simulation();
 // member funtion
 	void run(int = 50);			// max number of attemps before stopping
-	
+
 private:
 	void draw();
-	int validPath();	
-	
+	int validPath();
+
 	Swamp  *mSwamp;
 	Coord	mMax;
 	Runner *mRunner;
-	
+
 	List	mPath;
 	Coord	mBeg;
 	Coord	mEnd;
@@ -48,7 +49,7 @@ Simulation::Simulation()
 	cin >> type >> my >> mx;
 	while (cin >> y >> x)
 		mPath.append(Coord(x, y));
-		
+
 	mMax = Coord(mx - 1 , my - 1);
 	cout <<"Swamp is " << mx << 'x' << my << '\n';
 	mSwamp = new Swamp(mMax, mPath);			// create the swamp
@@ -89,14 +90,14 @@ void Simulation::run(int attemps)
 	{
 		draw();
 		mRunner->move();
-		
+
 		if (!mSwamp->isSafe(mRunner->pos()))	// the runner drowned
 		{
 			draw();
 			mRunner->setPos(mBeg);
 			attemps--;
 		}
-		
+
 		if (mRunner->pos() == mEnd)				// the runner finished
 		{
 			draw();
@@ -116,7 +117,7 @@ int Simulation::validPath()
 	int l = mPath.length();
 	if (l < min(mMax.x, mMax.y))
 		return 0;
-		
+
 	return ((mBeg.x == 0) || (mBeg.x == mMax.x) ||
 			(mBeg.y == 0) || (mBeg.y == mMax.y)) &&
 		   ((mEnd.x == 0) || (mEnd.x == mMax.x) ||

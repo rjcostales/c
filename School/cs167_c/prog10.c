@@ -8,14 +8,14 @@
  * modification are included in my function ispalindrome.  1) single letters
  * are not considered palindromes, 2) case is ignored when checking letter.
  */
- 
+
 #include <stdio.h>
 #include <string.h>
 #define MAX 64
 #define TRUE    1
 #define FLASE   0
 
-int main()
+int main(int argc, char* argv[])
 {
 	char    s[MAX];
 	while ((gets(s)) != NULL)

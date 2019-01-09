@@ -47,7 +47,7 @@ int randint(int bound)
     return rand() % bound;
 }
 
-main()
+int main(int argc, char *argv[])
 {
     int i, key[KEYSIZE];
 

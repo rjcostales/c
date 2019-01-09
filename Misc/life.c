@@ -27,11 +27,11 @@ void evolve(void *u, int w, int h)
         for (int y1 = y - 1; y1 <= y + 1; y1++)
             for (int x1 = x - 1; x1 <= x + 1; x1++)
                 if (univ[(y1 + h) % h][(x1 + w) % w])
-                     n++;
+                    n++;
 
         if (univ[y][x])
-             n--;
-         new[y][x] = (n == 3 || (n == 2 && univ[y][x]));
+            n--;
+        new[y][x] = (n == 3 || (n == 2 && univ[y][x]));
     }
     for_y for_x univ[y][x] = new[y][x];
 }
@@ -48,15 +48,15 @@ void game(int w, int h)
     }
 }
 
-int main(int c, char **v)
+int main(int argc, char *argv[])
 {
     srand(atoi(argv[3]));
 
     int w = 0, h = 0;
-    if (c > 1)
-        w = atoi(v[1]);
-    if (c > 2)
-        h = atoi(v[2]);
+    if (argc > 1)
+        w = atoi(argv[1]);
+    if (argc > 2)
+        h = atoi(argv[2]);
     if (w <= 0)
         w = 30;
     if (h <= 0)

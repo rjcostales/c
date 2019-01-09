@@ -15,7 +15,7 @@ char   *reverse(char *str)
     return str;
 }
 
-int main()
+int main(int argc, char *argv[])
 {
 
     char s1[] = "This is a test!";

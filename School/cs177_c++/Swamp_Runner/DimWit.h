@@ -7,6 +7,7 @@
 #include <ostream.h>
 #include"Runner.h"
 #include"Swamp.h"
+
 class DimWit : public Runner
 {
 public:
@@ -15,10 +16,10 @@ public:
 // member functions
 	void draw(int);
 	void setPos(Coord);
-	
+
 protected:
 	Coord step();  // value returned by virtual function move
-	
+
 	Swamp *mSwamp;
 };
 //	implementation

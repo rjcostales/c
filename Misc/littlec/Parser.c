@@ -10,11 +10,11 @@
 
 extern char          *prog;     /* current location in source code */
 extern char          *p_buf;    /* points to start of program buffer */
-extern jmp_buf       e_buf;     /* hold environment for longjmp() */
+extern jmp_buf e_buf;           /* hold environment for longjmp() */
 
 extern variable_type global_vars[NUM_GLOBAL_VARS];
-extern func_type     func_stack[NUM_FUNC]; /* Funtion call stack */
-extern commands      table[];
+extern func_type func_stack[NUM_FUNC];     /* Funtion call stack */
+extern commands table[];
 
 int         call_getche(void);
 int         call_putch(void);
@@ -26,7 +26,7 @@ int         print(void);
 struct intern_func_type
 {
     char *f_name;                                                                                          /* function name */
-    int  (*p)();                                                                                           /* pointer to the function */
+    int (*p)();                                                                                            /* pointer to the function */
 }           intern_func[] = {
     "getche", call_getche, "putch", call_putch, "puts", call_puts, "getnum", getnum, "print", print, "", 0 /* null terminate the list */
 };
@@ -34,11 +34,10 @@ struct intern_func_type
 extern char token[80];          /* string representation of token */
 extern char token_type;         /* contains type of token */
 extern char tok;                /* internal representation of token */
-extern int  ret_value;          /* function return value */
+extern int ret_value;           /* function return value */
 
 /* Entry point into parser. */
-void
-eval_exp(int *value)
+void eval_exp(int *value)
 {
     get_token();
     if (!*token)
@@ -56,10 +55,9 @@ eval_exp(int *value)
 }
 
 /* Process an assignment expression */
-void
-eval_exp0(int *value)
+void eval_exp0(int *value)
 {
-    char         temp[ID_LEN];  /* holds name of var receiving the
+    char temp[ID_LEN];          /* holds name of var receiving the
                                  * assignment */
     register int temp_tok;
 
@@ -95,10 +93,9 @@ char relops[] = {
 };
 
 /* Process relational operators. */
-void
-eval_exp1(int *value)
+void eval_exp1(int *value)
 {
-    int           partial_value;
+    int partial_value;
     register char op;
 
     eval_exp2(value);
@@ -132,11 +129,10 @@ eval_exp1(int *value)
 }
 
 /* Add or subtract two terms. */
-void
-eval_exp2(int *value)
+void eval_exp2(int *value)
 {
     register char op;
-    int           partial_value;
+    int partial_value;
 
     eval_exp3(value);
     while ((op = *token) == '+' || op == '-')
@@ -156,11 +152,10 @@ eval_exp2(int *value)
 }
 
 /* Multiply or divide two factors. */
-void
-eval_exp3(int *value)
+void eval_exp3(int *value)
 {
     register char op;
-    int           partial_value, t;
+    int partial_value, t;
 
     eval_exp4(value);
     while ((op = *token) == '*' || op == '/' || op == '%')
@@ -184,8 +179,7 @@ eval_exp3(int *value)
 }
 
 /* Is a unary + or -. */
-void
-eval_exp4(int *value)
+void eval_exp4(int *value)
 {
     register char op;
 
@@ -202,8 +196,7 @@ eval_exp4(int *value)
 }
 
 /* Process parenthesized expression. */
-void
-eval_exp5(int *value)
+void eval_exp5(int *value)
 {
     if ((*token == '('))
     {
@@ -218,8 +211,7 @@ eval_exp5(int *value)
 }
 
 /* Find value of number, variable or function. */
-void
-atom(int *value)
+void atom(int *value)
 {
     int i;
 
@@ -262,11 +254,10 @@ atom(int *value)
 }
 
 /* Display an error message. */
-void
-sntx_err(int error)
+void sntx_err(int error)
 {
     char         *p, *temp;
-    int          linecount = 0;
+    int linecount = 0;
     register int i;
     static char  *e[] = {
         "syntax error",
@@ -306,8 +297,7 @@ sntx_err(int error)
 }
 
 /* Get a token. */
-int
-get_token(void)
+int get_token(void)
 {
     register char *temp;
 
@@ -466,8 +456,7 @@ get_token(void)
 }
 
 /* Return a token to input stream. */
-void
-putback(void)
+void putback(void)
 {
     char *t;
 
@@ -477,8 +466,7 @@ putback(void)
 }
 
 /* Look up a token's internal representation in the token table. */
-int
-look_up(char *s)
+int look_up(char *s)
 {
     register int i;
     char         *p;
@@ -498,8 +486,7 @@ look_up(char *s)
 }
 
 /* Return index of internal library function or -1 if not found. */
-int
-internal_func(char *s)
+int internal_func(char *s)
 {
     int i;
 
@@ -512,8 +499,7 @@ internal_func(char *s)
 }
 
 /* Return true if c is a delimiter. */
-int
-isdelim(char c)
+int isdelim(char c)
 {
     if (strchr(" !;,+-<>'/*%^=()", c) || c == 9 || c == '\n' || c == 0)
         return 1;
@@ -521,8 +507,7 @@ isdelim(char c)
 }
 
 /* Return 1 if c is space or tab. */
-int
-iswhite(char c)
+int iswhite(char c)
 {
     if (c == ' ' || c == '\t')
         return 1;

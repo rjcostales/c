@@ -10,8 +10,7 @@ extern char token_type;         /* contains type of token */
 extern char tok;                /* holds the internal representation of token */
 
 /* Use getchar()) if your compiler does not support getche() */
-int
-call_getche(void)
+int call_getche(void)
 {
     char ch;
 
@@ -24,8 +23,7 @@ call_getche(void)
 }
 
 /* Use putchar() if your compiler does not support putch() */
-int
-call_putch(void)
+int call_putch(void)
 {
     int value;
 
@@ -35,8 +33,7 @@ call_putch(void)
 }
 
 /* Call puts(). */
-int
-call_puts(void)
+int call_puts(void)
 {
     get_token();
 
@@ -61,8 +58,7 @@ call_puts(void)
 }
 
 /* Read an integer from the keyboard. */
-int
-getnum(void)
+int getnum(void)
 {
     char s[80];
 
@@ -74,8 +70,7 @@ getnum(void)
 }
 
 /* A built-in console output function. */
-int
-print(void)
+int print(void)
 {
     int i;
 

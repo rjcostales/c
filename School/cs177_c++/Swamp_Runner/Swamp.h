@@ -8,6 +8,7 @@
 #include"Runner.h"
 #include"Ground.h"
 #include"QuickSand.h"
+
 class Swamp
 {
 public:
@@ -19,7 +20,7 @@ public:
 	void getRunner(Runner *);	// put the runner in the swamp
 	int inSwamp(Coord);			// returns true if cell is in swamp
 	int isSafe(Coord);			// returns true if cell is ground
-	
+
 private:
 	Runner	 *mRunner;
 	SCell	*mSwamp[20][20];

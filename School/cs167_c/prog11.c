@@ -19,7 +19,7 @@ void    encode(char *);
 void    decode(char *);
 void    print_error(void);
 
-int main(int argc, char **argv)
+int main(int argc, char* argv[])
 {
     FILE *input;
     char *mode, *filename;

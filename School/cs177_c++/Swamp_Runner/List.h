@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include <ostream.h>
 #include"Coordinate.h"
+
 typedef Coord Type;
 class List
 {
@@ -25,7 +26,7 @@ public:
 	const Type& operator[](int) const;
 	int operator==(List&) const;
 	int operator!=(List&) const;
-	
+
 	int length() const;
 	int isMember(Type) const;
 	void clear();
@@ -33,7 +34,7 @@ public:
 	List& append(Type);
 	Type remove(int pIndex = 0);
 	List& purge(Type);
-	
+
 private:
 	int mSize;
 	class Element

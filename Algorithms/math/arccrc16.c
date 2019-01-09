@@ -54,7 +54,7 @@ void do_file(char *fn)
 
 #ifdef TEST
 
-int main(int argc, char **argv)
+int main(int argc, char* argv[])
 {
     int i;
 
