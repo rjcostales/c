@@ -11,7 +11,7 @@
 ** 2. Redistributions in binary form must reproduce the above copyright
 **    notice, this list of conditions and the following disclaimer in the
 **    documentation and/or other materials provided with the distribution.
-** 
+**
 ** THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND
 ** ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
 ** IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
@@ -34,25 +34,25 @@ static char* argv0;
 
 static void
 print_fact( long fact, long power )
-    {
+{
     (void) printf( " %ld", fact );
 
     if ( power != 1 )
         (void) printf( "^%ld", power );
-    }
+}
 
 
 static int
 test_fact( long* numP, long fact )
-    {
+{
     long power, t;
 
     power = 0;
     while ( ( t = *numP / fact ) * fact == *numP )
-        {
+    {
         ++power;
         *numP = t;
-        }
+    }
 
     if ( power != 0 )
         print_fact( fact, power );
@@ -61,12 +61,12 @@ test_fact( long* numP, long fact )
         return 1;
 
     return 0;
-    }
+}
 
 
 static void
 factor( long num )
-    {
+{
     long lnum, fact;
 
     lnum = num;
@@ -75,113 +75,113 @@ factor( long num )
     if ( lnum == 0 || lnum == 1 )
         print_fact( lnum, 1 );
     else
-        {
+    {
         fact = 2;
         if ( test_fact( &lnum, fact ) )
-            {
+        {
             fact = 3;
             if ( test_fact( &lnum, fact ) )
-                {
+            {
                 fact = 5;
-                for ( ; ; )
-                    {
-                    if ( ! test_fact( &lnum, fact ) )
+                for (;; )
+                {
+                    if ( !test_fact( &lnum, fact ) )
                         break;
                     fact += 2;
-                    if ( ! test_fact( &lnum, fact ) )
+                    if ( !test_fact( &lnum, fact ) )
                         break;
                     fact += 4;
-                    }
                 }
             }
+        }
         if ( lnum != 1 )
             print_fact( lnum, 1 );
-        }
+    }
 
     printf( "\n" );
-    }
+}
 
 
 static void
 parse_arg( char* arg )
-    {
+{
     long i, n1, n2, n;
 
     i = strspn( arg, "0123456789" );
     if ( i == strlen( arg ) )
-	factor( (long) atoi( arg ) );
+        factor( (long) atoi( arg ) );
     else
-	{
-	if ( arg[i] == '-' )
-	    {
-	    n1 = atoi( arg );
-	    n2 = atoi( &arg[i+1] );
-	    for ( n = n1; n <= n2; ++n )
-		factor( n );
-	    }
-	else if ( arg[i] == '.' )
-	    {
-	    if ( strspn( &arg[i], "." ) != strlen( arg ) - i )
-		{
-		(void) fprintf(
-		    stderr, "%s: wildcards must trail number\n", argv0 );
-		exit( 1 );
-		}
-	    n1 = atoi( arg );
-	    switch ( strlen( arg ) - i )
-		{
-		case 1:
-		n1 *= 10;
-		n2 = n1 + 9;
-		break;
+    {
+        if ( arg[i] == '-' )
+        {
+            n1 = atoi( arg );
+            n2 = atoi( &arg[i+1] );
+            for ( n = n1; n <= n2; ++n )
+                factor( n );
+        }
+        else if ( arg[i] == '.' )
+        {
+            if ( strspn( &arg[i], "." ) != strlen( arg ) - i )
+            {
+                (void) fprintf(
+                    stderr, "%s: wildcards must trail number\n", argv0 );
+                exit( 1 );
+            }
+            n1 = atoi( arg );
+            switch ( strlen( arg ) - i )
+            {
+            case 1:
+                n1 *= 10;
+                n2 = n1 + 9;
+                break;
 
-		case 2:
-		n1 *= 100;
-		n2 = n1 + 99;
-		break;
+            case 2:
+                n1 *= 100;
+                n2 = n1 + 99;
+                break;
 
-		case 3:
-		n1 *= 1000;
-		n2 = n1 + 999;
-		break;
+            case 3:
+                n1 *= 1000;
+                n2 = n1 + 999;
+                break;
 
-		default:
-		(void) fprintf(
-		    stderr, "%s: too many wildcard chars\n", argv0 );
-		exit( 1 );
-		}
-	    for ( n = n1; n <= n2; ++n )
-		factor( n );
-	    }
-	else
-	    {
-	    (void) fprintf(
-		stderr, "usage:  %s <int> <int>-<int> ...\n", argv0 );
-	    exit( 1 );
-	    }
-	}
+            default:
+                (void) fprintf(
+                    stderr, "%s: too many wildcard chars\n", argv0 );
+                exit( 1 );
+            }
+            for ( n = n1; n <= n2; ++n )
+                factor( n );
+        }
+        else
+        {
+            (void) fprintf(
+                stderr, "usage:  %s <int> <int>-<int> ...\n", argv0 );
+            exit( 1 );
+        }
     }
+}
 
 
 void
 main( int argc, char** argv )
-    {
+{
     int i;
     char buf[1000];
 
     argv0 = argv[0];
 
     if ( argc == 1 )
-	{
-	/* No args, read numbers from stdin. */
+    {
+        /* No args, read numbers from stdin. */
         while ( fgets( buf, sizeof(buf), stdin ) != NULL )
-	    parse_arg( buf );
-	}
+            parse_arg( buf );
+    }
     else
-	{
+    {
         for ( i = 1; i < argc; ++i )
             parse_arg( argv[i] );
-	}
+    }
 
     exit( 0 );
-    }
+}

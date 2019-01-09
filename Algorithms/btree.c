@@ -4,90 +4,90 @@
 
 int insert(tree * root, char *name)
 {
-  if (*root) {
-    if (strcmp(name, (*root)->name) < 0)
-      return insert(&((*root)->left), name);
-    else if (strcmp(name, (*root)->name) > 0)
-      return insert(&((*root)->right), name);
-    else
-      return 0;
-  } else {
-    *root = (tree) malloc((size_t) sizeof(node));
+    if (*root) {
+        if (strcmp(name, (*root)->name) < 0)
+            return insert(&((*root)->left), name);
+        else if (strcmp(name, (*root)->name) > 0)
+            return insert(&((*root)->right), name);
+        else
+            return 0;
+    } else {
+        *root = (tree) malloc((size_t) sizeof(node));
 
-    strcpy((*root)->name, name);
-    (*root)->left = NULL;
-    (*root)->right = NULL;
-    return 1;
-  }
+        strcpy((*root)->name, name);
+        (*root)->left = NULL;
+        (*root)->right = NULL;
+        return 1;
+    }
 }
 
 node   *locate(tree root, char name[])
 {
-  if (!root)
-    return NULL;
+    if (!root)
+        return NULL;
 
-  if (strcmp(root->name, name) > 0)
-    return locate(root->left, name);
+    if (strcmp(root->name, name) > 0)
+        return locate(root->left, name);
 
-  if (!strcmp(name, root->name))
-    return root;
+    if (!strcmp(name, root->name))
+        return root;
 
-  if (strcmp(root->name, name) < 0)
-    return locate(root->right, name);
+    if (strcmp(root->name, name) < 0)
+        return locate(root->right, name);
 }
 
 void dispose(tree * root)
 {
-  if (!root)
-    return;
+    if (!root)
+        return;
 
-  if ((*root)->left)
-    dispose(&((*root)->left));
+    if ((*root)->left)
+        dispose(&((*root)->left));
 
-  if ((*root)->right)
-    dispose(&((*root)->right));
+    if ((*root)->right)
+        dispose(&((*root)->right));
 
-  free(*root);
-  (*root) = NULL;
+    free(*root);
+    (*root) = NULL;
 }
 
 void print(tree root)
 {
-  if (!root)
-    return;
+    if (!root)
+        return;
 
-  if (root->left)
-    print(root->left);
+    if (root->left)
+        print(root->left);
 
-  printf("%s ", root->name);
+    printf("%s ", root->name);
 
-  if (root->right)
-    print(root->right);
+    if (root->right)
+        print(root->right);
 }
 
-tree    test = NULL;
+tree test = NULL;
 
 main()
 {
-  node   *temp;
-  int     i;
+    node   *temp;
+    int i;
 
-  i = insert(&test, "one");
-  i = insert(&test, "two");
-  i = insert(&test, "three");
-  i = insert(&test, "four");
-  i = insert(&test, "five");
-  i = insert(&test, "six");
-  i = insert(&test, "seven");
-  i = insert(&test, "eight");
-  i = insert(&test, "nine");
-  i = insert(&test, "ten");
+    i = insert(&test, "one");
+    i = insert(&test, "two");
+    i = insert(&test, "three");
+    i = insert(&test, "four");
+    i = insert(&test, "five");
+    i = insert(&test, "six");
+    i = insert(&test, "seven");
+    i = insert(&test, "eight");
+    i = insert(&test, "nine");
+    i = insert(&test, "ten");
 
-  print(test);
+    print(test);
 
-  temp = locate(test, "one");
-  strcpy(temp->name, "onesy");
+    temp = locate(test, "one");
+    strcpy(temp->name, "onesy");
 
-  puts("");
-  print(test);
+    puts("");
+    print(test);
 }

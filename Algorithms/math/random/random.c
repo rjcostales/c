@@ -10,7 +10,7 @@
 ** 2. Redistributions in binary form must reproduce the above copyright
 **    notice, this list of conditions and the following disclaimer in the
 **    documentation and/or other materials provided with the distribution.
-** 
+**
 ** THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND
 ** ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
 ** IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
@@ -36,7 +36,7 @@ extern int getppid();
 
 int
 main( int argc, char** argv )
-    {
+{
     int argn;
     unsigned long seed, val;
     struct tms t;
@@ -53,39 +53,39 @@ main( int argc, char** argv )
 
     argn = 1;
     while ( argn < argc && argv[argn][0] == '-' )
-	{
-	if ( strcmp( argv[argn], "-s" ) == 0 )
-	    {
-	    ++argn;
-	    seed = atoi( argv[argn] );
-	    }
-	else
-	    {
-	    (void) fprintf( stderr, usage, argv[0] );
-	    exit( 1 );
-	    }
-	++argn;
-	}
+    {
+        if ( strcmp( argv[argn], "-s" ) == 0 )
+        {
+            ++argn;
+            seed = atoi( argv[argn] );
+        }
+        else
+        {
+            (void) fprintf( stderr, usage, argv[0] );
+            exit( 1 );
+        }
+        ++argn;
+    }
     if ( argc - argn < 1 )
-	{
-	(void) fprintf( stderr, usage, argv[0] );
-	exit( 1 );
-	}
+    {
+        (void) fprintf( stderr, usage, argv[0] );
+        exit( 1 );
+    }
 
     srandom( seed );
-    for ( ; argn < argc; ++argn )
-	{
-	n = atoi( argv[argn] );
-	if ( n <= 0 )
-	    {
-	    (void) fprintf( stderr, usage, argv[0] );
-	    exit( 1 );
-	    }
-	val = random();
-	val = val ^ ( random() >> 6 );
-	val = ( val % n ) + 1;
-	(void) printf( "%ld\n", val );
-	}
+    for (; argn < argc; ++argn )
+    {
+        n = atoi( argv[argn] );
+        if ( n <= 0 )
+        {
+            (void) fprintf( stderr, usage, argv[0] );
+            exit( 1 );
+        }
+        val = random();
+        val = val ^ ( random() >> 6 );
+        val = ( val % n ) + 1;
+        (void) printf( "%ld\n", val );
+    }
 
     exit( 0 );
-    }
+}
