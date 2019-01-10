@@ -13,8 +13,7 @@ int main(int argc, char *argv[])
 
     strings[200][0] = '\0';
 
-    // srand(time(0));
-    srand(0);
+    srand(time(0));
 
     for (int n = 0; n < LEN; n++) {
         for (int i = 0; i < 200; i++) {
@@ -27,4 +26,6 @@ int main(int argc, char *argv[])
         strings[199][4] = '\n';
         fputs(ptr, stdout);
     }
+
+    return 0;
 }

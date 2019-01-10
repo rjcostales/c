@@ -1,17 +1,18 @@
 #include <stdio.h>
 #include "io.h"
 
-// int seed = 1234567890;
-int seed = 0;
+// Numeric Recipies
+// int a    = 1664525;
+// int c    = 1013904223;
+
+// int seed = 0;
+int seed = 1234567890;
+// primes
+const int a    = 655541;
+const int c    = 2147483629;
 
 int rand()
 {
-    // Numeric Recipies
-    // int a    = 1664525;
-    // int c    = 1013904223;
-    // primes
-    const int a    = 655541;
-    const int c    = 2147483629;
     seed = (a * seed + c) & 0xffffffff;
     return seed;
 }
@@ -35,5 +36,5 @@ int main(int argc, char *argv[])
         buffer[NDX] = '\n';
         fputs(buffer, stdout);
     }
-    return seed;
+    return 0;
 }

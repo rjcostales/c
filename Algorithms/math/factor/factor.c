@@ -28,12 +28,9 @@
 #include <stdio.h>
 #include <string.h>
 
-
 static char* argv0;
 
-
-static void
-print_fact( long fact, long power )
+static void print_fact( long fact, long power )
 {
     (void) printf( " %ld", fact );
 
@@ -41,15 +38,12 @@ print_fact( long fact, long power )
         (void) printf( "^%ld", power );
 }
 
-
-static int
-test_fact( long* numP, long fact )
+static int test_fact( long* numP, long fact )
 {
     long power, t;
 
     power = 0;
-    while ( ( t = *numP / fact ) * fact == *numP )
-    {
+    while ( ( t = *numP / fact ) * fact == *numP ){
         ++power;
         *numP = t;
     }
@@ -63,9 +57,7 @@ test_fact( long* numP, long fact )
     return 0;
 }
 
-
-static void
-factor( long num )
+static void factor( long num )
 {
     long lnum, fact;
 
@@ -74,17 +66,13 @@ factor( long num )
 
     if ( lnum == 0 || lnum == 1 )
         print_fact( lnum, 1 );
-    else
-    {
+    else {
         fact = 2;
-        if ( test_fact( &lnum, fact ) )
-        {
+        if ( test_fact( &lnum, fact ) ) {
             fact = 3;
-            if ( test_fact( &lnum, fact ) )
-            {
+            if ( test_fact( &lnum, fact ) ) {
                 fact = 5;
-                for (;; )
-                {
+                for (;; ) {
                     if ( !test_fact( &lnum, fact ) )
                         break;
                     fact += 2;
@@ -97,39 +85,30 @@ factor( long num )
         if ( lnum != 1 )
             print_fact( lnum, 1 );
     }
-
     printf( "\n" );
 }
 
-
-static void
-parse_arg( char* arg )
+static void parse_arg( char* arg )
 {
     long i, n1, n2, n;
 
     i = strspn( arg, "0123456789" );
     if ( i == strlen( arg ) )
         factor( (long) atoi( arg ) );
-    else
-    {
-        if ( arg[i] == '-' )
-        {
+    else {
+        if ( arg[i] == '-' ) {
             n1 = atoi( arg );
             n2 = atoi( &arg[i+1] );
             for ( n = n1; n <= n2; ++n )
                 factor( n );
-        }
-        else if ( arg[i] == '.' )
-        {
-            if ( strspn( &arg[i], "." ) != strlen( arg ) - i )
-            {
+        } else if ( arg[i] == '.' ) {
+            if ( strspn( &arg[i], "." ) != strlen( arg ) - i ) {
                 (void) fprintf(
                     stderr, "%s: wildcards must trail number\n", argv0 );
                 exit( 1 );
             }
             n1 = atoi( arg );
-            switch ( strlen( arg ) - i )
-            {
+            switch ( strlen( arg ) - i ) {
             case 1:
                 n1 *= 10;
                 n2 = n1 + 9;
@@ -152,9 +131,7 @@ parse_arg( char* arg )
             }
             for ( n = n1; n <= n2; ++n )
                 factor( n );
-        }
-        else
-        {
+        } else {
             (void) fprintf(
                 stderr, "usage:  %s <int> <int>-<int> ...\n", argv0 );
             exit( 1 );
@@ -162,23 +139,18 @@ parse_arg( char* arg )
     }
 }
 
-
-void
-main( int argc, char** argv )
+void main( int argc, char** argv )
 {
     int i;
     char buf[1000];
 
     argv0 = argv[0];
 
-    if ( argc == 1 )
-    {
+    if ( argc == 1 ) {
         /* No args, read numbers from stdin. */
         while ( fgets( buf, sizeof(buf), stdin ) != NULL )
             parse_arg( buf );
-    }
-    else
-    {
+    } else {
         for ( i = 1; i < argc; ++i )
             parse_arg( argv[i] );
     }

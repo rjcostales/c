@@ -16,4 +16,6 @@ int main(int argc, char *argv[])
 
     for (int n = 0; n < LEN; n++)
         fputs(buffer, stdout);
+
+    return 0;
 }

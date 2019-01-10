@@ -29,5 +29,8 @@ int main(int argc, char *argv[])
         strings[199][4] = '\n';
         fputs(ptr, stdout);
     }
+
     close(urandom);
+
+    return 0;
 }
