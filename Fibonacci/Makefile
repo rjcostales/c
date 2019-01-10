@@ -1,28 +1,16 @@
-obj = fibonacci fibonacciT math pi primes sizes random
-src = *.c
+CC = clang
+CCFLAGS = -Ofast
 
-all: fibonacci fibonacciT math pi primes sizes random
+TARGETS = fib fib0 fib1 fib2 fib3 fib4
+SOURCES = *.c
 
-fibonacci: fibonacci.c
-	gcc fibonacci.c -o fibonacci
+all: $(TARGETS)
 
-fibonacciT: fibonacciT.c
-	gcc fibonacciT.c -o fibonacciT
+fib: fibonacci.c
+	$(CC) $(CCFLAGS) fibonacci.c -o fib
 
-math: math.c
-	gcc math.c -o math
-
-pi: pi.c
-	gcc pi.c -o pi -lm
-
-primes: primes.c
-	gcc primes.c -o primes
-
-sizes: sizes.c
-	gcc sizes.c -o sizes
-
-random: random.c
-	gcc random.c -o random
+fib0: fibonacci.c
+	$(CC) $(CCFLAGS) fibonacci0.c -o fib0
 
 clean:
-	rm -f $(obj)
+	rm -f $(TARGETS)
