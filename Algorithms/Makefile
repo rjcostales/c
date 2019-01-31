@@ -4,7 +4,7 @@ src = *.c *.h
 all: btree list permute random reverse sort sortins sortmerge sortsel
 
 btree: btree.h btree.c
-	gcc btree.c -o btree
+	gcc btree.c -Wreturn-type -o btree
 
 list: list.h list.c
 	gcc list.c -o list

@@ -22,20 +22,24 @@ protected:
 
 	Swamp *mSwamp;
 };
+
 //	implementation
 DimWit::DimWit(Swamp& swamp)
 {
 	mSwamp = &swamp;
 	mMoves = mAttemps = 0;
 }
+
 void DimWit::draw(int isSafe)
 {
 	cout << (isSafe ? 'D' : '*');
 }
+
 void DimWit::setPos(Coord p)
 {
 	Runner::setPos(p);
 }
+
 Coord DimWit::step()
 {
 	Coord temp = mPos;
@@ -44,7 +48,10 @@ Coord DimWit::step()
 		mPos = temp;
 		Runner::step();
 	} while (!mSwamp->inSwamp(mPos));	// check if in swamp
+
 	return mPos;
 }
+
 #endif
+
 // EOF

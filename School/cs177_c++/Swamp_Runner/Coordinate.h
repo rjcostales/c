@@ -11,6 +11,7 @@
 class Coord
 {
 	friend ostream& operator<<(ostream&, const Coord&);
+
 public:
 // constructors
 	Coord(int, int);
@@ -27,5 +28,7 @@ public:
 	int x;	 // made x & y public for ease
 	int y;	 // and more readable code.
 };
+
 #endif
+
 // EOF

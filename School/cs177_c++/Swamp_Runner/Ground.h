@@ -16,6 +16,7 @@ public:
 // member funtions
 	int safe();
 };
+
 //	implementation
 Ground::Ground(char image = ' ') : SCell(image)
 {

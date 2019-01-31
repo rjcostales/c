@@ -18,16 +18,19 @@ public:
 protected:
 	Coord step();  // value returned by virtual function move
 };
+
 //	implementation
 Genius::Genius(Swamp& swamp) : Wit(swamp) {}
 void Genius::draw(int isSafe)
 {
 	cout << (isSafe ? 'G' : '*');
 }
+
 void Genius::setPos(Coord p)
 {
 	Runner::setPos(p);
 }
+
 Coord Genius::step()
 {
 	Coord temp = mPos;
@@ -38,5 +41,6 @@ Coord Genius::step()
 	} while (!mSwamp->isSafe(mPos));	// check if step is safe
 	return mPos;
 }
+
 #endif
 // EOF

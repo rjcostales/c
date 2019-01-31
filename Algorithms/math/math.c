@@ -21,18 +21,18 @@ int fibonacci(int f)
 /*****
    int gcd(int a, int b)
    {
-        if (a == 0)
-        return b;
-        else if (b >= a)
-        return gcd(a, b - a);
-        else
-        return gcd(b, a);
+       if (a == 0)
+       return b;
+       else if (b >= a)
+       return gcd(a, b - a);
+       else
+       return gcd(b, a);
    }
 *****/
 
 int lcm(int a, int b)
 {
-    (a / gcd(a, b)) * b;
+    return (a / gcd(a, b)) * b;
 }
 
 int gcd(int a, int b)
