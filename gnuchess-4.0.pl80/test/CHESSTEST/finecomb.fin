@@ -1,0 +1,61 @@
+##50 Positions from R. Fine: World's greatest chess games.  These are
+#among the most difficult combinations ever played over the board, Fine
+#seems to imply. It is far from clear, though, how correct they are and
+#whether the indicated best move is always unique. Usually is.
+#Gnuchess got only 8 right out of these 50 at 1 minute per move setting.
+#
+#
+rn2k2r/pp2q1pp/1b1p1n2/3Np1B1/2B1Ppb1/5N2/PP2Q1PP/3R1K1R/b Nf6xNd5 (Fine_WGCG) (page 7. Macdonnell, immortal game.) "Black has 2 pcs and a powerful attk for the Q. Subsequent analysis has never been able to demonstrate... adequate defense."
+r1qnk2r/ppp2ppp/1b5n/4p1Nb/2B1P3/BQP2P2/P5PP/RN1R3K/w Rd1xNd8+ (Fine_WGCG) (page 9, Capt. Evans.) Led to mate in the game, but should've led to less. Gnuchess finds the cook Qb3b5+, leading to major material gain...
+rnb1k1nr/p2p1ppp/8/1pbN1N1P/4PBP1/3P1Q2/PqP5/R4KR1/w Bf4d6 (Fine_WGCG) (page 17. Anderssen. Immortal.) incredible mate
+1r2k1r1/pbppnp1p/1bn2P2/7q/Q7/B1PB1N2/P4PPP/R3R1K1/w Ra1d1 (Fine_WGCG) (page 17. Anderssen. Evergreen.) mates
+4r1k1/p1pb1ppp/Qbp1r3/8/1P6/2Pq1B2/R2P1PPP/2B2RK1/b Qd3xBf3 (Fine_WGCG) (page 24. Morphy.) wins
+r2qr1k1/pp3ppp/2n2n2/8/2P2Pb1/3P4/P1PBB1PP/R2Q1KNR/b Re8xBe2 (Fine_WGCG) (page 26. Morphy.) mates
+2qnr1k1/p5p1/R1p3Np/3pNP2/3P4/2P5/5P1K/4R3/w Ne5xPc6 (Fine_WGCG) (page 29. Bird.) wins
+r3k2r/pp1qn1pp/2p2p2/8/3P4/5N2/PP2QPPP/2R1R1K1/w Pd4d5 (Fine_WGCG) (page 35. Steinitz.) wins
+r2q1rk1/pbpnb2p/1p4p1/3pN3/3P1Pp1/3BB2R/PPP1Q2P/R5K1/w Rh3xPh7 (Fine_WGCG) (page 37. Steinitz.) mates
+brk4r/p1p2Ppp/2n5/bN3n1q/2B5/B4N2/P3QPPP/5RK1/w Nb5xPa7+ (Fine_WGCG) (page 38. Kolisch.) gnuchess seems to think the simple Pf7f8=Q, winding up 1 pawn up, is a good idea... Kolisch's move apparently forces quick victory, though.
+2r4k/pb2q2P/1p6/3Pp3/4p3/1P2R3/PBrQ2PP/5RK1/w Qd2b4 (Fine_WGCG) (page 40. Zukertort.) wins
+r1bqr1k1/p4ppp/2p1p3/b1B5/8/1R1B4/P1P2PPP/3Q1RK1/w Bd3xPh7+ (Fine_WGCG) (page 41. Zukertort.) wins
+5rk1/pp3pp1/4Pb1p/q2p3Q/3P4/2r5/PP4PP/1K1R1B1R/b Rc3a3 (Fine_WGCG) (page 53. Lasker.) wins
+5kn1/6p1/5qR1/4pP2/1P1pP3/p2P1N1Q/1rr5/5R1K/b Pa3a2 (Fine_WGCG) (page 65. Tarrasch.) at least draws
+r3n1k1/4R2p/4p1pB/3p1p2/3P4/2P2P1P/6P1/6K1/w Kg1h2 (Fine_WGCG) (page 69. Tarrasch.) quick win. probably there are cooks.
+3b2rk/7p/p7/2pbqNrn/Pp1p1R2/1P1Q2P1/1BPN1R1P/6K1/w Rf4xPd4 (Fine_WGCG) (page 69. Tarrasch.) mates
+6k1/3nr1pp/2q2p2/5PP1/1p1Pp1NQ/rbp1P2P/5R2/2N2RK1/w Rf2g2 (Fine_WGCG) (page 74. Pillsbury.) wins material, at least
+r2qk2r/1p1b1p2/1P2p1p1/p2pP2p/n2N1P2/b2PB3/4NQPP/1R3RK1/w Pf4f5 (Fine_WGCG) (page 75 Pillsbury.) "rockcrusher"
+r1b2rk1/p1q3pp/1p2p3/2b1np1P/1PP5/2B3P1/P1QN1P2/R3KB1R/b Bc5xPf2+ (Fine_WGCG) (page 86. Rubinstein.) wins
+kb1r2r1/pp2qpp1/2p4p/P3p3/2B1Pn2/2PP1R1P/1PK2QP1/R5B1/w Pg2g3 (Fine_WGCG) (page 87. Rubinstein.) wins an N
+4rn1r/pp3kpp/1qpb1p2/3p1b2/3P3N/2PB2N1/PP2QPPP/1R3RK1/w Nh4xBf5 (Fine_WGCG) (page 90. Marshall.)
+3r2k1/1bp2pp1/1p2p2p/8/2P2q2/1KN2N2/1P2Q1PP/r4B1R/b Pb6b5 (Fine_WGCG) (page 94. Marshall.) mates
+r1bqr1k1/pppnppbp/3p2p1/7n/3P1B2/3BPN2/PPPN1PP1/R2QK2R/w Rh1xNh5 (Fine_WGCG) (page 95. Marshall.) wins
+r1bq1k1r/ppppbpp1/5nB1/3P2p1/3Q4/5N2/PP1N1PPP/4RK1R/w Nf3e5 (Fine_WGCG) (page 96. Marshall.) wins mat
+5rk1/1p3rpp/2bpp3/p1q5/1PP1P3/P1QR2P1/6BP/4R2K/b Bc6xPe4 (Fine_WGCG) (page 139. Spielmann.) wins
+5rr1/pp1R3p/k1p5/8/2N4P/P1p5/1PB2qPQ/1K6/w Qh2c7 (Fine_WGCG) (page 142. Spielmann.) wins
+r1b3k1/pp1n3p/2pbpq1r/3p4/3Pp1p1/PP2P1P1/1BQN1P1P/3RRBK1/b Rh6xPh2 (Fine_WGCG) (page 143. Tartakower.) wins, but quiet moves probably also suffice since black is a P up with better position...
+2rqrk2/4ppbQ/p2p2pR/np4P1/2b1P3/2NBBP2/PPP5/2KR4/w Pe4e5 (Fine_WGCG) (page 144. Tartakower.) wins
+rnbqr1k1/pp3pp1/3b1n1p/4N3/2Np4/2PB4/PP4PP/R1BQ1RK1/w Ne5xPf7 (Fine_WGCG) (page 145. Tartakower.) wins
+5r1k/4p2p/1p2Q1p1/p1pPb2q/4P1Nr/5P2/PP2R2P/5R1K/b Rh4xNg4 (Fine_WGCG) (page 146. Yates.) mates
+1r1rnk2/pp4pb/4pp1p/N7/PP1nP3/2N2P2/5KPP/2RR1B2/w Nc3b5 (Fine_WGCG) (page 161. Alekhine.) wins a P
+r2r2k1/p2b2pp/Q3p3/1p1pPp1q/5P2/2P1P3/P4PBP/3R2RK/w Bg2xPd5 (Fine_WGCG) (page 166. Bogoljubow.) wins
+2r2rk1/p2n1p1p/1p2q1p1/4p2n/4P3/2B2P1R/PP2NP1P/2QR3K/w Rh3xNh5 (Fine_WGCG) (page 166. Bogojubow.) wins
+r2r2k1/pbqn1pp1/1p5p/2bpP3/2P5/3B1N2/PB2Q1PP/R4R1K/w Nf3g5 (Fine_WGCG) (page 169. Flohr.) wins
+1rbqrbk1/pp4pp/4np2/2p2N2/P4P2/8/PBQPP1BP/2R1K1R1/w Bg2c6 (Fine_WGCG) (page 171. Flohr.) wins
+r3k2r/pp1npp2/3p4/2pP4/Q1P1q2P/2P1B3/P3KP2/1R5R/b Pb7b5 (Fine_WGCG) (page 175. Flohr.) wins
+r4r2/pb1n1kq1/1ppb2p1/3p1p2/3P4/P1B1PQNR/1P2NPP1/2KR4/w Bc3d2! (Fine_WGCG) (page 174. Flohr. Misprinted.) wins
+r4rk1/3p1ppp/bpn1p1q1/p7/2P1P3/2PQBN2/P4PPP/1K1R2R1/b Pd7d5 (Fine_WGCG) (page 178. Kashdan.)
+q1r1r3/pb2b1kp/1p1pQnp1/2nP4/2P5/1P1B2N1/PB3PPP/2R1R1K1/w Ng3f5+ (Fine_WGCG) (page 180. Colle.)
+r7/pp4kp/5n2/3pr3/1b6/1Q1B1pPb/PP3P1P/R5KR/b Bb4c5 (Fine_WGCG) (page 186. Stoltz.)
+r4rk1/2p3pp/4p3/1p6/p2P1N2/P1P2bP1/qP1QR2P/2KR4/b Pb5b4 (Fine_WGCG) (page 188. Stahlberg.) wins a piece
+6k1/2N1rpp1/1B4b1/P2P3p/8/1q1n3P/3R1QPK/8/w Pd5d6 (Fine_WGCG) (page 191. Thomas.) gets R,N,B for a Q and will win
+2r2rk1/1b2q2p/4pPpQ/p1b3Nn/PpN5/3B4/1P3PPP/2RR2K1/b Bc5xPf2+ (Fine_WGCG) (page 206. Reshevsky.) wins
+1r3r1n/3b1pk1/1R1N2p1/1P3P2/6P1/8/5KB1/R7/w Pf5f6+ (Fine_WGCG) (followed by ...Kh6 2. Kg3! page 209. Reshevsky.) wins xchg at least
+rnb1k2r/pp3ppp/3b4/q2pN1B1/8/3B4/Pp3PPP/1R1Q1RK1/w Ne5xPf7 (Fine_WGCG) (page 224. Keres.) "tears black's postion apart." Also won R+P+P for N+B then forced mate in the game.
+r3r1k1/pp1b1pb1/3q3p/3n4/1p1P1RpN/3B4/P2B1PPP/1R1Q2K1/w Rf4xPg4 (Fine_WGCG) (page 226. Keres.) gets an overwhelming attack (resigned in 9)
+2r1k2r/2pn1pp1/1p3n1p/p3PP2/4q2B/P1P5/2Q1N1PP/R4RK1/w Pe5xNf6 (Fine_WGCG) (page 230. Lilienthal.) resigns in 6
+3r1r2/pp1q2bk/2n1nppp/2p5/3pP1P1/P2P1NNQ/1PPB3P/1R3R1K/w Ng3f5 (Fine_WGCG) (page 244. Smyslov.) resigns in 18
+r4r1k/pp2b1pp/n4n2/1bqPN3/1p6/6N1/PBBQ2PP/3R1R1K/w Ng3f5 (Fine_WGCG) (page 279. Kramer.) led to mate and, starting 2 moves later, 12 checks in a row...
+2r1r1k1/p2q1pbp/1p4p1/3pPP2/2nP2N1/3Q3R/P5PP/R1B3K1/w Rh3xPh7 (Fine_WGCG) (page 281. Larry Evans. Misprinted: there should be a black B on g7) wins
+#
+#(Four other good ones are Evans, diagram p282, and Nadjorf, diagram
+#p.251, and Nadjorf's 15...P-K4!!! in his "Polish Immortal" game page
+#248-9, and Adams-Torre 18. Qg4!!! page 285. See file "oldpos.wds".)

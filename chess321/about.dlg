@@ -1,0 +1,16 @@
+AboutBox DIALOG LOADONCALL MOVEABLE DISCARDABLE 19, 18, 218, 107
+CAPTION "GNU Chess 3.21 for Windows"
+STYLE WS_BORDER | WS_CAPTION | WS_DLGFRAME | WS_SYSMENU | DS_MODALFRAME | WS_POPUP
+BEGIN
+    CONTROL "OK", 1, "button", BS_DEFPUSHBUTTON | WS_GROUP | WS_TABSTOP | WS_CHILD, 93, 89, 32, 14
+    CONTROL "CHESS", -1, "static", SS_ICON | WS_CHILD, 20, 12, 16, 17
+    CONTROL "Daryl K. Baker", 105, "static", SS_CENTER | WS_CHILD, 57, 4, 107, 8
+    CONTROL "Wed Dec 28 02:03:55 1989", 106, "static", SS_CENTER | WS_CHILD, 57, 13, 107, 8
+    CONTROL "Copyright © 1985-1991 Free Software Foundation Inc.", 108, "static", SS_CENTER | WS_CHILD, 0, 47, 218, 8
+    CONTROL "GNU Chess 2nd version original copyright \251 1986 John Stanback", 109, "static", SS_LEFT | WS_CHILD, 4, 75, 215, 8
+    CONTROL "Text", 110, "static", SS_BLACKFRAME | WS_CHILD, 0, 42, 216, 1
+    CONTROL "Compiled with Microsoft C 6.00ax", 111, "static", SS_CENTER | WS_CHILD, 57, 23, 107, 8
+    CONTROL "Linked with Microsoft SDK 3.0", 112, "static", SS_CENTER | WS_CHILD, 57, 32, 107, 8
+    CONTROL "GNU Chess original copyright \251 1985 Stuart Cracraft", 113, "static", SS_LEFT | WS_CHILD, 4, 66, 215, 8
+    CONTROL "Windows version additional copyright \251 1990-1991 Daryl Baker", 114, "static", SS_LEFT | WS_CHILD, 4, 57, 215, 8
+END

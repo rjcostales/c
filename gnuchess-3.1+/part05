@@ -1,0 +1,2071 @@
+From pa.dec.com!decwrl!uunet!sparky!kent Sun May 19 12:34:20 PDT 1991
+Article: 2357 of comp.sources.misc
+Newsgroups: comp.sources.misc
+Path: pa.dec.com!decwrl!uunet!sparky!kent
+From: Mike McGann <mwm@hasler.ascom.ch>
+Subject:  v19i077:  gnuchess - gnuchess version 3.1+, Part05/07
+Message-ID: <1991May17.024523.27798@sparky.IMD.Sterling.COM>
+X-Md4-Signature: 6356813554cfd1013b441b2f02642dc8
+Sender: kent@sparky.IMD.Sterling.COM (Kent Landfield)
+Organization: Sterling Software, IMD
+Date: Fri, 17 May 1991 02:45:23 GMT
+Approved: kent@sparky.imd.sterling.com
+
+Submitted-by: Mike McGann <mwm@hasler.ascom.ch>
+Posting-number: Volume 19, Issue 77
+Archive-name: gnuchess/part05
+
+#!/bin/sh
+# do not concatenate these parts, unpack them in order with /bin/sh
+# file gnuchess.c continued
+#
+if test ! -r _shar_seq_.tmp; then
+	echo 'Please unpack part 1 first!'
+	exit 1
+fi
+(read Scheck
+ if test "$Scheck" != 5; then
+	echo Please unpack part "$Scheck" next!
+	exit 1
+ else
+	exit 0
+ fi
+) < _shar_seq_.tmp || exit 1
+if test ! -f _shar_wnt_.tmp; then
+	echo 'x - still skipping gnuchess.c'
+else
+echo 'x - continuing file gnuchess.c'
+sed 's/^X//' << 'SHAR_EOF' >> 'gnuchess.c' &&
+X	    case knight:
+X	      s = KnightValue (sq, side);
+X	      break;
+X	    case bishop:
+X	      s = BishopValue (sq, side);
+X	      break;
+X	    case rook:
+X	      s = RookValue (sq, side);
+X	      break;
+X	    case queen:
+X	      s = QueenValue (sq, side);
+X	      break;
+X	    case king:
+X	      s = KingValue (sq, side);
+X	      break;
+X	    default:
+X	      s = 0;
+X	      break;
+X	    }
+X	  pscore[c1] += s;
+X	  svalue[sq] = s;
+X	}
+X    }
+X  if (hung[side] > 1)
+X    pscore[side] += HUNGX;
+X  if (hung[xside] > 1)
+X    pscore[xside] += HUNGX;
+X
+X  *score = mtl[side] - mtl[xside] + pscore[side] - pscore[xside] + 10;
+X  if (dither)
+X    *score += urand () % dither;
+X
+X  if (*score > 0 && pmtl[side] == 0)
+X    if (emtl[side] < valueR)
+X      *score = 0;
+X    else if (*score < valueR)
+X      *score /= 2;
+X  if (*score < 0 && pmtl[xside] == 0)
+X    if (emtl[xside] < valueR)
+X      *score = 0;
+X    else if (-*score < valueR)
+X      *score /= 2;
+X
+X  if (mtl[xside] == valueK && emtl[side] > valueB)
+X    *score += 200;
+X  if (mtl[side] == valueK && emtl[xside] > valueB)
+X    *score -= 200;
+}
+X
+X
+static inline void
+BlendBoard (const short int a[64], const short int b[64], short int c[64])
+{
+X  register short *sqa, *sqb, *sqc, st;
+X  st = 10 - stage;
+X  for (sqa = a, sqb = b, sqc = c; sqa < a + 64;)
+X    *sqc++ = (*sqa++ * st + *sqb++ * stage) / 10;
+}
+X
+X
+static inline void
+CopyBoard (const short int a[64], short int b[64])
+{
+X  register short *sqa, *sqb;
+X
+X  for (sqa = a, sqb = b; sqa < a + 64; sqa++, sqb++)
+X    *sqb = *sqa;
+}
+X
+void
+ExaminePosition (void)
+X
+/*
+X  This is done one time before the search is started. Set up arrays
+X  Mwpawn, Mbpawn, Mknight, Mbishop, Mking which are used in the
+X  SqValue() function to determine the positional value of each piece.
+*/
+X
+{
+X  register short i, sq;
+X  short wpadv, bpadv, wstrong, bstrong, z, side, pp, j, k, val, Pd, fyle, rank;
+X  static short PawnStorm = false;
+X
+X  ataks (white, atak[white]);
+X  ataks (black, atak[black]);
+X  UpdateWeights ();
+X  HasKnight[white] = HasKnight[black] = 0;
+X  HasBishop[white] = HasBishop[black] = 0;
+X  HasRook[white] = HasRook[black] = 0;
+X  HasQueen[white] = HasQueen[black] = 0;
+X  for (side = white; side <= black; side++)
+X    for (i = PieceCnt[side]; i >= 0; i--)
+X      switch (board[PieceList[side][i]])
+X	{
+X	case knight:
+X	  ++HasKnight[side];
+X	  break;
+X	case bishop:
+X	  ++HasBishop[side];
+X	  break;
+X	case rook:
+X	  ++HasRook[side];
+X	  break;
+X	case queen:
+X	  ++HasQueen[side];
+X	  break;
+X	}
+X  if (!Developed[white])
+X    Developed[white] = (board[1] != knight && board[2] != bishop &&
+X			board[5] != bishop && board[6] != knight);
+X  if (!Developed[black])
+X    Developed[black] = (board[57] != knight && board[58] != bishop &&
+X			board[61] != bishop && board[62] != knight);
+X  if (!PawnStorm && stage < 5)
+X    PawnStorm = ((column (wking) < 3 && column (bking) > 4) ||
+X		 (column (wking) > 4 && column (bking) < 3));
+X
+X  CopyBoard (pknight, Mknight[white]);
+X  CopyBoard (pknight, Mknight[black]);
+X  CopyBoard (pbishop, Mbishop[white]);
+X  CopyBoard (pbishop, Mbishop[black]);
+X  BlendBoard (KingOpening, KingEnding, Mking[white]);
+X  BlendBoard (KingOpening, KingEnding, Mking[black]);
+X
+X  for (sq = 0; sq < 64; sq++)
+X    {
+X      fyle = column (sq);
+X      rank = row (sq);
+X      wstrong = bstrong = true;
+X      for (i = sq; i < 64; i += 8)
+X	if (Patak (black, i))
+X	  {
+X	    wstrong = false;
+X	    break;
+X	  }
+X      for (i = sq; i >= 0; i -= 8)
+X	if (Patak (white, i))
+X	  {
+X	    bstrong = false;
+X	    break;
+X	  }
+X      wpadv = bpadv = PADVNCM;
+X      if ((fyle == 0 || PawnCnt[white][fyle - 1] == 0) &&
+X	  (fyle == 7 || PawnCnt[white][fyle + 1] == 0))
+X	wpadv = PADVNCI;
+X      if ((fyle == 0 || PawnCnt[black][fyle - 1] == 0) &&
+X	  (fyle == 7 || PawnCnt[black][fyle + 1] == 0))
+X	bpadv = PADVNCI;
+X      Mwpawn[sq] = (wpadv * PawnAdvance[sq]) / 10;
+X      Mbpawn[sq] = (bpadv * PawnAdvance[63 - sq]) / 10;
+X      Mwpawn[sq] += PawnBonus;
+X      Mbpawn[sq] += PawnBonus;
+X      if (Mvboard[kingP[white]])
+X	{
+X	  if ((fyle < 3 || fyle > 4) && distance (sq, wking) < 3)
+X	    Mwpawn[sq] += PAWNSHIELD;
+X	}
+X      else if (rank < 3 && (fyle < 2 || fyle > 5))
+X	Mwpawn[sq] += PAWNSHIELD / 2;
+X      if (Mvboard[kingP[black]])
+X	{
+X	  if ((fyle < 3 || fyle > 4) && distance (sq, bking) < 3)
+X	    Mbpawn[sq] += PAWNSHIELD;
+X	}
+X      else if (rank > 4 && (fyle < 2 || fyle > 5))
+X	Mbpawn[sq] += PAWNSHIELD / 2;
+X      if (PawnStorm)
+X	{
+X	  if ((column (wking) < 4 && fyle > 4) ||
+X	      (column (wking) > 3 && fyle < 3))
+X	    Mwpawn[sq] += 3 * rank - 21;
+X	  if ((column (bking) < 4 && fyle > 4) ||
+X	      (column (bking) > 3 && fyle < 3))
+X	    Mbpawn[sq] -= 3 * rank;
+X	}
+X      Mknight[white][sq] += 5 - distance (sq, bking);
+X      Mknight[white][sq] += 5 - distance (sq, wking);
+X      Mknight[black][sq] += 5 - distance (sq, wking);
+X      Mknight[black][sq] += 5 - distance (sq, bking);
+X      Mbishop[white][sq] += BishopBonus;
+X      Mbishop[black][sq] += BishopBonus;
+X      for (i = PieceCnt[black]; i >= 0; i--)
+X	if (distance (sq, PieceList[black][i]) < 3)
+X	  Mknight[white][sq] += KNIGHTPOST;
+X      for (i = PieceCnt[white]; i >= 0; i--)
+X	if (distance (sq, PieceList[white][i]) < 3)
+X	  Mknight[black][sq] += KNIGHTPOST;
+X      if (wstrong)
+X	Mknight[white][sq] += KNIGHTSTRONG;
+X      if (bstrong)
+X	Mknight[black][sq] += KNIGHTSTRONG;
+X      if (wstrong)
+X	Mbishop[white][sq] += BISHOPSTRONG;
+X      if (bstrong)
+X	Mbishop[black][sq] += BISHOPSTRONG;
+X
+X      if (HasBishop[white] == 2)
+X	Mbishop[white][sq] += 8;
+X      if (HasBishop[black] == 2)
+X	Mbishop[black][sq] += 8;
+X      if (HasKnight[white] == 2)
+X	Mknight[white][sq] += 5;
+X      if (HasKnight[black] == 2)
+X	Mknight[black][sq] += 5;
+X
+X      Kfield[white][sq] = Kfield[black][sq] = 0;
+X      if (distance (sq, wking) == 1)
+X	Kfield[black][sq] = KATAK;
+X      if (distance (sq, bking) == 1)
+X	Kfield[white][sq] = KATAK;
+X
+X      Pd = 0;
+X      for (k = 0; k <= PieceCnt[white]; k++)
+X	{
+X	  i = PieceList[white][k];
+X	  if (board[i] == pawn)
+X	    {
+X	      pp = true;
+X	      z = (row (i) == 6) ? i + 8 : i + 16;
+X	      for (j = i + 8; j < 64; j += 8)
+X		if (Patak (black, j) || board[j] == pawn)
+X		  {
+X		    pp = false;
+X		    break;
+X		  }
+X	      Pd += (pp) ? 5 * taxicab (sq, z) : taxicab (sq, z);
+X	    }
+X	}
+X      for (k = 0; k <= PieceCnt[black]; k++)
+X	{
+X	  i = PieceList[black][k];
+X	  if (board[i] == pawn)
+X	    {
+X	      pp = true;
+X	      z = (row (i) == 1) ? i - 8 : i - 16;
+X	      for (j = i - 8; j >= 0; j -= 8)
+X		if (Patak (white, j) || board[j] == pawn)
+X		  {
+X		    pp = false;
+X		    break;
+X		  }
+X	      Pd += (pp) ? 5 * taxicab (sq, z) : taxicab (sq, z);
+X	    }
+X	}
+X      if (Pd != 0)
+X	{
+X	  val = (Pd * stage2) / 10;
+X	  Mking[white][sq] -= val;
+X	  Mking[black][sq] -= val;
+X	}
+X    }
+}
+X
+void
+UpdateWeights (void)
+X
+/*
+X  If material balance has changed, determine the values for the positional
+X  evaluation terms.
+*/
+X
+{
+X  register short tmtl, s1;
+X
+X  emtl[white] = mtl[white] - pmtl[white] - valueK;
+X  emtl[black] = mtl[black] - pmtl[black] - valueK;
+X  tmtl = emtl[white] + emtl[black];
+X  s1 = (tmtl > 6600) ? 0 : ((tmtl < 1400) ? 10 : (6600 - tmtl) / 520);
+X  if (s1 != stage)
+X    {
+X      stage = s1;
+X      stage2 = (tmtl > 3600) ? 0 : ((tmtl < 1400) ? 10 : (3600 - tmtl) / 220);
+X      PEDRNK2B = -15;		/* centre pawn on 2nd rank & blocked */
+X      PBLOK = -4;		/* blocked backward pawn */
+X      PDOUBLED = -14;		/* doubled pawn */
+X      PWEAKH = -4;		/* weak pawn on half open file */
+X      PAWNSHIELD = 10 - stage;	/* pawn near friendly king */
+X      PADVNCM = 10;		/* advanced pawn multiplier */
+X      PADVNCI = 7;		/* muliplier for isolated pawn */
+X      PawnBonus = stage;
+X
+X      KNIGHTPOST = (stage + 2) / 3;	/* knight near enemy pieces */
+X      KNIGHTSTRONG = (stage + 6) / 2;	/* occupies pawn hole */
+X
+X      BISHOPSTRONG = (stage + 6) / 2;	/* occupies pawn hole */
+X      BishopBonus = 2 * stage;
+X
+X      RHOPN = 10;		/* rook on half open file */
+X      RHOPNX = 4;
+X      RookBonus = 6 * stage;
+X
+X      XRAY = 8;			/* Xray attack on piece */
+X      PINVAL = 10;		/* Pin */
+X
+X      KHOPN = (3 * stage - 30) / 2;	/* king on half open file */
+X      KHOPNX = KHOPN / 2;
+X      KCASTLD = 10 - stage;
+X      KMOVD = -40 / (stage + 1);/* king moved before castling */
+X      KATAK = (10 - stage) / 2;	/* B,R attacks near enemy king */
+X      if (stage < 8)
+X	KSFTY = 16 - 2 * stage;
+X      else
+X	KSFTY = 0;
+X
+X      ATAKD = -6;		/* defender > attacker */
+X      HUNGP = -8;		/* each hung piece */
+X      HUNGX = -12;		/* extra for >1 hung piece */
+X    }
+}
+SHAR_EOF
+echo 'File gnuchess.c is complete' &&
+chmod 0664 gnuchess.c ||
+echo 'restore of gnuchess.c failed'
+Wc_c="`wc -c < 'gnuchess.c'`"
+test 79899 -eq "$Wc_c" ||
+	echo 'gnuchess.c: original size 79899, current size' "$Wc_c"
+rm -f _shar_wnt_.tmp
+fi
+# ============= gnuchess.h ==============
+if test -f 'gnuchess.h' -a X"$1" != X"-c"; then
+	echo 'x - skipping gnuchess.h (File already exists)'
+	rm -f _shar_wnt_.tmp
+else
+> _shar_wnt_.tmp
+echo 'x - extracting gnuchess.h (Text)'
+sed 's/^X//' << 'SHAR_EOF' > 'gnuchess.h' &&
+/*
+X  gnuchess.h - Header file for GNU CHESS
+X
+X  Revision: 1990-04-18
+X
+X  Copyright (C) 1986, 1987, 1988, 1989, 1990 Free Software Foundation, Inc.
+X
+X  This file is part of CHESS.
+X
+X  CHESS is distributed in the hope that it will be useful, but WITHOUT ANY
+X  WARRANTY.  No author or distributor accepts responsibility to anyone for
+X  the consequences of using it or for whether it serves any particular
+X  purpose or works at all, unless he says so in writing.  Refer to the CHESS
+X  General Public License for full details.
+X
+X  Everyone is granted permission to copy, modify and redistribute CHESS, but
+X  only under the conditions described in the CHESS General Public License.
+X  A copy of this license is supposed to have been given to you along with
+X  CHESS so you can know your rights and responsibilities.  It should be in a
+X  file named COPYING.  Among other things, the copyright notice and this
+X  notice must be preserved on all copies.
+*/
+X
+#include <stdio.h>
+/* <stdio.h */
+extern int fclose (FILE *);
+extern int fscanf (FILE *, const char *, ...);
+extern int fprintf (FILE *, const char *, ...);
+extern int fflush (FILE *);
+#define SEEK_SET 0
+#define SEEK_END 2
+#ifdef DEBUG
+void ShowDBLine(char *,short int ,short int ,
+X		short int , short int ,short int , 
+X		short unsigned int *);
+extern FILE *debugfd;
+extern short int debuglevel;
+#endif /*DEBUG*/
+X
+#if !defined(__STDC__) || !defined(MSDOS)
+#define const
+#endif
+X
+#ifndef __GNUC__
+#define inline
+#endif
+X
+/*
+X  ttblsz must be a power of 2.
+X  Setting ttblsz 0 removes the transposition tables.
+*/
+#ifdef MSDOS
+#define ttblsz (1 << 11)
+#else
+#define ttblsz (1 << 16)
+#define huge
+#endif /* MSODS */
+X
+#define maxdepth 30
+#define white 0
+#define black 1
+#define neutral 2
+#define no_piece 0
+#define pawn 1
+#define knight 2
+#define bishop 3
+#define rook 4
+#define queen 5
+#define king 6
+#define bpawn 7
+#define pmask 0x0007
+#define promote 0x0008
+#define cstlmask 0x0010
+#define epmask 0x0020
+#define exact 0x0040
+#define pwnthrt 0x0080
+#define check 0x0100
+#define capture 0x0200
+#define draw 0x0400
+#define maxdepth 30
+#define false 0
+#define true 1
+/* #define absv(x) ((x) < 0 ? -(x) : (x)) */
+X
+struct leaf
+{
+X  short f, t, score, reply;
+X  unsigned short flags;
+};
+struct GameRec
+{
+X  unsigned short gmove;
+X  short score, depth, time, piece, color,flags;
+X  long nodes;
+};
+struct TimeControlRec
+{
+X  short moves[2];
+X  long clock[2];
+};
+struct BookEntry
+{
+X  struct BookEntry *next;
+X  unsigned short *mv;
+};
+X
+struct flags
+{
+X  short mate;		/* the game is over */
+X  short post;		/* show principle variation */
+X  short quit;		/* quit/exit gnuchess */
+X  short reverse;	/* reverse board display */
+X  short bothsides;	/* computer plays both sides */
+X  short hash;		/* enable/disable transposition table */
+X  short force;		/* enter moves */
+X  short easy;		/* disable thinking on opponents time */
+X  short beep;		/* enable/disable beep */
+X  short timeout;	/* time to make a move */
+X  short rcptr;		/* enable/disable recapture heuristics */
+};
+X
+extern struct leaf Tree[2000], *root;
+extern char savefile[128], listfile[128];
+extern short TrPnt[maxdepth];
+extern short board[64], color[64];
+extern short PieceList[2][16], PawnCnt[2][8];
+extern short castld[2], Mvboard[64];
+extern short svalue[64];
+extern struct flags flag;
+extern short opponent, computer, Awindow, Bwindow, INCscore;
+extern short dither, player;
+extern short xwndw, epsquare, contempt;
+extern long ResponseTime, ExtraTime, Level, et, et0, time0, ft;
+extern long NodeCnt, ETnodes, EvalNodes, HashAdd,HashCnt, HashCol, FHashCnt, FHashAdd;
+extern short HashDepth, HashMoveLimit;
+extern struct GameRec GameList[200];
+extern short GameCnt, Game50;
+extern short Sdepth, MaxSearchDepth;
+extern struct BookEntry *Book;
+extern struct TimeControlRec TimeControl;
+extern short TCflag, TCmoves, TCminutes, OperatorTime;
+extern const short otherside[3];
+extern const short Stboard[64];
+extern const short Stcolor[64];
+extern unsigned short hint, PrVar[maxdepth];
+extern char *DRAW;
+X
+#define distance(a,b) distdata[a][b]
+#define row(a) ((a) >> 3)
+#define column(a) ((a) & 7)
+#define locn(a,b) (((a) << 3) | b)
+extern short distdata[64][64];
+X
+/* gnuchess.c external functions */
+extern void NewGame (void);
+/* book.c */
+extern int parse (FILE * fd, short unsigned int *mv, short int side);
+extern void GetOpenings (void);
+extern void OpeningBook (unsigned short int *hint);
+/* search.c */
+extern void repetition (short int *cnt);
+extern void SelectMove (short int side, short int iop);
+extern int search (short int side,
+X		   short int ply,
+X		   short int depth,
+X		   short int alpha,
+X		   short int beta,
+X		   short unsigned int *bstline,
+X		   short int *rpt);
+/* tran.c */
+#if ttblsz
+extern int ProbeTTable (short int side,
+X			short int depth,
+X			short int *alpha,
+X			short int *beta,
+X			short int *score);
+extern int PutInTTable (short int side,
+X			 short int score,
+X			 short int depth,
+X			 short int alpha,
+X			 short int beta,
+X			 short unsigned int mv);
+extern void ZeroTTable (void);
+extern void ZeroRPT (void);
+#ifdef HASHFILE
+extern unsigned int urand(void);
+extern void srand(unsigned int);
+extern int ProbeFTable (short int side,
+X			short int depth,
+X			short int *alpha,
+X			short int *beta,
+X			short int *score);
+extern void PutInFTable (short int side,
+X			 short int score,
+X			 short int depth,
+X			 short int alpha,
+X			 short int beta,
+X			 short unsigned int f,
+X			 short unsigned int t);
+#endif /* HASHFILE */
+#endif /* ttblsz */
+/* move.c */
+extern void Initialize_moves (void);
+extern void MoveList (short int side, short int ply);
+extern void CaptureList (short int side, short int ply);
+extern int castle (short int side, short int kf, short int kt, short int iop);
+extern void MakeMove (short int side,
+X		      struct leaf * node,
+X		      short int *tempb,
+X		      short int *tempc,
+X		      short int *tempsf,
+X		      short int *tempst,
+X		      short int *INCscore);
+extern void UnmakeMove (short int side,
+X			struct leaf * node,
+X			short int *tempb,
+X			short int *tempc,
+X			short int *tempsf,
+X			short int *tempst);
+extern void InitializeStats (void);
+/* eval.c */
+extern int SqAtakd (short int sq, short int side);
+extern int evaluate (short int side,
+X		     short int ply,
+X		     short int alpha,
+X		     short int beta,
+X		     short int INCscore,
+X		     short int *slk,
+X		     short int *InChk);
+extern void ScoreLoneKing (short int side, short int *score);
+extern void ScorePosition (short int side, short int *score);
+extern void ExaminePosition (void);
+extern void UpdateWeights (void);
+X
+/* *dsp.c external functions */
+extern void Initialize (void);
+extern void InputCommand (void);
+extern void ExitChess (void);
+extern void ClrScreen (void);
+extern void SetTimeControl (void);
+extern void SelectLevel (void);
+extern void UpdateDisplay (short int f,
+X			   short int t,
+X			   short int flag,
+X			   short int iscastle);
+extern void ElapsedTime (short int iop);
+extern void ShowSidetoMove (void);
+extern void SearchStartStuff (short int side);
+extern void ShowDepth (char ch);
+extern void ShowResults (short int score,
+X			 short unsigned int *bstline,
+X			 char ch);
+extern void algbr (short int f, short int t, short int flag);
+extern void OutputMove (void);
+extern void ShowCurrentMove (short int pnt, short int f, short int t);
+extern void ListGame (void);
+extern void ShowMessage (char *s);
+extern void ClrScreen (void);
+extern void gotoXY (short int x, short int y);
+extern void ClrEoln (void);
+extern void DrawPiece (short int sq);
+extern void UpdateClocks (void);
+extern void ShowLine (short unsigned int *bstline);
+X
+SHAR_EOF
+chmod 0664 gnuchess.h ||
+echo 'restore of gnuchess.h failed'
+Wc_c="`wc -c < 'gnuchess.h'`"
+test 7534 -eq "$Wc_c" ||
+	echo 'gnuchess.h: original size 7534, current size' "$Wc_c"
+rm -f _shar_wnt_.tmp
+fi
+# ============= nondsp.c ==============
+if test -f 'nondsp.c' -a X"$1" != X"-c"; then
+	echo 'x - skipping nondsp.c (File already exists)'
+	rm -f _shar_wnt_.tmp
+else
+> _shar_wnt_.tmp
+echo 'x - extracting nondsp.c (Text)'
+sed 's/^X//' << 'SHAR_EOF' > 'nondsp.c' &&
+/*
+X  nondsp.c - UNIX & MSDOS NON-DISPLAY, AND CHESSTOOL interface for Chess
+X
+X  Revision: 1991-04-15
+X
+X  Copyright (C) 1986, 1987, 1988, 1989, 1990 Free Software Foundation, Inc.
+X  Copyright (c) 1988, 1989, 1990  John Stanback
+X
+X  This file is part of CHESS.
+X
+X  CHESS is distributed in the hope that it will be useful, but WITHOUT ANY
+X  WARRANTY.  No author or distributor accepts responsibility to anyone for
+X  the consequences of using it or for whether it serves any particular
+X  purpose or works at all, unless he says so in writing.  Refer to the CHESS
+X  General Public License for full details.
+X
+X  Everyone is granted permission to copy, modify and redistribute CHESS, but
+X  only under the conditions described in the CHESS General Public License.
+X  A copy of this license is supposed to have been given to you along with
+X  CHESS so you can know your rights and responsibilities.  It should be in a
+X  file named COPYING.  Among other things, the copyright notice and this
+X  notice must be preserved on all copies.
+*/
+X
+#include <ctype.h>
+#include <signal.h>
+#ifdef MSDOS
+#include <dos.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#else
+#include <sys/param.h>
+#include <sys/types.h>
+#include <sys/file.h>
+#include <sys/ioctl.h>
+void TerminateSearch (int), Die (int);
+#endif /* MSDOS */
+X
+#include "gnuchess.h"
+X
+#define pxx " PNBRQK"
+#define qxx " pnbrqk"
+#define rxx "12345678"
+#define cxx "abcdefgh"
+#define printz printf
+#define scanz scanf
+char Analysis[128] = "";
+short int MV[29];
+int MSCORE;
+#ifdef DEBUG
+short int debuglevel = 0;
+FILE *debugfd;
+#endif /*DEBUG*/
+#ifdef CHESSTOOL
+short int chesstool = 1;
+#else
+short int chesstool = 0;
+#endif /*CHESSTOOL*/
+char mvstr[4][6];
+static char *ColorStr[2] =
+{"White", "Black"};
+static long evrate;
+static int mycnt1, mycnt2;
+static int ahead;
+char *DRAW;
+X
+void
+Initialize (void)
+{
+X  mycnt1 = mycnt2 = 0;
+#ifdef CHESSTOOL
+X  setlinebuf (stdout);
+X  /* setvbuf(stdout,NULL,_IOLBF,BUFSIZ); */
+X  printf ("Chess\n");
+X  if (Level == 0 && !TCflag)
+X    Level = 15;
+#endif /* CHESSTOOL */
+}
+X
+void
+ExitChess (void)
+{
+X  ListGame ();
+X  exit (0);
+}
+X
+#ifndef MSDOS				/* never called!!! */
+void
+Die (int sig)
+{
+X  char s[80];
+X  ShowMessage ("Abort? ");
+X  scanz ("%s", s);
+X  if (strcmp (s, "yes") == 0)
+X    ExitChess ();
+}
+X
+#endif /* MSDOS */
+X
+void
+TerminateSearch (int sig)
+{
+#ifdef MSDOS
+X  sig++;				/* shut up the compiler */
+#endif /* MSDOS */
+X  flag.timeout = true;
+X  flag.bothsides = false;
+}
+X
+void
+algbr (short int f, short int t, short int flag)
+X
+X
+/*
+X   Generate move strings in different formats.
+*/
+X
+{
+X  int m3p;
+X
+X  if (f != t)
+X    {
+X      /* algebraic notation */
+X      mvstr[0][0] = cxx[column (f)];
+X      mvstr[0][1] = rxx[row (f)];
+X      mvstr[0][2] = cxx[column (t)];
+X      mvstr[0][3] = rxx[row (t)];
+X      mvstr[0][4] = mvstr[3][0] = '\0';
+X      if (((mvstr[1][0] = pxx[board[f]]) == 'P') || (flag & promote))
+X	{
+X	  if (mvstr[0][0] == mvstr[0][2])	/* pawn did not eat */
+X	    {
+X	      mvstr[2][0] = mvstr[1][0] = mvstr[0][2];	/* to column */
+X	      mvstr[2][1] = mvstr[1][1] = mvstr[0][3];	/* to row */
+X	      m3p = 2;
+X	    }
+X	  else
+X	    /* pawn ate */
+X	    {
+X	      mvstr[2][0] = mvstr[1][0] = mvstr[0][0];	/* from column */
+X	      mvstr[2][1] = mvstr[1][1] = mvstr[0][2];	/* to column */
+X	      mvstr[2][2] = mvstr[0][3];
+X	      m3p = 3;			/* to row */
+X	    }
+X	  if (flag & promote)
+X	    {
+X	      mvstr[0][4] = mvstr[1][2] = mvstr[2][m3p] = qxx[flag & pmask];
+X	      mvstr[1][3] = mvstr[2][m3p + 1] = mvstr[0][5] = '\0';
+X	    }
+X	  mvstr[2][m3p] = mvstr[1][2] = '\0';
+X	}
+X      else
+X	/* not a pawn */
+X	{
+X	  mvstr[2][0] = mvstr[1][0];
+X	  mvstr[2][1] = mvstr[0][1];
+X	  mvstr[2][2] = mvstr[1][1] = mvstr[0][2];	/* to column */
+X	  mvstr[2][3] = mvstr[1][2] = mvstr[0][3];	/* to row */
+X	  mvstr[2][4] = mvstr[1][3] = '\0';
+X	  strcpy (mvstr[3], mvstr[2]);
+X	  mvstr[3][1] = mvstr[0][0];
+X	  if (flag & cstlmask)
+X	    {
+X	      if (t > f)
+X		{
+X		  strcpy (mvstr[1], "o-o");
+X		  strcpy (mvstr[2], "O-O");
+X		}
+X	      else
+X		{
+X		  strcpy (mvstr[1], "o-o-o");
+X		  strcpy (mvstr[2], "O-O-O");
+X		}
+X	    }
+X	}
+X    }
+X  else
+X    mvstr[0][0] = mvstr[1][0] = mvstr[2][0] = mvstr[3][0] = '\0';
+}
+X
+X
+int
+VerifyMove (char *s, short int iop, short unsigned int *mv)
+X
+/*
+X   Compare the string 's' to the list of legal moves available for the
+X   opponent. If a match is found, make the move on the board.
+*/
+X
+{
+X  static short pnt, tempb, tempc, tempsf, tempst, cnt;
+X  static struct leaf xnode;
+X  struct leaf *node;
+X
+X  *mv = 0;
+X  if (iop == 2)
+X    {
+X      UnmakeMove (opponent, &xnode, &tempb, &tempc, &tempsf, &tempst);
+X      return (false);
+X    }
+X  cnt = 0;
+X  MoveList (opponent, 2);
+X  pnt = TrPnt[2];
+X  while (pnt < TrPnt[3])
+X    {
+X      node = &Tree[pnt++];
+X      algbr (node->f, node->t, (short) node->flags);
+X      if (strcmp (s, mvstr[0]) == 0 || strcmp (s, mvstr[1]) == 0 ||
+X	  strcmp (s, mvstr[2]) == 0 || strcmp (s, mvstr[3]) == 0)
+X	{
+X	  cnt++;
+X	  xnode = *node;
+X	}
+X    }
+X  if (cnt == 1)
+X    {
+X      MakeMove (opponent, &xnode, &tempb, &tempc, &tempsf, &tempst, &INCscore);
+X      if (SqAtakd (PieceList[opponent][0], computer))
+X	{
+X	  UnmakeMove (opponent, &xnode, &tempb, &tempc, &tempsf, &tempst);
+X	  printz ("Illegal move..(you are in check)\n");
+X	  return (false);
+X	}
+X      else
+X	{
+X	  if (iop == 1)
+X	    return (true);
+X	  UpdateDisplay (xnode.f, xnode.t, 0, (short) xnode.flags);
+X	  if ((board[xnode.t] == pawn)
+X	      || (xnode.flags & capture)
+X	      || (xnode.flags & cstlmask))
+X	    {
+X	      Game50 = GameCnt;
+X	      ZeroRPT ();
+X	    }
+X	  GameList[GameCnt].depth = GameList[GameCnt].score = 0;
+X	  GameList[GameCnt].nodes = 0;
+X	  ElapsedTime (1);
+X	  GameList[GameCnt].time = (short) et;
+X	  TimeControl.clock[opponent] -= et;
+X	  --TimeControl.moves[opponent];
+X	  *mv = (xnode.f << 8) | xnode.t;
+X	  algbr (xnode.f, xnode.t, false);
+X	  return (true);
+X	}
+X    }
+#ifdef CHESSTOOL
+X  printz ("Illegal move (no matching move generated)");
+X  printz ("%s ", s);
+#ifdef DEBUG
+X  if (true)
+X    {
+X      short r, c, l;
+X      pnt = TrPnt[2];
+X      fprintf (debugfd, "Illegal Move\nInput move is |%s|\n", s);
+X      fprintf (debugfd, "Generated moves are:\n");
+X      while (pnt < TrPnt[3])
+X	{
+X	  node = &Tree[pnt++];
+X	  algbr (node->f, node->t, (short) node->flags);
+X	  fprintf (debugfd, "|%s|%s|%s|%s|\n", mvstr[0], mvstr[1], mvstr[2], mvstr[3]);
+X	}
+X      fprintf (debugfd, "\nCurrent board is:\n");
+X      for (r = 7; r >= 0; r--)
+X	{
+X	  for (c = 0; c <= 7; c++)
+X	    {
+X	      l = locn (r, c);
+X	      if (color[l] == neutral)
+X		fprintf (debugfd, " -");
+X	      else if (color[l] == white)
+X		fprintf (debugfd, " %c", qxx[board[l]]);
+X	      else
+X		fprintf (debugfd, " %c", pxx[board[l]]);
+X	    }
+X	  fprintf (debugfd, "\n");
+X	}
+X      fprintf (debugfd, "\n");
+X    }
+#endif /* DEBUG*/
+#else
+X  if (cnt > 1)
+X    ShowMessage ("Ambiguous Move!");
+#endif /*CHESSTOOL*/
+X  return (false);
+}
+X
+void
+help (void)
+{
+X  ClrScreen ();
+X  printz ("CHESS command summary\n");
+X  printz ("----------------------------------------------------------------\n");
+X  printz ("g1f3      move from g1 to f3      quit      Exit Chess\n");
+X  printz ("Nf3       move knight to f3       beep      on/off\n");
+X  printz ("o-o       castle king side        easy      on/off\n");
+X  printz ("o-o-o     castle queen side       hash      on/off\n");
+X  printz ("bd        redraw board            reverse   board display\n");
+X  printz ("list      game to chess.lst       book      on/off\n");
+X  printz ("undo      undo last ply           remove    take back a move\n");
+X  printz ("edit      edit board              force     enter game moves\n");
+X  printz ("switch    sides with computer     both      computer match\n");
+X  printz ("white     computer plays white    black     computer plays black\n");
+X  printz ("depth     set search depth        clock     set time control\n");
+X  printz ("post      principle variation     hint      suggest a move\n");
+X  printz ("save      game to file            get       game from file\n");
+X  printz ("random    randomize play          new       start new game\n");
+X  printz ("----------------------------------------------------------------\n");
+X  printz ("Computer: %-12s Opponent:            %s\n",
+X	  ColorStr[computer], ColorStr[opponent]);
+X  printz ("Depth:    %-12d Response time:       %d sec\n",
+X	  MaxSearchDepth, Level);
+X  printz ("Random:   %-12s Easy mode:           %s\n",
+X	  (dither) ? "ON" : "OFF", (flag.easy) ? "ON" : "OFF");
+X  printz ("Beep:     %-12s Transposition table: %s\n",
+X	  (flag.beep) ? "ON" : "OFF", (flag.hash) ? "ON" : "OFF");
+X  signal (SIGINT, TerminateSearch);
+#ifndef MSDOS
+X  signal (SIGQUIT, TerminateSearch);
+#endif /* MSDOS */
+}
+X
+void
+EditBoard (void)
+/*
+X   Set up a board position. Pieces are entered by typing the piece followed
+X   by the location. For example, Nf3 will place a knight on square f3.
+*/
+X
+{
+X  short a, r, c, sq, i;
+X  char s[80];
+X
+X  ClrScreen ();
+X  UpdateDisplay (0, 0, 1, 0);
+X  printz (".   exit to main\n");
+X  printz ("#   clear board\n");
+X  printz ("c   change sides\n");
+X  printz ("enter piece & location: \n");
+X
+X  a = white;
+X  do
+X    {
+X      scanz ("%s", s);
+X      if (s[0] == '#')
+X	for (sq = 0; sq < 64; sq++)
+X	  {
+X	    board[sq] = no_piece;
+X	    color[sq] = neutral;
+X	  }
+X      if (s[0] == 'c' || s[0] == 'C')
+X	a = otherside[a];
+X      c = s[1] - 'a';
+X      r = s[2] - '1';
+X      if ((c >= 0) && (c < 8) && (r >= 0) && (r < 8))
+X	{
+X	  sq = locn (r, c);
+X	  color[sq] = a;
+X	  board[sq] = no_piece;
+X	  for (i = no_piece; i <= king; i++)
+X	    if ((s[0] == pxx[i]) || (s[0] == qxx[i]))
+X	      {
+X		board[sq] = i;
+X		break;
+X	      }
+X	}
+X  } while (s[0] != '.');
+X  for (sq = 0; sq < 64; sq++)
+X    Mvboard[sq] = (board[sq] != Stboard[sq]) ? 10 : 0;
+X  GameCnt = 0;
+X  Game50 = 1;
+X  ZeroRPT ();
+X  InitializeStats ();
+X  ClrScreen ();
+X  UpdateDisplay (0, 0, 1, 0);
+}
+X
+void
+SetupBoard (void)
+X
+/*
+X   Compatibility with Unix chess and the nchesstool.
+X   Set up a board position. Eight lines of eight characters are used
+X   to setup the board. a8-h8 is the first line.
+X   Black pieces are  represented  by  uppercase characters.
+*/
+X
+{
+X  short r, c, sq, i;
+X  char ch;
+X  char s[80];
+X
+X  NewGame ();
+X
+X  gets (s);				/* skip "setup" command */
+X  for (r = 7; r >= 0; r--)
+X    {
+X      gets (s);
+X      for (c = 0; c <= 7; c++)
+X	{
+X	  ch = s[c];
+X	  sq = locn (r, c);
+X	  color[sq] = neutral;
+X	  board[sq] = no_piece;
+X	  for (i = no_piece; i <= king; i++)
+X	    if (ch == pxx[i])
+X	      {
+X		color[sq] = black;
+X		board[sq] = i;
+X		break;
+X	      }
+X	    else if (ch == qxx[i])
+X	      {
+X		color[sq] = white;
+X		board[sq] = i;
+X		break;
+X	      }
+X	}
+X    }
+X  for (sq = 0; sq < 64; sq++)
+X    Mvboard[sq] = (board[sq] != Stboard[sq]) ? 10 : 0;
+X  InitializeStats ();
+X  ClrScreen ();
+X  UpdateDisplay (0, 0, 1, 0);
+X  printz ("Setup successful\n");
+}
+X
+void
+ShowDepth (char ch)
+{
+#ifdef MSDOS
+X  ch++;					/* shut up the compiler */
+#endif /* MSDOS */
+}
+X
+#ifdef DEBUG
+void
+ShowDBLine (const char *x, short int ply, short int depth,
+X	    short int alpha, short int beta, short int score,
+X	    short unsigned int *bstline)
+{
+X  register int i;
+X  if (debuglevel > 2)
+X    {
+X      fprintf (debugfd, "%s ply %d depth %d alpha %d beta %d score %d",
+X	       x, ply, depth, alpha, beta, score);
+X      for (i = 1; bstline[i] != 0; i++)
+X	{
+X	  if ((i > 1) && (i % 8 == 1))
+X	    fprintf (debugfd, "\n                          ");
+X	  algbr ((short) (bstline[i] >> 8), (short) (bstline[i] & 0xFF), false);
+X	  fprintf (debugfd, "%5s ", mvstr[0]);
+X	}
+X      fprintf (debugfd, "\n");
+X    }
+}
+X
+#endif /*DEBUG*/
+X
+void
+ShowLine (short unsigned int *bstline)
+{
+X  register int i;
+X  for (i = 1; bstline[i] > 0; i++)
+X    {
+X      if ((i > 1) && (i % 8 == 1))
+X	fprintf (stderr, "\n                          ");
+X      algbr ((short) (bstline[i] >> 8), (short) (bstline[i] & 0xFF), false);
+X      fprintf (stderr, "%5s ", mvstr[0]);
+X    }
+X  fprintf (stderr, "\n");
+}
+X
+void
+ShowResults (short int score, short unsigned int *bstline, char ch)
+{
+X  register int i;
+#ifndef CHESSTOOL
+X  if (flag.post)
+X    {
+X      fprintf (stderr, "%2d%c %6d %4ld %8ld  ", Sdepth, ch, score, et, NodeCnt);
+X      ShowLine (bstline);
+X    }
+#else
+X  MSCORE = score;
+X  for (i = 1; bstline[i] > 0; i++)
+X    {
+X      MV[i] = bstline[i];
+X    } MV[i] = 0;
+#endif /* CHESSTOOL */
+}
+X
+void
+SearchStartStuff (short int side)
+{
+X  signal (SIGINT, TerminateSearch);
+#ifndef MSDOS
+X  signal (SIGQUIT, TerminateSearch);
+#endif /* MSDOS */
+#ifndef CHESSTOOL
+X  if (flag.post)
+X    {
+X      fprintf (stderr, "\nMove# %d    Target= %ld    Clock: %ld\n",
+X	       TCmoves - TimeControl.moves[side] + 1,
+X	       ResponseTime, TimeControl.clock[side]);
+X    }
+#endif /* CHESSTOOL */
+}
+X
+void
+OutputMove (void)
+{
+X  printz ("%d. ... %s\n", ++mycnt1, mvstr[0]);
+#ifdef DEBUG
+X  fprintf (debugfd,"%d. ... %s\n", ++mycnt1, mvstr[0]);
+#endif /*DEBUG*/
+X  if (root->flags & draw)
+X    {
+X      printz ("Draw %s\n", DRAW);
+X      ExitChess ();
+X    }
+X  if (root->score == -9999)
+X    {
+X      printz ("%s\n", ColorStr[opponent]);
+X      ExitChess ();
+X    }
+X  if (root->score == 9998)
+X    {
+X      printz ("%s\n", ColorStr[computer]);
+X      ExitChess ();
+X    }
+#ifndef CHESSTOOL
+X  if (flag.post)
+X    {
+X      fprintf (stderr, "Nodes= %ld  Eval= %ld  Rate= %ld  ",
+X	       NodeCnt, EvalNodes, evrate);
+X      fprintf (stderr, "Hin/Hout/Coll/Fin/Fout = %ld/%ld/%ld/%ld/%ld\n",
+X	       HashAdd, HashCnt, HashCol, FHashAdd, FHashCnt);
+X    }
+#endif /* CHESSTOOL */
+X  UpdateDisplay (root->f, root->t, 0, root->flags);
+X  fprintf (stderr, "My move is: %s\n", mvstr[0]);
+#ifdef DEBUG
+X  fprintf (debugfd, "My move is: %s\n", mvstr[0]);
+#endif /* DEBUG */
+X  if (flag.beep)
+X    printz ("%c", 7);
+X
+X  if (root->flags & draw)
+X    fprintf (stderr, "Drawn game!\n");
+X  else if (root->score == -9999)
+X    fprintf (stderr, "opponent mates!\n");
+X  else if (root->score == 9998)
+X    fprintf (stderr, "computer mates!\n");
+X  else if (root->score < -9000)
+X    fprintf (stderr, "opponent will soon mate!\n");
+X  else if (root->score > 9000)
+X    fprintf (stderr, "computer will soon mate!\n");
+}
+X
+void
+ElapsedTime (short int iop)
+X
+X
+/*
+X   Determine the time that has passed since the search was started. If the
+X   elapsed time exceeds the target (ResponseTime+ExtraTime) then set timeout
+X   to true which will terminate the search.
+*/
+X
+{
+X  if (ahead)
+X    {
+#ifndef MSDOS
+X      long nchar;
+X      ioctl (0, FIONREAD, &nchar);
+X      if (nchar)
+#else
+X      if (kbhit ())
+#endif /* MSDOS */
+X	{
+X	  flag.timeout = true;
+X	  flag.bothsides = false;
+X	}
+X    }
+X  et = time ((long *) 0) - time0;
+X  if (et < 0)
+X    et = 0;
+X  ETnodes += 50;
+X  if (et > et0 || iop == 1)
+X    {
+X      if (et > ResponseTime + ExtraTime && Sdepth > 1)
+X	flag.timeout = true;
+X      et0 = et;
+X      if (iop == 1)
+X	{
+X	  time0 = time ((long *) 0);
+X	  et0 = 0;
+X	}
+X      if (et > 0)
+X	/* evrate used to be Nodes / cputime I dont` know why */
+X	evrate = NodeCnt / (et + ft);
+X      else
+X	evrate = 0;
+X      ETnodes = NodeCnt + 50;
+X    }
+}
+X
+void
+SetTimeControl (void)
+{
+X  if (TCflag)
+X    {
+X      TimeControl.moves[white] = TimeControl.moves[black] = TCmoves;
+X      TimeControl.clock[white] = TimeControl.clock[black] = 60L * TCminutes;
+X    }
+X  else
+X    {
+X      TimeControl.moves[white] = TimeControl.moves[black] = 0;
+X      TimeControl.clock[white] = TimeControl.clock[black] = 0;
+X      Level = 60L * TCminutes;
+X    }
+X  et = 0;
+X  ElapsedTime (1);
+}
+X
+void
+ClrScreen (void)
+{
+#ifndef CHESSTOOL
+X  printz ("\n");
+#endif
+}
+X
+void
+UpdateDisplay (short int f, short int t, short int redraw, short int isspec)
+{
+X
+X  short r, c, l;
+X  if (redraw && !chesstool)
+X    {
+X      printz ("\n");
+X      for (r = 7; r >= 0; r--)
+X	{
+X	  for (c = 0; c <= 7; c++)
+X	    {
+X	      l = (flag.reverse) ? locn (7 - r, 7 - c) : locn (r, c);
+X	      if (color[l] == neutral)
+X		printz (" -");
+X	      else if (color[l] == white)
+X		printz (" %c", qxx[board[l]]);
+X	      else
+X		printz (" %c", pxx[board[l]]);
+X	    }
+X	  printz ("\n");
+X	}
+X      printz ("\n");
+X    }
+}
+X
+char *InPtr;
+void
+skip ()
+{
+X  while (*InPtr != ' ')
+X    InPtr++;
+X  while (*InPtr == ' ')
+X    InPtr++;
+}
+void
+skipb ()
+{
+X  while (*InPtr == ' ')
+X    InPtr++;
+}
+int
+parser (char *f, int side)
+{
+X  int c1, r1, c2, r2;
+X  if (f[4] == 'o')
+X    if (side == black)
+X      return 0x3C3A;
+X    else
+X      return 0x0402;
+X  else if (f[0] == 'o')
+X    if (side == black)
+X      return 0x3C3E;
+X    else
+X      return 0x0406;
+X  else
+X    {
+X      c1 = f[0] - 'a';
+X      r1 = f[1] - '1';
+X      c2 = f[2] - 'a';
+X      r2 = f[3] - '1';
+X      return (locn (r1, c1) << 8) | locn (r2, c2);
+X    }
+X  return (0);
+}
+X
+void
+GetGame (void)
+{
+X  FILE *fd;
+X  char fname[256], *p;
+X  int c, i, j;
+X  short sq;
+X  unsigned short m;
+X  printz ("Enter file name: ");
+X  scanz ("%s", fname);
+X  if (fname[0] == '\0')
+X    strcpy (fname, "chess.000");
+X  if ((fd = fopen (fname, "r")) != NULL)
+X    {
+X      fgets (fname, 256, fd);
+X      computer = opponent = white;
+X      InPtr = fname;
+X      skip ();
+X      if (*InPtr == 'c')
+X	computer = black;
+X      else
+X	opponent = black;
+X      skip ();
+X      skip ();
+X      skip ();
+X      Game50 = atoi (InPtr);
+X      fgets (fname, 256, fd);
+X      InPtr = &fname[14];
+X      castld[white] = (*InPtr == 't') ? true : false;
+X      skip ();
+X      skip ();
+X      castld[black] = (*InPtr == 't') ? true : false;
+X      fgets (fname, 256, fd);
+X      InPtr = &fname[11];
+X      skipb ();
+X      TCflag = atoi (InPtr);
+X      skip ();
+X      InPtr += 14;
+X      skipb ();
+X      OperatorTime = atoi (InPtr);
+X      fgets (fname, 256, fd);
+X      InPtr = &fname[11];
+X      skipb ();
+X      TimeControl.clock[white] = atoi (InPtr);
+X      skip ();
+X      skip ();
+X      TimeControl.moves[white] = atoi (InPtr);
+X      fgets (fname, 256, fd);
+X      InPtr = &fname[11];
+X      skipb ();
+X      TimeControl.clock[black] = atoi (InPtr);
+X      skip ();
+X      skip ();
+X      TimeControl.moves[black] = atoi (InPtr);
+X      fgets (fname, 256, fd);
+X      for (i = 7; i > -1; i--)
+X	{
+X	  fgets (fname, 256, fd);
+X	  p = &fname[2];
+X	  InPtr = &fname[11];
+X	  skipb ();
+X	  for (j = 0; j < 8; j++)
+X	    {
+X	      sq = i * 8 + j;
+X	      if (*p == '.')
+X		{
+X		  board[sq] = no_piece;
+X		  color[sq] = neutral;
+X		}
+X	      else
+X		{
+X		  for (c = 0; c < 8; c++)
+X		    {
+X		      if (*p == pxx[c])
+X			{
+X			  board[sq] = c;
+X			  color[sq] = black;
+X			}
+X		    }
+X		  for (c = 0; c < 8; c++)
+X		    {
+X		      if (*p == qxx[c])
+X			{
+X			  board[sq] = c;
+X			  color[sq] = white;
+X			}
+X		    }
+X		}
+X	      p++;
+X	      Mvboard[sq] = atoi (InPtr);
+X	      skip ();
+X	    }
+X	}
+X      GameCnt = 0;
+X      fgets (fname, 256, fd);
+X      fgets (fname, 256, fd);
+X      fgets (fname, 256, fd);
+X      while (fgets (fname, 256, fd))
+X	{
+X	  struct GameRec *g;
+X	  int side = computer;
+X	  side = otherside[side];
+X	  ++GameCnt;
+X	  InPtr = fname;
+X	  skipb ();
+X	  g = &GameList[GameCnt];
+X	  g->gmove = parser (InPtr, side);
+X	  skip ();
+X	  g->score = atoi (InPtr);
+X	  skip ();
+X	  g->depth = atoi (InPtr);
+X	  skip ();
+X	  g->nodes = atoi (InPtr);
+X	  skip ();
+X	  g->time = atoi (InPtr);
+X	  skip ();
+X	  g->flags = c = atoi (InPtr);
+X	  g->piece = no_piece;
+X	  g->color = neutral;
+X	  if (c & (capture | cstlmask))
+X	    {
+X	      if (c & capture)
+X		{
+X		  skip ();
+X		  for (c = 0; c < 8; c++)
+X		    if (pxx[c] == *InPtr)
+X		      break;
+X		  g->piece = c;
+X		}
+X	      skip ();
+X	      g->color = ((*InPtr == 'B') ? black : white);
+X	    }
+X	}
+X      /* GameCnt--;*/
+X      if (TimeControl.clock[white] > 0)
+X	TCflag = true;
+X      fclose (fd);
+X    }
+X  InitializeStats ();
+X  UpdateDisplay (0, 0, 1, 0);
+X  Sdepth = 0;
+}
+X
+void
+GetXGame (void)
+{
+X  FILE *fd;
+X  char fname[256], *p;
+X  int c, i, j;
+X  short sq;
+X  unsigned short m;
+X  strcpy (fname, "xboard.position.read");
+X  if ((fd = fopen (fname, "r")) != NULL)
+X    {
+X      NewGame ();
+X      fgets (fname, 256, fd);
+X      fname[6] = '\0';
+X      if (strcmp (fname, "xboard"))
+X	return;
+X      fgets (fname, 256, fd);
+X      fgets (fname, 256, fd);
+X      for (i = 7; i > -1; i--)
+X	{
+X	  fgets (fname, 256, fd);
+X	  p = fname;
+X	  for (j = 0; j < 8; j++)
+X	    {
+X	      sq = i * 8 + j;
+X	      if (*p == '.')
+X		{
+X		  board[sq] = no_piece;
+X		  color[sq] = neutral;
+X		}
+X	      else
+X		{
+X		  for (c = 0; c < 8; c++)
+X		    {
+X		      if (*p == qxx[c])
+X			{
+X			  board[sq] = c;
+X			  color[sq] = black;
+X			}
+X		    }
+X		  for (c = 0; c < 8; c++)
+X		    {
+X		      if (*p == pxx[c])
+X			{
+X			  board[sq] = c;
+X			  color[sq] = white;
+X			}
+X		    }
+X		}
+X	      p += 2;
+X	    }
+X	}
+X      fclose (fd);
+X    }
+X  ZeroRPT ();
+X  InitializeStats ();
+X  UpdateDisplay (0, 0, 1, 0);
+X  Sdepth = 0;
+}
+X
+void
+SaveGame (void)
+{
+X  FILE *fd;
+X  char fname[256];
+X  short sq, i, c, f, t;
+X  char p;
+X
+X  if (savefile[0])
+X    strcpy (fname, savefile);
+X  else
+X    {
+X      printz ("Enter file name: ");
+X      scanz ("%s", fname);
+X    }
+X
+X  if (fname[0] == '\0')
+X    strcpy (fname, "chess.000");
+X  if ((fd = fopen (fname, "w")) != NULL)
+X    {
+X      char *b, *w;
+X      b = w = "Human";
+X      if (computer == black)
+X	b = "computer";
+X      if (computer == white)
+X	w = "computer";
+X      fprintf (fd, "Black %s White %s %d\n", b, w, Game50);
+X      fprintf (fd, "Castled White %s Black %s\n", castld[white] ? "true" : "false", castld[black] ? "true" : "false");
+X      fprintf (fd, "TimeControl %d Operator Time %d\n", TCflag, OperatorTime);
+X      fprintf (fd, "White Clock %ld Moves %ld\nBlack Clock %d Moves %d\n\n",
+X	       TimeControl.clock[white], TimeControl.moves[white],
+X	       TimeControl.clock[black], TimeControl.moves[black]);
+X      for (i = 7; i > -1; i--)
+X	{
+X	  fprintf (fd, "%1d ", i + 1);
+X	  for (c = 0; c < 8; c++)
+X	    {
+X	      sq = i * 8 + c;
+X	      switch (color[sq])
+X		{
+X		case black:
+X		  p = pxx[board[sq]];
+X		  break;
+X		case white:
+X		  p = qxx[board[sq]];
+X		  break;
+X		default:
+X		  p = '.';
+X		}
+X	      fprintf (fd, "%c", p);
+X	    }
+X	  for (f = i * 8; f < i * 8 + 8; f++)
+X	    fprintf (fd, " %d", Mvboard[f]);
+X	  fprintf (fd, "\n");
+X	}
+X      fprintf (fd, "  %s\n", cxx);
+X      fprintf (fd, "\nmove  score depth  nodes  time flags capture color\n");
+X      for (i = 1; i <= GameCnt; i++)
+X	{
+X	  struct GameRec *g = &GameList[i];
+X	  f = g->gmove >> 8;
+X	  t = (g->gmove & 0xFF);
+X	  algbr (f, t, g->flags);
+X	  fprintf (fd, "%s %5d %5d %7ld %5d %5d   %c   %s\n",
+X		   mvstr[0], g->score, g->depth,
+X		   g->nodes, g->time, g->flags,
+X	       pxx[g->piece], g->color == 2 ? "     " : ColorStr[g->color]);
+X	}
+X      fclose (fd);
+X      printz ("Game saved on file: %s\n", fname);
+X    }
+X  else
+X    printz ("Could not open file: %s", fname);
+}
+X
+void
+ListGame (void)
+{
+X  FILE *fd;
+X  short i, f, t;
+X  char fname[256];
+X  if (listfile[0])
+X    strcpy (fname, listfile);
+X  else
+X    strcpy (fname, "chess.lst");
+X  fd = fopen (fname, "w");
+X  fprintf (fd, "gnuchess\n");
+X  fprintf (fd, "       score  depth   nodes  time         ");
+X  fprintf (fd, "       score  depth   nodes  time\n");
+X  for (i = 1; i <= GameCnt; i++)
+X    {
+X      f = GameList[i].gmove >> 8;
+X      t = (GameList[i].gmove & 0xFF);
+X      algbr (f, t, false);
+X      if ((i % 2) == 0)
+X	fprintf (fd, "         ");
+X      else
+X	fprintf (fd, "\n");
+X      fprintf (fd, "%5s  %5d     %2d %7ld %5d", mvstr[0],
+X	       GameList[i].score, GameList[i].depth,
+X	       GameList[i].nodes, GameList[i].time);
+X    }
+X  fprintf (fd, "\n\n");
+X  fclose (fd);
+}
+X
+void
+Undo (void)
+/*
+X   Undo the most recent half-move.
+*/
+X
+{
+X  short f, t;
+X  f = GameList[GameCnt].gmove >> 8;
+X  t = GameList[GameCnt].gmove & 0xFF;
+X  if (board[t] == king && distance (t, f) > 1)
+X    (void) castle (GameList[GameCnt].color, f, t, 2);
+X  else
+X    {
+X      /* Check for promotion: */
+X      if (GameList[GameCnt].flags & promote)
+X	{
+X	  board[t] = pawn;
+X	}
+X      board[f] = board[t];
+X      color[f] = color[t];
+X      board[t] = GameList[GameCnt].piece;
+X      color[t] = GameList[GameCnt].color;
+X      if (color[t] != neutral)
+X	Mvboard[t]--;
+X      Mvboard[f]--;
+X    }
+X  if (GameList[GameCnt].flags & epmask)
+X    EnPassant (color[t], f, t, 2);
+X  if (TCflag)
+X    ++TimeControl.moves[color[f]];
+X  GameCnt--;
+X  computer = otherside[computer];
+X  opponent = otherside[opponent];
+X  flag.mate = false;
+X  Sdepth = 0;
+X  player = otherside[player];
+X  ShowSidetoMove();
+X  UpdateDisplay (0, 0, 1, 0);
+X  InitializeStats ();
+}
+X
+void
+ShowMessage (char *s)
+{
+X  fprintf (stderr, "%s\n", s);
+}
+X
+void
+ShowSidetoMove (void)
+{
+}
+X
+void
+PromptForMove (void)
+{
+#ifndef CHESSTOOL
+X  printz ("\nYour move is? ");
+#endif /* CHESSTOOL */
+}
+X
+X
+void
+ShowCurrentMove (short int pnt, short int f, short int t)
+{
+#ifdef MSDOS
+X  f++;
+X  t++;
+X  pnt++;				/* shut up the compiler */
+#endif /* MSDOS */
+}
+X
+void
+ChangeAlphaWindow (void)
+{
+X  printz ("window: ");
+X  scanz ("%hd", &Awindow);
+}
+X
+void
+ChangeBetaWindow (void)
+{
+X  printz ("window: ");
+X  scanz ("%hd", &Bwindow);
+}
+X
+void
+SetAnalysis (void)
+{
+X  printz ("game file: ");
+X  scanz ("%s", &Analysis);
+}
+X
+void
+GiveHint (void)
+{
+X  algbr ((short) (hint >> 8), (short) (hint & 0xFF), false);
+X  fprintf (stderr, "Hint: %s\n", mvstr[0]);
+}
+X
+void
+SelectLevel (void)
+{
+X  printz ("Enter #moves #minutes: ");
+X  scanz ("%hd %hd", &TCmoves, &TCminutes);
+X  printz ("Operator time= ");
+X  scanz ("%hd", &OperatorTime);
+X  TCflag = (TCmoves > 1);
+X  SetTimeControl ();
+}
+X
+#ifdef DEBUG
+void
+ChangeDbLev (void)
+{
+X  printz ("debuglevel= ");
+X  scanz ("%hd", &debuglevel);
+}
+X
+#endif /*DEBUG*/
+X
+void
+ChangeSearchDepth (void)
+{
+X  printz ("depth= ");
+X  scanz ("%hd", &MaxSearchDepth);
+}
+X
+ChangeHashDepth (void)
+{
+X  printz ("hashdepth= ");
+X  scanz ("%hd", &HashDepth);
+X  printz ("MoveLimit= ");
+X  scanz ("%hd", &HashMoveLimit);
+}
+X
+void
+SetContempt (void)
+{
+X  printz ("contempt= ");
+X  scanz ("%hd", &contempt);
+}
+X
+void
+ChangeXwindow (void)
+{
+X  printz ("xwndw= ");
+X  scanz ("%hd", &xwndw);
+}
+X
+void
+TestSpeed (void (*f) (short int side, short int ply))
+{
+X  short i;
+X  long cnt, rate, t1, t2;
+X
+X  t1 = time (0);
+X  for (i = 0; i < 10000; i++)
+X    {
+X      f (opponent, 2);
+X    }
+X  t2 = time (0);
+X  cnt = 10000L * (TrPnt[3] - TrPnt[2]);
+X  rate = cnt / (t2 - t1);
+X  printz ("Nodes= %ld Nodes/sec= %ld\n", cnt, rate);
+}
+X
+X
+void
+InputCommand (void)
+/*
+X   Process the users command. If easy mode is OFF (the computer is thinking
+X   on opponents time) and the program is out of book, then make the 'hint'
+X   move on the board and call SelectMove() to find a response. The user
+X   terminates the search by entering ^C (quit siqnal) before entering a
+X   command. If the opponent does not make the hint move, then set Sdepth to
+X   zero.
+*/
+X
+{
+X  int i;
+X  short ok, tmp;
+X  unsigned short mv;
+X  char s[80];
+X
+#ifdef DEBUG
+X  debugfd = fopen ("/tmp/DEBUG", "w");
+#endif /*DEBUG*/
+X  ok = flag.quit = false;
+X  player = opponent;
+X  ft = 0;
+X  if (hint > 0 && !flag.easy && Book == NULL)
+X    {
+X      fflush (stdout);
+X      time0 = time ((long *) 0);
+X      algbr ((short) hint >> 8, (short) hint & 0xFF, false);
+X      strcpy (s, mvstr[0]);
+X      tmp = epsquare;
+X      if (flag.post)
+X	GiveHint ();
+X      if (VerifyMove (s, 1, &mv))
+X	{
+X	  ahead = 1;
+X	  SelectMove (computer, 2);
+X	  VerifyMove (mvstr[0], 2, &mv);
+X	  if (Sdepth > 0)
+X	    Sdepth--;
+X	}
+X      ft = time ((long *) 0) - time0;
+X      epsquare = tmp;
+X    }
+X  ahead = 0;
+X  while (!(ok || flag.quit))
+X    {
+X      PromptForMove ();
+X      i = scanz ("%s", s);
+X      if (i == EOF || s[0] == 0)
+X	ExitChess ();
+X      player = opponent;
+X      if (strcmp (s, "bd") == 0)
+X	{
+#ifdef CHESSTOOL
+X	  chesstool = 0;
+#endif /*CHESSTOOL*/
+X	  ClrScreen ();
+X	  UpdateDisplay (0, 0, 1, 0);
+#ifdef CHESSTOOL
+X	  chesstool = 1;
+#endif /*CHESSTOOL*/
+X	}
+X      else if (strcmp (s, "alg") == 0) /* noop */ ;
+X      else if ((strcmp (s, "quit") == 0) || (strcmp (s, "exit") == 0))
+X	flag.quit = true;
+X      else if (strcmp (s, "post") == 0)
+X	flag.post = !flag.post;
+X      else if ((strcmp (s, "set") == 0) || (strcmp (s, "edit") == 0))
+X	EditBoard ();
+X      else if (strcmp (s, "setup") == 0)
+X	SetupBoard ();
+X      else if (strcmp (s, "first") == 0)
+X	ok = true;
+X      else if (strcmp (s, "go") == 0)
+X	ok = true;
+X      else if (strcmp (s, "help") == 0)
+X	help ();
+X      else if (strcmp (s, "force") == 0)
+X	flag.force = !flag.force;
+X      else if (strcmp (s, "book") == 0)
+X	Book = NULL;
+X      else if (strcmp (s, "new") == 0)
+X	NewGame ();
+X      else if (strcmp (s, "list") == 0)
+X	ListGame ();
+X      else if (strcmp (s, "level") == 0 || strcmp (s, "clock") == 0)
+X	SelectLevel ();
+X      else if (strcmp (s, "hash") == 0)
+X	flag.hash = !flag.hash;
+X      else if (strcmp (s, "beep") == 0)
+X	flag.beep = !flag.beep;
+X      else if (strcmp (s, "Awindow") == 0)
+X	ChangeAlphaWindow ();
+X      else if (strcmp (s, "Bwindow") == 0)
+X	ChangeBetaWindow ();
+X      else if (strcmp (s, "rcptr") == 0)
+X	flag.rcptr = !flag.rcptr;
+X      else if (strcmp (s, "hint") == 0)
+X	GiveHint ();
+X      else if (strcmp (s, "both") == 0)
+X	{
+X	  flag.bothsides = !flag.bothsides;
+X	  Sdepth = 0;
+X	  ElapsedTime (1);
+X	  SelectMove (opponent, 1);
+X	  ok = true;
+X	}
+X      else if (strcmp (s, "reverse") == 0)
+X	{
+X	  flag.reverse = !flag.reverse;
+X	  ClrScreen ();
+X	  UpdateDisplay (0, 0, 1, 0);
+X	}
+X      else if (strcmp (s, "switch") == 0)
+X	{
+X	  computer = otherside[computer];
+X	  opponent = otherside[opponent];
+X	  flag.force = false;
+X	  Sdepth = 0;
+X	  ok = true;
+X	}
+X      else if (strcmp (s, "white") == 0)
+X	{
+X	  computer = white;
+X	  opponent = black;
+X	  flag.force = false;
+X	  Sdepth = 0;
+X	  /* ok = true;/* don't automatically start with white command */
+X	}
+X      else if (strcmp (s, "black") == 0)
+X	{
+X	  computer = black;
+X	  opponent = white;
+X	  flag.force = false;
+X	  Sdepth = 0;
+X	  /* ok = true;/* don't automatically start with black command */
+X	}
+X      else if (strcmp (s, "undo") == 0 && GameCnt > 0)
+X	Undo ();
+X      else if (strcmp (s, "remove") == 0 && GameCnt > 1)
+X	{
+X	  Undo ();
+X	  Undo ();
+X	}
+X      else if (strcmp (s, "get") == 0)
+X	GetGame ();
+X      else if (strcmp (s, "xget") == 0)
+X	GetXGame ();
+X      else if (strcmp (s, "save") == 0)
+X	SaveGame ();
+X      else if (strcmp (s, "depth") == 0)
+X	ChangeSearchDepth ();
+#ifdef DEBUG
+X      else if (strcmp (s, "debuglevel") == 0)
+X	ChangeDbLev ();
+#endif /*DEBUG*/
+X      else if (strcmp (s, "hashdepth") == 0)
+X	ChangeHashDepth ();
+X      else if (strcmp (s, "random") == 0)
+X	dither = 6;
+X      else if (strcmp (s, "easy") == 0)
+X	flag.easy = !flag.easy;
+X      else if (strcmp (s, "contempt") == 0)
+X	SetContempt ();
+X      else if (strcmp (s, "xwndw") == 0)
+X	ChangeXwindow ();
+X      else if (strcmp (s, "test") == 0)
+X	{
+X	  ShowMessage ("Testing MoveList Speed");
+X	  TestSpeed (MoveList);
+X	  ShowMessage ("Testing CaptureList Speed");
+X	  TestSpeed (CaptureList);
+X	}
+X      else
+X	{
+X	  ok = VerifyMove (s, 0, &mv);
+X	  if (ok && mv != hint)
+X	    {
+X	      Sdepth = 0;
+X	      ft = 0;
+X	    }
+X	}
+X    }
+X
+X  ElapsedTime (1);
+X  if (flag.force)
+X    {
+X      computer = opponent;
+X      opponent = otherside[computer];
+X    }
+#ifdef CHESSTOOL
+X  printf ("%d. %s", ++mycnt2, s);
+X  if (flag.post)
+X    {
+X      register int i;
+X      printf (" %6d ", MSCORE);
+X      for (i = 1; MV[i] > 0; i++)
+X	{
+X	  algbr ((short) (MV[i] >> 8), (short) (MV[i] & 0xFF), false);
+X	  printf ("%5s ", mvstr[0]);
+X	}
+X    }
+X  printf ("\n");
+#endif /* CHESSTOOL */
+X  signal (SIGINT, TerminateSearch);
+#ifndef MSDOS
+X  signal (SIGQUIT, TerminateSearch);
+#endif /* MSDOS */
+}
+SHAR_EOF
+chmod 0664 nondsp.c ||
+echo 'restore of nondsp.c failed'
+Wc_c="`wc -c < 'nondsp.c'`"
+test 30778 -eq "$Wc_c" ||
+	echo 'nondsp.c: original size 30778, current size' "$Wc_c"
+rm -f _shar_wnt_.tmp
+fi
+# ============= nuxdsp.c ==============
+if test -f 'nuxdsp.c' -a X"$1" != X"-c"; then
+	echo 'x - skipping nuxdsp.c (File already exists)'
+	rm -f _shar_wnt_.tmp
+else
+> _shar_wnt_.tmp
+echo 'x - extracting nuxdsp.c (Text)'
+sed 's/^X//' << 'SHAR_EOF' > 'nuxdsp.c' &&
+/* nuxdsp.c - (new)  ALPHA interface for CHESS
+X
+X  Revision: 1991-04-15
+X
+X  Copyright (C) 1986, 1987, 1988, 1989, 1990 Free Software Foundation, Inc.
+X  Copyright (c) 1988, 1989, 1990  John Stanback
+X
+X  Modified extensively Nov 1989 Christopher North-Keys
+SHAR_EOF
+true || echo 'restore of nuxdsp.c failed'
+fi
+echo 'End of  part 5'
+echo 'File nuxdsp.c is continued in part 6'
+echo 6 > _shar_seq_.tmp
+exit 0
+exit 0 # Just in case...
+-- 
+Kent Landfield                   INTERNET: kent@sparky.IMD.Sterling.COM
+Sterling Software, IMD           UUCP:     uunet!sparky!kent
+Phone:    (402) 291-8300         FAX:      (402) 291-4362
+Please send comp.sources.misc-related mail to kent@uunet.uu.net.
+
+

@@ -1,0 +1,132 @@
+#Alexander Kotov: Think like a grandmaster.
+#B.T. Batsford ltd, 1971. ISBN=0-7134-3160-1.
+#
+#I have tried to use "!" to indicate a move that kotov thinks is
+#clearly *the* unique best move in this position. Moves without "!" are
+#just good moves, not so clear they are the only good moves. Hence
+#perhaps don't be too worried if you choose another. This differs from
+#my normal convention, which is that the answer is the answer,
+#regardless of "!"s.
+#
+#I should really have gone thru carelfully and removed all positions
+#from the present set, in which there was not a unique best move, but I
+#was lazy (or prefered to keep the data intact) so I didn't.
+#
+#As usual, moves with "?" are definitely bad and you should be
+#penalized for choosing them.
+#
+1brr2k1/1b3pp1/pp2pqnp/4N2Q/3P4/1B4R1/PP1B1PPP/4R1K1/w Ne5g4 (Kotov_TLaG) #1
+r1r3k1/p4ppp/bpq1Nn2/4R3/1PBR4/2Q1PP2/6PP/6K1/w Pb4b5! (Kotov_TLaG) #3
+3b1kn1/6p1/3q1p2/4pPP1/pP1pP1N1/3P1NQ1/1rr5/5RRK/w Qg3h3! (Kotov_TLaG) #4
+5rk1/6pp/5P2/1q4P1/1pp2Q1P/7K/1P1p4/2B2R2/b Qb5d7+! (Kotov_TLaG) #11
+3q1rk1/pp2ppbp/6p1/5b2/3p1Q2/1P1P1NP1/P1r1PPBP/R2K3R/b Qd8a5 (Kotov_TLaG) #12
+2k1b3/p4nQ1/1p1q4/2pPpPpB/2P1P3/P1P2P2/5K2/8/b Qd6h6! (Kotov_TLaG) #13
+r1bq1rk1/2pp1ppp/p4n2/1p2P3/5P2/1BP5/P1P3PP/R1BQK2R/b Pc7c5! (Kotov_TLaG) #15
+2k5/2b5/pp6/4p3/1P4P1/1KP2p2/1P1R4/8/w Rd2d5! (Kotov_TLaG) #16
+r4rk1/p4ppp/qp2p3/b5B1/n1R5/5N2/PP2QPPP/1R4K1/w Bg5f6! (Kotov_TLaG) #17
+4r1k1/1p3ppp/pb6/2npq1B1/3N4/Q1P3N1/PP3KPP/3R4/w Pb2b4! (Kotov_TLaG) #20
+4r1k1/1p3ppp/pb3q2/2np4/8/Q1P2NN1/PP3KPP/2BR4/b Qf6g6! (Kotov_TLaG) #20a
+1r4nk/1p1qb2p/3p1r2/p1pPp3/2P1Pp2/5P1P/PP1QNBRK/5R2/b Qd7xPh3+! (Kotov_TLaG) #22
+r2q1rk1/p1p2p2/bp2p1np/n2pP1p1/2PP3B/P1P2P1N/2Q3PP/RB2K2R/w Nh3f4! (Kotov_TLaG) #23
+r4rk1/pp4b1/2bpp2p/4q1p1/2P3p1/1P1QP3/P3NPP1/1BR2RK1/b Kg8f7! (Kotov_TLaG) #24
+5bk1/2n1qr2/p1Q2pp1/2p1p3/4P3/2N1BPP1/PP6/2KR4/w Qc6b6! (Kotov_TLaG) #25
+rn5k/1p2qpp1/pB1pn2p/4p3/4P1Q1/1BP3P1/PP3P1P/3R2K1/w Qg4h4! (Kotov_TLaG) #26
+r5k1/1n1bpp2/p5pp/3Pq3/1p2pN2/1P2P3/P1R2PPP/3Q1BK1/w Qd1d4! (Kotov_TLaG) #27
+8/p2PB1pk/1p5p/3Qq3/2p3K1/2Pn1P2/6PP/8/w Qd5d6! (Kotov_TLaG) #28
+2r2qk1/1R3n1p/p3p1p1/3pB3/P4Q2/7P/5PP1/6K1/w Be5b2 (Kotov_TLaG) (Qf6 also wins, probably more wins too) #32
+3r2k1/1b3pb1/p3pq2/1p2N3/3P1nQ1/2R3P1/PP3P1P/1B4K1/b Rd8xPd4 (Kotov_TLaG) is simplest win #33
+5rk1/1p3ppp/2q1b3/p2pQ3/2rP4/PnB3P1/1P3PBP/3RR1K1/w Pf2f4 (Kotov_TLaG) #35
+6k1/3bbpp1/p3pn2/1p2q1N1/1P5Q/2N3P1/P3PP1P/2B3K1/w Qh4h8+! (Kotov_TLaG) #36
+5rk1/4Qp1p/n4bp1/p5N1/P4q2/5B1P/1P3P2/2R2RK1/w Qe7xPf7+! (Kotov_TLaG) #37
+3N4/1p6/8/p7/2P2k2/1KP1p3/8/8/w Nd8e6+ (Kotov_TLaG) #38 1.Kc2? loses to Kg3!
+2r3k1/3n1pp1/2pq3p/1pNp4/1PnP2b1/3BPN2/R1Q2PPP/6K1/w Bd3h7+ (Kotov_TLaG) #39
+r1bq1knr/pp3pbp/6p1/1B1p4/3p1P2/3P4/PPP3PP/RNBQ1RK1/w Nb1d2? (Kotov_TLaG) #42
+1rb2r1k/1p1n2q1/p2Q2p1/P2Npn1p/2P1N2P/6P1/1R3PB1/1R5K/w Ne4g5? (Kotov_TLaG) #43
+8/p4p2/3p1k2/2pPnPp1/2P3B1/r6P/1Q4RK/4q3/b Ra3xPh3+? (Kotov_TLaG) #45
+8/p2Rbk1p/6p1/8/2rN4/1P6/P6K/8/b Rc4c7? (Kotov_TLaG) #46
+2rq1rk1/pb3p1p/1p2pbp1/3p3R/2PP4/PP5R/1B3PPP/3Q1BK1/b Pd5xPc4! (Kotov_TLaG) #47
+2r1r1k1/pb2bppp/1pn2n2/3p4/2P2q2/2N2N2/PB2QPPP/1BRR2K1/w Nc3xPd5 (Kotov_TLaG) or cxd5, the latter is a simpler and hence preferable win. #48
+kr6/p4r2/2p1p3/2Pb2PP/2BR1P2/4R3/P7/2K5/w Re3xPe6! (Kotov_TLaG) #51
+r3k2r/pppnqp2/5n1p/3p1Q2/1b1P3p/2NBPN2/PP4PP/R3K2R/b Qe7xPe3+! (Kotov_TLaG) #52
+1r6/2p2rkp/p1npbpp1/1qpN4/4P3/PNQ1R2P/1PP2PP1/3R2K1/w Nd5xPc7! (Kotov_TLaG) #53
+1q1r2k1/pp1b3p/1n1r1pp1/2pP1p2/2P2Q2/1B3N1P/PP3PP1/4RRK1/w Nf3d4! (Kotov_TLaG) #54
+r1q2rk1/pb1pbp1p/np2p3/5p2/2P5/P1N2NP1/1PQ1PPBP/R2R2K1/w Pb2b4! (Kotov_TLaG) #55
+4r1k1/ppp2p2/4b2p/2p5/2P1n1p1/4PNB1/PP3PPP/2RK4/w Nf3h4! (Kotov_TLaG) #56
+5r2/q5k1/3pQpp1/2p1n2p/4P2P/6PB/5P2/3R2K1/w Bh3f1 (Kotov_TLaG) (Qxd6 or Rxd6 both lose) #57
+2r1qr1k/1n1bb2p/p2p3N/1p1Ppn2/1P6/5N1P/P1BBQP2/2R1R1K1/w Nf3xPe5! (Kotov_TLaG) #58
+8/5pk1/7p/5Qp1/3N4/P2nq1P1/6KP/8/w Qf5d5 (Kotov_TLaG) #59
+r7/N4pbp/4b3/Pk1p4/1Pr5/4B3/5PPP/2RR1K2/b Kb5a4 (Kotov_TLaG) #60
+6k1/3R1p2/8/4p2p/P2bN1p1/6P1/2r2P1P/5K2/w Rd7d8+! (Kotov_TLaG) #61
+2r1k2r/pp1b1ppp/4p3/3qP3/Pn1P4/2p2P2/3BB1PP/R1Q1NRK1/b Nb4a2! (Kotov_TLaG) #62
+2b1r2r/2p1qpk1/1p1p1npp/p2P4/2P1p1P1/2P1PP2/P1Q2KP1/1B2RNR1/b Nf6xPg4+ (Kotov_TLaG) #63
+5r1k/5p2/2p1n1pp/p3P2N/P5QP/4RP2/7q/4BKRr/w Nh5f6 (Kotov_TLaG) #64
+3rn1k1/1pq1r1p1/2p1p1Bp/p2p4/3P1P2/4P2P/PPQ3P1/2R2RK1/w Rf1f3! (Kotov_TLaG) #67
+r4rk1/pb1qn1pp/1pnNp3/3pPp2/PP1P1P2/5N2/3Q2PP/R3KB1R/w Pa4a5! (Kotov_TLaG) #69
+r4rk1/4npbp/5qp1/p2p4/Pp6/3QB3/1PP2PPP/R2N1RK1/b Pd5d4! (Kotov_TLaG) #72
+r3r1k1/pb2qppp/1pp1p3/4P3/2BP4/P1Q1P3/1P4PP/3R1RK1/w Qc3e1 (Kotov_TLaG) #73
+r4r2/1ppqn1bk/p2p1npp/3Pp3/4P3/2NQB1NP/PPP3P1/1K1R3R/b Pb7b5 (Kotov_TLaG) #74
+r1bq1rk1/pp3ppp/2np1n2/2p1p3/2PP4/P1PBP3/4NPPP/R1BQ1RK1/w Pe3e4 (Kotov_TLaG) #76
+r1b1k2r/2q1bppp/p1np1n2/1pp1p3/3PP3/2P2N2/PPBN1PPP/R1BQR1K1/w Pa2a4 (Kotov_TLaG) #78
+2r2rk1/Q1pq1pbp/2pp1np1/8/4P3/2N5/PPP2PPP/R1B2RK1/w Qa7a6 (Kotov_TLaG) #79
+rnb1k2r/pp3ppp/3p4/q1p1p3/2PP4/P1P1P3/2QN1PPP/R3KB1R/w Pd4xPe5 (Kotov_TLaG) #81
+2br1n2/1p1r1kp1/p1p2p1p/2PPp3/1P2P3/1NN2P2/5RPP/R5K1/w Nb3a5 (Kotov_TLaG) #82
+r4rk1/ppq1ppbp/2n2np1/2p5/2P5/2NPB1P1/PP3PBP/R2Q1RK1/b Rf8d8 (Kotov_TLaG) #85
+r4rk1/1b2qppp/5b2/p2P4/B1p5/2P3Q1/P4PPP/R1BR2K1/w Bc1f4! (Kotov_TLaG) #86
+r4rk1/pp2nppp/1qn5/1B1p1b2/P2N4/1N2P3/1PPQ2PP/R4RK1/w Nd4xNc6? (Kotov_TLaG) #88
+rn3rk1/pp4bp/4pnp1/2p5/8/2N1PN2/PP3PPP/R1BK3R/w Kd1e2 (Kotov_TLaG) white almost surely wins #90
+2bk4/2rn1p2/p3p1p1/P2p2P1/1N1P3P/1K2PB2/8/R7/w Bf3e2 (Kotov_TLaG) white wins #92
+r1b1k2r/pp3ppp/2p5/2npP3/1b3P2/2N1P1Pq/PPB4P/R1BQK2R/w Ke1f2! (Kotov_TLaG) #93
+3r2k1/1b2q1pp/p4p2/1pQnp3/1P6/P5P1/4PPBP/2R1N1K1/w Qc5a7 (Kotov_TLaG) #94
+rnbq1rk1/pp4bp/3p4/2pPpp1n/2P5/2NBBP2/PPQ1N1PP/R3K2R/b Pe5e4! (Kotov_TLaG) #95
+r4rk1/1p1b2bp/p2p4/2pPq3/2P1Pn2/3B1P1P/PPQN1B2/2KR3R/w Bd3f1 (Kotov_TLaG) white manages to draw although at a disadvantage #96
+r2qr1k1/np1b1ppp/1Pp1pn2/p7/P1pP4/B1Q1PN2/5PPP/1R2KB1R/b Na7b5! (Kotov_TLaG) #97
+2R5/1r2ppbk/4n1p1/1p5p/p2P4/1B2PPBP/P3K1P1/8/w Bb3xNe6! (Kotov_TLaG) #98 (PxB; Rb8 RxR; BxR b4; Kd3 Bh6; f4! shutting black's B out of game.
+r4rk1/pp1b1pp1/1q1b1n1p/nPp5/2Pp4/3P1NP1/PBQN1PBP/R4RK1/w Ra1e1 (Kotov_TLaG) #99
+r2q1rk1/p2bbppp/1pn5/1B1p4/3P4/5N2/PP3PPP/R1BQR1K1/w Qd1a4 (Kotov_TLaG) #100
+8/pp3k1p/2n2pp1/1p1r4/5P2/PPB1PP1P/4K3/7R/w Pe3e4 (Kotov_TLaG) was followed by the mistake ...Rh5? #101
+r4rk1/2p1bpp1/p1n1n1p1/Pq1pP3/8/1NP1BN2/Q4PPP/1R3RK1/w Nf3d4! (Kotov_TLaG) (also Qc2?) #102
+r1b1k2r/p4ppp/1pn1p3/qB6/3PpB2/bQP2N2/P4PPP/1R2K2R/b Bc8d7 (Kotov_TLaG) white then wins with Nd2! #103
+r2q1rk1/pp3ppp/1b6/5n1Q/3nN3/P6P/BP3PP1/R1B2RK1/w Ne4g5! (Kotov_TLaG) (also Bg5) #104
+r2qrnk1/pb2bppp/1pp2n2/3p4/3P1B2/2N2NP1/PPQ1PPBP/2RR2K1/w Nf3e5 (Kotov_TLaG) #107
+r2q1rk1/pp2ppbp/1np3p1/n2p4/3PP3/2NBB2P/PPP1QPP1/3R1RK1/b Pe7e5! (Kotov_TLaG) #108
+r1b2rk1/pp1n1pbp/1qpp2p1/4p1B1/2PPP1n1/2N2NPP/PP3PB1/R2Q1RK1/b Pe5xPd4! (Kotov_TLaG) #109
+r1bqk2r/p2nbp1p/1pp1pp2/8/2BPN3/5N2/PPPQ1PPP/R3K2R/w Qd2h6! (Kotov_TLaG) #110
+r1q1kb1r/pp3ppp/1npnp3/8/3PP3/2N2NP1/PP3PKP/R1BQ1R2/w Pd4d5! (Kotov_TLaG) #113
+7q/1b1knn2/4p1p1/1pppPpP1/P4P1N/2P3K1/2N1B3/1Q6/b Nf7xPg5! (Kotov_TLaG) #115
+3rqrk1/pb4pp/3Rpp2/Rp6/5P2/1P6/1PPQ2PP/2B4K/b Rd8xRd6! (Kotov_TLaG) #116
+r6k/2pq1rbp/1p1p4/p2P2R1/P1P1Bp1P/1P3P2/6Q1/2K3R1/w Ph4h5! (Kotov_TLaG) #117
+r4r2/4p1k1/1q1p1pp1/nppP4/P7/1P3BP1/1Q2PPK1/R6R/w Pa4xPb5 (Kotov_TLaG) #118
+r2r1nk1/ppqb1pp1/2p1pn1p/4N3/2PP4/2N5/PPB1QPPP/3RR1K1/w Pc4c5! (Kotov_TLaG) #119
+r1b2rk1/ppq1bppp/2pp4/P3P3/2B1P1n1/2NQB3/1PP2PPP/R4RK1/b Pd6d5! (Kotov_TLaG) #120
+r1q2k1r/pp1n3p/8/2b4n/P7/2N1PP2/1P2Q1PP/R1BR2K1/w Pb2b4 (Kotov_TLaG) #121
+3r1rk1/pbqnbppp/1p2pn2/2p5/2PP4/2NBPN2/PB2QPPP/3R1RK1/w Pd4d5! (Kotov_TLaG) #123
+1r3rk1/2qnppb1/b2p2pp/p1pP4/P1P5/3B1NP1/2QBPP1P/1R3RK1/w Rb1b5! (Kotov_TLaG) #124
+1r1r2k1/2b1qp1p/b1p3p1/p1p1p3/2P1P3/1PN1BP2/P1Q3PP/R2R2K1/b Rd8d4! (Kotov_TLaG) #125
+2rq3r/pb1n1pk1/2n1p1p1/2PpP3/3P2P1/P2B1N2/1B2Q3/2R2RK1/w Qe2e3 (Kotov_TLaG) #127
+3r1rk1/2pqb1pp/ppn1bp2/2p1p3/4P3/2PPBPN1/PPQN2PP/3R1RK1/w Nd2b3 (Kotov_TLaG) #128
+r4rk1/pp1nqppp/2pb1n2/3pp3/P7/1P1PPB2/1BPN1PPP/R2Q1RK1/w Pg2g3 (Kotov_TLaG) #129
+r2q1rk1/pbpn1pbp/1p3np1/3p4/3P4/1PN1PN2/PBQ1BPPP/R4RK1/b Pa7a6 (Kotov_TLaG) #130
+2rr2k1/1b1nqpbp/p4np1/2pp4/8/1P2PN2/PB2NPPP/1QRR1BK1/b Bg7h6! (Kotov_TLaG) #131
+rn1q1rk1/ppp2pp1/4p2p/2b2b2/4n3/3P1NP1/PPP2PBP/R1B1QRK1/w Pd3xNe4 (Kotov_TLaG) #132
+r3k2r/3nbppp/1q1p4/p2Pp2b/P7/2B3PP/1P2NPBK/R2Q1R2/w Pg3g4 (Kotov_TLaG) is best #133
+2r2rk1/pb1nqppp/1ppp1n2/4p3/Q1PPP3/2N2NP1/PP3PBP/3RR1K1/w Pb2b4,Nf3h4,Rd1d2 (Kotov_TLaG) 3 plans possible #134
+r2q1rk1/pp1nbppp/2p2n2/3pp3/2PP2b1/1PNBPN2/PB3PPP/R2Q1RK1/w Bd3e2 (Kotov_TLaG) #136
+1r1q1rk1/p1pnppbp/3p2p1/8/2Pn4/2N3PP/PP2PPB1/R1BQ1RK1/b Pc7c5? (Kotov_TLaG) #137
+rnbqnrk1/1p3pbp/p2p2p1/2pPp3/2P1P1PP/2N1BP2/PP6/R2QKBNR/w Bf1d3 (Kotov_TLaG) #138
+1rb2rk1/4q1bp/1n1p1np1/p2Pp3/2p1P1P1/4BPNN/PPB4Q/R3K2R/b Nb6xPd5! (Kotov_TLaG) #139
+r4rk1/pp3ppp/1qp2n2/4nN2/8/1B2P3/PP3PPP/2RQ1RK1/w Qd1d6 (Kotov_TLaG) #140
+r3r1k1/pb2qppp/1pp2n2/3p4/3Pn3/1PN1P1P1/PB3PBP/R2Q1RK1/w Rf1e1 (Kotov_TLaG) #141
+r3r1k1/pp1q1pp1/2nbbn1p/3p4/1P1P1P2/PQNB3P/3BN1P1/R4RK1/b Be6f5! (Kotov_TLaG) #142
+r4rk1/pp2qppp/3bbn2/3p4/8/1P2PB2/PB1NQPPP/R4RK1/w Pe3e4! (Kotov_TLaG) #144
+2rr2k1/ppp1qpp1/1n2pn1p/3b4/3P4/P1Q2NP1/1P2PP1P/R2RBBK1/w Pb2b4 (Kotov_TLaG) #145
+3qrbk1/pbr2p1p/1pp2np1/3p4/3P4/1P1Q2P1/PB1NPPBP/3RR1K1/w Pe2e4! (Kotov_TLaG) (also Nb1?) #146
+5k2/r1p2pp1/4b2p/8/8/P4N1P/1P3PP1/2R3K1/w Nf3d4 (Kotov_TLaG) #147
+r5nk/pp1br2p/2p1p3/3p4/3P4/2NB2R1/PPP3PP/2K2R2/w Nc3b1! (Kotov_TLaG) #148
+3r2k1/5pp1/p1R5/2B5/2P1n2p/7P/P1P3P1/5K2/b Rd8d2! (Kotov_TLaG) #149
+8/5pp1/6k1/R3B2n/7r/8/6K1/8/w Kg2f3 (Kotov_TLaG) #151
+r3r1k1/2p3pp/p1np4/1p3b2/5P2/1PP2N2/P4BPP/R3R1K1/b Bf5d7 (Kotov_TLaG) #152
+8/5kp1/p7/Np1b1P1p/1Bp1n1P1/2P4P/8/6K1/w Pg4xPh5 (Kotov_TLaG) (black had just played ...h7h5! forcing this) #153
+2rr2k1/p2qb1pp/1p2bp2/2p1p3/1n1n4/1PNP2P1/PB1NPPBP/2RQR1K1/w Pf2f4 (Kotov_TLaG) #156
+3b4/r4pk1/3p4/3BpKP1/1pP5/1P3R2/r4P2/6R1/b Pe5e4? (Kotov_TLaG) #157
+8/p6k/3P2p1/2Q5/Pp1n1r2/1P4N1/5RPq/4K3/w Rf2xRf4? (Kotov_TLaG) #158
+r1b3kr/p3bpp1/qp2p2p/4P2P/3RpPQ1/1NN5/1PP3P1/2K4R/w Nc3xPe4 (Kotov_TLaG) (...Kh7, 2. Ng5+! wins) #159

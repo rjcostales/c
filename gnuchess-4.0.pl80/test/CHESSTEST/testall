@@ -1,0 +1,33 @@
+#!/bin/csh -x
+rm ../test/CHESSTEST/testlog
+rm ./test/CHESSTEST/*.testx*
+rm testx??
+foreach i (../test/CHESSTEST/*.fin)
+echo $i
+# The last 2 arguments of testgen are the timing info for the test
+# number of moves     time in minutes
+# 1 2 is 1 move in 2 minutes
+../test/CHESSTEST/testgen $i bk testx 1 1 0
+date>type
+foreach j (testx*)
+echo $i $j
+./gnuchessr < $j |& tee -a type |& grep My >> $i.$j
+rm CL*
+end
+date>type
+rm bk*0
+rm bk*1
+rm bk*2
+rm bk*3
+rm bk*4
+rm bk*5
+rm bk*6
+rm bk*7
+rm bk*8
+rm bk*9
+rm testx*
+end
+foreach i (../test/CHESSTEST/*.testx??)
+../test/CHESSTEST/cmpr $i $i.ANS >>../test/CHESSTEST/testlog
+end
+../test/CHESSTEST/score ../test/CHESSTEST/testlog > ../test/CHESSTEST/test.result

@@ -1,0 +1,3015 @@
+From pa.dec.com!decwrl!uunet!sparky!kent Sun May 19 12:34:09 PDT 1991
+Article: 2355 of comp.sources.misc
+Newsgroups: comp.sources.misc
+Path: pa.dec.com!decwrl!uunet!sparky!kent
+From: Mike McGann <mwm@hasler.ascom.ch>
+Subject:  v19i075:  gnuchess - gnuchess version 3.1+, Part03/07
+Message-ID: <1991May17.024452.27673@sparky.IMD.Sterling.COM>
+X-Md4-Signature: 7eb890ba4d53b3b18bb8a5e27897b59f
+Sender: kent@sparky.IMD.Sterling.COM (Kent Landfield)
+Organization: Sterling Software, IMD
+Date: Fri, 17 May 1991 02:44:52 GMT
+Approved: kent@sparky.imd.sterling.com
+
+Submitted-by: Mike McGann <mwm@hasler.ascom.ch>
+Posting-number: Volume 19, Issue 75
+Archive-name: gnuchess/part03
+
+#!/bin/sh
+# do not concatenate these parts, unpack them in order with /bin/sh
+# file gnuchess.book continued
+#
+if test ! -r _shar_seq_.tmp; then
+	echo 'Please unpack part 1 first!'
+	exit 1
+fi
+(read Scheck
+ if test "$Scheck" != 3; then
+	echo Please unpack part "$Scheck" next!
+	exit 1
+ else
+	exit 0
+ fi
+) < _shar_seq_.tmp || exit 1
+if test ! -f _shar_wnt_.tmp; then
+	echo 'x - still skipping gnuchess.book'
+else
+echo 'x - continuing file gnuchess.book'
+sed 's/^X//' << 'SHAR_EOF' >> 'gnuchess.book' &&
+f2f4  e7e6
+d1f3  d8b6
+d4b3  b8c6
+f1d3  f8e7
+c1e3  b6c7
+o-o   o-o
+a1e1  c6b4
+! #  col. 23f
+e2e4  c7c5
+g1f3  d7d6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  a7a6
+c1e3  e7e5
+d4b3  c8e6
+d1d2  b8d7
+f2f3  f8e7
+g2g4  b7b5
+g4g5  f6h5
+o-o-o o-o
+h1g1  a8c8
+c3e2
+! #  col. 24k; Kotkov-Polugayevski, USSR 1959
+e2e4  c7c5
+g1f3  d7d6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  a7a6
+f1c4  e7e6
+o-o   f8e7
+c4b3  o-o
+f2f4  b7b5
+a2a3  c8b7
+f4f5  e6e5
+d4e2  b8d7
+e2g3  d7c5
+b3d5  b7d5
+e4d5  a8c8
+c1g5  c5d7
+g5f6  d7f6
+c3e4  c8c4
+! #  col. 25o; Ciocaltea-Minic, Bucharest 1966
+e2e4  c7c5
+g1f3  d7d6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  a7a6
+f1c4  e7e6
+c4b3  b7b5
+f2f4  c8b7
+f4f5  e6e5
+d4e2  b8d7
+o-o   f8e7
+e2g3  a8c8
+c1g5  o-o
+! #  col. 26e
+e2e4  c7c5
+g1f3  d7d6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  g7g6
+c1e3  f8g7
+f2f3  o-o
+d1d2  b8c6
+o-o-o d6d5
+e4d5  f6d5
+d4c6  b7c6
+c3d5  c6d5
+d2d5  d8c7
+d5a8  c8f5
+a8f8  g8f8
+d1d2  h7h5
+f1e2  f8g8
+a2a3  c7b8
+! #  col. 27i; Bikhovski-Gik, Moscow 1968
+e2e4  c7c5
+g1f3  d7d6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  g7g6
+c1e3  f8g7
+f2f3  o-o
+d1d2  b8c6
+f1c4  c8d7
+o-o-o d8a5
+c4b3  f8c8
+g2g4  c6e5
+h2h4  e5c4
+b3c4  c8c4
+d4b3  a5a6
+h4h5  c4c3
+b2c3  d7e6
+c1b1  a8c8
+e3d4  c8c4
+h5g6  h7g6
+! #  col. 28k
+e2e4  c7c5
+g1f3  d7d6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  g7g6
+c1e3  f8g7
+f2f3  o-o
+d1d2  b8c6
+f1c4  c8d7
+o-o-o d8a5
+c4b3  f8c8
+h2h4  c6e5
+h4h5  f6h5
+e3h6  e5d3
+c1b1  d3b2
+b1b2  g7h6
+d2h6  c8c3
+g2g4  h5f6
+g4g5  f6h5
+! #  col. 29m; Ostojic-Honfi, Monte Carlo 1968
+e2e4  c7c5
+g1f3  d7d6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  g7g6
+c1e3  f8g7
+f2f3  o-o
+d1d2  b8c6
+f1c4  c8d7
+o-o-o d8a5
+c4b3  f8c8
+c1b1  c6e5
+h2h4  e5c4
+b3c4  c8c4
+d4b3  a5c7
+h4h5  c4c3
+d2c3  c7c3
+b2c3  f6h5
+e3d4  d7e6
+h1e1  h5f6
+e4e5  d6e5
+d4e5  f6d5
+b1b2  a8c8
+! #  col. 30p; Karpov-Korchnoi, 2nd match game 1974.
+e2e4  c7c5
+g1f3  d7d6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  g7g6
+c1e3  f8g7
+f2f3  o-o
+d1d2  b8c6
+f1c4  c8d7
+h2h4  a8c8
+c4b3  c6e5
+h4h5  f6h5
+o-o-o e5c4
+b3c4  c8c4
+g2g4  h5f6
+d4e2  d8a5
+e3h6  g7h6
+d2h6  f8c8
+d1d3  c4c5
+g4g5  c5g5
+d3d5  g5d5
+c3d5  c8e8
+e2c3  d7c6
+e4e5  c6d5
+e5f6  e7f6
+h6h7  g8f8
+h7h8  f8e7
+c3d5
+! #  col. 31
+e2e4  c7c5
+g1f3  d7d6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  g7g6
+g2g3  b8c6
+f1g2  c6d4
+d1d4  f8g7
+o-o   o-o
+d4d3  c8e6
+c3d5  f6d5
+e4d5  e6f5
+! #  col. 32c; Pulsen-Cortlever, Buenos Aires 1939.
+e2e4  c7c5
+g1f3  d7d6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  g7g6
+c1g5  f8g7
+d1d2  b8c6
+o-o-o o-o
+d4b3  f8e8
+f2f3  a7a6
+c1b1  b7b5
+h2h4  c8e6
+g2g4  c6e5
+! #  col. 33h
+e2e4  c7c5
+g1f3  d7d6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  g7g6
+f2f4  b8c6
+d4c6  b7c6
+e4e5  d6e5
+d1d8  e8d8
+f4e5  f6g4
+c1f4  c8e6
+c3e4  f8g7
+e4g5  g7e5
+o-o-o d8c7
+g5e6  f7e6
+f4e5  g4e5
+d1e1  c7d6
+g2g3  e5g4
+f1c4  e6e5
+e1e2
+! #  col. 34j
+e2e4  c7c5
+g1f3  d7d6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  g7g6
+f2f4  b8c6
+f1b5  d8c7
+c3d5  f6d5
+e4d5  a7a6
+b5c6  b7c6
+d4c6  c8b7
+c1e3  f8g7
+e3d4  g7d4
+d1d4  o-o
+o-o   b7c6
+! #  col. 35l
+e2e4  c7c5
+g1f3  d7d6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  g7g6
+f2f4  b8d7
+f1e2  f8g7
+c1e3  o-o
+e2f3  d7b6
+d1e2  e7e5
+d4b3  f6g4
+f3g4  d8h4
+g2g3  h4g4
+e2g4  c8g4
+! #  col. 36a
+e2e4  c7c5
+g1f3  d7d6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  g7g6
+f1e2  f8g7
+c1e3  b8c6
+o-o   o-o
+d4b3  c8e6
+f2f4  c6a5
+f4f5  e6c4
+b3a5  c4e2
+d1e2  d8a5
+g2g4  a8c8
+g4g5  c8c3
+g5f6  c3e3
+e2e3  g7f6
+c2c3  f8c8
+a2a3  c8c4
+a1e1  b7b5
+! #  col. 37c; Domnitz-Kraidman, Tel Aviv 1964
+e2e4  c7c5
+g1f3  d7d6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  g7g6
+f1e2  f8g7
+c1e3  b8c6
+o-o   o-o
+d4b3  c8e6
+f2f4  d8c8
+d1e1  f6g4
+e2g4  e6g4
+f4f5  g6f5
+h2h3  g4h3
+g2h3  f5e4
+e1h4  f7f5
+g1h1  f8f7
+f1g1  c6e5
+c3d5  c8d7
+b3d4  e5g6
+g1g6  h7g6
+a1g1  e7e5
+g1g6  d7d8
+e3g5  d8a5
+d5f6  g8f8
+d4e6
+! #  col. 38f; Unzicker-Geller, W. Germany-USSR 1960 (drawn)
+e2e4  c7c5
+g1f3  d7d6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  g7g6
+f1e2  f8g7
+c1e3  b8c6
+o-o   o-o
+d1d2  f6g4
+e2g4  c8g4
+f2f4  c6d4
+e3d4  e7e5
+d4e3  e5f4
+f1f4  g4e6
+f4f2  g7e5
+e3d4  a8c8
+a1d1  d8a5
+a2a3  c8c4
+c3e2  a5d2
+d1d2
+! #  col. 39
+e2e4  c7c5
+g1f3  d7d6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  g7g6
+f1e2  f8g7
+c1e3  b8c6
+o-o   o-o
+f2f4  d8b6
+d1d3  f6g4
+c3d5  g7d4
+e2g4  d4e3
+d3e3  b6b2
+g4c8  a8c8
+a1b1  b2a2
+b1b7  e7e6
+! #  col. 40h
+e2e4  c7c5
+g1f3  d7d6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  g7g6
+f1e2  f8g7
+c1e3  b8c6
+o-o   o-o
+f2f4  d8b6
+e4e5  d6e5
+f4e5  c6e5
+d4f5  b6b2
+f5e7  g8h8
+e3d4  b2b4
+d4e5  b4e7
+d1d4  f6e8
+e5g7  e8g7
+e2d3  c8e6
+! #  col. 41b; Smyslov-Botvinnik, match 1958
+e2e4  c7c5
+g1f3  d7d6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  g7g6
+f1e2  f8g7
+c1e3  b8c6
+h2h4  h7h5
+f2f3  o-o
+d1d2  d6d5
+d4c6  b7c6
+e4e5  f6e8
+f3f4  f7f6
+o-o-o f6e5
+f4e5  g7e5
+g2g4  c8g4
+e2g4  h5g4
+h4h5  g6g5
+! #  col. 42d; Van den Burg-Rajkovic, Orebro 1966
+e2e4  c7c5
+g1f3  d7d6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  g7g6
+f1e2  f8g7
+c1e3  b8c6
+d4b3  o-o
+f2f4  c6a5
+g2g4  b7b6
+g4g5  f6d7
+o-o   c8b7
+e2d3  a8c8
+b3a5  b6a5
+d1e1  d7c5
+f4f5  g7e5
+e1h4  e7e6
+f5f6  h7h5
+d3e2  g8h7
+e2h5  f8h8
+! #  col. 43f
+e2e4  c7c5
+g1f3  d7d6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  g7g6
+f1e2  f8g7
+c1e3  b8c6
+d4b3  o-o
+f2f4  c6a5
+g2g4  c8e6
+g4g5  f6d7
+e3d4  f7f6
+h2h4  f6g5
+d4g7  g8g7
+b3d4  e6g8
+f4f5  d8b6
+! #  col. 44
+e2e4  c7c5
+g1f3  d7d6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  g7g6
+f1e2  f8g7
+o-o   b8c6
+d4b3  o-o
+f2f4  b7b5
+e2f3  b5b4
+c3d5  f6d5
+e4d5  c6a5
+b3a5  d8a5
+f1e1  f8e8
+! #  col. 45i; Smyslov-Korchnoi, Moscow 1960
+e2e4  c7c5
+g1f3  d7d6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  g7g6
+f1e2  f8g7
+d4b3  b8c6
+g2g4  b7b6
+f2f4  c8b7
+e2f3  o-o
+h2h4  a7a5
+a2a4  c6b4
+h4h5  d6d5
+e4e5  f6g4
+b3d4  g4h6
+h5g6  f7g6
+d4e6  d8d7
+e6f8  a8f8
+c3b5  d5d4
+! #  col. 46
+e2e4  c7c5
+g1f3  d7d6
+d2d4  c5d4
+f3d4  g8f6
+f2f3  e7e5
+f1b5  c8d7
+b5d7  b8d7
+d4f5  d6d5
+e4d5  d8a5
+b1c3  d7b6
+! #  col. 47h; Schweber-Najdorf, Buenos Aires 1970
+e2e4  c7c5
+g1f3  d7d6
+d2d4  c5d4
+d1d4  b8c6
+f1b5  c8d7
+b5c6  d7c6
+c2c4  g8f6
+b1c3  e7e6
+c1g5  f8e7
+o-o   o-o
+f1e1  h7h6
+g5h4  a7a6
+a1d1  d8a5
+d4d2  a5b6
+f3d4  a8c8
+e1e3  f8e8
+! #  col. 48i
+e2e4  c7c5
+g1f3  d7d6
+d2d4  c5d4
+d1d4  a7a6
+c1e3  g8f6
+b1c3  b8c6
+d4b6  d8b6
+e3b6  g7g6
+o-o-o f8h6
+c1b1  o-o
+f3d4  c8d7
+f2f3  c6e5
+d4b3  f8c8
+b3a5  d7c6
+c3d5  c6d5
+e4d5  f6d7
+b6d4  b7b6
+! #  col. 50
+e2e4  c7c5
+g1f3  d7d6
+d2d4  g8f6
+d4c5  f6e4
+c5d6  e7e6
+d1d3  e4d6
+b1c3  b8c6
+c1f4  f7f6
+o-o-o e6e5
+c3b5
+! #  col. 51c; Pfeiffer-Kottnauer, Helsinki 1952
+e2e4  c7c5
+g1f3  d7d6
+c2c3  g8f6
+f1d3  b8c6
+d3c2  c8g4
+h2h3  g4h5
+d2d3  d6d5
+d1e2  e7e6
+b1d2  f8e7
+d2f1  d8a5
+! #  col. 52d; Brasket-Evans, U.S. Open Chp. 1960
+e2e4  c7c5
+g1f3  d7d6
+c2c3  g8f6
+d2d3  g7g6
+g2g3  f8g7
+b1d2  o-o
+f1g2  e7e5
+o-o   b8c6
+a2a4  h7h6
+d2b1  d8a5
+! #  col. 53h; Ciocaltea-Fischer, Varna 1962
+e2e4  c7c5
+g1f3  d7d6
+g2g3  g7g6
+f1g2  f8g7
+o-o   b8c6
+c2c3  e7e5
+d2d3  g8e7
+f3h4  o-o
+f2f4  e5f4
+g3f4  f7f5
+b1d2  g8h8
+d2f3
+! #  col. 54k; Tarjan-Mednis, U.S. Chp. 1973
+e2e4  c7c5
+g1f3  b8c6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  e7e6
+f1e2  g7g6
+d4b3
+! e2e4  c7c5
+g1f3  d7d6
+b1c3  g8f6
+e4e5  d6e5
+f3e5  a7a6
+f1e2  e7e6
+o-o   d8c7
+e5c4  b7b5
+c4e3  f8d6
+h2h3  b8c6
+a2a4  b5b4
+c3b1  c8b7
+d2d3  c6d4
+b1d2  o-o
+d2f3  d4e2
+d1e2  f8e8
+e3c4  e6e5
+f3g5  e5e4
+c4d6  c7d6
+g5e4  f6e4
+d3e4  b7e4
+c1e3  d6c6
+! #  col. 55o; Medina-Pomar, Santander 1947
+e2e4  c7c5
+g1f3  d7d6
+b2b4  c5b4
+d2d4  g8f6
+f1d3  d6d5
+b1d2  d5e4
+d2e4  b8d7
+e4g5  d8c7
+c2c4  h7h6
+g5h3  g7g5
+h3g1  f8g7
+g1e2  e7e5
+e2g3  e5e4
+d1e2  o-o
+! #  col. 56e; del Corral-Benko, Mallorca 1968
+e2e4  c7c5
+g1f3  d7d6
+f1b5  c8d7
+b5d7  d8d7
+o-o   b8c6
+f1e1  g8f6
+c2c3  e7e6
+d2d3  f8e7
+a2a4  o-o
+b1d2  d7c7
+! #  col. 57g; Radovich-Lombardy, Leipzig 1960
+e2e4  c7c5
+g1f3  d7d6
+f1b5  b8c6
+o-o   a7a6
+b5c6  b7c6
+d2d4  c5d4
+d1d4  e7e5
+d4d3  f7f6
+c2c4  c8e6
+b1c3  d8c7
+! #  col. 58j; Gurgenidze-Osnos, Alma Ata 1969
+e2e4  c7c5
+g1f3  b8c6
+f1b5  e7e6
+b1c3  g8e7
+o-o   a7a6
+b5c6  e7c6
+d2d4  c5d4
+f3d4  d7d6
+d4c6  b7c6
+d1g4  g7g6
+e4e5  d6d5
+c1g5  f8e7
+! #  col. 59m
+e2e4  c7c5
+g1f3  b8c6
+f1b5  g7g6
+o-o   f8g7
+c2c3  g8f6
+f1e1  o-o
+d2d4  c5d4
+c3d4  d7d5
+e4e5  f6e4
+b1c3  e4c3
+b2c3  c6a5
+c1g5  c8f5
+f3d2  f8e8
+! #  col. 60o
+e2e4  c7c5
+g1f3  b8c6
+f1b5  g7g6
+o-o   f8g7
+f1e1  e7e5
+f1e1  o-o
+d2d4  c5d4
+c3d4  d7d5
+e4e5  f6e4
+b1c3  e4c3
+b2c3  c6a5
+c1g5  c8f5
+f3d2  f8e8
+! #  col. 61c; Barczay-Szilagyi, Hungarian Chp. 1969
+e2e4  c7c5
+g1f3  b8c6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  d7d6
+c1g5  c8d7
+g5f6  g7f6
+d4b3  h8g8
+g2g3  f6f5
+d1d2  f8g7
+e4f5  d7f5
+f1g2  d8d7
+o-o   g7c3
+b2c3  f5h3
+g2h3  d7h3
+! #  col. 62e
+e2e4  c7c5
+g1f3  b8c6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  d7d6
+c1g5  c8d7
+d4b3  h7h6
+g5h4  a8c8
+f1e2  g7g5
+h4g3  h6h5
+h2h4  g5g4
+g3f4  c6e5
+d1d4  e5g6
+f4g5  f8g7
+o-o
+! #  col. 63g; Matulovic-Masic, Sombor 1968
+e2e4  c7c5
+g1f3  b8c6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  d7d6
+c1g5  c8d7
+f2f4  d8b6
+d4b3  f6g4
+d1e2  c6d4
+c3d5  d4e2
+d5b6  a7b6
+e1e2  h7h6
+g5h4  g7g5
+h4g3  g5f4
+g3f4  f8g7
+c2c3  d7c6
+! #  col. 64j; Liberzo-Stein, USSR Chp. 1969-70.  Complete game (draw).
+e2e4  c7c5
+g1f3  b8c6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  d7d6
+c1g5  c8d7
+d1d3  c6d4
+d3d4  d8a5
+f2f4  e7e5
+d4d3  f8e7
+o-o-o d7c6
+c1b1  e5f4
+g5f4  o-o
+f1e2  f8e8
+e2f3  e7f8
+c3d5  f6d7
+d3d2  a5d2
+d1d2  a8c8
+h1d1  d7e5
+b2b3
+! #  col. 65m; Bronstein-Stein, USSR 1969
+e2e4  c7c5
+g1f3  b8c6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  d7d6
+c1g5  c8d7
+d1d3  c6d4
+d3d4  d8a5
+f1e2  e7e5
+d4d3  a5c7
+e2g4  f8e7
+g5f6  e7f6
+o-o-o f6e7
+c3b5  d7b5
+d3b5  c7c6
+b5d5  c6d5
+d1d5
+! #  col. 66b; Benko-R. Byrne, US Open Chp. 1968
+e2e4  c7c5
+g1f3  b8c6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  d7d6
+c1g5  c8d7
+d1d2  a8c8
+o-o-o c6d4
+d2d4  d8a5
+g5d2  a7a6
+f1c4  a5c5
+d4c5  c8c5
+c4b3  g7g6
+d2e3  c5c8
+e3d4  f8g7
+c3d5  f6h5
+d4g7  h5g7
+e4e5  c8c6
+d5b4  c6b6
+! #  col. 66b alternate; Polgar-Nagy, Hungarian Chp. 1972
+e2e4  c7c5
+g1f3  b8c6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  d7d6
+c1g5  c8d7
+d1d2  a8c8
+o-o-o c6d4
+d2d4  d8a5
+g5d2  e7e5
+d4d3  a7a6
+c1b1  h7h6
+f2f3  a5c7
+g2g3  f8e7
+h2h4  b7b5
+! #  col. 67c; Suetin-Gheorghiu, Hastings 1967/8.  Draw.
+e2e4  c7c5
+g1f3  b8c6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  d7d6
+c1g5  c8d7
+d1d2  a8c8
+o-o-o c6d4
+d2d4  d8a5
+g5e3  a7a6
+f2f3  e7e6
+d4b6  a5b6
+e3b6  d7c6
+f1c4  c6e4
+c4e6  f7e6
+c3e4  f6e4
+f3e4  f8e7
+h1f1  e7g5
+c1b1  e8e7
+c2c3  h8f8
+b1c2  f8f1
+d1f1  c8f8
+! #  col. 68d
+e2e4  c7c5
+g1f3  b8c6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  d7d6
+c1g5  c8d7
+d1d2  a8c8
+o-o-o c6d4
+d2d4  d8a5
+f2f4  e7e6
+e4e5  d6e5
+f4e5  c8c3
+g5d2  a5a2
+d2c3  g7g6
+! #  col. 69fA1; Janosevic-Larsen, Belgrade 1964
+e2e4  c7c5
+g1f3  b8c6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  d7d6
+c1g5  c8d7
+d1d2  a8c8
+o-o-o c6d4
+d2d4  d8a5
+f2f4  c8c3
+b2c3  e7e5
+d4b4  a5b4
+c3b4  f6e4
+f1c4  b7b5
+c4d5  e4c3
+f4e5  h7h6
+g5h4  g7g5
+h4g3  c3e2
+c1b2  e2g3
+h2g3  f8g7
+! #  col. 70g; Bednarski-Simagin, Polanica Zdroj 1968
+e2e4  c7c5
+g1f3  b8c6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  d7d6
+c1g5  c8d7
+d1d2  a8c8
+o-o-o c6d4
+d2d4  c8c3
+d4c3  f6e4
+c3e3  e4g5
+e3g5  d8b6
+f1c4  e7e6
+g5g3  g7g6
+c4b3  f8e7
+h2h4  h7h5
+h1e1  b6b4
+g3e3  a7a5
+e3d4
+! #  col. 71d
+e2e4  c7c5
+g1f3  b8c6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  d7d6
+c1g5  e7e6
+d1d2  f8e7
+o-o-o c6d4
+d2d4  o-o
+f2f4  h7h6
+g5h4  d8a5
+f1c4  e6e5
+f4e5  d6e5
+d4d3  a5c5
+h4f6  e7f6
+! #  col. 72g
+e2e4  c7c5
+g1f3  b8c6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  d7d6
+c1g5  e7e6
+d1d2  f8e7
+o-o-o c6d4
+d2d4  o-o
+f2f4  d8a5
+f1c4  c8d7
+c4b3  d7c6
+h1f1  b7b5
+g5f6  e7f6
+d4d6  f6c3
+d6c6  a8c8
+c6d7  c8d8
+d7e7  c3d2
+c1b1  d2f4
+d1d8  a5d8
+! #  col. 73i
+e2e4  c7c5
+g1f3  b8c6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  d7d6
+c1g5  e7e6
+d1d2  f8e7
+o-o-o o-o
+d4b3  d8b6
+f2f3  a7a6
+g2g4  f8d8
+g5e3  b6c7
+h2h4  b7b5
+g4g5  f6d7
+g5g6  f7g6
+h4h5  g6h5
+h1h5  d7f6
+h5g5  c6e5
+d2g2  e7f8
+f3f4  e5c4
+f1c4  b5c4
+b3d4  a8b8
+d1g1  b8b7
+! #  col. 74; Tal-Larsen, match 1969
+e2e4  c7c5
+g1f3  b8c6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  d7d6
+c1g5  e7e6
+d1d2  f8e7
+o-o-o o-o
+d4b3  a7a6
+g5f6  g7f6
+f1e2  g8h8
+e2h5  c8d7
+f2f4  b7b5
+c1b1
+! #  col. 75k
+e2e4  c7c5
+g1f3  b8c6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  d7d6
+c1g5  e7e6
+d1d2  f8e7
+o-o-o o-o
+d4b5  d8a5
+g5f6  e7f6
+b5d6  f8d8
+f2f4  e6e5
+d2d5  a5c7
+f4f5  c6d4
+d6b5  c7a5
+d5c4  c8f5
+b2b4  a5a6
+! #  col. 76b; Spasski-Larsen, Santa Monica 1966
+e2e4  c7c5
+g1f3  b8c6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  d7d6
+c1g5  e7e6
+d1d2  f8e7
+o-o-o o-o
+f2f4  h7h6
+g5h4  e6e5
+d4f5  c8f5
+e4f5  d8a5
+c1b1  a8d8
+h4f6  e7f6
+c3d5  a5d2
+d5f6  g7f6
+d1d2  e5f4
+! #  col. 77e; Kujpers-Minev, Halle 1967
+e2e4  c7c5
+g1f3  b8c6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  d7d6
+c1g5  e7e6
+d1d2  f8e7
+o-o-o o-o
+f2f4  d6d5
+e4e5  f6d7
+h2h4  d7b6
+d2e3  c8d7
+g5e7  d8e7
+h4h5  c6a5
+d4b3  a5c4
+e3d4  f8c8
+c1b1  a7a5
+f4f5  a5a4
+f5f6  e7f8
+h1h3  c4b2
+b1b2  b6c4
+f1c4  c8c4
+d4d2
+! #  col. 78h
+e2e4  c7c5
+g1f3  b8c6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  d7d6
+c1g5  e7e6
+d1d2  a7a6
+o-o-o c8d7
+f2f4  h7h6
+g5h4  f6e4
+d2e1  e4f6
+d4f5  d8a5
+f5d6  f8d6
+d1d6  o-o-o 
+d6d1  e6e5
+f1c4  e5f4
+c3e4  d7e6
+c4e6  f7e6
+e4d6  c8b8
+e1e6  h8f8
+! #  col. 79j; O'Kelly-Simagin corr. 1964
+e2e4  c7c5
+g1f3  b8c6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  d7d6
+c1g5  e7e6
+d1d2  a7a6
+o-o-o h7h6
+g5h4  f6e4
+d2f4  e4g5
+d4c6  b7c6
+f4a4  d8b6
+f2f4  g5h7
+f4f5  f8e7
+c3e4  a8b8
+a4a3  b6b5
+! #  col. 80k; Di Camillo-R. Byrne, US Open Chp. 1958
+e2e4  c7c5
+g1f3  b8c6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  d7d6
+c1g5  e7e6
+d1d2  h7h6
+g5f6  g7f6
+o-o-o a7a6
+f2f4  c8d7
+f1e2  h6h5
+c1b1  d8b6
+d4b3  o-o-o 
+h1f1  f8e7
+c3a4  b6a7
+c2c4  c6d4
+! #  col. 81b
+e2e4  c7c5
+g1f3  b8c6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  d7d6
+c1g5  e7e6
+d4c6  b7c6
+e4e5  d6e5
+d1f3  f8e7
+f3c6  c8d7
+c6f3  e5e4
+c3e4  f6e4
+g5e7  d8a5
+! #  col. 82e
+e2e4  c7c5
+g1f3  b8c6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  d7d6
+c1g5  e7e6
+d1d3  f8e7
+a1d1  o-o
+f1e2  c8d7
+o-o   c6d4
+d3d4  d7c6
+g1h1  d8a5
+f2f4  f8e8
+! #  col. 83
+e2e4  c7c5
+g1f3  b8c6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  d7d6
+h2h3  g7g6
+c1e3  f8g7
+d1d2  o-o
+o-o-o c6d4
+e3d4  d8a5
+c1b1  e7e5
+d4e3  c8e6
+! #  BAD! -- col. 84i; Karaklajic-Taimanov, Yugoslavia-USSR, match 1956
+e2e4  c7c5
+g1f3  b8c6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  d7d6
+c1e3  f6g4
+f1b5  g4e3
+f2e3  c8d7
+o-o   e7e6
+5c6   b7c6
+e4e5  f8e7
+d1h5  o-o
+e5d6  e7d6
+c3e4  d6e7
+a1d1  d8c7
+d4b3  h7h6
+! #  col. 85
+e2e4  c7c5
+g1f3  b8c6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  d7d6
+d4e2  e7e6
+g2g3  d6d5
+e4d5  f6d5
+f1g2  d5c3
+d1d8  e8d8
+e2c3  c8d7
+c1d2  f8e7
+! #  col. 86c; Carcia-Pomar, Havana 1969
+e2e4  c7c5
+g1f3  b8c6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  d7d6
+f1c4  e7e5
+d4e2  c8e6
+c4e6  f7e6
+o-o   f8e7
+f2f4  o-o
+e2g3  e5f4
+f1f4  d8b6
+g1h1  a8d8
+b2b3  d6d5
+e4d5  f6d5
+f4f8  e7f8
+c3d5  d8d5
+d1e1  c6d4
+c1e3  f8c5
+! #  col. 87
+e2e4  c7c5
+g1f3  b8c6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  d7d6
+f1c4  d8b6
+d4b3  e7e6
+o-o   f8e7
+c1e3  b6c7
+f2f4  o-o
+c4d3  a7a6
+d1f3
+! #  col. 88
+e2e4  c7c5
+g1f3  b8c6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  d7d6
+f1c4  e7e6
+c1e3  d8c7
+d1e2  a7a6
+c4b3  c6a5
+g2g4  b7b5
+g4g5  f6d7
+o-o-o d7c5
+! #  col. 89mA; Spasjevic-Ostojic, Belgrade 1966 (draw)
+e2e4  c7c5
+g1f3  b8c6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  d7d6
+f1c4  e7e6
+c1e3  f8e7
+d1e2  a7a6
+o-o-o o-o
+c4b3  d8c7
+g2g4  c6d4
+d1d4  e6e5
+d4c4  c7d8
+g4g5  f6e8
+h1g1  c8d7
+c3d5  d7b5
+e3b6  d8d7
+e2g4  e7d8
+g4d7  b5d7
+c4c3  d7e6
+b6d8  a8d8
+d5e3  d8d7
+b3a4  d7c7
+! #  col. 90o; Bogdanovic-Shamkovich, Sarajevo 1963
+e2e4  c7c5
+g1f3  b8c6
+d2d4  c5d4
+f3d4  g8f6
+b1c3  d7d6
+f1c4  e7e6
+c1e3  f8e7
+d1e2  o-o
+o-o-o c6d4
+e3d4  d8a5
+e4e5  d6e5
+d4e5  b7b6
+c3b5  c8a6
+e5c3  a5a4
+d1d4  a6b5
+c4b5  a4a2
+h1d1  f8d8
+d4a4  d8d1
+e2d1  a2d5
+d1d5  f6d5
+c3d4  e7g5
+c1b1  h7h5
+b5c6  a8d8
+a4a7  d5b4
+c6d7  b4c6
+! #  Queen's Catalan, col. 1c; Kramer-Fichtl, Varna Olympics 1962
+d2d4  d7d5
+c2c4  e7e6
+g2g3  g8f6
+g1f3  f8e7
+f1g2  o-o
+o-o   b8d7
+b1c3  c7c6
+b2b3  b7b6
+c1b2  c8b7
+d1c2  a8c8
+a1d1  d8c7
+e2e4  d5e4
+c3e4  f6e4
+c2e4  c6c5
+d4d5  e7f6
+e4c2  e6d5
+c4d5  f6b2
+c2b2  c8d8
+! #  col. 2f
+d2d4  d7d5
+c2c4  e7e6
+g2g3  g8f6
+g1f3  f8e7
+f1g2  o-o
+o-o   b8d7
+b1c3  d5c4
+e2e4  c7c6
+a2a4  a7a5
+d1e2  d7b6
+f1d1  e7b4
+f3e5  d8e7
+c1e3  c8d7
+e5c4  b6c4
+e2c4  e6e5
+d4e5  f6g4
+! #  col. 3i; Geller-Medina, Beverwijk 1965
+d2d4  d7d5
+c2c4  e7e6
+g2g3  g8f6
+g1f3  f8e7
+f1g2  o-o
+o-o   b8d7
+d1c2  b7b6
+c4d5  f6d5
+b1c3  c8b7
+c3d5  b7d5
+e2e4  d5b7
+f1d1  c7c5
+d4d5  e6d5
+e4d5  e7f6
+h2h4  h7h6
+! #  col. 4k; Geller-Bisguier, Bled 1961
+d2d4  d7d5
+c2c4  e7e6
+g2g3  g8f6
+g1f3  f8e7
+f1g2  o-o
+o-o   b8d7
+d1c2  c7c6
+b2b3  b7b6
+c1b2  c8b7
+b1c3  a8c8
+a1d1  b6b5
+c4c5  b5b4
+c3b1  f6e4
+f3e1  f7f5
+e1d3  a7a5
+d3f4  f8f6
+f2f3  e4g5
+! #  col. 5m; Benko-Pachman, Budapest 1948
+d2d4  d7d5
+c2c4  e7e6
+g2g3  g8f6
+g1f3  f8e7
+f1g2  o-o
+o-o   b8d7
+d1c2  c7c6
+b1d2  b7b6
+e2e4  c8b7
+b2b3  a8c8
+f1d1  d8c7
+c1b2  f8d8
+a1c1  c7b8
+c2b1  a7a5
+f3e5  b8a8
+! #  col. 6
+d2d4  d7d5
+c2c4  e7e6
+g2g3  g8f6
+g1f3  f8e7
+f1g2  o-o
+o-o   c7c6
+b1c3  b7b6
+f3e5  a7a5
+d1c2  c8a6
+f1d1  b6b5
+! #  col. 7d; Evans-Poschel, US Jr. Chp. 1947
+d2d4  d7d5
+c2c4  e7e6
+g2g3  g8f6
+g1f3  c7c5
+c4d5  f6d5
+f1g2  c5d4
+o-o   f8c5
+f3d4  o-o
+a2a3  b8c6
+d4c6  b7c6
+b2b4  c5e7
+c1b2  e7f6
+d1c2  f6b2
+c2b2  a7a5
+! #  col. 8g; O'Kelly-Euwe, New York 1951
+d2d4  d7d5
+c2c4  e7e6
+g2g3  g8f6
+g1f3  d5c4
+f1g2  c7c5
+o-o   b8c6
+d1a4  f6d7
+d4c5  f8c5
+a4c4  o-o
+b1c3  a7a6
+c3e4  c5e7
+c1e3  d7b6
+c4b3  b6d5
+f1d1  d8c7
+! #  col. 9
+d2d4  d7d5
+c2c4  e7e6
+g2g3  g8f6
+g1f3  d5c4
+f1g2  b7b5
+a2a4  c7c6
+o-o   c8b7
+f3e5  d8c8
+b2b3  c4b3
+d1b3  b5b4
+a4a5  f6d7
+! #  col. 10l; Keres-Korchnoi, Curacao 1962
+d2d4  d7d5
+c2c4  e7e6
+g2g3  g8f6
+g1f3  d5c4
+d1a4  b8d7
+f1g2  a7a6
+a4c4  c7c5
+d4c5  f8c5
+o-o   b7b5
+c4h4  c8b7
+b1d2  c5e7
+d2b3  a8c8
+h4d4  o-o
+c1d2  d7c5
+! #  col. -- Accelerated Catalan
+d2d4  d7d5
+c2c4  e7e6
+g2g3  g8f6
+f1g2  d5c4
+d1a4  b8d7
+b1d2  c7c6
+a4c4  e6e5
+g1f3  d7b6
+c4d3  e5d4
+f3d4  f8e7
+o-o  o-o
+! #  col. 12e; Muller-Ratzek, Vienna 1951
+d2d4  d7d5
+c2c4  e7e6
+g2g3  g8f6
+f1g2  d5c4
+d1a4  c8d7
+a4c4  d7c6
+g1f3  c6d5
+c4d3  c7c5
+b1c3  d5c6
+o-o   b8d7
+f1d1  d8b6
+e2e4  c5d4
+f3d4  f8c5
+d4c6  c5f2
+g1f1  b7c6
+c3a4  b6a5
+f1f2  a5a4
+d3d6
+! #  col. 13f; Smyslov-Kere, USSR Chp. 1948
+d2d4  d7d5
+c2c4  e7e6
+g2g3  g8f6
+f1g2  d5c4
+d1a4  c8d7
+a4c4  d7c6
+g1f3  b8d7
+b1c3  d7b6
+c4d3  f8b4
+o-o   o-o
+f1d1  h7h6
+c1d2  d8e7
+a2a3  b4c3
+d3c3  f8d8
+! #  col. 14g
+d2d4  d7d5
+c2c4  e7e6
+g2g3  g8f6
+b1c3  d5c4
+d1a4  b8c6
+f1g2  c8d7
+a4c4  c6b4
+c4b3  c7c5
+g1f3  c5d4
+f3d4  e6e5
+d4f3  d7e6
+b3a4  e6d7
+! #  col. 15; Stoltz-Vidmar, Groningen 1946
+d2d4  d7d5
+c2c4  e7e6
+g2g3  g8f6
+b1c3  f8e7
+f1g2  o-o
+g1f3  d5c4
+d1a4  a7a6
+a4c4  b7b5
+c4d3  c8b7
+! #  col. 16
+d2d4  d7d5
+c2c4  e7e6
+g2g3  g8f6
+b1d2  c7c5
+d4c5  f8c5
+f1g2  b8c6
+g1f3  o-o
+o-o   a7a5
+c4d5  e6d5
+d2b3  c5b6
+! #  col. 17d; Mikenas-Aronin, USSR Chp. 1963
+d2d4  d7d5
+c2c4  e7e6
+g2g3  c7c5
+c4d5  e6d5
+g1f3  b8c6
+f1g2  g8f6
+o-o   f8e7
+d4c5  e7c5
+b1d2  o-o
+d2b3  c5b6
+b3d4  f8e8
+b2b3  c6d4
+f3d4  b6d4
+d1d4  e8e2
+! #  col. 18e
+d2d4  d7d5
+c2c4  e7e6
+g2g3  d5c4
+d1a4  c8d7
+a4c4  c7c5
+d4c5  d7c6
+g1f3  b8d7
+c1e3  g8f6
+f1g2  d8c7
+o-o   c6d5
+c4a4  f8c5
+e3c5  c7c5
+b1c3  d5c6
+! #  col. 19
+d2d4  d7d5
+c2c4  e7e6
+g2g3  f8b4
+c1d2  b4d2
+d1d2  g8f6
+g1f3  o-o
+f1g2  d8e7
+o-o   b8c6
+f1c1
+! #  col. 20
+d2d4  d7d5
+c2c4  e7e6
+g2g3  f8b4
+c1d2  b4e7
+f1g2  g8f6
+g1f3  o-o
+d1b3  b7b6
+c4d5  e6d5
+b1c3  c8b7
+o-o
+! #  col. 21
+d2d4  g8f6
+c2c4  e7e6
+g2g3  e6e5
+g1f3  e5d4
+f3d4  d7d5
+f1g2  d5c4
+d1a4  c7c6
+a4c4  f8e7
+o-o   o-o
+f1d1
+! #  col. 22
+d2d4  g8f6
+c2c4  e7e6
+g2g3  c7c5
+g1f3  c5d4
+f3d4  d7d5
+f1g2  e6e5
+d4f3  d5d4
+o-o   b8c6
+e2e3  f8e7
+e3d4  e5d4
+! #  col. 23g
+d2d4  g8f6
+c2c4  e7e6
+g2g3  c7c5
+g1f3  c5d4
+f3d4  b8c6
+f1g2  d8b6
+d4c2  f8c5
+e2e3  o-o
+b1c3  b6a6
+d1d2  f8d8
+a2a3  d7d5
+b2b4  d5d4
+c3e4
+! #  col. 24j; Smyslov-Petrosian, Moscow 1967
+d2d4  g8f6
+c2c4  e7e6
+g2g3  f8b4
+b1d2  c7c5
+d4c5  b4c5
+f1g2  b8c6
+g1f3  b7b6
+o-o   c8b7
+a2a3  o-o
+b2b4  c5e7
+c1b2  a8c8
+d1b1
+! #  col. 25
+d2d4  g8f6
+c2c4  e7e6
+g2g3  f8b4
+c1d2  b4d2
+d1d2  f6e4
+d2c2  f7f5
+f2f3  e4f6
+e2e4  f5e4
+f3e4  e6e5
+! #  Alternate openings leading to the Catalan, line C
+g1f3  d7d5
+c2c4  e7e6
+g2g3  g8f6
+d2d4
+! #  line D
+c2c4  g8f6
+d2d4  e7e6
+g2g3  d7d5
+! #  line E
+d2d4  g8f6
+c2c4  e7e6
+g2g3  d7d5
+! #  The Reti Opening, col. 1c; Muller-Lilenthal, Budapest 1933
+g1f3  d7d5
+c2c4  c7c6
+b2b3  g8f6
+g2g3  c8f5
+c1b2  e7e6
+f1g2  b8d7
+o-o   f8d6
+d2d3  o-o
+b1c3  d8e7
+f1e1  e6e5
+c4d5  c6d5
+e2e4  d5e4
+d3e4  f5g6
+! #  col. 2g; Bilek-Geller, Sousse 1967
+g1f3  d7d5
+c2c4  c7c6
+b2b3  g8f6
+g2g3  c8g4
+f1g2  e7e6
+c1b2  b8d7
+o-o   f8e7
+d2d3  o-o
+b1d2  a7a5
+a2a3  d8b6
+d1c2  h7h6
+b2c3  f8c8
+f1e1  b6d8
+e2e4  d8f8
+! #  col. 3k; Botvinnik-Fine, Nottingham 1936
+g1f3  d7d5
+c2c4  d5c4
+b1a3  c7c5
+a3c4  b8c6
+g2g3  e7e5
+f1g2  f7f6
+b2b3  g8e7
+c1b2  e7d5
+o-o   f8e7
+f3h4  o-o
+d1b1  f8f7
+h4f5  c8e6
+f2f4  e5f4
+g3f4  d5b6
+g2e4  e6c4
+! #  col. 4n; Katetov-Alekhin, Prague 1943
+g1f3  d7d5
+c2c4  d5d4
+e2e3  b8c6
+e3d4  c6d4
+f3d4  d8d4
+b1c3  e7e5
+d2d3  f8c5
+c1e3  d4d6
+c3b5  d6e7
+e3c5  e7c5
+d3d4  e5d4
+d1d4  c5d4
+b5d4  c8g4
+! #  col. 5o
+g1f3  d7d5
+c2c4  d5d4
+e2e3  c7c5
+e3d4  c5d4
+g2g3  b8c6
+f1g2  g7g6
+d2d3  f8g7
+o-o   e7e5
+f1e1  f7f6
+b2b4  c6b4
+d1a4  b4c6
+f3d4  d8d4
+g2c6  c8d7
+! #  col. 6
+g1f3  d7d5
+c2c4  e7e6
+g2g3  g8f6
+f1g2  f8e7
+o-o   o-o
+b2b3  c7c5
+c4d5  f6d5
+c1b2  b8c6
+d2d4  d5b4
+a2a3  b4a6
+d4c5  d8d1
+! #  col. 7
+g1f3  d7d5
+c2c4  e7e6
+g2g3  g8f6
+f1g2  f8e7
+b1c3  o-o
+b2b3  c7c5
+c1b2  b8c6
+c4d5  e6d5
+a1c1  c8e6
+o-o   a8c8
+d2d4  f8e8
+! #  col. 8g; Kashdan-Horowitz, New York 1931
+g1f3  d7d5
+c2c4  e7e6
+g2g3  g8f6
+f1g2  b8d7
+b2b3  c7c6
+o-o   f8d6
+c1b2  o-o
+b1c3  b7b6
+d2d3  c8b7
+e2e4  d5e4
+d3e4  d8c7
+d1e2  f8d8
+f1d1
+! #  col. 9h; Abroshin-Krykov corr. 1960
+g1f3  d7d5
+c2c4  e7e6
+g2g3  g8f6
+f1g2  d5c4
+d1a4  c8d7
+a4c4  d7c6
+o-o   c6d5
+c4a4  d8d7
+a4c2  b8c6
+b1c3  d5f3
+g2f3  c6d4
+c2d3  c7c6
+! #  col. 10m; Teti-Tartakover, Semmering 1926
+g1f3  d7d5
+c2c4  e7e6
+g2g3  d5c4
+d1a4  c8d7
+a4c4  c7c5
+f3e5  b8c6
+e5d7  d8d7
+f1g2  g8f6
+d2d3  f8e7
+o-o   c6d4
+b1c3  a8d8
+a2a4  f6d5
+! #  Barcza System, col. 11
+g1f3  d7d5
+g2g3  g8f6
+f1g2  c8f5
+o-o   c7c6
+c2c4  d5c4
+b1a3  e7e5
+a3c4  e5e4
+f3e1  f8c5
+d2d3  o-o
+c1e3  b8d7
+! #  col. 12d; Benko-Petrosian, Curacao 1962
+g1f3  d7d5
+g2g3  g8f6
+f1g2  c8f5
+o-o   c7c6
+d2d3  b8d7
+b1d2  h7h6
+d1e1  e7e6
+e2e4  f5h7
+e1e2  f8e7
+e4e5  f6g8
+d2b3  e7f8
+c2c4  g8e7
+b3d4  e7f5
+d4f5  h7f5
+c4d5  c6d5
+d3d4  a7a5
+c1e3  f8e7
+f1c1  o-o
+! #  col. 13f; Bronstein-O'Kelly, Beverwijk 1963
+g1f3  d7d5
+g2g3  g8f6
+f1g2  c7c5
+o-o   e7e6
+d2d3  b8c6
+b1d2  f8e7
+e2e4  o-o
+f1e1  d8c7
+e4e5  f6d7
+d1e2  b7b5
+h2h4  a7a5
+d2f1  c8a6
+f1h2  c6b4
+h4h5
+! #  col. 14i; Evans-Olafsson, Dallas 1957
+g1f3  d7d5
+g2g3  g8f6
+f1g2  g7g6
+o-o   f8g7
+d2d3  o-o
+b1d2  b8c6
+e2e4  e7e5
+c2c3  a7a5
+f1e1  d5e4
+d3e4  f6d7
+d1e2  b7b6
+d2c4  c8a6
+g2f1  d8f6
+! #  col. 15
+g1f3  d7d5
+g2g3  g8f6
+f1g2  g7g6
+d2d4  f8g7
+o-o   c7c6
+b2b3  b8d7
+c1b2  e7e5
+d4e5  f6g4
+b1d2  d7e5
+f3e5  g4e5
+! #  col. 16d; Larsen-Mecking, Mallorca 1969
+g1f3  d7d5
+g2g3  c7c5
+f1g2  b8c6
+o-o   e7e6
+d2d3  g7g6
+b1c3  f8g7
+a2a3  g8e7
+a1b1  o-o
+c1d2  a8b8
+b2b4  c5b4
+a3b4  b7b5
+e2e4  a7a5
+! #  col. 17h; Benko-Bisguier, US Chp. 1963
+g1f3  d7d5
+g2g3  c8g4
+f1g2  b8d7
+c2c4  c7c6
+c4d5  c6d5
+b1c3  e7e6
+d1b3  d8b6
+b3b6  d7b6
+d2d3  a8c8
+c1e3  f8d6
+c3b5  d6b8
+o-o   g8e7
+f1c1  c8c1
+a1c1  e7c6
+f3d4  e8d7
+! #  col. 18j; Keene-Basman, Hastings 1966-7
+g1f3  d7d5
+g2g3  c8g4
+f1g2  g8f6
+c2c4  c7c6
+c4d5  g4f3
+g2f3  c6d5
+d1b3  d8d7
+b1c3  e7e6
+o-o   b8c6
+f3g2  f8e7
+d2d3  o-o
+! #  col. 19k
+g1f3  d7d5
+g2g3  c8g4
+f1g2  g8f6
+c2c4  c7c6
+d1c2  e7e6
+o-o   f8e7
+b2b3  b8d7
+c1b2  o-o
+d2d3  a7a5
+b1d2  a5a4
+b2c3  a4b3
+a2b3  d8b6
+! #  col. 20m
+g1f3  d7d5
+g2g3  c8g4
+f1g2  g8f6
+o-o   c7c6
+c2c4  e7e6
+c4d5  g4f3
+g2f3  c6d5
+b1c3  b8c6
+d2d3  f8e7
+f3g2
+! #  col. 21b; Savon-Aronin, USSR 1963
+g1f3  d7d5
+g2g3  b8c6
+d2d4  c8f5
+f1g2  c6b4
+b1a3  e7e6
+o-o   g8f6
+f3h4  f5g4
+c2c4  c7c6
+a3c2  b4c2
+d1c2  f8e7
+h2h3  g4h5
+f2f3  h5g6
+h4g6  h7g6
+! #  col. 22d; Fischer-Ivkov, Santa Monica 1966
+g1f3  d7d5
+g2g3  e7e6
+f1g2  c7c5
+o-o   b8c6
+d2d3  f8d6
+e2e4  g8e7
+b1d2  o-o
+f3h4  b7b6
+f2f4  d5e4
+d3e4  c8a6
+f1e1  c5c4
+c2c3
+! #  col. 23
+g1f3  d7d5
+g2g3  b8d7
+c2c4  e7e6
+f1g2  g8f6
+b1c3  f8e7
+o-o   o-o
+d2d3  c7c5
+c4d5  e6d5
+c1g5  b7b6
+! #  col. 24g; Benko-Bisguier, US Chp. 1976-7
+g1f3  d7d5
+g2g3  g8f6
+f1g2  b7b6
+c2c4  e7e6
+c4d5  e6d5
+o-o   f8d6
+d2d4  o-o
+b1c3  c7c6
+f3e5  c8b7
+c1g5  h7h6
+g5f6  d8f6
+f2f4  f8d8
+e2e4
+! #  col. 25; Rabinovich-Rauser, Moscow 1934
+g1f3  d7d5
+b2b3  c8g4
+c1b2  b8d7
+c2c4  e7e6
+e2e3  g8f6
+f1e2  c7c6
+f3d4  g4e2
+d1e2  f8d6
+f2f4  o-o
+! #  col. 26e; Evans-Najdorf, Dallas 1967
+g1f3  c7c5
+g2g3  b8c6
+f1g2  g7g6
+o-o   f8g7
+e2e4  d7d6
+c2c3  e7e5
+d2d3  g8h6
+f3e1  o-o
+f2f4  e5f4
+c1f4  h6g4
+b1a3  g4e5
+g1h1  d8b6
+d1d2  c8e6
+! #  col. 27h; Van den Pol-Barden, Holland v. England 1960
+g1f3  f7f5
+g2g3  g8f6
+f1g2  g7g6
+d2d3  f8g7
+b1d2  d7d6
+e2e4  e7e5
+d2c4  o-o
+e4f5  g6f5
+c1e3  b8c6
+d3d4  e5e4
+! #  col. 28m; Gufeld-Bokuchava, USSR Chp. prelims 1968
+g1f3  f7f5
+g2g3  g8f6
+f1g2  e7e6
+c2c4  f8e7
+o-o   o-o
+d2d3  d7d6
+b1c3  b8c6
+a1b1  a7a5
+a2a3  d8e8
+b2b4  a5b4
+a3b4  e6e5
+! #  col. 29p; Lundin-Tartakover, Groningen 1946
+g1f3  f7f5
+g2g3  g8f6
+f1g2  e7e6
+c2c4  f8e7
+o-o   o-o
+b2b3  c7c5
+c1b2  b8c6
+b1c3  e6e5
+e2e3  d7d6
+d2d4
+! #  col. 30
+g1f3  g7g6
+g2g3  f8g7
+f1g2  e7e5
+d2d3  b8c6
+e2e4  d7d6
+b1c3  g8e7
+c1e3  o-o
+d1d2  c6d4
+o-o
+! #  King's Indian attack, col. 31a
+g1f3  g8f6
+g2g3  b7b5
+h2h4  b5b4
+d2d3  c8b7
+e2e4  d7d6
+f1g2  b8d7
+o-o   e7e6
+h4h5  a8b8
+b1d2  f8e7
+d2c4  o-o
+! #  col. 32d
+g1f3  g8f6
+g2g3  g7g6
+b2b4  f8g7
+c1b2  o-o
+f1g2  d7d5
+o-o   c8g4
+c2c4  c7c6
+b1a3  b8d7
+a1c1  a7a5
+b4b5  a5a4
+d2d3  e7e5
+! #  col. 33e; Olafsson-Kavalek, Wijik aan Zee 1969
+g1f3  g8f6
+g2g3  g7g6
+b2b3  f8g7
+c1b2  o-o
+f1g2  d7d6
+d2d4  f6d7
+b1c3  e7e5
+d1d2  f8e8
+d4e5  d7e5
+f3e5  g7e5
+! #  col. 34h
+g1f3  g8f6
+g2g3  g7g6
+c2c4  d7d6
+f1g2  f8g7
+o-o   o-o
+b1c3  b8d7
+d2d3  e7e5
+c1d2  d7c5
+b2b4  c5e6
+a1b1  f6e8
+a2a4  c7c6
+a4a5  e8c7
+! #  col. 35
+g1f3  g8f6
+c2c4  g7g6
+b2b3  f8g7
+c1b2  o-o
+e2e3  d7d6
+f1e2  e7e5
+o-o   f8e8
+b1c3  b8d7
+d2d3  c7c6
+! #  col. 36d
+g1f3  g8f6
+c2c4  g7g6
+b1c3  d7d5
+c4d5  f6d5
+d1a4  c8d7
+a4b3  d5b6
+d2d4  f8g7
+c1f4  d7e6
+b3c2  b8c6
+a1d1
+! #  col. 37f
+g1f3  g8f6
+c2c4  b7b6
+g2g3  c8b7
+f1g2  c7c5
+o-o   g7g6
+b2b3  f8g7
+c1b2  o-o
+b1c3  d7d5
+c3d5  f6d5
+b2g7  g8g7
+c4d5  d8d5
+d2d4  b8a6
+! #  col. 38h; Geller-Kholmov, Moscow 1969
+g1f3  g8f6
+c2c4  b7b6
+g2g3  c8b7
+f1g2  e7e6
+o-o   f8e7
+b2b3  o-o
+c1b2  d7d5
+e2e3  b8d7
+b1c3  f6e4
+c4d5  e4c3
+b2c3  e6d5
+! #  col. 39
+g1f3  g8f6
+b2b3  g7g6
+c2c4  f8g7
+c1b2  o-o
+g2g3  c7c5
+f1g2  b7b6
+o-o   c8b7
+b1c3  e7e6
+a1b1  d8e7
+! #  col. 40o; Lombardy-Burger, US Chp. 1969-70
+g1f3  g8f6
+b2b3  d7d5
+c1b2  e7e6
+e2e3  f8e7
+c2c4  o-o
+d2d4  b7b6
+f1d3  c8b7
+o-o   b8d7
+b1d2  c7c5
+d1e2  f6e4
+a1c1  a8c8
+!
+SHAR_EOF
+echo 'File gnuchess.book is complete' &&
+chmod 0444 gnuchess.book ||
+echo 'restore of gnuchess.book failed'
+Wc_c="`wc -c < 'gnuchess.book'`"
+test 47344 -eq "$Wc_c" ||
+	echo 'gnuchess.book: original size 47344, current size' "$Wc_c"
+rm -f _shar_wnt_.tmp
+fi
+# ============= gnuchess.c ==============
+if test -f 'gnuchess.c' -a X"$1" != X"-c"; then
+	echo 'x - skipping gnuchess.c (File already exists)'
+	rm -f _shar_wnt_.tmp
+else
+> _shar_wnt_.tmp
+echo 'x - extracting gnuchess.c (Text)'
+sed 's/^X//' << 'SHAR_EOF' > 'gnuchess.c' &&
+/*
+X  gnuchess.c - C source for GNU CHESS
+X
+X  Revision: 1991-04-15
+X
+X  Copyright (C) 1986, 1987, 1988, 1989, 1990 Free Software Foundation, Inc.
+X  Copyright (c) 1988, 1989, 1990  John Stanback
+X
+X  This file is part of CHESS.
+X
+X  CHESS is distributed in the hope that it will be useful, but WITHOUT ANY
+X  WARRANTY.  No author or distributor accepts responsibility to anyone for
+X  the consequences of using it or for whether it serves any particular
+X  purpose or works at all, unless he says so in writing.  Refer to the CHESS
+X  General Public License for full details.
+X
+X  Everyone is granted permission to copy, modify and redistribute CHESS, but
+X  only under the conditions described in the CHESS General Public License.
+X  A copy of this license is supposed to have been given to you along with
+X  CHESS so you can know your rights and responsibilities.  It should be in a
+X  file named COPYING.  Among other things, the copyright notice and this
+X  notice must be preserved on all copies.
+*/
+X
+X
+#include "gnuchess.h"
+X
+#include <ctype.h>
+X
+#ifdef MSDOS
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#define RWA_ACC "r+b"
+#define WA_ACC "w+b"
+#else
+#define RWA_ACC "r+"
+#define WA_ACC "w+"
+#include <sys/param.h>
+#include <sys/types.h>
+#include <sys/times.h>
+#endif /* MSDOS */
+X
+/* <stdlib.h> */
+extern int abs (int);
+extern int atoi (const char *);
+/* <time.h> */
+extern long int time (long int *);
+/* <string.h> */
+extern void *memset (void *, int, size_t);
+X
+#define valueP 100
+#define valueN 350
+#define valueB 355
+#define valueR 550
+#define valueQ 1100
+#define valueK 1200
+#define ctlP 0x4000
+#define ctlN 0x2800
+#define ctlB 0x1800
+#define ctlR 0x0400
+#define ctlQ 0x0200
+#define ctlK 0x0100
+#define ctlBQ 0x1200
+#define ctlBN 0x0800
+#define ctlRQ 0x0600
+#define ctlNN 0x2000
+#define Patak(c, u) (atak[c][u] > ctlP)
+#define Anyatak(c, u) (atak[c][u] > 0)
+X
+#if ttblsz
+#define truescore 0x0001
+#define lowerbound 0x0002
+#define upperbound 0x0004
+#define kingcastle 0x0008
+#define queencastle 0x0010
+X
+struct hashval
+{
+X  unsigned long key, bd;
+};
+struct hashentry
+{
+X  unsigned long hashbd;
+X  unsigned short mv;
+X  unsigned char flags, depth;	/* char saves some space */
+X  short score;
+#ifdef HASHTEST
+X  unsigned char bd[32];
+#endif /* HASHTEST */
+X
+};
+X
+#ifdef HASHFILE
+/*
+X  persistent transposition table.
+X  The size must be a power of 2. If you change the size,
+X  be sure to run gnuchess -c before anything else.
+*/
+#define frehash 6
+#ifdef MSDOS
+#define Deffilesz (1 << 11) -1
+#else
+#define Deffilesz (1 << 17) -1
+#endif /* MSDOS */
+struct fileentry
+{
+X  unsigned char bd[32];
+X  unsigned char f, t, flags, depth, sh, sl;
+};
+X
+/*
+X  In a networked enviroment gnuchess might be compiled on different
+X  hosts with different random number generators, that is not acceptable
+X  if they are going to share the same transposition table.
+*/
+unsigned long int next = 1;
+X
+unsigned int
+urand (void)
+{
+X  next *= 1103515245;
+X  next += 12345;
+X  return ((unsigned int) (next >> 16) & 0xFFFF);
+}
+X
+void
+srand (unsigned int seed)
+{
+X  next = seed;
+}
+X
+#else
+#define urand rand
+#endif /* HASHFILE */
+X
+static unsigned long hashkey, hashbd;
+static struct hashval hashcode[2][7][64];
+static struct hashentry huge ttable[2][ttblsz];
+#endif /* ttblsz */
+static short rpthash[2][256];
+X
+FILE *hashfile;
+char savefile[128] = "";
+char listfile[128] = "";
+struct leaf Tree[2000], *root;
+short TrPnt[maxdepth];
+short PieceList[2][16], PawnCnt[2][8];
+#define wking PieceList[white][0]
+#define bking PieceList[black][0]
+#define EnemyKing PieceList[c2][0]
+short castld[2], Mvboard[64];
+short svalue[64];
+struct flags flag;
+short opponent, computer, Awindow, Bwindow, dither, INCscore;
+long ResponseTime, ExtraTime, Level, et, et0, time0, ft;
+long NodeCnt, ETnodes, EvalNodes, HashCnt, HashAdd, FHashCnt, FHashAdd, HashCol,
+X filesz;
+short HashDepth = 4, HashMoveLimit = 12;
+short player, xwndw, rehash;
+struct GameRec GameList[200];
+short Sdepth, GameCnt, Game50, MaxSearchDepth;
+short epsquare, contempt;
+struct BookEntry *Book, *BKBook;
+struct TimeControlRec TimeControl;
+short TCflag, TCmoves, TCminutes, OperatorTime;
+const short otherside[3] =
+{1, 0, 2};
+unsigned short hint, PrVar[maxdepth];
+X
+static short Pindex[64];
+static short PieceCnt[2];
+static short c1, c2, *atk1, *atk2, *PC1, *PC2, atak[2][64];
+static short mtl[2], pmtl[2], emtl[2], hung[2];
+static short FROMsquare, TOsquare, Zscore, zwndw;
+static short HasKnight[2], HasBishop[2], HasRook[2], HasQueen[2];
+static short ChkFlag[maxdepth], CptrFlag[maxdepth], PawnThreat[maxdepth];
+static short Pscore[maxdepth], Tscore[maxdepth];
+static const short qrook[3] =
+{0, 56, 0};
+static const short krook[3] =
+{7, 63, 0};
+static const short kingP[3] =
+{4, 60, 0};
+static const short rank7[3] =
+{6, 1, 0};
+static const short sweep[8] =
+{false, false, false, true, true, true, false, false};
+static unsigned short killr0[maxdepth], killr1[maxdepth];
+static unsigned short killr2[maxdepth], killr3[maxdepth];
+static unsigned short PV, Swag0, Swag1, Swag2, Swag3, Swag4;
+static unsigned char history[8192], *ih;
+X
+static short Mwpawn[64], Mbpawn[64], Mknight[2][64], Mbishop[2][64];
+static short Mking[2][64], Kfield[2][64];
+static const short value[7] =
+{0, valueP, valueN, valueB, valueR, valueQ, valueK};
+static const short control[7] =
+{0, ctlP, ctlN, ctlB, ctlR, ctlQ, ctlK};
+static const short PassedPawn0[8] =
+{0, 60, 80, 120, 200, 360, 600, 800};
+static const short PassedPawn1[8] =
+{0, 30, 40, 60, 100, 180, 300, 800};
+static const short PassedPawn2[8] =
+{0, 15, 25, 35, 50, 90, 140, 800};
+static const short PassedPawn3[8] =
+{0, 5, 10, 15, 20, 30, 140, 800};
+static const short ISOLANI[8] =
+{-12, -16, -20, -24, -24, -20, -16, -12};
+static const short BACKWARD[16] =
+{-6, -10, -15, -21, -28, -28, -28, -28,
+X -28, -28, -28, -28, -28, -28, -28, -28};
+static const short BMBLTY[14] =
+{-2, 0, 2, 4, 6, 8, 10, 12, 13, 14, 15, 16, 16, 16};
+static const short RMBLTY[15] =
+{0, 2, 4, 6, 8, 10, 11, 12, 13, 14, 14, 14, 14, 14, 14};
+static const short KTHRT[36] =
+{0, -8, -20, -36, -52, -68, -80, -80, -80, -80, -80, -80,
+X -80, -80, -80, -80, -80, -80, -80, -80, -80, -80, -80, -80,
+X -80, -80, -80, -80, -80, -80, -80, -80, -80, -80, -80, -80};
+static short KNIGHTPOST, KNIGHTSTRONG, BISHOPSTRONG, KATAK;
+static short PEDRNK2B, PWEAKH, PADVNCM, PADVNCI, PAWNSHIELD, PDOUBLED, PBLOK;
+static short RHOPN, RHOPNX, KHOPN, KHOPNX, KSFTY;
+static short ATAKD, HUNGP, HUNGX, KCASTLD, KMOVD, XRAY, PINVAL;
+static short stage, stage2, Developed[2];
+static short PawnBonus, BishopBonus, RookBonus;
+static const short KingOpening[64] =
+{0, 0, -4, -10, -10, -4, 0, 0,
+X -4, -4, -8, -12, -12, -8, -4, -4,
+X -12, -16, -20, -20, -20, -20, -16, -12,
+X -16, -20, -24, -24, -24, -24, -20, -16,
+X -16, -20, -24, -24, -24, -24, -20, -16,
+X -12, -16, -20, -20, -20, -20, -16, -12,
+X -4, -4, -8, -12, -12, -8, -4, -4,
+X 0, 0, -4, -10, -10, -4, 0, 0};
+static const short KingEnding[64] =
+{0, 6, 12, 18, 18, 12, 6, 0,
+X 6, 12, 18, 24, 24, 18, 12, 6,
+X 12, 18, 24, 30, 30, 24, 18, 12,
+X 18, 24, 30, 36, 36, 30, 24, 18,
+X 18, 24, 30, 36, 36, 30, 24, 18,
+X 12, 18, 24, 30, 30, 24, 18, 12,
+X 6, 12, 18, 24, 24, 18, 12, 6,
+X 0, 6, 12, 18, 18, 12, 6, 0};
+static const short DyingKing[64] =
+{0, 8, 16, 24, 24, 16, 8, 0,
+X 8, 32, 40, 48, 48, 40, 32, 8,
+X 16, 40, 56, 64, 64, 56, 40, 16,
+X 24, 48, 64, 72, 72, 64, 48, 24,
+X 24, 48, 64, 72, 72, 64, 48, 24,
+X 16, 40, 56, 64, 64, 56, 40, 16,
+X 8, 32, 40, 48, 48, 40, 32, 8,
+X 0, 8, 16, 24, 24, 16, 8, 0};
+static const short KBNK[64] =
+{99, 90, 80, 70, 60, 50, 40, 40,
+X 90, 80, 60, 50, 40, 30, 20, 40,
+X 80, 60, 40, 30, 20, 10, 30, 50,
+X 70, 50, 30, 10, 0, 20, 40, 60,
+X 60, 40, 20, 0, 10, 30, 50, 70,
+X 50, 30, 10, 20, 30, 40, 60, 80,
+X 40, 20, 30, 40, 50, 60, 80, 90,
+X 40, 40, 50, 60, 70, 80, 90, 99};
+static const short pknight[64] =
+{0, 4, 8, 10, 10, 8, 4, 0,
+X 4, 8, 16, 20, 20, 16, 8, 4,
+X 8, 16, 24, 28, 28, 24, 16, 8,
+X 10, 20, 28, 32, 32, 28, 20, 10,
+X 10, 20, 28, 32, 32, 28, 20, 10,
+X 8, 16, 24, 28, 28, 24, 16, 8,
+X 4, 8, 16, 20, 20, 16, 8, 4,
+X 0, 4, 8, 10, 10, 8, 4, 0};
+static const short pbishop[64] =
+{14, 14, 14, 14, 14, 14, 14, 14,
+X 14, 22, 18, 18, 18, 18, 22, 14,
+X 14, 18, 22, 22, 22, 22, 18, 14,
+X 14, 18, 22, 22, 22, 22, 18, 14,
+X 14, 18, 22, 22, 22, 22, 18, 14,
+X 14, 18, 22, 22, 22, 22, 18, 14,
+X 14, 22, 18, 18, 18, 18, 22, 14,
+X 14, 14, 14, 14, 14, 14, 14, 14};
+static const short PawnAdvance[64] =
+{0, 0, 0, 0, 0, 0, 0, 0,
+X 4, 4, 4, 0, 0, 4, 4, 4,
+X 6, 8, 2, 10, 10, 2, 8, 6,
+X 6, 8, 12, 16, 16, 12, 8, 6,
+X 8, 12, 16, 24, 24, 16, 12, 8,
+X 12, 16, 24, 32, 32, 24, 16, 12,
+X 12, 16, 24, 32, 32, 24, 16, 12,
+X 0, 0, 0, 0, 0, 0, 0, 0};
+X
+X
+/* .... MOVE GENERATION VARIABLES AND INITIALIZATIONS .... */
+X
+X
+#define taxicab(a,b) taxidata[a][b]
+short distdata[64][64], taxidata[64][64];
+X
+static inline void
+Initialize_dist (void)
+{
+X  register short a, b, d, di;
+X
+X  for (a = 0; a < 64; a++)
+X    for (b = 0; b < 64; b++)
+X      {
+X	d = abs (column (a) - column (b));
+X	di = abs (row (a) - row (b));
+X	taxidata[a][b] = d + di;
+X	distdata[a][b] = (d > di ? d : di);
+X      }
+}
+X
+const short Stboard[64] =
+{rook, knight, bishop, queen, king, bishop, knight, rook,
+X pawn, pawn, pawn, pawn, pawn, pawn, pawn, pawn,
+X 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+X 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+X pawn, pawn, pawn, pawn, pawn, pawn, pawn, pawn,
+X rook, knight, bishop, queen, king, bishop, knight, rook};
+const short Stcolor[64] =
+{white, white, white, white, white, white, white, white,
+X white, white, white, white, white, white, white, white,
+X 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+X 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+X black, black, black, black, black, black, black, black,
+X black, black, black, black, black, black, black, black};
+short board[64], color[64];
+static unsigned char nextpos[8][64][64];
+static unsigned char nextdir[8][64][64];
+/*
+X  ptype is used to separate white and black pawns, like this;
+X  ptyp = ptype[side][piece]
+X  piece can be used directly in nextpos/nextdir when generating moves
+X  for pieces that are not black pawns.
+*/
+static const short ptype[2][8] =
+{
+X  no_piece, pawn, knight, bishop, rook, queen, king, no_piece,
+X  no_piece, bpawn, knight, bishop, rook, queen, king, no_piece};
+static const short direc[8][8] =
+{
+X  0, 0, 0, 0, 0, 0, 0, 0,
+X  10, 9, 11, 0, 0, 0, 0, 0,
+X  8, -8, 12, -12, 19, -19, 21, -21,
+X  9, 11, -9, -11, 0, 0, 0, 0,
+X  1, 10, -1, -10, 0, 0, 0, 0,
+X  1, 10, -1, -10, 9, 11, -9, -11,
+X  1, 10, -1, -10, 9, 11, -9, -11,
+X  -10, -9, -11, 0, 0, 0, 0, 0};
+static const short max_steps[8] =
+{0, 2, 1, 7, 7, 7, 1, 2};
+static const short nunmap[120] =
+{
+X  -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
+X  -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
+X  -1, 0, 1, 2, 3, 4, 5, 6, 7, -1,
+X  -1, 8, 9, 10, 11, 12, 13, 14, 15, -1,
+X  -1, 16, 17, 18, 19, 20, 21, 22, 23, -1,
+X  -1, 24, 25, 26, 27, 28, 29, 30, 31, -1,
+X  -1, 32, 33, 34, 35, 36, 37, 38, 39, -1,
+X  -1, 40, 41, 42, 43, 44, 45, 46, 47, -1,
+X  -1, 48, 49, 50, 51, 52, 53, 54, 55, -1,
+X  -1, 56, 57, 58, 59, 60, 61, 62, 63, -1,
+X  -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
+X  -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
+X
+X
+void
+Initialize_moves (void)
+X
+/*
+X  This procedure pre-calculates all moves for every piece from every square.
+X  This data is stored in nextpos/nextdir and used later in the move generation
+X  routines.
+*/
+X
+{
+X  short ptyp, po, p0, d, di, s, delta;
+X  unsigned char *ppos, *pdir;
+X  short dest[8][8];
+X  short steps[8];
+X  short sorted[8];
+X
+X  for (ptyp = 0; ptyp < 8; ptyp++)
+X    for (po = 0; po < 64; po++)
+X      for (p0 = 0; p0 < 64; p0++)
+X	{
+X	  nextpos[ptyp][po][p0] = (unsigned char) po;
+X	  nextdir[ptyp][po][p0] = (unsigned char) po;
+X	}
+X  for (ptyp = 1; ptyp < 8; ptyp++)
+X    for (po = 21; po < 99; po++)
+X      if (nunmap[po] >= 0)
+X	{
+X	  ppos = nextpos[ptyp][nunmap[po]];
+X	  pdir = nextdir[ptyp][nunmap[po]];
+X	  /* dest is a function of direction and steps */
+X	  for (d = 0; d < 8; d++)
+X	    {
+X	      dest[d][0] = nunmap[po];
+X	      delta = direc[ptyp][d];
+X	      if (delta != 0)
+X		{
+X		  p0 = po;
+X		  for (s = 0; s < max_steps[ptyp]; s++)
+X		    {
+X		      p0 = p0 + delta;
+X		      /*
+X			break if (off board) or
+X			(pawns only move two steps from home square)
+X		      */
+X		      if (nunmap[p0] < 0 || (ptyp == pawn || ptyp == bpawn)
+X			  && s > 0 && (d > 0 || Stboard[nunmap[po]] != pawn))
+X			break;
+X		      else
+X			dest[d][s] = nunmap[p0];
+X		    }
+X		}
+X	      else
+X		s = 0;
+X
+X	      /*
+X	        sort dest in number of steps order
+X	        currently no sort is done due to compability with
+X	        the move generation order in old gnu chess
+X	      */
+X	      steps[d] = s;
+X	      for (di = d; s > 0 && di > 0; di--)
+X		if (steps[sorted[di - 1]] == 0)	/* should be: < s */
+X		  sorted[di] = sorted[di - 1];
+X		else
+X		  break;
+X	      sorted[di] = d;
+X	    }
+X
+X	  /*
+X	    update nextpos/nextdir,
+X	    pawns have two threads (capture and no capture)
+X	  */
+X	  p0 = nunmap[po];
+X	  if (ptyp == pawn || ptyp == bpawn)
+X	    {
+X	      for (s = 0; s < steps[0]; s++)
+X		{
+X		  ppos[p0] = (unsigned char) dest[0][s];
+X		  p0 = dest[0][s];
+X		}
+X	      p0 = nunmap[po];
+X	      for (d = 1; d < 3; d++)
+X		{
+X		  pdir[p0] = (unsigned char) dest[d][0];
+X		  p0 = dest[d][0];
+X		}
+X	    }
+X	  else
+X	    {
+X	      pdir[p0] = (unsigned char) dest[sorted[0]][0];
+X	      for (d = 0; d < 8; d++)
+X		for (s = 0; s < steps[sorted[d]]; s++)
+X		  {
+X		    ppos[p0] = (unsigned char) dest[sorted[d]][s];
+X		    p0 = dest[sorted[d]][s];
+X		    if (d < 7)
+X		      pdir[p0] = (unsigned char) dest[sorted[d + 1]][0];
+X		    /* else is already initialized */
+X		  }
+X	    }
+X	}
+}
+X
+/* hmm.... shouldn`t main be moved to the interface routines */
+int
+main (int argc, char **argv)
+{
+X  short int ahead = true, hash = true;
+X  char *xwin = 0;
+X
+X  while (argc > 1 && ((argv[1][0] == '-') || (argv[1][0] == '+')))
+X    {
+X      switch (argv[1][1])
+X	{
+X	case 'a':
+X	  ahead = (argv[1][0] == '-') ? false : true;
+X	  break;
+X	case 'h':
+X	  hash = (argv[1][0] == '-') ? false : true;
+X	  break;
+X	case 's':
+X	  argc--;
+X	  argv++;
+X	  if (argc > 1)
+X	    strcpy (savefile, argv[1]);
+X	  break;
+X	case 'l':
+X	  if (argc > 1)
+X	    strcpy (listfile, argv[1]);
+X	  break;
+#if ttblsz
+#ifdef HASHFILE
+X	case 't':		/* create or test persistent transposition table */
+X	  hashfile = fopen (HASHFILE, RWA_ACC);
+X	  if (hashfile)
+X	    {
+X	      fseek (hashfile, 0L, SEEK_END);
+X	      filesz = (ftell (hashfile) / sizeof (struct fileentry)) - 1;
+X	    }
+X	  if (hashfile != NULL)
+X	    {
+X	      long i, j;
+X	      int nr[maxdepth];
+X	      struct fileentry n;
+X
+X	      printf ("Counting transposition file entries, wait!\n");
+X	      for (i = 0; i < maxdepth; i++)
+X		nr[i] = 0;
+X	      fseek (hashfile, 0L, SEEK_END);
+X	      i = ftell (hashfile) / sizeof (struct fileentry);
+X	      fseek (hashfile, 0L, SEEK_SET);
+X	      for (j = 0; j < i + 1; j++)
+X		{
+X		  fread (&n, sizeof (struct fileentry), 1, hashfile);
+X		  if (n.depth)
+X		    {
+X		      nr[n.depth]++;
+X		      nr[0]++;
+X		    }
+X		}
+X	      printf ("The file contains %d entries out of max %d\n",
+X		      nr[0], i);
+X	      for (j = 1; j < maxdepth; j++)
+X		printf ("%d ", nr[j]);
+X	      printf ("\n");
+X	    }
+X	  return 0;
+X	case 'c':		/* create or test persistent transposition table */
+X	  if (argc > 2)
+X	    filesz = atoi (argv[2]);
+X	  if (filesz > 0 && filesz < 24)
+X	    filesz = (1 << filesz) - 1;
+X	  else
+X	    filesz = Deffilesz;
+X	  if ((hashfile = fopen (HASHFILE, RWA_ACC)) == NULL)
+X	    hashfile = fopen (HASHFILE, WA_ACC);
+X	  if (hashfile != NULL)
+X	    {
+X	      long i, j;
+X	      struct fileentry n;
+X	      printf ("Filling transposition file, wait!\n");
+X	      for (j = 0; j < 32; j++)
+X		n.bd[j] = 0;
+X	      n.f = n.t = 0;
+X	      n.flags = 0;
+X	      n.depth = 0;
+X	      n.sh = n.sl = 0;
+X	      for (j = 0; j < filesz + 1; j++)
+X		fwrite (&n, sizeof (struct fileentry), 1, hashfile);
+X	      fclose (hashfile);
+X	    }
+X	  return (0);
+#endif /* HASHFILE */
+#endif /* ttblsz */
+X	case 'x':
+X	  xwin = &argv[1][2];
+X	  break;
+X	default:
+X	  fprintf (stderr, "Usage: gnuchess [-a] [-t] [-c size] [-s savefile][-l listfile] [-x xwndw]\n");
+X	}
+X      argv++;
+X      argc--;
+X    }
+X  Level = 0;
+X  TCflag = false;
+X  OperatorTime = 0;
+X  if (argc == 2)
+X    Level = atoi (argv[1]);
+X  if (argc == 3)
+X    {
+X      TCmoves = atoi (argv[1]);
+X      TCminutes = atoi (argv[2]);
+X      TCflag = true;
+X    }
+X  Initialize ();
+X  Initialize_dist ();
+X  Initialize_moves ();
+X  NewGame ();
+X  GetOpenings ();
+X
+X  flag.easy = ahead;
+X  flag.hash = hash;
+X  if (xwin)
+X    xwndw = atoi (xwin);
+X
+X  hashfile = NULL;
+#if ttblsz
+#ifdef HASHFILE
+X  hashfile = fopen (HASHFILE, RWA_ACC);
+X  if (hashfile)
+X    {
+X      fseek (hashfile, 0L, SEEK_END);
+X      filesz = ftell (hashfile) / sizeof (struct fileentry) - 1;
+X    }
+#endif /* HASHFILE */
+#endif /* ttblsz */
+X  while (!(flag.quit))
+X    {
+X      if (flag.bothsides && !flag.mate)
+X	SelectMove (opponent, 1);
+X      else
+X	InputCommand ();
+X      if (!(flag.quit || flag.mate || flag.force))
+X	SelectMove (computer, 1);
+X    }
+#if ttblsz
+#ifdef HASHFILE
+X  if (hashfile)
+X    fclose (hashfile);
+#endif /* HASHFILE */
+#endif /* ttblsz */
+X
+X  ExitChess ();
+X  return (0);
+}
+X
+void
+NewGame (void)
+X
+/*
+X  Reset the board and other variables to start a new game.
+*/
+X
+{
+X  short l, c, p;
+X
+X  stage = stage2 = -1;		/* the game is not yet started */
+X  flag.mate = flag.post = flag.quit = flag.reverse = flag.bothsides = false;
+X  flag.force = false;
+X  flag.hash = flag.easy = flag.beep = flag.rcptr = true;
+X  NodeCnt = et0 = epsquare = 0;
+X  dither = 0;
+X  Awindow = 90;
+X  Bwindow = 90;
+X  xwndw = 90;
+X  MaxSearchDepth = 29;
+X  contempt = 0;
+X  GameCnt = 0;
+X  Game50 = 1;
+X  hint = 0x0C14;
+X  ZeroRPT ();
+X  Developed[white] = Developed[black] = false;
+X  castld[white] = castld[black] = false;
+X  PawnThreat[0] = CptrFlag[0] = false;
+X  Pscore[0] = 12000;
+X  Tscore[0] = 12000;
+X  opponent = white;
+X  computer = black;
+X  for (l = 0; l < 2000; l++)
+X    Tree[l].f = Tree[l].t = 0;
+#if ttblsz
+X  rehash = 6;
+X  ZeroTTable ();
+X  srand ((unsigned int) 1);
+X  for (c = white; c <= black; c++)
+X    for (p = pawn; p <= king; p++)
+X      for (l = 0; l < 64; l++)
+X	{
+X	  hashcode[c][p][l].key = (((unsigned long) urand ()));
+X	  hashcode[c][p][l].key += (((unsigned long) urand ()) << 16);
+X	  hashcode[c][p][l].bd = (((unsigned long) urand ()));
+X	  hashcode[c][p][l].bd += (((unsigned long) urand ()) << 16);
+X	  if (sizeof (long) > 4)
+X	    {
+X	      hashcode[c][p][l].key += (((unsigned long) urand ()) <<32);
+X	      hashcode[c][p][l].key += (((unsigned long) urand ()) << 48);
+X	      hashcode[c][p][l].bd += (((unsigned long) urand ()) << 32);
+X	      hashcode[c][p][l].bd += (((unsigned long) urand ()) << 48);
+X	    }
+X	}
+#endif /* ttblsz */
+X  for (l = 0; l < 64; l++)
+X    {
+X      board[l] = Stboard[l];
+X      color[l] = Stcolor[l];
+X      Mvboard[l] = 0;
+X    }
+X  ClrScreen ();
+X  if (TCflag)
+X    SetTimeControl ();
+X  else if (Level == 0)
+X    SelectLevel ();
+X  InitializeStats ();
+X  time0 = time ((long *) 0);
+X  ElapsedTime (1);
+X  UpdateDisplay (0, 0, 1, 0);
+X  Book = BKBook;
+}
+X
+X
+/* ............    MOVE GENERATION & SEARCH ROUTINES    .............. */
+X
+static inline void
+pick (short int p1, short int p2)
+X
+/*
+X  Find the best move in the tree between indexes p1 and p2. Swap the best
+X  move into the p1 element.
+*/
+X
+{
+X  register short p, s;
+X  short p0, s0;
+X  struct leaf temp;
+X
+X  s0 = Tree[p1].score;
+X  p0 = p1;
+X  for (p = p1 + 1; p <= p2; p++)
+X    if ((s = Tree[p].score) > s0)
+X      {
+X	s0 = s;
+X	p0 = p;
+X      }
+X  if (p0 != p1)
+X    {
+X      temp = Tree[p1];
+X      Tree[p1] = Tree[p0];
+X      Tree[p0] = temp;
+X    }
+}
+X
+void
+SelectMove (short int side, short int iop)
+X
+X
+/*
+X  Select a move by calling function search() at progressively deeper ply
+X  until time is up or a mate or draw is reached. An alpha-beta window of -90
+X  to +90 points is set around the score returned from the previous
+X  iteration. If Sdepth != 0 then the program has correctly predicted the
+X  opponents move and the search will start at a depth of Sdepth+1 rather
+X  than a depth of 1.
+*/
+X
+{
+X  static short i, tempb, tempc, tempsf, tempst, xside, rpt;
+X  static short alpha, beta, score;
+X  static struct GameRec *g;
+X
+X  flag.timeout = false;
+X  xside = otherside[side];
+X  if (iop != 2)
+X    player = side;
+X  if (TCflag)
+X    {
+X      if ((TimeControl.moves[side] + 3) != 0)
+X	ResponseTime = (TimeControl.clock[side]) /
+X	  (TimeControl.moves[side] + 3) -
+X	  OperatorTime;
+X      else
+X	ResponseTime = 0;
+X      ResponseTime += (ResponseTime * TimeControl.moves[side]) / (2 * TCmoves + 1);
+X    }
+X  else
+X    ResponseTime = Level;
+X  if (iop == 2)
+X    ResponseTime = 99999;
+X  if (Sdepth > 0 && root->score > Zscore - zwndw)
+X    ResponseTime -= ft;
+X  else if (ResponseTime < 1)
+X    ResponseTime = 1;
+X  ExtraTime = 0;
+X  ExaminePosition ();
+X  ScorePosition (side, &score);
+X  /* Pscore[0] = -score; */
+X  ShowSidetoMove ();
+X
+X  if (Sdepth == 0)
+X    {
+#if ttblsz
+X      /* ZeroTTable (); */
+#endif /* ttblsz */
+X      SearchStartStuff (side);
+#ifdef NOMEMSET
+X      for (ih = history; ih < history + 8192; ih++)
+X	*ih = 0;
+#else
+X      memset ((char *) history, 0, sizeof (history));
+#endif /* NOMEMSET */
+X      FROMsquare = TOsquare = -1;
+X      PV = 0;
+X      if (iop != 2)
+X	hint = 0;
+X      for (i = 0; i < maxdepth; i++)
+X	PrVar[i] = killr0[i] = killr1[i] = killr2[i] = killr3[i] = 0;
+X      alpha = score - 90;
+X      beta = score + 90;
+X      rpt = 0;
+X      TrPnt[1] = 0;
+X      root = &Tree[0];
+X      MoveList (side, 1);
+X      /* Analysis Mode Goes here */
+X
+X      for (i = TrPnt[1]; i < TrPnt[2]; i++)
+X	pick (i, TrPnt[2] - 1);
+X      if (Book != NULL)
+X	OpeningBook (&hint);
+X      if (Book != NULL)
+X	flag.timeout = true;
+X      NodeCnt = ETnodes = EvalNodes = HashCnt = FHashAdd = HashAdd = FHashCnt = HashCol = 0;
+X      Zscore = 0;
+X      zwndw = 20;
+X    }
+X  while (!flag.timeout && Sdepth < MaxSearchDepth)
+X    {
+X      Sdepth++;
+X      ShowDepth (' ');
+X      score = search (side, 1, Sdepth, alpha, beta, PrVar, &rpt);
+X      for (i = 1; i <= Sdepth; i++)
+X	killr0[i] = PrVar[i];
+X      if (score < alpha)
+X	{
+X	  ShowDepth ('-');
+X	  ExtraTime = 10 * ResponseTime;
+X	  /* ZeroTTable (); */
+X	  score = search (side, 1, Sdepth, -9000, score, PrVar, &rpt);
+X	}
+X      if (score > beta && !(root->flags & exact))
+X	{
+X	  ShowDepth ('+');
+X	  ExtraTime = 0;
+X	  /* ZeroTTable (); */
+X	  score = search (side, 1, Sdepth, score, 9000, PrVar, &rpt);
+X	}
+X      score = root->score;
+X      if (!flag.timeout)
+X	for (i = TrPnt[1] + 1; i < TrPnt[2]; i++)
+X	  pick (i, TrPnt[2] - 1);
+X      ShowResults (score, PrVar, '.');
+X      for (i = 1; i <= Sdepth; i++)
+X	killr0[i] = PrVar[i];
+X      if (score > Zscore - zwndw && score > Tree[1].score + 250)
+X	ExtraTime = 0;
+X      else if (score > Zscore - 3 * zwndw)
+X	ExtraTime = ResponseTime;
+X      else
+X	ExtraTime = 3 * ResponseTime;
+X      if (root->flags & exact)
+X	flag.timeout = true;
+X      if (Tree[1].score < -9000)
+X	flag.timeout = true;
+X      if (4 * et > 2 * ResponseTime + ExtraTime)
+X	flag.timeout = true;
+X      if (!flag.timeout)
+X	{
+X	  Tscore[0] = score;
+X	  Zscore = (Zscore == 0) ? score : ((Zscore + score) / 2);
+X	}
+X      zwndw = 20 + abs (Zscore / 12);
+X      beta = score + Bwindow;
+X      alpha = ((Zscore < score) ? Zscore : score) - Awindow - zwndw;
+X    }
+X
+X  score = root->score;
+X  if (rpt >= 2)
+X    {
+X      root->flags |= draw;
+X      DRAW = "Repitition";
+X    }
+X  if (score < -12000)
+X    {
+X      root->flags |= draw;
+X      DRAW = "Score";
+X    }
+X  if (!PieceCnt[black] && !PieceCnt[white])
+X    {
+X      root->flags |= draw;
+X      DRAW = "No pieces";
+X    }
+X  if ((root->score == -9999) && !(SqAtakd (PieceList[side][0], xside)))
+SHAR_EOF
+true || echo 'restore of gnuchess.c failed'
+fi
+echo 'End of  part 3'
+echo 'File gnuchess.c is continued in part 4'
+echo 4 > _shar_seq_.tmp
+exit 0
+exit 0 # Just in case...
+-- 
+Kent Landfield                   INTERNET: kent@sparky.IMD.Sterling.COM
+Sterling Software, IMD           UUCP:     uunet!sparky!kent
+Phone:    (402) 291-8300         FAX:      (402) 291-4362
+Please send comp.sources.misc-related mail to kent@uunet.uu.net.
+
+

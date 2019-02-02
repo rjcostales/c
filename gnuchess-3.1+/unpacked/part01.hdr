@@ -1,0 +1,66 @@
+From pa.dec.com!decwrl!uunet!sparky!kent Sun May 19 12:33:55 PDT 1991
+Article: 2353 of comp.sources.misc
+Newsgroups: comp.sources.misc
+Path: pa.dec.com!decwrl!uunet!sparky!kent
+From: Mike McGann <mwm@hasler.ascom.ch>
+Subject:  v19i073:  gnuchess - gnuchess version 3.1+, Part01/07
+Message-ID: <1991May17.024417.27553@sparky.IMD.Sterling.COM>
+X-Md4-Signature: a3de8b65efff93d6077bbe0ab19c6987
+Sender: kent@sparky.IMD.Sterling.COM (Kent Landfield)
+Organization: Sterling Software, IMD
+Date: Fri, 17 May 1991 02:44:17 GMT
+Approved: kent@sparky.imd.sterling.com
+
+Submitted-by: Mike McGann <mwm@hasler.ascom.ch>
+Posting-number: Volume 19, Issue 73
+Archive-name: gnuchess/part01
+
+This is an update of gnuchess version 3.1.  It fixes all known bugs with 
+pawn promotion, undo, and win/draw determination.  It adds the capability 
+of reading xboard position files (xget).  It adds specification of save 
+and load files on the command line (gnuchessr).  Save file format is now 
+human readable.  'white' and 'black' no longer start play but only set the 
+players. If the computer is to move first use the 'go' command.
+
+New commands are xget and hashlevel.
+	xget reads an xboard position file.
+	hashlevel allows you to specify parameters for using the hashfile.
+
+New Programs -
+	postprint - allows printing of hashfile contents on a postscript printer
+		for each position it prints tha board and the recommended move
+		flags and depth.
+		To run: just execute the program (pathname for hashfile is
+			build in. Output comes out stdout. Then cat it with 
+			ChessFonts and sent it to the printer. It prints 16
+			positions per page.
+
+			postprint >t
+			cat ChessFonts t >p
+			lpr p
+
+	gnuan - a modified version of Truman Collins gnuan program with fixes
+                for the gnuchess bugs. In addition it shows the best line for
+                each move instead of just the next move. It will accept input
+	        files produced by xboard (xboard.game.save) or from gnuchess
+	        (chess.lst) files directly. 
+		
+		Output looks like this:
+
+    Move White Black      Score Depth     Best Line
+    ------------------------------------------------------------------
+      1   e2e4              13    5    g1f3  g8f6  b1c3  b8c6  e2e3 
+                c7c5        -2    5    e7e6  b1c3  b8c6  d2d4  f8b4 
+      2   b1c3              37    5    b1c3  b8c6  g1f3  g8f6  f1c4 
+                b8c6       -34    5    b8c6  g1f3  g8f6  f1b5  c6b4 
+      3   g1f3              44    5    g1f3  g8f6  f1b5  h7h6  d2d3 
+                g8f6       -38    5    g8f6  f1b5  a7a6  b5c6  d7c6 
+      4   f1c4              38    5    f1b5  c6d4  d2d3  d4b5  c3b5 
+                d7d6       -20    5    d7d6  d2d3  c8g4  h2h3  g4h5 
+    
+            White's percentage was 50.00%.     Black's percentage was 75.00%.
+    
+            Elapsed time was 128 seconds.
+
+Mike McGann <uunet!hasler.ascom.ch!mwm>
+----

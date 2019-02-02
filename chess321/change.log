@@ -1,0 +1,43 @@
+6/19/91 dkb     Rearranged code segments to use small model.  This should
+                speed up operation in win 3.0 (since far calls are slow).
+                Recompiled with version 6.0ax of compiler.  Changed makefile
+                so modules chess, search, eval, and initiali used /EM switch
+                to enable global optimization.  Remove optimation from test.c
+                to prevent optimizer from playing with test loop.
+
+1/18/91 dkb     Revised abort look ahead logic.  User now enters can enter
+                control C to abort bothsides (autoplay) mode.  Fixed search
+                routine to properly handle the new translators.  Added F2
+                command to enter moves with the keyboard.
+
+1/12/91         D. Baker.   Fixed force command to be consistent with GNU
+                            Chess.  Clocks updated properly. Change labels
+                            on clocks to be Black and White.  Change menu
+                            items save and list only to be active if there
+                            has been any moves.  Added accelerator keys
+                            for help (f1), and Undo/remove.  When not "easy"
+                            accelerators are not active.
+                            
+12/27/90        D. Baker.   Version changed to 3.2 to be consistent with
+                            GNU Chess.  Fixed several compiler warnings
+                            in Saveopen.c.  Fixed EASY menu to be consistent
+                            with standard GNU Chess
+
+12/26/90        D. Baker.   Added help system, Version changed to 1.1
+
+12/24/90        D. Baker.   Added changes to bring chess engine up to
+                            GNUchess 3.2. Recompiled using version 6.00a 
+                            of microsoft C compiler.
+
+11/26/90        D. Baker.   Fixed reported bugs from 1.0
+        1) Fixed bug where "computer is black" never changed when switched
+           sides
+        2) Fixed problem with promoting pawn.
+        3) Changed File Get ... to File Open ...
+        4) Made fancier Open dialog box, (includes scroll bars amoung other)
+        5) Properly frees memory when program ends.
+        6) Made text color selectable
+        7) Added GNU copyright to source files.
+
+
+10/26/90        D. Baker.   Version 1 complete

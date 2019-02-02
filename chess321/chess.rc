@@ -1,0 +1,183 @@
+/*
+  C source for GNU CHESS
+
+  Revision: 1990-09-30
+
+  Modified by Daryl Baker for use in MS WINDOWS environment
+
+  This file is part of CHESS.
+
+  CHESS is distributed in the hope that it will be useful, but WITHOUT ANY
+  WARRANTY.  No author or distributor accepts responsibility to anyone for
+  the consequences of using it or for whether it serves any particular
+  purpose or works at all, unless he says so in writing.  Refer to the CHESS
+  General Public License for full details.
+
+  Everyone is granted permission to copy, modify and redistribute CHESS, but
+  only under the conditions described in the CHESS General Public License.
+  A copy of this license is supposed to have been given to you along with
+  CHESS so you can know your rights and responsibilities.  It should be in a
+  file named COPYING.  Among other things, the copyright notice and this
+  notice must be preserved on all copies.
+*/
+
+#include <windows.h>
+#include "chess.h"
+
+CHESS  ICON   "Chess.ico"
+
+
+PAWN    BITMAP "pawn.bmp"
+ROOK    BITMAP "rook.bmp"
+KNIGHT  BITMAP "knight.bmp"
+BISHOP  BITMAP "bishop.bmp"
+QUEEN   BITMAP "queen.bmp"
+KING    BITMAP "king.bmp"
+
+PAWNM   BITMAP "pawnm.bmp"
+ROOKM   BITMAP "rookm.bmp"
+KNIGHTM BITMAP "knightm.bmp"
+BISHOPM BITMAP "bishopm.bmp"
+QUEENM  BITMAP "queenm.bmp"
+KINGM   BITMAP "kingm.bmp"
+
+PAWNO   BITMAP "pawno.bmp"
+ROOKO   BITMAP "rooko.bmp"
+KNIGHTO BITMAP "knighto.bmp"
+BISHOPO BITMAP "bishopo.bmp"
+QUEENO  BITMAP "queeno.bmp"
+KINGO   BITMAP "kingo.bmp"
+
+#include "about.dlg"
+
+#include "saveopen.h"
+#include "saveopen.dlg"
+
+#include "getnum.dlg"
+
+#include "color.h"
+#include "color.dlg"
+
+#include "timecnt.h"
+#include "timecnt.dlg"
+
+#include "stats.h"
+#include "stats.dlg"
+
+#include "review.dlg"
+#include "test.dlg"
+#include "promote.dlg"
+#include "manual.dlg"
+
+CHESS MENU Begin
+        POPUP "&File"
+              Begin
+                  MENUITEM "&New",                        MSG_CHESS_NEW
+                  MENUITEM "&Open...",                    MSG_CHESS_GET
+                  MENUITEM "&Save...",                    MSG_CHESS_SAVE
+                  MENUITEM "&List...",                    MSG_CHESS_LIST
+                  MENUITEM SEPARATOR
+                  MENUITEM "E&xit",                       MSG_CHESS_QUIT
+              END
+
+        POPUP "&Edit"
+              BEGIN
+                MENUITEM "&Setup Board",                  MSG_CHESS_EDIT
+                MENUITEM "R&eview Game...",               MSG_CHESS_REVIEW
+                MENUITEM SEPARATOR
+                MENUITEM "&Undo\tBksp",                   MSG_CHESS_UNDO
+                MENUITEM "&Remove\tALT+Bksp",             MSG_CHESS_REMOVE
+                MENUITEM SEPARATOR
+                MENUITEM "&Force",                        MSG_CHESS_FORCE
+              END
+
+        POPUP "&Options"
+                BEGIN
+                  MENUITEM "&Tone"                        MSG_CHESS_BEEP
+                  MENUITEM "C&oordinates",                MSG_CHESS_COORD
+                  MENUITEM "&Search Stats",               MSG_CHESS_POST
+                  MENUITEM "T&est Speed",                 MSG_CHESS_TEST      
+                  MENUITEM SEPARATOR
+                  MENUITEM "&Hash"                        MSG_CHESS_HASH
+                  MENUITEM "&Both"                        MSG_CHESS_BOTH
+                  MENUITEM "Boo&k"                        MSG_CHESS_BOOK
+                  MENUITEM SEPARATOR
+                  MENUITEM "&A Window..."                 MSG_CHESS_AWIN
+                  MENUITEM "&B Window..."                 MSG_CHESS_BWIN
+                  MENUITEM "&Contemp..."                  MSG_CHESS_CONTEMP
+                END
+
+        POPUP "&Skill"
+                BEGIN             
+                  MENUITEM "&Time...",                    IDM_TIMECONTROL
+                  MENUITEM SEPARATOR                      
+                  MENUITEM "&Random",                     MSG_CHESS_RANDOM
+                  MENUITEM "&Easy",                       MSG_CHESS_EASY
+                  MENUITEM "&Depth...",                   MSG_CHESS_DEPTH
+              END
+
+        POPUP "S&ide"
+              BEGIN
+                  MENUITEM "&Reverse",                    MSG_CHESS_REVERSE
+                  MENUITEM "&Switch",                     MSG_CHESS_SWITCH
+                  MENUITEM "&Black",                      MSG_CHESS_BLACK
+                  MENUITEM "&White",                      MSG_CHESS_WHITE
+              END
+
+        POPUP "&Colors"
+                Begin
+                        Menuitem "Window Background",   IDM_BACKGROUND
+                        Menuitem "Black Squares",       IDM_BLACKSQUARE
+                        Menuitem "White Squares",       IDM_WHITESQUARE
+                        Menuitem "Black Pieces",        IDM_BLACKPIECE
+                        Menuitem "White Pieces",        IDM_WHITEPIECE
+                        Menuitem "Text Color",          IDM_TEXT
+                        Menuitem SEPARATOR
+                        Menuitem "Default Colors",      IDM_DEFAULT
+                end
+
+        MENUITEM "Hi&nt",                                 MSG_CHESS_HINT
+
+        POPUP "&Help"
+                Begin
+                        Menuitem "&Index\tF1",           MSG_HELP_INDEX
+                        Menuitem "Using &Help",          MSG_HELP_HELP
+                        Menuitem SEPARATOR
+                        MENUITEM "A&bout Chess...",      MSG_CHESS_ABOUT
+                end
+     END
+
+STRINGTABLE
+ begin
+        IDS_CHESS,         "Chess"
+        IDS_ILLEGALMOVE,   "Illegal move"
+        IDS_AMBIGUOUSMOVE, "Ambiguous move"
+        IDS_OBAE,          "Warning: Opening book too large"
+        IDS_OBNF,          "Warning: Opening book not found"
+        IDS_UNABLESAVE,    "Unable to save game"
+        IDS_UNABLELIST,    "Unable to list game"
+        IDS_DRAWGAME,      "Draw Game"
+        IDS_YOUWIN,        "Opponent mates"
+        IDS_COMPUTERWIN,   "Computer mates"
+        IDS_MATESOON,      "Oppenent will soon mate"
+        IDS_COMPMATE,      "Computer will soon mate"
+        IDS_TTABLEAF,      "ttable Allocation Failed"
+        IDS_SQDATAAF,      "sqdata Allocation Failed"
+        IDS_HISTORYAF,     "History Allocation Failed"
+        IDS_TREEAF,        "Tree Allocation Failed"
+        IDS_GAMEAF,        "Game List Allocation Failed"
+        IDS_LOADFAILED,    "Loading saved game failed"
+        IDS_SETAWIN,       "Set A Window"
+        IDS_SETBWIN,       "Set B Window"
+        IDS_SETCONTEMPT,   "Set Contempt"
+        IDS_MAXSEARCH,     "Set maximun search depth"
+        IDS_INITERROR,     "Initialization error"
+ end
+
+
+Chess ACCELERATORS
+begin
+        VK_BACK,        MSG_CHESS_UNDO,   VIRTKEY
+        VK_BACK,        MSG_CHESS_REMOVE, VIRTKEY, ALT
+        VK_F1,          MSG_HELP_INDEX,   VIRTKEY
+end

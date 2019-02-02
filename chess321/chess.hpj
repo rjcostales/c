@@ -1,0 +1,13 @@
+[OPTIONS]
+INDEX=main_index
+TITLE=GNU Chess
+COMPRESS=true
+
+[FILES]
+chess.rtf
+article.rtf
+article2.rtf
+copying.rtf
+move-gen.rtf
+heuristi.rtf
+match.rtf

@@ -1,0 +1,156 @@
+#The object of this file is to present positions in the opening in
+#which there is thought to be a unique best move. This test will only
+#be of much interest if the computer taking the test, is playing with
+#its opening book turned OFF. Otherwise a lot of the answers will be
+#directly in the book. Of course, it helps to have a book in non-book
+#positions because of transposition possibilities, but situations where
+#that is the case, are basically not represented in this file.
+#
+#First, A. Alekhine: My greatest games of chess
+#1908-1937, 2 volumes in 1, Dover 1985. AlekhineI is volume I,
+#1908-1923.  AlekhineII is volumeII, 1924-1937. I'm going by Alekhine's
+#comments in which he says things like the move was "necessary" or
+#"best"; in nearly all these cases, something else (i.e. which Alekhine
+#considered to be a mistake) was played in the game.
+
+begin examples from (AlekhineI)
+rnbqkb1r/pppp1ppp/5n2/4p3/2B1P3/2N5/PPPP1PPP/R1BQK1NR/b Nf6xPe4! (AlekhineI) p1
+r3kbnr/1ppb1ppp/p7/2p5/4P3/1P6/P1P1NPPP/RNB1K2R/b Pc5c4! (AlekhineI) p4
+r1bq1rk1/pppnbppp/4pn2/3p2B1/2PP4/2N1PN2/PPQ2PPP/R3KB1R/b Pc7c5 (AlekhineI) p.9
+r1bqkbnr/pp1p1ppp/2n1p3/2p5/2P1P3/2N2N2/PP1P1PPP/R1BQKB1R/b Nc6d4 (AlekhineI) p19
+r1bqkb1r/pppp1ppp/2n2n2/4P3/3N4/8/PPP2PPP/RNBQKB1R/b Nc6xPe5 (AlekhineI) p25
+r2q1rk1/ppn1ppbp/2p1bnp1/3P4/3P4/P1NBPN2/1PQ2PPP/R1B2RK1/b Nf6xPd5 (AlekhineI) p32
+r1bqk1nr/2pp1ppp/p1n5/1pb1p3/4P3/1B3N2/PPPPQPPP/RNB1K2R/w Pa2a4! (AlekhineI) p43
+r1bq1rk1/2ppbppp/p1n2n2/1p2p3/4P3/1BP2N2/PP1PQPPP/RNB1K2R/w Pd2d4 (AlekhineI) p54
+r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/2N2N2/PPPP1PPP/R1BQK2R/b Nc6d4! (AlekhineI) p60
+rnbqkb1r/ppp2ppp/8/3P4/4nP2/5N2/PPP3PP/RNBQKB1R/b Bf8c5 (AlekhineI) p66
+rn1qk2r/ppp2ppp/8/2bP1b2/4nPP1/5N2/PPP1Q2P/RNB1KB1R/b Ke8g8C! (AlekhineI) p66
+r2qk1nr/ppp2ppp/2npb3/2b1p3/2B1P3/2NP1N2/PPP2PPP/R1BQK2R/w Bc1e3! (AlekhineI) p82
+r3k2r/1pp1qpp1/1pnpbn1p/4p3/2B1P2B/2NP4/PPP2PPP/R2QK2R/w Pf2f3! (AlekhineI) p113
+rnbqk2r/pppp1ppp/4pn2/8/1bPP4/2N5/PPQ1PPPP/R1B1KBNR/b Pc7c5 (AlekhineI) p115
+rnbqkbnr/pppp1ppp/8/8/2B1P3/8/PB3PPP/RN1QK1NR/b Pd7d5! (AlekhineI) p126
+rn1qkb1r/pbpp1ppp/1p2pn2/8/2PP4/5NP1/PP2PPBP/RNBQK2R/b Bf8e7 (AlekhineI) p137
+r1bqk2r/pppn1ppp/3bpn2/3p4/2PP4/2N1PN2/PP3PPP/R1BQKB1R/w Pc4c5 (AlekhineI) p140
+r1bq1rk1/pp1n1ppp/2p1pn2/3p4/2PP4/2NBPN2/PP1Q1PPP/R3K2R/w Ra1d1! (AlekhineI) p143
+r1bqkb1r/1pp2ppp/p1n1p1n1/2Pp4/3P1B2/2N2N2/PP2PPPP/R2QKB1R/w Bf4e3! (AlekhineI) p154
+r1bqk2r/4nppp/ppnbp3/3p3P/3P4/2N1BN2/PP2PPP1/R2QKB1R/w Ph5h6! (AlekhineI) p154
+rnbqkb1r/p2p1ppp/4pn2/1ppP4/2P5/5N2/PP2PPPP/RNBQKB1R/w Bc1g5 (AlekhineI) p158
+r1bqk2r/2pp1ppp/p1n2n2/1pb1p3/4P3/1BN2N2/PPPP1PPP/R1BQK2R/w Nf3xPe5 (AlekhineI) p192
+rn1qkb1r/pbpppppp/1p3n2/8/2PP4/2N5/PP2PPPP/R1BQKBNR/w Qd1c2 (AlekhineI) p199
+r1b2rk1/pp1nq1pp/2p1p3/3p1p2/2PP4/2QBPN2/PP3PPP/R4RK1/w Ra1c1! (AlekhineI) p220
+r1bqkb1r/pppp1ppp/5n2/1B6/3pP3/2N5/PPPP1PPP/R1BQK2R/w Pe4e5 (AlekhineI) p221
+r1bq1rk1/pp1nbppp/2p1pn2/3p2B1/2PP4/2NBPN2/PP3PPP/2RQK2R/b Pd5xPc4 (AlekhineI) p234
+r1bqr1k1/pp3ppp/2p1pn2/3n2N1/2BPN3/4P3/PP3PPP/2RQ1RK1/w Ne4g3 (AlekhineI) p234
+r1bq1rk1/pppn1pbp/3p1np1/8/2PN4/2N3P1/PP2PPBP/R1BQ1RK1/w Pb2b3 (AlekhineI) p244
+rnbqkb1r/pp1p1ppp/4pn2/8/3NP3/8/PPP2PPP/RNBQKB1R/w Nb1c3 (AlekhineI) p245
+r1bq1rk1/ppp1nppp/1bnp4/8/3NP3/2P1B3/PP1NBPPP/R2Q1RK1/b Pf7f5! (AlekhineI) p248
+r1bqk2r/2p1bppp/p1np1n2/1p2p3/P3P3/1BN2N2/1PPP1PPP/R1BQ1RK1/b Pb5b4! (AlekhineI) p255
+
+begin examples from (alekhine2)
+rnbqkbnr/pppp1ppp/8/8/3Np3/6P1/PPPPPP1P/RNBQKB1R/b Pc7c5! (alekhine2) p11
+rn1qkbnr/ppp1pppp/8/4N2b/2pP4/2N5/PP2PPPP/R1BQKB1R/b Nb8d7 (alekhine2) p23
+r1bq1rk1/1ppnbppp/p3pn2/3p2B1/2PP4/2N1PN2/PP3PPP/2RQKB1R/w Pc4xPd5 (alekhine2) p45
+rnbqkb1r/pp1ppppp/5n2/2p5/2P5/5N2/PP1PPPPP/RNBQKB1R/w Nb1c3 (alekhine2) p90
+rnbqk1nr/ppp2ppp/4p3/8/3Pp3/P1N5/1PP2PPP/R1BQKB1R/b Nb8c6 (alekhine2) p94
+2kr1b1r/pp1b1pp1/2n2q1p/8/8/2N1P3/PP1Q1PPP/R3KBNR/w Nc3d5 (alekhine2) p103
+r3kb1r/pp2pppp/2n5/qB1n4/3P2b1/2N2N2/PP3PPP/R1BQK2R/w Qd1b3! (alekhine2) p110
+r2q1rk1/2p1bppp/p1n5/1p1n4/3P2b1/1B2BN2/PP1N1PPP/R2Q1RK1/w Qd1b1! (alekhine2) p119
+r1bqk2r/pppnnpbp/3pp1p1/8/2BPP3/2N2N2/PPP2PPP/R1BQ1RK1/w Pa2a4 (alekhine2) p124
+r2q1rk1/1b1nbppp/pp3n2/2pp2B1/B2P4/2N1PN2/PP3PPP/2RQ1RK1/w Bg5xNf6 (alekhine2) p129
+r1bqkb1r/5ppp/4pn2/1p2N3/3p4/3B4/PP3PPP/R1BQK2R/w Qd1f3! (alekhine2) p133
+rnb1kbnr/pp2qppp/3p4/2pP4/4PB2/6P1/PPP4P/RN1QKBNR/w Ng1f3! (alekhine2) p139
+r2q1rk1/1pp2ppp/p1n1pn2/8/Pb1P4/4P3/1P1NNPPP/R1BQ1RK1/b Pe6e5 (alekhine2) p173 (open up lines if better developed)
+r2qr1k1/1pp2ppp/p1nb1n2/8/P2Pp3/4P1N1/1P1B1PPP/R2QNRK1/b Bd6xNg3! (alekhine2) p173
+r1bqk2r/pp2bppp/2nppn2/1B6/4P3/1NN5/PPPQ1PPP/R1B1K2R/b Ph7h6 (alekhine2) p182
+r4rk1/2q1bppp/p2p1n2/npp1p3/3PP1b1/2P2N2/PPB2PPP/R1BQRNK1/w Nf1e3 (alekhine2) p205
+rnbqkb1r/pp3ppp/4pn2/2pP4/3P4/2N2N2/PP2PPPP/R1BQKB1R/b Nf6xPd5 (alekhine2) p249
+rnbqkbnr/ppp2ppp/8/3P4/3p4/2P5/PP3PPP/RNBQKBNR/b Ng8f6 (alekhine2) p250
+r1b2rk1/ppp2ppp/2n2n2/3q4/1b1P4/2N2N2/PP2BPPP/R1BQ1RK1/b Qd5a5 (alekhine2) p250
+
+#A few other examples follow
+
+rnbqkbnr/pppp1p1p/8/4N3/4PppP/8/PPPP2P1/RNBQKB1R/b Ng8f6 std King's gambit position; the best move, says Horowitz's book on chess openings
+rnbqkbnr/pppp1ppp/8/4p3/4PP2/2N5/PPPP2PP/R1BQKBNR/b Pd7d5 std Vienna, only decent move
+
+#Standard opening positions with a unique best move, but which is hard
+#to find for the uninitiated. Going by statements made in Modern Chess
+#Openings 13, ed. by W. Korn.
+
+begin examples from (MCO)
+rnbqkb1r/pppp1ppp/5n2/4p3/2B1P3/3P4/PPP2PPP/RNBQK1NR/b Pc7c6 (MCO) std bishops opening
+rnbqk2r/pp1p1ppp/4pn2/2p5/1bPP4/2N1P3/PP3PPP/R1BQKBNR/w Ng1e2 (MCO) std nimzo indian
+rnbqkb1r/pp1ppppp/5n2/2p5/2PP4/8/PP2PPPP/RNBQKBNR/w Pd4d5 (MCO) std benoni
+r1bqkbnr/pppp1ppp/2n5/4p3/3PP3/5N2/PPP2PPP/RNBQKB1R/b Pe5xPd4 std scotch
+
+#Opening positions from Nimzowitsch: Chess Praxis, Dover 1962.
+
+begin examples from (Nimzowitsch_Praxis)
+r1bqkbnr/pp3ppp/2n5/2pp4/3P4/2N2N2/PP2PPPP/R1BQKB1R/w Pg2g3 (Nimzowitsch_Praxis) ("a refutation of black's opening") game 65.
+r1bqk2r/pppp1ppp/2n2n2/4N3/1b1PP3/2N5/PPP2PPP/R1BQKB1R/b Qd8e7 (Nimzowitsch_Praxis) game 69
+
+#Opening positions from Karpov's collected games, David Levy editor, Robert Hale and Co., London 1975
+begin examples from (Karpov)
+rnbqr1k1/pp3pp1/3ppn1p/2pP4/1bP1P2B/2NB1P2/PP4PP/R2QK1NR/b Pe6xPd5 (Karpov) Lukin-Karpov p61
+r1bqk2r/2p1bppp/p1np1n2/1p2p3/P3P3/1BP2N2/1P1PQPPP/RNB1K2R/b Bc8b7 (Karpov) karpov-moles p67
+r2q1rk1/1bp1bpp1/p1np3p/1p2p1B1/P2PP3/1BP2N2/1P2QPPP/RN2R1K1/b Be7xBg5 (Karpov) karpov-moles p67
+r1b2rk1/pp2qppp/8/b1P1n3/N1BpP3/P7/1PQ2PPP/R1B2RK1/w Bc4d5 (Karpov) karpov-timman p69
+r3kb1r/2qp1ppp/p1n1p3/2P5/PpB3n1/3QBN2/1PP2PPP/R3K2R/w Bc4xPa6 (Karpov) vibornov-karpov p77
+r5k1/pp1bpp1p/3p2pQ/2q1n1Pn/4P3/1B3PN1/P1P5/2KR3R/b Bd7g4! (Karpov) karpov-gik p78
+2r2rk1/pb1nq1pp/8/2pp1p2/1P2n3/4PN2/PBQ1BPPP/2RR2K1/b Pc5c4 (Karpov) vaganian-karpov p83
+r1bq1rk1/1p1nppbp/p2p1np1/2pP4/2P1P3/2N2NP1/PP3PBP/R1BQ1RK1/b Pb7b5 (Karpov) karpov-adorjan p96
+r2qk2r/pp3ppp/3bpnb1/2p1N3/3P2PP/2P5/PP2QP2/R1B1KB1R/w Bf1g2 (Karpov) karpov-zaitsev p105
+r2qk2r/pp3ppp/3bpn2/1Q2N2P/3pb1P1/2P2P2/PP6/R1B1KB1R/b Nf6d7 (Karpov) karpov-zaitsev p105
+1r1q1rk1/3bnpbp/pp4p1/2pNp3/2P5/3P2P1/P2BPPBP/1R1Q1RK1/w Pa2a4 (Karpov) barcza-karpov p109
+2rq1rk1/pb2bpp1/1p2pB1p/3nN3/2pP4/P1N5/1P2QPPP/1B1R1RK1/b Nd5xNc3! (Karpov) ivkov-karpov p115
+r1bq1rk1/p2n1ppp/1p2pn2/8/1bBP4/2N2N2/PP2QPPP/R1BR2K1/b Bc8b7 (Karpov) yepez-karpov p117
+r2q1rk1/pp2ppbp/1nn3p1/2Pp1b2/3P4/1PN2N1P/P3BPP1/R1BQ1RK1/b Nb6d7 (Karpov) dementeev-karpov p123
+r2qkb1r/1b1p1ppp/p1n1p3/1p6/4PB2/2N3P1/PPPQ1PBP/R4RK1/b Pd7d6 (Karpov) orlov-karpov p142
+r2qkb1r/1p3p1p/p1b2p2/4p3/8/4N3/PPP2PPP/R2QKB1R/w Bf1c4 (Karpov) karpov-taimanov p143
+rnbqkb1r/p1p2ppp/4p3/1p1nN3/2pP4/6P1/PP2PPBP/RNBQK2R/w Pa2a4! (Karpov) lengyel-karpov p153
+r1bqkb1r/1p1n1ppp/p1npp3/6P1/3NPP2/2N1B3/PPP4P/R2QKB1R/b Ph7h6 (Karpov) karpov-hort p156
+r1bqkb1r/1ppp1ppp/p1n5/4p3/B3n3/5N2/PPPP1PPP/RNBQ1RK1/w Pd2d4 (Karpov) karpov-savon p160
+rn2kb1r/1pq2ppp/p2pbn2/4p3/P3PP2/1NN5/1PP1B1PP/R1BQK2R/b Nb8c6? (Karpov) karpov-mecking p165 this is an error; it is essential to be able to reply to f5 with ...Bc4.
+r4rk1/3bbppp/p1npp3/qp6/2P1P3/1P4P1/PB2NPBP/R2Q1RK1/w Pc4c5 (Karpov) keene-karpov p165
+2rr1bk1/2qb1ppp/ppnpp3/8/P1P1PP2/1PB3P1/1Q2N1BP/R4RK1/b Pb6b5! (Karpov) keene-karpov p165
+rnbqkb1r/pppp1ppp/4pn2/6B1/3P4/5N2/PPP1PPPP/RN1QKB1R/b Pc7c5 (Karpov) korchnoy-karpov p167
+r4rk1/1pqbbppp/p1nppn2/8/P3PP2/1NN1B3/1PP1B1PP/R2Q1R1K/b Pb7b6 (Karpov) karpov-cobo p178
+r1bq1rk1/pp2ppbp/2np1np1/8/3NP1P1/2N1BP2/PPPQ3P/R3KB1R/b Bc8e6 (Karpov) karpov-dueball p181
+rnbqkb1r/ppp3pp/5n2/3p1pB1/3P4/5N2/PPP2PPP/R2QKBNR/b Bf8e7 (Karpov) karpov-enevoldsen p184
+r1bq1rk1/1p2ppbp/2np1np1/p7/2BNP3/2N1BP2/PPPQ2PP/R3K2R/w Pa2a4 (Karpov) karpov-d.byrne p196
+r1bq1rk1/pppp2pp/2n2n2/2b1p3/2P2P2/2NP2P1/PP3PBP/R1BQK1NR/w Pf4xPe5 (Karpov) karpov-bellon p249
+
+#E. Znosko-Borovsky: How to play the chess openings, Dover reprint.
+begin examples from (Znosko)
+r1bqk2r/pp1nbppp/2pp3n/4p1N1/P1BPP3/8/1PP2PPP/RNBQK2R/w Bc4xPf7+ (Znosko) game 1
+r1bqk2r/pppp1ppp/2n5/8/2BP4/1Q3N2/P4PPP/b1B2RK1/w Bc4xPf7+ (Znosko) (Greco's trap in Moller Attack of GP. Previous move was ...B(c3)xR(a1), which this refutes... white's developmental advantange is too great, is one way to look at it, another is that there is a [very deep] forced win...) game 2
+rn1qk2r/ppp2ppp/8/2bP1b2/4nP2/5N2/PPP1Q1PP/RNB1KB1R/w Nb1c3 (Znosko) (g4 is bad) game 3
+r1bq1rk1/pppnbppp/4pn2/3p2B1/2PP4/2N1PN2/PP3PPP/2RQKB1R/b Pc7c6 (Znosko) is "forced" game 4
+2rr1bk1/p4ppp/1p2p3/8/1P1B4/Pq2P1P1/4QP1P/R3R1K1/b Rc8c2 (Znosko) grabbing 7th rank game 5
+r3k2r/pbqpbppp/2n1p3/2pn4/8/2PBPNN1/PP1BQPPP/R3K2R/b Pg7g5 (Znosko) (Also was keene #28) game 6
+8/8/8/1p5r/p1p1k1pN/P2pBpP1/1P1K1P2/8/b Pb5b4 (Znosko) game 7
+8/p4K2/P7/8/8/8/1k6/8/w Kf7e6 (Znosko) game 8
+8/8/6kp/p7/1p4P1/1P3K2/P1P5/8/w Pc2c4 (Znosko) game 9
+8/1p4p1/pB2k3/P6R/2r1PP1P/8/8/4b1K1/w Kg1g2 (Znosko) game 10
+4k3/p1r1r1p1/2q2p1p/3b1P2/3PpNP1/2p1P1R1/P3QK1P/2R5/w Rc1xPc3 (Znosko) game 11
+5rk1/p1p3p1/1p2p3/6Qq/5R1P/5bP1/P3PP2/6K1/w Rf4xRf8+ (Znosko) game 12
+
+#Positions from "KLOP":
+#R.D. Keene and D.N.L. Levy: How to play the chess openings,
+#Batsford, 2nd ed 1980.
+
+begin examples from (KLOP)
+r2qk2r/ppp2ppp/2np1n2/2b1p2b/2B1P1P1/2NP1N1P/PPP2P2/R1BQ1RK1/b Nf6xPg4 (KLOP) p14
+r1bq1rk1/ppp2pbp/3p1np1/2nPp3/2P1P3/2N2N2/PPQ1BPPP/R1B2RK1/b Pa7a5 (KLOP) p16
+r1bqk2r/pppp1Npp/2n2n2/2b1p3/2B1P3/8/PPPP1PPP/RNBQK2R/b Bc5xPf2+! (KLOP) p73 wilkes-barre
+r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R/b Pa7a6! (KLOP) p77
+r1b1k1nr/1p1p1ppp/p1nQ1q2/4p3/4P3/8/PPP2PPP/RNB1KB1R/w Qd6d1! (KLOP) p92
+rnbqkb1r/pp2pppp/3p1n2/8/3NP3/5P2/PPP3PP/RNBQKB1R/b Pe7e5! (KLOP) p98
+rn1qkbnr/pp2pppp/2p5/5b2/3P4/6N1/PPP2PPP/R1BQKBNR/b Bf5g6 (KLOP) p124
+r1bqkbnr/ppp1pppp/2n5/3p4/2PP4/8/PP2PPPP/RNBQKBNR/w Nb1c3 (KLOP) p142
+r1bq1rk1/pppnnpbp/3p2p1/3Pp3/2P1P3/2N5/PP2BPPP/R1BQNRK1/w Ne1d3 (KLOP) p168
+r1b1qrk1/pp1nb1pp/2p1pn2/3pNp2/2PP4/1PN3P1/P3PPBP/R1BQ1RK1/w Ne5d3! (KLOP) p183
+r1b2rk1/pp5p/2pbpn2/3p1ppq/2PP4/1PBNPPP1/P3Q1BP/R4RK1/w Bc3b4! (KLOP) p184
+r1b1kbnr/pp3ppp/1qn1p3/2ppP3/3P4/2PB1N2/PP3PPP/RNBQK2R/b Pc5xPd4 (KLOP) p121
+
+
+#all done.
