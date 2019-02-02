@@ -1,0 +1,70 @@
+TODO of GNU Chess
+
+  Copyright (C) 2001-2017 Free Software Foundation, Inc.
+
+  Copying and distribution of this file, with or without modification,
+  are permitted in any medium without royalty provided the copyright
+  notice and this notice are preserved.
+
+Items are in random order, mostly reverse chronological.
+
+Top priority:
+
+* Localize answers to 'overwrite file' question in pgn.c.
+
+* When working in ICS, first game will fail to work post.
+
+* Add auto-completion command based on readline.
+
+* Clean and refurbish frontend new code: components.cc, engine.cc, etc.
+
+* Add support for Chess Engine Communication Protocol version 2.
+http://www.open-aurec.com/wbforum/WinBoard/engine-intf.html
+
+* GA/EC venture to make the chess engine stronger.
+
+* End-game table
+
+* Get benefit from multiple-core processors, by sharing search across them.
+
+Normal priority:
+
+* Evaluate the possibility to include an option 'enable/disable bigboard', to show a bigger board.
+
+* 'pgnsave' will not save a file identical to the original in a sequence pgnload-pgnsave.
+
+* 'manual' and 'force' are almost identical, except for the order they do things. See cmd.cc.
+
+* 'name <myname>' forces output redirection to a log file. Comparing with version 5.08, some of the output is lost.
+
+* Consider adding resign and draw offer commands.
+
+* Add analysis tools for the evaluation function.
+
+* Commands white/black/switch don't work. They are supposed to be 
+used for icsDrone. However, icsDrone reports to not work for 
+GNU Chess 5.02. Neither for v6...
+
+* General cleanups: still some unused code from v5.
+
+* Implement the weak mode.
+
+* Improve compatibility with Chess Engine Communication Protocol.
+For instance, 'move e2e4' instead of 'My move is : e2e4'.
+
+* Add support for MS Windows.
+
+* icsdrone for Internet
+
+* When 'name NAME' is used, the log.nnn file is created, but it will miss
+to include some information compared with v5.
+
+* Consider using gnulib for better portability.
+
+* Include PolyGlot's book making capability.
+
+* Include PolyGlot's book merging capability.
+
+* Bug: in FICS, after quiting in the middle of a game, logging in again,
+accepting resuming game as proposed by opponent, the opponent moved but
+GNU Chess never moved again. GNU Chess ran out of it.
