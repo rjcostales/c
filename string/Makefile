@@ -1,15 +1,15 @@
 CC     = clang
 CFLAGS = -Ofast -Wall -std=c99
-LFLAGS = -Lm
+LIBS 	= -Lm
 
-TARGETS = strfunc.o strtest
-SOURCES = *.c
-HEADERS = *.h
+TGTS := strfunc.o strtest
+SRCS := *.c
+HDRS := *.h
 
-all: $(TARGETS)
+all:$(TGTS)
 
 strtest:
 	$(CC) $(CFLAGS) -o strtest strtest.c strfunc.o
 
 clean:
-	rm -f $(TARGETS)
+	rm -f $(TGTS)

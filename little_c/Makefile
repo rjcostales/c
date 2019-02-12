@@ -1,14 +1,13 @@
 # Universal Makefile ver. 1.0
-EXEC		= lc
+EXEC	= lc
 
-CC			= clang
-CFLAGS		= -Ofast -std=c99 -Wall
-LIBS		= -lm
+CC		= clang
+CFLAGS	= -Ofast -std=c99 -Wall
+LIBS	= -lm
 
-SRCS		= $(wildcard *.c)
-HDRS		= $(wildcard *.h)
-OBJS		= $(patsubst %.c, %.o, $(SRCS))
-
+SRCS	:= $(wildcard *.c)
+HDRS	:= $(wildcard *.h)
+OBJS	:= $(patsubst %.c, %.o, $(SRCS))
 
 all:$(EXEC)
 

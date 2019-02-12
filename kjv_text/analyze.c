@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
             char c = buffer[i];
             if (c >= 'a')
                 c -= 32;
-            counts[c]++;
+            counts[(int) c]++;
         }
     }
 

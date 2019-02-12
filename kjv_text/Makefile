@@ -1,11 +1,14 @@
-CC = clang
-CFLAGS = -Ofast
-LFLAGS = -Lm
+CC		= clang
+CFLAGS	= -Ofast -Wall -std=c99
 
-TARGETS = analyze length
-SOURCES = $(wildcard *.c)
+SRCS	:= $(wildcard *.c)
+HDRS	:= $(wildcard *.h)
+TGTS	:= $(patsubst %.c,%,$(SRCS))
 
-all: $(TARGETS)
+all:$(TGTS)
+
+$(TGTS):$(SRCS)
+	$(CC) $(CFLAGS) $< -o $@
 
 clean:
-	rm -f $(TARGETS)
+	rm -f $(TGTS)
