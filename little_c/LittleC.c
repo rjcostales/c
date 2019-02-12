@@ -17,16 +17,16 @@ variable_type global_vars[NUM_GLOBAL_VARS];
 variable_type local_var_stack[NUM_LOCAL_VARS];
 
 commands table[] = {    /* Commands must be entered lowercase */
-    "if",     IF,       /* in this table. */
-    "else",   ELSE,
-    "for",    FOR,
-    "do",     DO,
-    "while",  WHILE,
-    "char",   CHAR,
-    "int",    INT,
-    "return", RETURN,
-    "end",    END,
-    "",       END       /* mark end of table */
+    {"if",     IF},     /* in this table. */
+    {"else",   ELSE},
+    {"for",    FOR},
+    {"do",     DO},
+    {"while",  WHILE},
+    {"char",   CHAR},
+    {"int",    INT},
+    {"return", RETURN},
+    {"end",    END},
+    {"",       END}     /* mark end of table */
 };
 
 char token[MAX];

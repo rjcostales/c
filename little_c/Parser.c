@@ -25,12 +25,12 @@ struct intern_func_type {
 }
 
 intern_func[] = {
-    "getche", call_getche,
-    "putch",  call_putch,
-    "puts",   call_puts,
-    "getnum", getnum,
-    "print",  print,
-    "", 0                               /* null terminate the list */
+    {"getche", call_getche},
+    {"putch",  call_putch},
+    {"puts",   call_puts},
+    {"getnum", getnum},
+    {"print",  print},
+    {"", 0}                             /* null terminate the list */
 };
 
 extern char token[MAX];                 /* string representation of token */

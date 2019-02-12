@@ -1,20 +1,22 @@
-CC      = clang
-CFLAGS  = -Ofast
 
-all:	lc
+CC			= clang
+CFLAGS		= -Ofast -std=c99 -Wall
+LIBS		= -lm
 
-lc:		littlec.o lclib.o parser.o
-		$(CC) $(CFLAGS) -o lc littlec.o lclib.o parser.o
+EXEC		= lc
 
-littlec.o:	LittleC.c LittleC.h
-		$(CC) $(CFLAGS) -c -o littlec.o LittleC.c
+SRCS		= $(wildcard *.c)
+HDRS		= $(wildcard *.h)
+OBJS		= $(patsubst %.c, %.o, $(SRCS))
 
-lclib.o:	LCLib.c
-		$(CC) $(CFLAGS) -c -o lclib.o LCLib.c
 
-parser.o:	Parser.c
-		$(CC) $(CFLAGS) -c -o parser.o Parser.c
+all:     $(EXEC)
+
+$(EXEC):$(OBJS)
+		$(CC) $(CFLAGS) -o $@ $(OBJS) $(LIBS)
+
+$(OBJS):$(SRCS)
+		$(CC) $(CFLAGS) -c $(SRCS) $(LIBS)
 
 clean:
-		rm *.o
-		rm lc
+		rm -rf $(EXEC) $(OBJS)
