@@ -148,23 +148,24 @@ float factor(void)
 
     get_token(&t);
 
-    if (Eoln)
+    if (Eoln) {
         Err = true;
-    else if (t.type == LPAREN) {
+        return (0);
+    } else if (t.type == LPAREN) {
         e = expr ();
-
         get_token(&t);
-        if (t.type == RPAREN)
+
+        if (t.type == RPAREN) {
             return (e);
-        else {
+        } else {
             Err = true;
             return (0);
         }
-    } else if (t.type == MINUS)
+    } else if (t.type == MINUS) {
         return (-factor ());
-    else if (t.type == NUMBER)
+    } else if (t.type == NUMBER) {
         return (t.value);
-    else {
+    } else {
         Err = true;
         return (0);
     }
@@ -202,7 +203,7 @@ void get_token(token * t)
         t->type = RPAREN;
         break;
     default:
-        if (c >= '0' && c <= '9' || c == '.') {
+        if ((c >= '0' && c <= '9') || c == '.') {
             float value;
             float dec;
 
@@ -214,7 +215,7 @@ void get_token(token * t)
                 dec = 0;
             }
 
-            while ((c = get ()) >= '0' && c <= '9' || c == '.') {
+            while (((c = get ()) >= '0') && (c <= '9' || c == '.')) {
                 if (c == '.') {
                     if (dec == 0)
                         dec = 10;

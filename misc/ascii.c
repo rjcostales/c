@@ -1,11 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include "io.h"
 
 int main(int argc, char *argv[])
 {
-    char string[MAX] = { '\0' };
+    char string[1000] = { '\0' };
 
     srand(time(0));
 

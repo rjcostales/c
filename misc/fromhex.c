@@ -6,8 +6,8 @@ int bytes, sum;
 
 int main(int argc, char *argv[])
 {
-    register i, v;
-    register n;
+    int i, v;
+    int n;
 
     n = 0;
     v = 0;
@@ -32,5 +32,5 @@ int main(int argc, char *argv[])
         fprintf(stderr, "bad checksum\n");
     else
         fprintf(stderr, "checksum good!\n");
-    exit (0);
+    return 0;
 }

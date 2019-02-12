@@ -5,17 +5,14 @@ typedef struct complex {
     short imaginary;
 } complex_t, *complex_p;
 
-void foo(complex *x);
-
-void foo(complex *x)
+void foo(complex_t *x)
 {
     x->real = 200;
 }
 
 int main(int argc, char *argv[])
 {
-
-    complex a;
+    struct complex a;
     complex_t b;
     complex_p p;
 

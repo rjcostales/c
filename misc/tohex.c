@@ -8,8 +8,8 @@ unsigned long htonl();
 
 int main(int argc, char *argv[])
 {
-    register i, len;
-    register char *cp;
+    int i, len;
+    char *cp;
 
     len = 0;
     while ((i = getchar()) != EOF) {
@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
         putchar(hex[i & 0xF]);
     }
     putchar('\n');
-    exit(0);
+    return 0;
 }
 
 #define nohtonl
@@ -43,8 +43,8 @@ int main(int argc, char *argv[])
 unsigned short htons(unsigned short a)
 {
     unsigned short result;
-    register char *sp = (char *) &a;
-    register char *dp = (char *) &result;
+    char *sp = (char *) &a;
+    char *dp = (char *) &result;
 
     dp[1] = *sp++;
     dp[0] = *sp;
@@ -54,8 +54,8 @@ unsigned short htons(unsigned short a)
 unsigned long htonl(unsigned long a)
 {
     unsigned long result;
-    register char *sp = (char *) &a;
-    register char *dp = (char *) &result;
+    char *sp = (char *) &a;
+    char *dp = (char *) &result;
 
     dp[3] = *sp++;
     dp[2] = *sp++;

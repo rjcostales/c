@@ -3,9 +3,9 @@
 int main (int argc, char *argv[])
 {
 
-    char *cp, c;
+    char  *cp, c;
     short *sp, s;
-    int *ip, i;
+    int   *ip, i;
 
     typedef struct {
         char c0;
@@ -46,12 +46,12 @@ int main (int argc, char *argv[])
     bit.b4 = 1;
     bit.b5 = 1;
 
-    printf ("bit\t%i\n", sizeof (bit));
+    printf ("bit\t%lu\n", sizeof (bit));
     printf ("bit\t%i\n", bit);
 
     printf ("-------------------------\n");
 
-    printf ("struct\t%i\n", sizeof (t1));
+    printf ("struct\t%lu\n", sizeof (t1));
     printf ("t1\t%p\n", &t1);
 
     printf ("-------------------------\n");
@@ -73,7 +73,7 @@ int main (int argc, char *argv[])
     u1.ca[2] = 0;
     u1.ca[3] = 0;
 
-    printf ("union\t\%i\n", sizeof (u1));
+    printf ("union\t\%lu\n", sizeof (u1));
     printf ("u1.i\t\%i\n", u1.i);
 
     printf ("-------------------------\n");
@@ -82,9 +82,9 @@ int main (int argc, char *argv[])
     s = 97;
     i = 97;
 
-    printf ("char\t%i\n", sizeof (c));
-    printf ("short\t%i\n", sizeof (s));
-    printf ("int\t%i\n", sizeof (i));
+    printf ("char\t%lu\n", sizeof (c));
+    printf ("short\t%lu\n", sizeof (s));
+    printf ("int\t%lu\n", sizeof (i));
 
     printf ("-------------------------\n");
 
