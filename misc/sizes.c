@@ -7,9 +7,6 @@
 
 int main(int argc, char *argv[])
 {
-    int i;
-    short s;
-
     printf("size of int\t:%lu\n", sizeof(int));
     printf("size of char\t:%lu\n", sizeof(char));
     printf("size of short\t:%lu\n", sizeof(short));

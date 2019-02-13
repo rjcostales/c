@@ -24,18 +24,20 @@ int main(int argc, char *argv[])
 
     printf ("struct %lu %lu %lu\n", sizeof(t.a), sizeof(t.b), sizeof(t));
 
-    printf ("%lu %lu %lu %lu %lu %lu\n",
-            sizeof(i), sizeof(c), sizeof(s),
+    printf ("%lu %lu %lu %lu %lu %lu %lu\n",
+            sizeof(i), sizeof(u), sizeof(c), sizeof(s),
             sizeof(l), sizeof(f), sizeof(d));
+
     c = i;
+    u = i;
     s = i;
     l = i;
 
     l = f;
     f = d;
 
-    printf ("%lu %lu %lu %lu %lu %lu\n",
-            sizeof(i), sizeof(c), sizeof(s),
+    printf ("%lu %lu %lu %lu %lu %lu %lu\n",
+            sizeof(i), sizeof(u), sizeof(c), sizeof(s),
             sizeof(l), sizeof(f), sizeof(d));
 
     return 0;

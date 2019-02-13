@@ -3,7 +3,7 @@
 #include <time.h>
 #include <locale.h>
 
-#define LIMIT 5000000
+#define LIMIT 50000000
 
 typedef double real;
 

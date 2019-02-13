@@ -1,16 +1,16 @@
-CC     = clang
-CFLAGS = -std=c99
-LFLAGS = -lm
+CC		= gcc
+CFLAGS	= -std=c99 -Wall
+LIBS	= -lm
 
 PROJECT := .
-SOURCES := $(shell ls *.c)
-HEADERS := $(shell ls *.h)
-OBJECTS := $(patsubst %.c,%.o,$(SOURCES))
-TARGETS := $(patsubst %.c,%,$(SOURCES))
+SRCS	:= $(wildcard *.c)
+HDRS	:= $(wildcard *.h)
+OBJS	:= $(wildcard *.o)
+TGTS 	:= $(patsubst %.c,%,$(SRCS))
 
-all: $(TARGETS)
+all:	$(TGTS)
 
-$(TARGETS):
+$(TGTS):
 	$(CC) $(CFLAGS) $(LFLAGS) $@.c -o $@
 
 struct:
@@ -20,4 +20,4 @@ xmas:
 	gcc -Wno-implicit-int $@.c -o $@
 
 clean:
-	rm -f $(TARGETS) $(OBJECTS)
+	rm -f $(TGTS) $(OBJS)
