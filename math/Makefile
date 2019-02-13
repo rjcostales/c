@@ -1,5 +1,5 @@
-CC		= clang
-CFLAGS	= -Wall -std=c99
+CC		= gcc
+CFLAGS	= -std=c99 -Wall
 LIBS	= -lm
 
 SRCS	:= $(wildcard *.c)
@@ -19,4 +19,4 @@ math_test:
 	$(CC) $(CFLAGS) $@.c math.o -o $@
 
 clean:
-	rm -f $(TGTS) $(OBJS)
+	rm -rf $(TGTS) $(OBJS)

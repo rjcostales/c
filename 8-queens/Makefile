@@ -1,5 +1,6 @@
-CC		= clang
-CFLAGS	= -Ofast -Wall -std=c99
+CC		= gcc
+CFLAGS	= -Ofast -std=c99 -Wall
+LIBS	= -lm
 
 SRCS	:= $(wildcard *.c)
 HDRS	:= $(wildcard *.h)
@@ -11,4 +12,4 @@ $(TGTS):$(SRCS)
 	$(CC) $(CFLAGS) $< -o $@
 
 clean:
-	rm -f $(TGTS)
+	rm -rf $(TGTS)

@@ -8,4 +8,4 @@ TGTS	:= $(patsubst %.c,%,$(SRCS))
 all:$(TGTS)
 
 clean:
-	rm -f $(TGTS)
+	rm -rf $(TGTS)

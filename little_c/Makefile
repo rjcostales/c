@@ -1,7 +1,7 @@
 # Universal Makefile ver. 1.0
 EXEC	= lc
 
-CC		= clang
+CC		= gcc
 CFLAGS	= -Ofast -std=c99 -Wall
 LIBS	= -lm
 

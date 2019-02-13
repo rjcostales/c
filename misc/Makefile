@@ -17,7 +17,7 @@ struct:
 	$(CC) $(CFLAGS) -Wno-format $@.c -o $@
 
 xmas:
-	gcc -Wno-implicit-int $@.c -o $@
+	$(CC) $@.c -o $@
 
 clean:
-	rm -f $(TGTS) $(OBJS)
+	rm -rf $(TGTS) $(OBJS)
