@@ -1,20 +1,7 @@
-# executables
-int_ops
-fp_ops
-math_ops
-
-sine_area
-pi_archimedes
-semi_cir_arc
-
-math.o
-math_test
-
 factorize
-primes
+fourier
 linear_regression
-randgen
+math
+math_test
 randfloat
-
-dhrystone
-whetstone
+randgen
