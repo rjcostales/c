@@ -6,15 +6,16 @@ EXEC	= lc
 
 SRCS	:= $(wildcard *.c)
 HDRS	:= $(wildcard *.h)
-OBJS	:= $(patsubst %.c, %.o, $(SRCS))
+OBJS	:= $(wildcard *.o)
+TGTS	:= $(patsubst %.c,%,$(SRCS))
 
-all:$(EXEC)
+all: $(EXEC)
 
-$(EXEC):$(OBJS)
-		$(CC) $(CFLAGS) -o $@ $(OBJS) $(LIBS)
+$(EXEC): $(OBJS)
+	$(CC) $(CFLAGS) -o $@ $(OBJS) $(LIBS)
 
-$(OBJS):$(SRCS)
-		$(CC) $(CFLAGS) -c $(SRCS) $(LIBS)
+$(OBJS):$ (SRCS)
+	$(CC) $(CFLAGS) -c $(SRCS) $(LIBS)
 
 clean:
-		rm -rf $(EXEC) $(OBJS)
+	rm -rf $(EXEC) $(OBJS)

@@ -1,5 +1,6 @@
 CC		= gcc
 CFLAGS	= -std=c99 -Wall
+LIBS	= -lm
 
 SRCS	:= $(wildcard *.c)
 HDRS	:= $(wildcard *.h)
