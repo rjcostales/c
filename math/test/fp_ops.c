@@ -11,7 +11,7 @@ typedef double real;
 int main(int argc, char *argv[])
 {
     real reals[SIZE];
-    real result;
+    real result = 0.0;
     clock_t start, stop;
 
     setlocale(LC_NUMERIC, "");
@@ -69,7 +69,7 @@ int main(int argc, char *argv[])
         for (int j = 0; j < SIZE; j++)
             for (int k = 0; k < SIZE; k++)
                 for (int l = 0; l < SIZE; l++)
-                    result += reals[i] * reals[j] - reals[i] / reals[j];
+                    result = reals[i] * reals[j] - reals[i] / reals[j];
     stop = clock();
     printf("all\t%0.6f\n", (float) (stop - start) / (float) CLOCKS_PER_SEC);
 } /* main */

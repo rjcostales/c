@@ -1,6 +1,5 @@
 CC		= gcc
 CFLAGS	= -Ofast -std=c99 -Wall
-LIBS	= -lm
 
 TGTS := strfunc.o strtest
 SRCS := *.c

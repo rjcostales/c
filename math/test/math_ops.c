@@ -13,8 +13,7 @@ typedef double real;
 int main(int argc, char *argv[])
 {
     real reals[SIZE];
-    real result;
-
+    real result = 0.0;
     clock_t start, stop;
 
     setlocale(LC_NUMERIC, "");

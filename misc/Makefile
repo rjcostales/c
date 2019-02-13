@@ -1,6 +1,5 @@
 CC		= gcc
 CFLAGS	= -std=c99 -Wall
-LIBS	= -lm
 
 PROJECT := .
 SRCS	:= $(wildcard *.c)

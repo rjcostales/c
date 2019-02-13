@@ -1,9 +1,8 @@
 # Universal Makefile ver. 1.0
-EXEC	= lc
-
 CC		= gcc
 CFLAGS	= -Ofast -std=c99 -Wall
-LIBS	= -lm
+
+EXEC	= lc
 
 SRCS	:= $(wildcard *.c)
 HDRS	:= $(wildcard *.h)

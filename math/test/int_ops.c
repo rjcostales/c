@@ -9,11 +9,12 @@
 int main(int argc, char *argv[])
 {
     int integers[SIZE];
-    int result;
+    int result = 0;
     clock_t start, stop;
 
     setlocale(LC_NUMERIC, "");
 
+    result++;
     printf("%s\t%'d - %'dx%'d\n", argv[0], LOOP, SIZE, SIZE);
 
     for (int i = 0; i < SIZE; i++)
