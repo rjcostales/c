@@ -15,3 +15,6 @@ echo ""
 
 ./fibonacci4 40
 echo ''
+
+./fibonacciT 40
+echo ''
