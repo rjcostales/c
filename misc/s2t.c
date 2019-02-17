@@ -5,7 +5,7 @@
 
 int main(int argc, char *argv[])
 {
-    int i, pos, spc, flag;
+    int  pos, spc, flag;
     char chr;
 
     pos = spc = flag = 0;
@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
         if (chr != ' ') {
 
             if (spc < TAB)
-                for (i = (spc - (pos % TAB)); spc; spc--)
+                for (spc = (pos % TAB); spc; spc--)
                     putchar(' ');
 
             putchar(chr);
