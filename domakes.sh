@@ -1,43 +1,44 @@
-
-cd ./misc/
+cd 8-queens/
 make clean
 make
 make clean
+cd ..
 
-cd ../io/
-make clean
-
-cd ../little_c/
+cd games/
 make clean
 make
 make clean
+cd ..
 
-cd ../math/test/
+cd string/
+make clean
+make
+make clean
+cd ..
+
+cd misc/
+make clean
+make
+make clean
+cd ..
+
+cd little_c/
+make clean
+make
+make clean
+cd ..
+
+cd test
+
+cd io/
+make clean
+
+cd math/test/
 make clean
 make
 make clean
 
 cd ../fibonacci/
-make clean
-make
-make clean
-
-cd ../
-make clean
-make
-make clean
-
-cd ../8-queens/
-make clean
-make
-make clean
-
-cd ../string/
-make clean
-make
-make clean
-
-cd ../games/
 make clean
 make
 make clean
