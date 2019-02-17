@@ -22,7 +22,7 @@ cd math/
 make --silent
 make clean
 
-cd fibonnaci/
+cd fibonacci/
 make --silent
 make clean
 cd ../..
