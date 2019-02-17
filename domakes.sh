@@ -1,51 +1,43 @@
 cd 8-queens/
-make clean
-make
+make --silent
 make clean
 cd ..
 
 cd games/
-make clean
-make
-make clean
-cd ..
-
-cd string/
-make clean
-make
+make --silent
 make clean
 cd ..
 
-cd misc/
-make clean
-make
+cd io/
+make --silent
 make clean
 cd ..
 
 cd little_c/
-make clean
-make
+make --silent
 make clean
 cd ..
 
-cd test
-
-cd io/
+cd math/
+make --silent
 make clean
 
-cd math/test/
+cd fibonnaci/
+make --silent
 make clean
-make
-make clean
+cd ../..
 
-cd ../fibonacci/
+cd misc/
+make --silent
 make clean
-make
-make clean
+cd ..
 
-cd ../sorts/
+cd sorts/
+make --silent
 make clean
-make
-make clean
+cd ..
 
+cd string/
+make --silent
+make clean
 cd ..
