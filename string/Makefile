@@ -5,7 +5,10 @@ TGTS := strfunc.o strtest
 SRCS := *.c
 HDRS := *.h
 
-all:$(TGTS)
+all:
+
+strfunc.o:
+	$(CC) $(CFLAGS) -o strfunc.o -c strfunc.c
 
 strtest:
 	$(CC) $(CFLAGS) -o strtest strtest.c strfunc.o

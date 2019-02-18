@@ -32,6 +32,5 @@ int main(int argc, char *argv[])
     func = fib;
     a = func (10);
 
-    func = fact;
-    a = func (10);
+    return a;
 }

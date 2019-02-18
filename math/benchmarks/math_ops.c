@@ -26,63 +26,63 @@ int main(int argc, char *argv[])
     start = clock();
     for (int t = 0; t < LOOP; t++)
         for (int i = 0; i < SIZE; i++)
-            result = reals[i];
+            result += reals[i];
     stop = clock();
     printf("nop\t%0.6f\n", (float) (stop - start) / (float) CLOCKS_PER_SEC);
 
     start = clock();
     for (int t = 0; t < LOOP; t++)
         for (int i = 0; i < SIZE; i++)
-            result = sqrt(reals[i]);
+            result += sqrt(reals[i]);
     stop = clock();
     printf("sqrt\t%0.6f\n", (float) (stop - start) / (float) CLOCKS_PER_SEC);
 
     start = clock();
     for (int t = 0; t < LOOP; t++)
         for (int i = 0; i < SIZE; i++)
-            result = sin(reals[i]);
+            result += sin(reals[i]);
     stop = clock();
     printf("sin\t%0.6f\n", (float) (stop - start) / (float) CLOCKS_PER_SEC);
 
     start = clock();
     for (int t = 0; t < LOOP; t++)
         for (int i = 0; i < SIZE; i++)
-            result = cos(reals[i]);
+            result += cos(reals[i]);
     stop = clock();
     printf("cos\t%0.6f\n", (float) (stop - start) / (float) CLOCKS_PER_SEC);
 
     start = clock();
     for (int t = 0; t < LOOP; t++)
         for (int i = 0; i < SIZE; i++)
-            result = tan(reals[i]);
+            result += tan(reals[i]);
     stop = clock();
     printf("tan\t%0.6f\n", (float) (stop - start) / (float) CLOCKS_PER_SEC);
 
     start = clock();
     for (int t = 0; t < LOOP; t++)
         for (int i = 0; i < SIZE; i++)
-            result = atan(reals[i]);
+            result += atan(reals[i]);
     stop = clock();
     printf("atan\t%0.6f\n", (float) (stop - start) / (float) CLOCKS_PER_SEC);
 
     start = clock();
     for (int t = 0; t < LOOP; t++)
         for (int i = 0; i < SIZE; i++)
-            result = exp(reals[i]);
+            result += exp(reals[i]);
     stop = clock();
     printf("exp\t%0.6f\n", (float) (stop - start) / (float) CLOCKS_PER_SEC);
 
     start = clock();
     for (int t = 0; t < LOOP; t++)
         for (int i = 0; i < SIZE; i++)
-            result = log(reals[i]);
+            result += log(reals[i]);
     stop = clock();
     printf("log\t%0.6f\n", (float) (stop - start) / (float) CLOCKS_PER_SEC);
 
     start = clock();
     for (int t = 0; t < LOOP; t++)
         for (int i = 0; i < SIZE; i++)
-            result = log10(reals[i]);
+            result += log10(reals[i]);
     stop = clock();
     printf("log10\t%0.6f\n", (float) (stop - start) / (float) CLOCKS_PER_SEC);
 } /* main */

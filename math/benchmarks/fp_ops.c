@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
     for (int t = 0; t < LOOP; t++)
         for (int i = 0; i < SIZE; i++)
             for (int j = 0; j < SIZE; j++)
-                result = reals[j];
+                result += reals[j];
     stop = clock();
     printf("nop\t%0.6f\n", (float) (stop - start) / (float) CLOCKS_PER_SEC);
 
@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
     for (int t = 0; t < LOOP; t++)
         for (int i = 0; i < SIZE; i++)
             for (int j = 0; j < SIZE; j++)
-                result = reals[i] + reals[j];
+                result += reals[i] + reals[j];
     stop = clock();
     printf("add\t%0.6f\n", (float) (stop - start) / (float) CLOCKS_PER_SEC);
 
@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
     for (int t = 0; t < LOOP; t++)
         for (int i = 0; i < SIZE; i++)
             for (int j = 0; j < SIZE; j++)
-                result = reals[i] - reals[j];
+                result += reals[i] - reals[j];
     stop = clock();
     printf("sub\t%0.6f\n", (float) (stop - start) / (float) CLOCKS_PER_SEC);
 
@@ -51,7 +51,7 @@ int main(int argc, char *argv[])
     for (int t = 0; t < LOOP; t++)
         for (int i = 0; i < SIZE; i++)
             for (int j = 0; j < SIZE; j++)
-                result = reals[i] * reals[j];
+                result += reals[i] * reals[j];
     stop = clock();
     printf("mul\t%0.6f\n", (float) (stop - start) / (float) CLOCKS_PER_SEC);
 
@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
     for (int t = 0; t < LOOP; t++)
         for (int i = 0; i < SIZE; i++)
             for (int j = 0; j < SIZE; j++)
-                result = reals[i] / reals[j];
+                result += reals[i] / reals[j];
     stop = clock();
     printf("div\t%0.6f\n", (float) (stop - start) / (float) CLOCKS_PER_SEC);
 
@@ -69,7 +69,7 @@ int main(int argc, char *argv[])
         for (int j = 0; j < SIZE; j++)
             for (int k = 0; k < SIZE; k++)
                 for (int l = 0; l < SIZE; l++)
-                    result = reals[i] * reals[j] - reals[i] / reals[j];
+                    result += reals[i] * reals[j] - reals[i] / reals[j];
     stop = clock();
     printf("all\t%0.6f\n", (float) (stop - start) / (float) CLOCKS_PER_SEC);
 } /* main */

@@ -1,50 +1,57 @@
-
-cd ./misc/
-make clean
+cd 8-queens/
+make --silent clean
 make
-make clean
+make --silent clean
+cd ..
 
-cd ../io/
-make clean
-
-cd ../little_c/
-make clean
+cd games/
+make --silent clean
 make
-make clean
+make --silent clean
+cd ..
 
-cd ../math/test/
-make clean
+
+cd misc/
+make --silent clean
 make
-make clean
+make --silent clean
+cd ..
 
-cd ../fibonacci/
-make clean
+cd io/
+make --silent clean
+cd ..
+
+cd little_c/
+make --silent clean
 make
-make clean
+make --silent clean
+cd ..
 
-cd ../
-make clean
+cd math/
+make --silent clean
 make
-make clean
+make --silent clean
 
-cd ../8-queens/
-make clean
+cd benchmarks/
+make --silent clean
 make
-make clean
+make --silent clean
+cd ..
 
-cd ../string/
-make clean
+cd fibonacci/
+make --silent clean
 make
-make clean
+make --silent clean
+cd ../..
 
-cd ../games/
-make clean
+cd string/
+make --silent clean
 make
-make clean
+make --silent clean
+cd ..
 
-cd ../sorts/
-make clean
+cd sorts/
+make --silent clean
 make
-make clean
-
+make --silent clean
 cd ..

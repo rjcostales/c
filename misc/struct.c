@@ -4,8 +4,8 @@ int main (int argc, char *argv[])
 {
 
     char  *cp, c;
-    short *sp, s;
-    int   *ip, i;
+    short  s;
+    int    i;
 
     typedef struct {
         char c0;

@@ -68,10 +68,11 @@ int getnum(void)
     char s[MAX];
 
     // gets(s);
-    fgets(s, MAX, stdin);
-    while (*prog != ')')
-        prog++;
-    prog++;         /* advance to end of line */
+    if (fgets(s, MAX, stdin) > 0) {
+        while (*prog != ')')
+            prog++;
+        prog++;   /* advance to end of line */
+    }
     return atoi(s);
 }
 
