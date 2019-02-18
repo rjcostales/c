@@ -4,7 +4,7 @@ LIBS	= -lm
 
 SRCS	:= $(wildcard *.c)
 HDRS	:= $(wildcard *.h)
-OBJS	:= $(wildcard *.o)
+OBJS	:= $(patsubst %.h,%.o,$(HDRS))
 TGTS	:= $(patsubst %.c,%,$(SRCS))
 
 all:$(TGTS)
@@ -13,7 +13,7 @@ $(TGTS):
 	$(CC) $(CFLAGS) $@.c -o $@ $(LIBS)
 
 math_test:
-	$(CC) $(CFLAGS) $@.c math.o -o $@
+	$(CC) $(CFLAGS) $@.c $(OBJS) -o $@
 
 math:
 	$(CC) $(CFLAGS) -c $@.c -o $@.o

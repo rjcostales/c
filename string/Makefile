@@ -3,16 +3,16 @@ CFLAGS	= -Ofast -Wall -std=c99
 
 SRCS := $(wildcard *.c)
 HDRS := $(wildcard *.h)
-OBJS := $(wildcard *.o)
-TGTS := strfunc.o strtest
+OBJS := strfunc.o
+TGTS := strtest
 
-all: $(TGTS)
+all: $(TGTS) $(OBJS)
+
+strtest: strfunc.o
+	$(CC) $(CFLAGS) -o $@ $@.c $(OBJS) 
 
 strfunc.o:
 	$(CC) $(CFLAGS) -o $@ -c strfunc.c
-
-strtest:
-	$(CC) $(CFLAGS) -o $@ strtest.c strfunc.o
 
 clean:
 	rm -rf $(TGTS) $(OBJS) a.out
