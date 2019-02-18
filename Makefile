@@ -1,10 +1,9 @@
 SUBDIRS := $(wildcard */.)
-CMD     := --silent clean
-# CMD     := all
 
 .PHONY: subdirs $(SUBDIRS)
 
 subdirs: $(SUBDIRS)
 
 $(SUBDIRS):
-	$(MAKE) $(CMD) -C $@
+	$(MAKE) --silent clean -C $@
+#	$(MAKE) all -C $@
