@@ -22,9 +22,9 @@ int main(int argc, char *argv[])
     t.a = i;
     t.b = i;
 
-    printf ("struct %lu %lu %lu\n", sizeof(t.a), sizeof(t.b), sizeof(t));
+    printf("struct %d %d %d\n", sizeof(t.a), sizeof(t.b), sizeof(t));
 
-    printf ("%lu %lu %lu %lu %lu %lu %lu\n",
+    printf("%d %d %d %d %d %d %d\n",
             sizeof(i), sizeof(u), sizeof(c), sizeof(s),
             sizeof(l), sizeof(f), sizeof(d));
 
@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
     l = f;
     f = d;
 
-    printf ("%lu %lu %lu %lu %lu %lu %lu\n",
+    printf("%d %d %d %d %d %d %d\n",
             sizeof(i), sizeof(u), sizeof(c), sizeof(s),
             sizeof(l), sizeof(f), sizeof(d));
 

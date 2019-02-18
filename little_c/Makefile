@@ -1,20 +1,20 @@
 # Universal Makefile ver. 1.0
 CC		= gcc
-CFLAGS	= -Ofast -std=c99 -Wall
+CFLAGS	= -Ofast -std=c99 -Wall -Wextra
 
 EXEC	= lc
 
 SRCS	:= $(wildcard *.c)
 HDRS	:= $(wildcard *.h)
-OBJS	:= $(patsubst %.c, %.o, $(SRCS))
+OBJS	:= $(patsubst %.c,%.o,$(SRCS))
 
-all:$(EXEC)
+all: $(EXEC)
 
-$(EXEC):$(OBJS)
-		$(CC) $(CFLAGS) -o $@ $(OBJS) $(LIBS)
+$(EXEC): $(OBJS) $(SRCS) $(HDRS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(EXEC)
 
-$(OBJS):$(SRCS)
-		$(CC) $(CFLAGS) -c $(SRCS) $(LIBS)
+%.o: %.c
+	$(CC) -c $(CFLAGS) $*.c
 
 clean:
-		rm -rf $(EXEC) $(OBJS)
+	rm -rf $(EXEC) $(OBJS)
