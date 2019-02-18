@@ -1,27 +1,27 @@
 #include <stdio.h>
 
 typedef struct complex {
-    short real;
-    short imaginary;
+	short real;
+	short imaginary;
 } complex_t, *complex_p;
 
 void foo(complex_t *x)
 {
-    x->real = 200;
+	x->real = 200;
 }
 
 int main(int argc, char *argv[])
 {
-    struct complex a;
-    complex_t b;
-    complex_p p;
+	struct complex a;
+	complex_t b;
+	complex_p p;
 
-    b.real = 100;
-    a.real = b.real;
+	b.real = 100;
+	a.real = b.real;
 
-    p = &a;
+	p = &a;
 
-    printf ("%d\n", p->real);
-    foo (&a);
-    printf ("%d\n", p->real);
+	printf ("%d\n", p->real);
+	foo (&a);
+	printf ("%d\n", p->real);
 }

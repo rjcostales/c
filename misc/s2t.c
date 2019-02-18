@@ -5,45 +5,45 @@
 
 int main(int argc, char *argv[])
 {
-    int  pos, spc, flag;
-    char chr;
+	int  pos, spc, flag;
+	char chr;
 
-    pos = spc = flag = 0;
-    while ((chr = getchar()) != EOF) {
-        pos++;
+	pos = spc = flag = 0;
+	while ((chr = getchar()) != EOF) {
+		pos++;
 
-        if (chr == '\n')
-            pos = spc = flag = 0;
+		if (chr == '\n')
+			pos = spc = flag = 0;
 
-        if (flag) {
-            if (chr == ' ')
-                putchar('\t');
-            else
-                (spc == 1) ? putchar(' ') : putchar('\t');
+		if (flag) {
+			if (chr == ' ')
+				putchar('\t');
+			else
+				(spc == 1) ? putchar(' ') : putchar('\t');
 
-            spc = flag = 0;
-        }
+			spc = flag = 0;
+		}
 
-        if (chr != ' ') {
+		if (chr != ' ') {
 
-            if (spc < TAB)
-                for (spc = (pos % TAB); spc; spc--)
-                    putchar(' ');
+			if (spc < TAB)
+				for (spc = (pos % TAB); spc; spc--)
+					putchar(' ');
 
-            putchar(chr);
-            spc = flag = 0;
+			putchar(chr);
+			spc = flag = 0;
 
-        } else {
-            spc++;
+		} else {
+			spc++;
 
-            if ((pos % TAB) == 0)
-                flag = 1;
+			if ((pos % TAB) == 0)
+				flag = 1;
 
-            if (spc == TAB) {
-                putchar('\t');
-                spc = flag = 0;
-            }
+			if (spc == TAB) {
+				putchar('\t');
+				spc = flag = 0;
+			}
 
-        }
-    }
+		}
+	}
 }
