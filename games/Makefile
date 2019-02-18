@@ -3,7 +3,7 @@ CFLAGS	= -Ofast -Wall -std=c99
 
 SRCS	:= $(wildcard *.c)
 HDRS	:= $(wildcard *.h)
-OBJS	:= $(wildcard *.o)
+OBJS	:= $(patsubst %.c,%.o,$(HDRS))
 TGTS	:= $(patsubst %.c,%,$(SRCS))
 
 all: $(TGTS)

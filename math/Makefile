@@ -12,7 +12,7 @@ all:$(TGTS)
 $(TGTS):
 	$(CC) $(CFLAGS) $@.c -o $@ $(LIBS)
 
-math_test:
+math_test: math
 	$(CC) $(CFLAGS) $@.c $(OBJS) -o $@
 
 math:
