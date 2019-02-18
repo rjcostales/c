@@ -1,9 +1,10 @@
-SUBDIRS := $(wildcard */.)
-CMD     := clean
+# SUBDIRS := $(wildcard */.)
+SUBDIRS := $(shell ls */Makefile */*/Makefile | sed 's/Makefile/./')
 
 all: $(SUBDIRS)
 
 $(SUBDIRS):
-	$(MAKE) $(CMD) -C $@
+	$(MAKE) all -C $@
+	$(MAKE) --silent clean -C $@
 
 .PHONY: all $(SUBDIRS)
