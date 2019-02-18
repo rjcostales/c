@@ -1,11 +1,9 @@
 SUBDIRS := $(wildcard */.)
+CMD     := clean
 
 all: $(SUBDIRS)
 
-compile: $(SUBDIRS)
-	$(MAKE) -C $<
-
 $(SUBDIRS):
-	$(MAKE) clean -C $@
+	$(MAKE) $(CMD) -C $@
 
 .PHONY: all $(SUBDIRS)
