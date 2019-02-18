@@ -7,16 +7,16 @@
 
 int main(int argc, char *argv[])
 {
-    printf("size of int\t:%d\n", sizeof(int));
-    printf("size of char\t:%d\n", sizeof(char));
-    printf("size of short\t:%d\n", sizeof(short));
-    printf("size of long\t:%d\n", sizeof(long));
+    printf("size of int\t:%u\n", (int) sizeof(int));
+    printf("size of char\t:%u\n", (int) sizeof(char));
+    printf("size of short\t:%u\n", (int) sizeof(short));
+    printf("size of long\t:%u\n", (int) sizeof(long));
 
-    printf("size of float\t:%d\n", sizeof(float));
-    printf("size of double\t:%d\n", sizeof(double));
+    printf("size of float\t:%u\n", (int) sizeof(float));
+    printf("size of double\t:%u\n", (int) sizeof(double));
 
-    printf("size of uint32_t\t:%d\n", sizeof(uint32_t));
-    printf("size of uint64_t\t:%d\n", sizeof(uint64_t));
+    printf("size of uint32_t\t:%u\n", (int) sizeof(uint32_t));
+    printf("size of uint64_t\t:%u\n", (int) sizeof(uint64_t));
 
     printf("short\n");
     printf("short max\t:%i\n", SHRT_MAX);

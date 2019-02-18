@@ -68,7 +68,7 @@ int getnum(void)
     char s[MAX];
 
     // gets(s);
-    if (fgets(s, MAX, stdin) > 0) {
+    if (fgets(s, MAX, stdin) != NULL) {
         while (*prog != ')')
             prog++;
         prog++;   /* advance to end of line */
