@@ -12,11 +12,8 @@ all:	$(TGTS)
 $(TGTS):
 	$(CC) $(CFLAGS) $(LFLAGS) $@.c -o $@
 
-struct:
-	$(CC) $(CFLAGS) -Wno-format $@.c -o $@
-
 xmas:
-	$(CC) $@.c -o $@
+	$(CC) -Wno-implicit-int $@.c -o $@
 
 clean:
 	rm -rf $(TGTS) $(OBJS)
