@@ -8,36 +8,36 @@
 
 int main(int argc, char *argv[])
 {
-    const char characters[] =
-        "0123456789 ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz";
-    char buffer[BUF] = { '\0' };
-    int seed = 1234567890;
-    int n = LEN;
+	const char characters[] =
+		"0123456789 ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz";
+	char buffer[BUF] = { '\0' };
+	int seed = 1234567890;
+	int n = LEN;
 
-    switch (argc) {
-    case 3: seed = atoi(argv[2]);
-    case 2: n = atoi(argv[1]);
-    }
+	switch (argc) {
+	case 3: seed = atoi(argv[2]);
+	case 2: n = atoi(argv[1]);
+	}
 
-    srand(seed);
+	srand(seed);
 
-    for (int i = 0; i < n; i++) {
-        char *ptr = &buffer[0];
-        for (int n = 0; n < 20; n++) {
-            int r = rand();
-            *ptr++ = characters[r & 0x3f];
-            r >>= 6;
-            *ptr++ = characters[r & 0x3f];
-            r >>= 6;
-            *ptr++ = characters[r & 0x3f];
-            r >>= 6;
-            *ptr++ = characters[r & 0x3f];
-            r >>= 6;
-            *ptr++ = characters[r & 0x3f];
-            r >>= 6;
-        }
-        buffer[NDX] = '\n';
-        fputs(buffer, stdout);
-    }
-    return seed;
+	for (int i = 0; i < n; i++) {
+		char *ptr = &buffer[0];
+		for (int n = 0; n < 20; n++) {
+			int r = rand();
+			*ptr++ = characters[r & 0x3f];
+			r >>= 6;
+			*ptr++ = characters[r & 0x3f];
+			r >>= 6;
+			*ptr++ = characters[r & 0x3f];
+			r >>= 6;
+			*ptr++ = characters[r & 0x3f];
+			r >>= 6;
+			*ptr++ = characters[r & 0x3f];
+			r >>= 6;
+		}
+		buffer[NDX] = '\n';
+		fputs(buffer, stdout);
+	}
+	return seed;
 }
