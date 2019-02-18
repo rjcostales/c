@@ -1,6 +1,6 @@
 # Universal Makefile ver. 1.0
 CC		= gcc
-CFLAGS	= -Ofast -std=c99 -Wall -Wextra
+CFLAGS	= -Ofast -Wall -std=c99
 
 EXEC	= lc
 
