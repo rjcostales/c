@@ -1,7 +1,7 @@
 echo "Math Test"
 echo ""
 
-./math_ops
+./ops_math
 echo ""
 
 ./pi_archimedes

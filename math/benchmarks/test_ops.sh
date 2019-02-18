@@ -1,10 +1,10 @@
 echo "Ops Test"
 echo ""
 
-./int_ops
+./ops_int
 echo ""
 
-./fp_ops
+./ops_fp
 echo ""
 
 ./primes
