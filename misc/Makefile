@@ -4,17 +4,18 @@ CFLAGS	= -Ofast -Wall -std=c99
 PROJECT := .
 SRCS	:= $(wildcard *.c)
 HDRS	:= $(wildcard *.h)
-TGTS	:= $(shell grep -w 'main' *.c| grep -v 'xmas\|struct'| sed 's/.c:.*//')
+TGTS	:= $(patsubst %.c,%,$(SRCS))
 
 all:	$(TGTS)
 
-$(TGTS): struct
+$(TGTS): 
 	$(CC) $(CFLAGS) $@.c -o $@
 
 struct:
 	$(CC) $(CFLAGS) -Wno-format -o $@ $@.c
 
 xmas:
+	$(CC) $(CFLAGS) -Wno-implicit-int -Wno-logical-not-parentheses -o $@ $@.c
 
 clean:
-	rm -rf $(TGTS) xmas struct
+	rm -rf $(TGTS)
