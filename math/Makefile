@@ -10,10 +10,10 @@ TGTS	:= $(shell grep -w main *.c|sed 's/.c:.*//')
 all: $(TGTS)
 
 $(TGTS): math.o
-	$(CC) $(CFLAGS) -o $@ $@.c $< $(LIBS)
+	$(CC) $(CFLAGS) $@.c $< -o $@ $(LIBS)
 
 math.o:
-	$(CC) $(CFLAGS) -o $@ -c math.c
+	$(CC) $(CFLAGS) -c math.c -o $@
 
 clean:
 	rm -rf $(TGTS) $(OBJS) *.o a.out *.txt

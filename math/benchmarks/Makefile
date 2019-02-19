@@ -9,7 +9,7 @@ TGTS	:= $(patsubst %.c,%,$(SRCS))
 all:$(TGTS)
 
 $(TGTS):
-	$(CC) $(CFLAGS) -o $@ $@.c $(LIBS)
+	$(CC) $(CFLAGS) $@.c -o $@ $(LIBS)
 
 clean:
 	rm -f $(TGTS)

@@ -11,7 +11,7 @@ OBJS	:= $(patsubst %.c,%.o,$(SRCS))
 all: $(EXEC)
 
 $(EXEC): $(OBJS) $(SRCS) $(HDRS)
-	$(CC) $(CFLAGS) -o $(EXEC) $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(EXEC)
 
 %.o: %.c
 	$(CC) -c $(CFLAGS) $*.c

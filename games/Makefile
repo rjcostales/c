@@ -9,7 +9,7 @@ TGTS	:= $(shell grep -w main *.c|sed 's/.c:.*//')
 all: $(TGTS)
 
 $(TGTS): $(SRCS)
-	$(CC) $(CFLAGS) -o $@ $@.c 
+	$(CC) $(CFLAGS) $@.c -o $@
 
 clean:
 	rm -rf $(TGTS) $(OBJS) a.out

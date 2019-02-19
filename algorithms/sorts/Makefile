@@ -9,10 +9,10 @@ TGTS	:= $(shell grep -w main *.c|sed 's/.c:.*//')
 all: $(TGTS)
 
 $(TGTS): sortutils.o
-	$(CC) $(CFLAGS) -o $@ $@.c $(OBJ)
+	$(CC) $(CFLAGS) $@.c $(OBJ) -o $@
 
 sortutils.o:
-	$(CC) $(CFLAGS) -o $@ -c sortutils.c
+	$(CC) $(CFLAGS) -c sortutils.c -o $@
 
 clean:
 	rm -rf $(TGTS) $(OBJS) *.o a.out *.txt

@@ -9,10 +9,10 @@ TGTS := strtest
 all: $(TGTS) $(OBJS)
 
 strtest: strfunc.o
-	$(CC) $(CFLAGS) -o $@ $@.c $<
+	$(CC) $(CFLAGS) $@.c $< -o $@
 
 strfunc.o:
-	$(CC) $(CFLAGS) -o $@ -c strfunc.c
+	$(CC) $(CFLAGS) -c strfunc.c -o $@
 
 clean:
 	rm -rf $(TGTS) $(OBJS) a.out
