@@ -13,7 +13,7 @@ $(TGTS): math.o
 	$(CC) $(CFLAGS) -o $@ $@.c $< $(LIBS)
 
 math.o:
-	$(CC) $(CFLAGS) -c math.c -o $@
+	$(CC) $(CFLAGS) -o $@ -c math.c
 
 clean:
 	rm -rf $(TGTS) $(OBJS) *.o a.out *.txt

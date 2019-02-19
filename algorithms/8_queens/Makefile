@@ -8,7 +8,7 @@ TGTS	:= $(patsubst %.c,%,$(SRCS))
 all: $(TGTS)
 
 $(TGTS): $(SRCS)
-	$(CC) $(CFLAGS) $@.c -o $@
+	$(CC) $(CFLAGS) -o $@ $@.c
 
 clean:
 	rm -rf $(TGTS) a.out

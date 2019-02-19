@@ -9,10 +9,10 @@ TGTS	:= $(shell grep -w 'int main' *.c|sed 's/.c:.*//')
 all:	$(TGTS)
 
 $(TGTS):
-	$(CC) $(CFLAGS) $(LFLAGS) $@.c -o $@
+	$(CC) $(CFLAGS) $(LFLAGS) -o $@ $@.c
 
 xmas:
-	$(CC) -Wno-implicit-int $@.c -o $@
+	$(CC) -Wno-implicit-int -o $@ $@.c
 
 clean:
 	rm -rf $(TGTS)
