@@ -18,8 +18,7 @@ int rand()
 
 int main(int argc, char **argv)
 {
-	const char characters[] =
-		"0123456789 ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz";
+	const char characters[] = STR64;
 	char buffer[BUFFER] = { '\0' };
 
 	for (int i = 0; i < LEN; i++) {

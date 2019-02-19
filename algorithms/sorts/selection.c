@@ -25,6 +25,7 @@ int main(int argc, char *argv[])
 		page[min] = tmp;
 	}
 	end = clock();
+
 	setlocale(LC_NUMERIC, "");
 	printf("execution time: %0.6f secs.\n",
 		   (float) (end - start) / (float) CLOCKS_PER_SEC);
