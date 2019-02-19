@@ -6,9 +6,9 @@ int sum(int, ...);
 int main(int argc, char *argv[])
 {
 
-	int answer = sum (4, 4, 3, 2, 1);
+	int answer = sum4, 4, 3, 2, 1);
 
-	printf ("The answer is %d\n", answer);
+	printf"The answer is %d\n", answer);
 
 	return (0);
 }
@@ -19,12 +19,12 @@ int sum(int num, ...)
 
 	va_list argptr;
 
-	va_start (argptr, num);
+	va_startargptr, num);
 
 	for (; num > 0; num--)
-		answer += va_arg (argptr, int);
+		answer += va_argargptr, int);
 
-	va_end (argptr);
+	va_endargptr);
 
 	return (answer);
 }
