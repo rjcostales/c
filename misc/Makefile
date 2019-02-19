@@ -8,8 +8,11 @@ TGTS	:= $(patsubst %.c,%,$(SRCS))
 
 all:	$(TGTS)
 
-$(TGTS): 
+$(TGTS):
 	$(CC) $(CFLAGS) $@.c -o $@
+
+exparser:
+	$(CC) $(CFLAGS) -Wno-unused-result -Wno-maybe-uninitialized -o $@ $@.c
 
 struct:
 	$(CC) $(CFLAGS) -Wno-format -o $@ $@.c
