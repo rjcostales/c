@@ -13,12 +13,12 @@ extern char  tok;           /* holds the internal representation of token */
  */
 int call_getche(void)
 {
-    char ch = getchar();
+	char ch = getchar();
 
-    while (*prog != ')')
-        prog++;
-    prog++;         /* advance to end of line */
-    return ch;
+	while (*prog != ')')
+		prog++;
+	prog++;         /* advance to end of line */
+	return ch;
 }
 
 /*
@@ -26,11 +26,11 @@ int call_getche(void)
  */
 int call_putch(void)
 {
-    int value;
+	int value;
 
-    eval_exp(&value);
-    printf("%c", value);
-    return value;
+	eval_exp(&value);
+	printf("%c", value);
+	return value;
 }
 
 /*
@@ -38,26 +38,26 @@ int call_putch(void)
  */
 int call_puts(void)
 {
-    get_token();
+	get_token();
 
-    if (*token != '(')
-        sntx_err(PAREN_EXPECTED);
+	if (*token != '(')
+		sntx_err(PAREN_EXPECTED);
 
-    get_token();
-    if (token_type != QUOTE)
-        sntx_err(QUOTE_EXPECTED);
-    puts(token);
+	get_token();
+	if (token_type != QUOTE)
+		sntx_err(QUOTE_EXPECTED);
+	puts(token);
 
-    get_token();
-    if (*token != ')')
-        sntx_err(PAREN_EXPECTED);
+	get_token();
+	if (*token != ')')
+		sntx_err(PAREN_EXPECTED);
 
-    get_token();
-    if (*token != ';')
-        sntx_err(SEMI_EXPECTED);
+	get_token();
+	if (*token != ';')
+		sntx_err(SEMI_EXPECTED);
 
-    put_back();
-    return 0;
+	put_back();
+	return 0;
 }
 
 /*
@@ -65,14 +65,15 @@ int call_puts(void)
  */
 int getnum(void)
 {
-    char s[MAX];
+	char s[MAX];
 
-    // gets(s);
-    fgets(s, MAX, stdin);
-    while (*prog != ')')
-        prog++;
-    prog++;         /* advance to end of line */
-    return atoi(s);
+	// gets(s);
+	if (fgets(s, MAX, stdin) != NULL) {
+		while (*prog != ')')
+			prog++;
+		prog++;   /* advance to end of line */
+	}
+	return atoi(s);
 }
 
 /*
@@ -80,30 +81,30 @@ int getnum(void)
  */
 int print(void)
 {
-    int i;
+	int i;
 
-    get_token();
+	get_token();
 
-    if (*token != '(')
-        sntx_err(PAREN_EXPECTED);
+	if (*token != '(')
+		sntx_err(PAREN_EXPECTED);
 
-    get_token();
+	get_token();
 
-    if (token_type == QUOTE) { /* output a string */
-        printf("%s\n", token);
-    } else {        /* output a number */
-        put_back();
-        eval_exp(&i);
-        printf("%d\n", i);
-    }
+	if (token_type == QUOTE) { /* output a string */
+		printf("%s\n", token);
+	} else {        /* output a number */
+		put_back();
+		eval_exp(&i);
+		printf("%d\n", i);
+	}
 
-    get_token();
-    if (*token != ')')
-        sntx_err(PAREN_EXPECTED);
+	get_token();
+	if (*token != ')')
+		sntx_err(PAREN_EXPECTED);
 
-    get_token();
-    if (*token != ';')
-        sntx_err(SEMI_EXPECTED);
-    put_back();
-    return 0;
+	get_token();
+	if (*token != ';')
+		sntx_err(SEMI_EXPECTED);
+	put_back();
+	return 0;
 }

@@ -1,22 +1,21 @@
 CC		= gcc
-CFLAGS	= -std=c99 -Wall
+CFLAGS	= -Ofast -Wall -std=c99
 
 PROJECT := .
 SRCS	:= $(wildcard *.c)
 HDRS	:= $(wildcard *.h)
-OBJS	:= $(wildcard *.o)
-TGTS 	:= $(patsubst %.c,%,$(SRCS))
+TGTS	:= $(patsubst %.c,%,$(SRCS))
 
 all:	$(TGTS)
 
-$(TGTS):
-	$(CC) $(CFLAGS) $(LFLAGS) $@.c -o $@
+$(TGTS): 
+	$(CC) $(CFLAGS) $@.c -o $@
 
 struct:
-	$(CC) $(CFLAGS) -Wno-format $@.c -o $@
+	$(CC) $(CFLAGS) -Wno-format -o $@ $@.c
 
 xmas:
-	$(CC) $@.c -o $@
+	$(CC) $(CFLAGS) -Wno-implicit-int -Wno-logical-not-parentheses -o $@ $@.c
 
 clean:
-	rm -rf $(TGTS) $(OBJS)
+	rm -rf $(TGTS)

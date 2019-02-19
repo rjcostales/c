@@ -19,16 +19,17 @@ int main(int argc, char **argv)
     int urandom = open("/dev/urandom", O_RDONLY);
 
     for (int n = 0; n < LEN; n++) {
-        read(urandom, rand, 800);
-        for (int i = 0; i < 200; i++) {
-            int r = rand[i];
-            for (int j = 0; j < 5; j++) {
-                strings[i][j] = characters[r & 0x3f];
-                r >>= 6;
+        if (read(urandom, rand, 800) > 0) {
+            for (int i = 0; i < 200; i++) {
+                int r = rand[i];
+                for (int j = 0; j < 5; j++) {
+                    strings[i][j] = characters[r & 0x3f];
+                    r >>= 6;
+                }
             }
-        }
-        strings[199][4] = '\n';
-        fputs(ptr, stdout);
+            strings[199][4] = '\n';
+            fputs(ptr, stdout);
+        }   
     }
     close(urandom);
 }

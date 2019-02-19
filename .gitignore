@@ -1,8 +1,0 @@
-# Mac
-.DS_Store
-a.out
-a.exe
-*.o
-
-# indent
-*.c~

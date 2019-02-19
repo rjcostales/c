@@ -1,23 +1,19 @@
 CC		= gcc
-CFLAGS	= -std=c99 -Wall
+CFLAGS	= -Ofast -Wall -std=c99
 LIBS	= -lm
 
 SRCS	:= $(wildcard *.c)
 HDRS	:= $(wildcard *.h)
 OBJS	:= $(wildcard *.o)
-TGTS	:= $(patsubst %.c,%,$(SRCS))
+TGTS	:= $(shell grep -w main *.c|sed 's/.c:.*//')
 
-all:$(TGTS)
+all: $(TGTS)
 
-math:
-	$(CC) $(CFLAGS) -c $@.c -o $@.o
+$(TGTS): math.o
+	$(CC) $(CFLAGS) $@.c $< -o $@ $(LIBS)
 
-math_test:
-	$(CC) $(CFLAGS) $@.c math.o -o $@
-
-$(TGTS):
-	$(CC) $(CFLAGS) $@.c -o $@ $(LIBS)
-
+math.o:
+	$(CC) $(CFLAGS) -c math.c -o $@
 
 clean:
-	rm -rf $(TGTS) $(OBJS)
+	rm -rf $(TGTS) $(OBJS) *.o a.out *.txt

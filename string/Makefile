@@ -1,15 +1,18 @@
 CC		= gcc
-CFLAGS	= -Ofast -std=c99 -Wall
+CFLAGS	= -Ofast -Wall -std=c99
 
-SRCS	:= $(wildcard *.c)
-HDRS	:= $(wildcard *.h)
-OBJS	:= $(wildcard *.o)
-TGTS := strfunc.o strtest
+SRCS := $(wildcard *.c)
+HDRS := $(wildcard *.h)
+OBJS := strfunc.o
+TGTS := strtest
 
-all: $(TGTS)
+all: $(TGTS) $(OBJS)
 
-strtest:
-	$(CC) $(CFLAGS) -o strtest strtest.c strfunc.o
+strtest: strfunc.o
+	$(CC) $(CFLAGS) $@.c $< -o $@
+
+strfunc.o:
+	$(CC) $(CFLAGS) -c strfunc.c -o $@
 
 clean:
 	rm -rf $(TGTS) $(OBJS) a.out
