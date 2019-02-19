@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
 	printf("execution time: %0.6f secs.\n",
 		   (float) (end - start) / (float) CLOCKS_PER_SEC);
 
-	write(page);
+	// write(page);
 
 	return 0;
 }

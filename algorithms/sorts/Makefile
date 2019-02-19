@@ -8,8 +8,8 @@ TGTS	:= $(patsubst %.c,%,$(SRCS))
 
 all: sortutils $(TGTS)
 
-$(TGTS): $(SRCS)
-	$(CC) $(CFLAGS) $< sortutils.o -o $@
+$(TGTS): sortutils
+	$(CC) $(CFLAGS) $@.c sortutils.o -o $@
 
 sortutils:
 	$(CC) $(CFLAGS) -c sortutils.c -o $@.o
