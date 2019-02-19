@@ -4,19 +4,16 @@ LIBS	= -lm
 
 SRCS	:= $(wildcard *.c)
 HDRS	:= $(wildcard *.h)
-OBJS	:= $(patsubst %.h,%.o,$(HDRS))
-TGTS	:= $(patsubst %.c,%,$(SRCS))
+OBJS	:= $(wildcard *.o)
+TGTS	:= $(shell grep -w main *.c|sed 's/.c:.*//')
 
-all:$(TGTS)
+all: $(TGTS)
 
-$(TGTS):
-	$(CC) $(CFLAGS) $@.c -o $@ $(LIBS)
+$(TGTS): math.o
+	$(CC) $(CFLAGS) -o $@ $@.c $< $(LIBS)
 
-math_test: math
-	$(CC) $(CFLAGS) $@.c $(OBJS) -o $@
-
-math:
-	$(CC) $(CFLAGS) -c $@.c -o $@.o
+math.o:
+	$(CC) $(CFLAGS) -c math.c -o $@
 
 clean:
-	rm -rf $(TGTS) $(OBJS)
+	rm -rf $(TGTS) $(OBJS) *.o a.out *.txt

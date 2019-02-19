@@ -9,7 +9,7 @@ TGTS := strtest
 all: $(TGTS) $(OBJS)
 
 strtest: strfunc.o
-	$(CC) $(CFLAGS) -o $@ $@.c $(OBJS) 
+	$(CC) $(CFLAGS) -o $@ $@.c $<
 
 strfunc.o:
 	$(CC) $(CFLAGS) -o $@ -c strfunc.c

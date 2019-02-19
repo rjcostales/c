@@ -4,7 +4,7 @@ CFLAGS	= -std=c99
 PROJECT := .
 SRCS	:= $(wildcard *.c)
 HDRS	:= $(wildcard *.h)
-TGTS 	:= $(patsubst %.c,%,$(SRCS))
+TGTS	:= $(shell grep -w 'int main' *.c|sed 's/.c:.*//')
 
 all:	$(TGTS)
 

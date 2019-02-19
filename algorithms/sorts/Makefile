@@ -4,15 +4,15 @@ CFLAGS	= -Ofast -Wall -std=c99
 SRCS	:= $(wildcard *.c)
 HDRS	:= $(wildcard *.h)
 OBJS	:= $(wildcard *.o)
-TGTS	:= $(patsubst %.c,%,$(SRCS))
+TGTS	:= $(shell grep -w main *.c|sed 's/.c:.*//')
 
-all: sortutils $(TGTS)
+all: $(TGTS)
 
-$(TGTS): sortutils
-	$(CC) $(CFLAGS) $@.c sortutils.o -o $@
+$(TGTS): sortutils.o
+	$(CC) $(CFLAGS) $@.c $(OBJ) -o $@
 
-sortutils:
-	$(CC) $(CFLAGS) -c sortutils.c -o $@.o
+sortutils.o:
+	$(CC) $(CFLAGS) -c sortutils.c -o $@
 
 clean:
-	rm -rf $(TGTS) $(OBJS) a.out *.txt
+	rm -rf $(TGTS) $(OBJS) *.o a.out *.txt
