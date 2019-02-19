@@ -4,7 +4,7 @@ CFLAGS	= -Ofast -Wall -std=c99
 SRCS	:= $(wildcard *.c)
 HDRS	:= $(wildcard *.h)
 OBJS	:= $(wildcard *.o)
-TGTS	:= $(shell grep -w main *.c|sed 's/.c:.*//')
+TGTS	:= $(patsubst %.c,%,$(SRCS))
 
 all: $(TGTS)
 
