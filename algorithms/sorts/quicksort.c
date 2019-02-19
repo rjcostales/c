@@ -3,32 +3,7 @@
 #include <string.h>
 #include <time.h>
 #include <locale.h>
-
-#undef  PRINT
-#define MAXLINE 1024
-#define MAXSIZE 65536
-
-typedef char *str;
-
-int read(str strings[])
-{
-	int size;
-	char line[MAXLINE];
-
-	for (size = 0; fgets(line, MAXLINE, stdin); size++) {
-		strings[size] = calloc(strlen(line) + 1, sizeof(char));
-		strcpy(strings[size], line);
-	}
-	return size;
-}
-
-void print(str strings[])
-{
-#ifdef PRINT
-	for (int i = 0; strings[i] != NULL; i++)
-		fputs(strings[i], stdout);
-#endif
-}
+#include "sortutils.h"
 
 static int compare(const void *a, const void *b)
 {
@@ -40,8 +15,8 @@ static int compare(const void *a, const void *b)
 
 int main(int argc, char *argv[])
 {
-	str  page[MAXSIZE];
-	int  size = read(page);
+	str page[MAXSIZE];
+	int size = read(page);
 	printf("%s %d records\n", argv[0], size);
 
 	clock_t start, end;
@@ -52,7 +27,7 @@ int main(int argc, char *argv[])
 	printf("execution time: %0.6f secs.\n",
 		   (float) (end - start) / (float) CLOCKS_PER_SEC);
 
-	print(page);
+	write(page);
 
 	return 0;
 }

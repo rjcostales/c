@@ -4,24 +4,7 @@
 #include <string.h>
 #include <time.h>
 #include <locale.h>
-
-#undef  PRINT
-#define MAXLINE 1024
-#define MAXSIZE 65536
-
-typedef char *str;
-
-int read(str strings[])
-{
-	int size;
-	char line[MAXLINE];
-
-	for (size = 0; fgets(line, MAXLINE, stdin); size++) {
-		strings[size] = calloc(strlen(line) + 1, sizeof(char));
-		strcpy(strings[size], line);
-	}
-	return size;
-}
+#include "sortutils.h"
 
 void merge(str array[], str left[], str right[], int size_l, int size_r)
 {
@@ -65,14 +48,6 @@ void merge_sort(str array[], int size)
 	}
 }
 
-void print(str strings[])
-{
-#ifdef PRINT
-	for (int i = 0; strings[i] != NULL; i++)
-		fputs(strings[i], stdout);
-#endif
-}
-
 int main(int argc, char *argv[])
 {
 	str page[MAXSIZE];
@@ -87,10 +62,7 @@ int main(int argc, char *argv[])
 	printf("execution time: %0.6f secs.\n",
 		   (float) (end - start) / (float) CLOCKS_PER_SEC);
 
-	print(page);
-
-	// for (size = 0; page[size] != NULL; size++)
-	//     fputs(page[size], stdout);
+	write(page);
 
 	return 0;
 }
