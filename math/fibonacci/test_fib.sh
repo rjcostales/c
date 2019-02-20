@@ -1,9 +1,6 @@
 echo "Fibonacci Test"
 echo ""
 
-./fibonacci0 40
-echo ""
-
 ./fibonacci1 40
 echo ""
 

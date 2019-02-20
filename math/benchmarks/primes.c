@@ -11,7 +11,7 @@ bool isPrime(int n)
 	if ((n % 2) == 0) {
 		return false;
 	} else {
-		for (int i = 3; i * i <= n; i += 2)
+		for (int i = 3; i * i < n; i += 2)
 			if ((n % i) == 0)
 				return false;
 	}
@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
 	stop = clock();
 
 	setlocale(LC_NUMERIC, "");
-	printf("%s\tfound %'d primes less than %'d\n", argv[0], c, MAX);
-	printf("execution time: %0.6f secs.\n",
-	  (float) (stop - start) / (float) CLOCKS_PER_SEC);
+	printf("execution time: %0.6f secs.\t",
+			(float) (stop - start) / (float) CLOCKS_PER_SEC);
+	printf("%s - found %'d primes less than %'d\n", argv[0], c, MAX);
 }

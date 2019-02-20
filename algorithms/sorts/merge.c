@@ -58,6 +58,7 @@ int main(int argc, char *argv[])
 	start = clock();
 	merge_sort(page, size);
 	end = clock();
+	
 	setlocale(LC_NUMERIC, "");
 	printf("execution time: %0.6f secs.\n",
 		   (float) (end - start) / (float) CLOCKS_PER_SEC);

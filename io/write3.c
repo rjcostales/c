@@ -7,8 +7,7 @@
 
 int main(int argc, char **argv)
 {
-    char characters[] =
-        "0123456789 ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz";
+	const char characters[] = STR64;
 
     char strings[201][5];
     char *ptr = &strings[0][0];
@@ -29,7 +28,7 @@ int main(int argc, char **argv)
             }
             strings[199][4] = '\n';
             fputs(ptr, stdout);
-        }   
+        }
     }
     close(urandom);
 }

@@ -1,10 +1,10 @@
-echo "Ops Test"
+echo "Integer Test"
 echo ""
 
 ./ops_int
 echo ""
 
-./ops_fp
+./fibonacci 40
 echo ""
 
 ./primes
