@@ -5,25 +5,24 @@
 
 long count = 0;
 
-int fib(int n)
+double factorial(double n)
 {
 	count++;
-	if (n == 0) return 0;
 	if (n == 1) return 1;
-	return fib(n - 1) + fib(n - 2);
+	else return factorial(n - 1) * n;
 }
 
 int main(int argc, char *argv[])
 {
-	int n = (argc == 1) ? 32 : atoi(argv[1]);
+	int n = (argc == 1) ? 62 : atoi(argv[1]);
 	clock_t start, end;
 
 	start = clock();
-	int f = fib(n);
+	double f = factorial(n);
 	end = clock();
 
 	setlocale(LC_NUMERIC, "");
 	printf("execution time: %0.6f secs.\t",
 			(float) (end - start) / (float) CLOCKS_PER_SEC);
-	printf("%s(%'d)=%'d in %'lu\n", *argv, n, f, count);
+	printf("%s(%'d)=%'0.0f in %'ld\n", *argv, n, f, count);
 }
