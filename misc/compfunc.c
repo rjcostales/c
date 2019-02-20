@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-typedef double(*ptr2func) (double);
+typedef double(*ptr2func)(double);
 
 double pwr2(double), pwr3(double);
 

@@ -77,10 +77,10 @@ int main(int argc, char *argv[])
 	char s[100];
 
 	for (;;) {
-		printf ("enter an expression: ");
-		scanf ("%s", s);
+		printf("enter an expression: ");
+		scanf("%s", s);
 
-		result = parse_expr (s);
+		result = parse_expr(s);
 		if (!Err)
 			printf("result = %g\n\n", result);
 		else
@@ -125,16 +125,16 @@ float expr2(void)
 	}
 }
 
-float term2 (void)
+float term2(void)
 {
 	token t;
 
 	get_token(&t);
 
 	if (t.type == TIMES)
-		return (factor () * term2 ());
+		return (factor() * term2());
 	else if (t.type == DIVIDED_BY)
-		return (1 / (factor() / term2 ()));
+		return (1 / (factor() / term2()));
 	else {
 		unget();
 		return (1);
@@ -244,16 +244,10 @@ void get_token(token * t)
 
 char get(void)
 {
-//    if (Unget)
-//        Unget = false;
-//    else
-//        Last = *Buffer++;
-//    return (Last);
 	return *Buffer++;
 }
 
 void unget(void)
 {
-//    Unget = true;
 	Buffer--;
 }
