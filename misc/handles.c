@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 
 	p = &a;
 
-	printf ("%d\n", p->real);
+	printf("%d\n", p->real);
 	foo(&a);
-	printf ("%d\n", p->real);
+	printf("%d\n", p->real);
 }

@@ -10,7 +10,7 @@ int fact(int f)
 	if (f == 1)
 		return 1;
 	else
-		return f * fact(f - 1);
+		return fact(f - 1) * f;
 }
 
 int fib(int f)
@@ -26,11 +26,11 @@ int fib(int f)
 int main(int argc, char *argv[])
 {
 
-	int (*func) (int);
+	int (*func)(int);
 	int a;
 
 	func = fib;
-	a = func (10);
+	a = func(10);
 
 	return a;
 }

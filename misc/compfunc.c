@@ -2,7 +2,7 @@
 
 typedef double(*ptr2func) (double);
 
-double pwr2(double), pwr3 (double);
+double pwr2(double), pwr3(double);
 
 double compnest(double);
 ptr2func compfunc(ptr2func, ptr2func);
@@ -10,13 +10,16 @@ ptr2func compfunc(ptr2func, ptr2func);
 int main(int argc, char *argv[])
 {
 	ptr2func pwr4;
+	ptr2func pwr6;
 	ptr2func pwr9;
 
 	pwr4 = compfunc(&pwr2, &pwr2);
 	printf("%8.1f\n", pwr4(2.0));
 	printf("%8.1f\n", pwr4(3.0));
 
-	pwr4 = compfunc(&pwr2, &pwr2);
+	pwr6 = compfunc(&pwr2, &pwr3);
+	printf("%8.1f\n", pwr6(2.0));
+	printf("%8.1f\n", pwr6(3.0));
 
 	pwr9 = compfunc(&pwr3, &pwr3);
 	printf("%8.1f\n", pwr9(2.0));
@@ -44,5 +47,5 @@ ptr2func compfunc(double (*f1)(double), double (*f2)(double))
 
 double compnest(double n)
 {
-	return func2 (func1 (n));
+	return func2(func1(n));
 }
