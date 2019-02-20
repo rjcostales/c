@@ -15,3 +15,6 @@ echo ""
 
 ./sine_area
 echo ""
+
+./factorial 60
+echo ""
