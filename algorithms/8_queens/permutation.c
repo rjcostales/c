@@ -6,8 +6,7 @@
 
 void zero(int board[N][N]);
 
-void print(int mat[N][N], int q[N])
-{
+void print(int mat[N][N], int q[N]) {
 	int p = 0;
 
 	for (int i = 0; i < N; i++) {
@@ -22,8 +21,7 @@ void print(int mat[N][N], int q[N])
 	}
 }
 
-int attacked(int q[], int n)
-{
+int attacked(int q[], int n) {
 	for (int i = 0; i < n; i++) {
 		if (q[i] == q[n])
 			return false;       // same column
@@ -37,8 +35,7 @@ int attacked(int q[], int n)
 	return true;
 }
 
-void solve(int q[N], int col, int board[N][N])
-{
+void solve(int q[N], int col, int board[N][N]) {
 	static int count = 0;
 
 	if (col == N) {
@@ -58,16 +55,14 @@ void solve(int q[N], int col, int board[N][N])
 	}
 }
 
-void zero(int board[N][N])
-{
+void zero(int board[N][N]) {
 	for (int i = 0; i < N; i++)
 		for (int j = 0; j < N; j++)
 			board[i][j] = 0;
 }
 
 /* driver code */
-int main()
-{
+int main() {
 	// board board
 
 	/*  0  means empty cells and 1 is queen

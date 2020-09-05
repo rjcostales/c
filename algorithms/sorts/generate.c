@@ -6,8 +6,7 @@
 #define NDX 99
 #define LEN 25
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
 	const char characters[] =
 		"0123456789 ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz";
 	char buffer[BUF] = { '\0' };

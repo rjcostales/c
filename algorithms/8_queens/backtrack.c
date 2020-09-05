@@ -5,8 +5,7 @@
 #define N 8
 
 /* A utility function to print solution */
-void print(int board[N][N])
-{
+void print(int board[N][N]) {
 	for (int i = 0; i < N; i++) {
 		for (int j = 0; j < N; j++) {
 			printf(" %d", board[i][j]);
@@ -19,8 +18,7 @@ void print(int board[N][N])
  * Note that this function is called when "col" queens are  already placed in
  * columns from 0 to col -1. So we need to check only left side for
  * attacking queens */
-bool safe(int board[N][N], int row, int col)
-{
+bool safe(int board[N][N], int row, int col) {
 	int i, j;
 
 	/* Check this row on left side */
@@ -48,8 +46,7 @@ bool safe(int board[N][N], int row, int col)
 }
 
 /* A recursive utility function to solve Queen problem */
-bool solve(int board[N][N], int col)
-{
+bool solve(int board[N][N], int col) {
 	/* base case: If all queens are placed then return true */
 	if (col >= N) {
 		return true;
@@ -84,8 +81,7 @@ bool solve(int board[N][N], int col)
  * of queens in the form of 1s.
  * Please note that there may be more than one solutions, this function prints
  * one of the feasible solutions.*/
-int main()
-{
+int main() {
 	int board[N][N] = {
 		{0, 0, 0, 0, 0, 0, 0, 0},
 		{0, 0, 0, 0, 0, 0, 0, 0},

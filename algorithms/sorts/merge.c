@@ -6,8 +6,7 @@
 #include <locale.h>
 #include "sortutils.h"
 
-void merge(str array[], str left[], str right[], int size_l, int size_r)
-{
+void merge(str array[], str left[], str right[], int size_l, int size_r) {
 	int i = 0, j = 0, k = 0;
 
 	while (i < size_l && j < size_r) {
@@ -24,8 +23,7 @@ void merge(str array[], str left[], str right[], int size_l, int size_r)
 		array[k++] = right[j++];
 }
 
-void merge_sort(str array[], int size)
-{
+void merge_sort(str array[], int size) {
 	if (size > 1) {
 
 		int i = size / 2;
@@ -48,8 +46,7 @@ void merge_sort(str array[], int size)
 	}
 }
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
 	str page[MAXSIZE];
 	int size = read(page);
 	printf("%s %d records\n", argv[0], size);

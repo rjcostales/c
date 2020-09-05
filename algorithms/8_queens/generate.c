@@ -7,23 +7,20 @@
 #define N 8
 
 
-void print(int *array)
-{
+void print(int *array) {
 	for (int i = 0; i < 8; i++)
 		printf("%d", array[i]);
 	printf("\n");
 }
 
-void swap(int *a, int *b)
-{
+void swap(int *a, int *b) {
 	int t = *a;
 
 	*a = *b;
 	*b = t;
 }
 
-void generate(int array[])
-{
+void generate(int array[]) {
 	for (int i = 0; i < 8; i++)
 		array[i] = i;
 
@@ -34,8 +31,7 @@ void generate(int array[])
 	}
 }
 
-int main()
-{
+int main() {
 	int queen[8];
 
 	srand(time(NULL));

@@ -5,8 +5,7 @@
 
 #define N 8
 
-void print(int board[N][N])
-{
+void print(int board[N][N]) {
 	for (int row = 0; row < N; row++) {
 		for (int col = 0; col < N; col++) {
 			printf(" %d", board[row][col]);
@@ -15,15 +14,13 @@ void print(int board[N][N])
 	}
 }
 
-void zero(int board[N][N])
-{
+void zero(int board[N][N]) {
 	for (int i = 0; i < N; i++)
 		for (int j = 0; j < N; j++)
 			board[i][j] = 0;
 }
 
-bool check(int board[N][N])
-{
+bool check(int board[N][N]) {
 	int queens[8] = { 8 };
 
 	// for (int row = 0; row < N; row++) {
@@ -58,8 +55,7 @@ bool check(int board[N][N])
 	return true;
 }                               /* check */
 
-int main()
-{
+int main() {
 	int count = 0;
 	int board[N][N];
 

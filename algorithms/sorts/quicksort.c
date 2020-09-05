@@ -5,16 +5,14 @@
 #include <locale.h>
 #include "sortutils.h"
 
-static int compare(const void *a, const void *b)
-{
+static int compare(const void *a, const void *b) {
 	/* The pointers point to offsets into "array",
 	   so we need to dereference them to get at the strings. */
 
 	return strcmp(*(const char **) a, *(const char **) b);
 }
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
 	str page[MAXSIZE];
 	int size = read(page);
 	printf("%s %d records\n", argv[0], size);

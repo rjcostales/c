@@ -5,8 +5,7 @@
 
 typedef char *str;
 
-int read(str strings[])
-{
+int read(str strings[]) {
 	int size;
 	char line[MAXLINE];
 
@@ -17,8 +16,7 @@ int read(str strings[])
 	return size;
 }
 
-void write(str strings[])
-{
+void write(str strings[]) {
 	for (int i = 0; strings[i] != NULL; i++)
 		fputs(strings[i], stdout);
 }

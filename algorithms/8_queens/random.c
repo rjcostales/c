@@ -8,16 +8,14 @@
 
 int queen[8];
 
-void swap(int *a, int *b)
-{
+void swap(int *a, int *b) {
 	char t = *a;
 
 	*a = *b;
 	*b = t;
 }
 
-void print(int board[N][N])
-{
+void print(int board[N][N]) {
 	for (int row = 0; row < N; row++) {
 		for (int col = 0; col < N; col++) {
 			printf(" %d", board[row][col]);
@@ -26,15 +24,13 @@ void print(int board[N][N])
 	}
 }
 
-void zero(int board[N][N])
-{
+void zero(int board[N][N]) {
 	for (int i = 0; i < N; i++)
 		for (int j = 0; j < N; j++)
 			board[i][j] = 0;
 }
 
-void generate()
-{
+void generate() {
 	for (int i = 0; i < 8; i++)
 		queen[i] = i;
 	for (int i = 7; i > 0; i--) {
@@ -45,8 +41,7 @@ void generate()
 	}
 }
 
-bool check(int board[N][N])
-{
+bool check(int board[N][N]) {
 	int queens[8] = { 8 };
 
 	// for (int row = 0; row < N; row++) {
@@ -81,8 +76,7 @@ bool check(int board[N][N])
 	return true;
 }                               /* check */
 
-int main()
-{
+int main() {
 	srand(time(NULL));
 	int count = 100;
 	while (count-- > 0) {

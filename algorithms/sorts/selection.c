@@ -5,8 +5,7 @@
 #include <locale.h>
 #include "sortutils.h"
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
 	str tmp, page[MAXSIZE];
 	int min, size = read(page);
 	printf("%s %d records\n", argv[0], size);
