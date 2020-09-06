@@ -5,15 +5,15 @@
 
 int main(int argc, char **argv)
 {
-	char buffer[BUFFER] = { '\0' };
+   char buffer[BUFFER] = { '\0' };
 
-	srand(time(0));
+   srand(time(0));
 
-	for (int i = 0; i < MAX; i++)
-		buffer[i] = rand() % 95 + ' ';
+   for (int i = 0; i < MAX; i++)
+      buffer[i] = rand() % 95 + ' ';
 
-	buffer[INDEX] = '\n';
+   buffer[INDEX] = '\n';
 
-	for (int n = 0; n < LEN; n++)
-		fputs(buffer, stdout);
+   for (int n = 0; n < LEN; n++)
+      fputs(buffer, stdout);
 }
