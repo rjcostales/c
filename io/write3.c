@@ -7,28 +7,28 @@
 
 int main(int argc, char **argv)
 {
-   const char characters[] = STR64;
+	const char characters[] = STR64;
 
-   char strings[201][5];
-   char *ptr = &strings[0][0];
-   int rand[200];
+	char strings[201][5];
+	char *ptr = &strings[0][0];
+	int rand[200];
 
-   strings[200][0] = '\0';
+	strings[200][0] = '\0';
 
-   int urandom = open("/dev/urandom", O_RDONLY);
+	int urandom = open("/dev/urandom", O_RDONLY);
 
-   for (int n = 0; n < LEN; n++) {
-      if (read(urandom, rand, 800) > 0) {
-         for (int i = 0; i < 200; i++) {
-            int r = rand[i];
-            for (int j = 0; j < 5; j++) {
-               strings[i][j] = characters[r & 0x3f];
-               r >>= 6;
-            }
-         }
-         strings[199][4] = '\n';
-         fputs(ptr, stdout);
-      }
-   }
-   close(urandom);
+	for (int n = 0; n < LEN; n++) {
+		if (read(urandom, rand, 800) > 0) {
+			for (int i = 0; i < 200; i++) {
+				int r = rand[i];
+				for (int j = 0; j < 5; j++) {
+					strings[i][j] = characters[r & 0x3f];
+					r >>= 6;
+				}
+			}
+			strings[199][4] = '\n';
+			fputs(ptr, stdout);
+		}
+	}
+	close(urandom);
 }

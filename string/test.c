@@ -1,4 +1,3 @@
-/* C Program To Sort page in ascending order using bubble sort. */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
