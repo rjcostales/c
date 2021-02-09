@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include <math.h>
 
-#define square(x) (x*(x))
+#define square(x) ((x)*(x))
 
 int linreg(int n, const float x[], const float y[],
-		   float* m, float* b, float* r)
+			float* m, float* b, float* r)
 {
 	float sumx  = 0.0;         /* sum of x     */
 	float sumx2 = 0.0;         /* sum of x**2  */

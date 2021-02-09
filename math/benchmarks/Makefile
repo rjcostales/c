@@ -1,10 +1,10 @@
-CC		= gcc
-CFLAGS	= -Wall -std=c99
-LIBS	= -lm
+CC     = gcc
+CFLAGS = -Ofast -Wall -std=c11
+LIBS   = -lm
 
-SRCS	:= $(wildcard *.c)
-HDRS	:= $(wildcard *.h)
-TGTS	:= $(patsubst %.c,%,$(SRCS))
+SRCS  := $(wildcard *.c)
+HDRS  := $(wildcard *.h)
+TGTS  := $(patsubst %.c,%,$(SRCS))
 
 all:$(TGTS)
 
@@ -12,4 +12,4 @@ $(TGTS):
 	$(CC) $(CFLAGS) $@.c -o $@ $(LIBS)
 
 clean:
-	rm -f $(TGTS)
+	rm -f $(TGTS) *.out *.exe

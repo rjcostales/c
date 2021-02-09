@@ -1,0 +1,12 @@
+*.exe
+*.out
+
+arrays
+charptr
+compfunc
+endiness
+funcptr
+handles
+matrix
+pointers
+struct

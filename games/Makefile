@@ -1,10 +1,10 @@
-CC		= gcc
-CFLAGS	= -Ofast -Wall -std=c99
+CC     = gcc
+CFLAGS = -Ofast -Wall -std=c11
 
-SRCS	:= $(wildcard *.c)
-HDRS	:= $(wildcard *.h)
-OBJS	:= $(wildcard *.o)
-TGTS	:= $(patsubst %.c,%,$(SRCS))
+SRCS   := $(wildcard *.c)
+HDRS   := $(wildcard *.h)
+OBJS   := $(wildcard *.o)
+TGTS   := $(patsubst %.c,%,$(SRCS))
 
 all: $(TGTS)
 
@@ -12,4 +12,4 @@ $(TGTS): $(SRCS)
 	$(CC) $(CFLAGS) $@.c -o $@
 
 clean:
-	rm -rf $(TGTS) $(OBJS) a.out
+	rm -rf $(TGTS) *.out *.exe

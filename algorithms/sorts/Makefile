@@ -1,18 +1,18 @@
-CC		= gcc
-CFLAGS	= -Ofast -Wall -std=c99
+CC     = gcc
+CFLAGS = -Ofast -Wall -std=c11 -DWRITE
 
-SRCS	:= $(wildcard *.c)
-HDRS	:= $(wildcard *.h)
-OBJS	:= $(wildcard *.o)
-TGTS	:= $(shell grep -w main *.c|sed 's/.c:.*//')
+SRCS  := $(wildcard *.c)
+HDRS  := $(wildcard *.h)
+OBJS  := fileutils.o
+TGTS  := $(shell grep -w main *.c|sed 's/.c:.*//')
 
 all: $(TGTS)
 
-$(TGTS): sortutils.o
-	$(CC) $(CFLAGS) $@.c $(OBJ) -o $@
+$(TGTS): $(OBJS)
+	$(CC) $(CFLAGS) $@.c $(OBJS) -o $@
 
-sortutils.o:
-	$(CC) $(CFLAGS) -c sortutils.c -o $@
+$(OBJS):
+	$(CC) $(CFLAGS) -c fileutils.c
 
 clean:
-	rm -rf $(TGTS) $(OBJS) *.o a.out *.txt
+	rm -rf $(TGTS) $(OBJS) *.out *.exe

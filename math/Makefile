@@ -1,11 +1,11 @@
-CC		= gcc
-CFLAGS	= -Ofast -Wall -std=c99
-LIBS	= -lm
+CC     = gcc
+CFLAGS = -Ofast -Wall -std=c11 
+LIBS   = -lm
 
-SRCS	:= $(wildcard *.c)
-HDRS	:= $(wildcard *.h)
-OBJS	:= $(wildcard *.o)
-TGTS	:= $(shell grep -w main *.c|sed 's/.c:.*//')
+SRCS   := $(wildcard *.c)
+HDRS   := $(wildcard *.h)
+OBJS   := $(wildcard *.o)
+TGTS   := $(shell grep -w main *.c|sed 's/.c:.*//')
 
 all: $(TGTS)
 
@@ -16,4 +16,4 @@ math.o:
 	$(CC) $(CFLAGS) -c math.c -o $@
 
 clean:
-	rm -rf $(TGTS) $(OBJS) *.o a.out *.txt
+	rm -rf $(TGTS) $(OBJS) *.o *.out *.exe

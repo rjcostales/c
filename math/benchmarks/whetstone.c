@@ -373,15 +373,15 @@ IILOOP:
 	}
 
 	printf("Loops: %ld, Iterations: %d, Duration: %ld sec.\n",
-		   LOOP, II, finisec - startsec);
+			LOOP, II, finisec - startsec);
 
 	KIPS = (100.0 * LOOP * II) / (float) (finisec - startsec);
 	if (KIPS >= 1000.0)
 		printf("C Converted Double Precision Whetstones: %.1f MIPS\n",
-			   KIPS / 1000.0);
+				KIPS / 1000.0);
 	else
 		printf("C Converted Double Precision Whetstones: %.1f KIPS\n",
-			   KIPS);
+				KIPS);
 
 	if (continuous)
 		goto LCONT;
@@ -429,6 +429,6 @@ void
 POUT(long N, long J, long K, double X1, double X2, double X3, double X4)
 {
 	printf("%7ld %7ld %7ld %12.4e %12.4e %12.4e %12.4e\n",
-		   N, J, K, X1, X2, X3, X4);
+			N, J, K, X1, X2, X3, X4);
 }
 #endif

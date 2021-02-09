@@ -1,6 +1,6 @@
 # Universal Makefile ver. 1.0
 CC		= gcc
-CFLAGS	= -Ofast -Wall -std=c99
+CFLAGS	= -Ofast -Wall -std=c11
 
 EXEC	= lc
 
@@ -17,4 +17,4 @@ $(EXEC): $(OBJS) $(SRCS) $(HDRS)
 	$(CC) -c $(CFLAGS) $*.c
 
 clean:
-	rm -rf $(EXEC) $(OBJS)
+	rm -rf $(EXEC) $(OBJS) *.o *.out *.exe

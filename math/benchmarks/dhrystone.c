@@ -582,17 +582,17 @@ void Proc0()
 #ifdef TIME
 	benchtime = time((long *) 0) - starttime - nulltime;
 	printf("Dhrystone(%s) time for %ld passes = %ld\n",
-		   Version, (long) LOOP, benchtime);
+			Version, (long) LOOP, benchtime);
 	printf("This machine benchmarks at %ld dhrystones/second\n",
-		   ((long) LOOP) / benchtime);
+			((long) LOOP) / benchtime);
 #endif
 #ifdef TIMES
 	times(&tms);
 	benchtime = tms.tms_utime - starttime - nulltime;
 	printf("Dhrystone(%s) time for %ld passes = %ld\n",
-		   Version, (long) LOOP, benchtime / HZ);
+			Version, (long) LOOP, benchtime / HZ);
 	printf("This machine benchmarks at %ld dhrystones/second\n",
-		   ((long) LOOP) * HZ / benchtime);
+			((long) LOOP) * HZ / benchtime);
 #endif
 
 	printf("\n");

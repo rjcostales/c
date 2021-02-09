@@ -6,12 +6,12 @@
 
 int main(int argc, char **argv)
 {
-   char buffer[BUFFER];
+	char buffer[BUFFER];
 
-   memset(buffer, 0, sizeof(buffer));
-   while (fgets(buffer, sizeof(buffer), stdin) != NULL) {
-      memset(buffer, 0, sizeof(buffer));
-   }
+	memset(buffer, 0, sizeof(buffer));
+	while (fgets(buffer, sizeof(buffer), stdin) != NULL) {
+		memset(buffer, 0, sizeof(buffer));
+	}
 
-   return 0;
+	return 0;
 }
