@@ -1,1 +1,7 @@
-a.out
+*.o
+
+*.out
+*.exe
+
+*.dat
+*.txt
