@@ -1,4 +1,4 @@
-echo "Insertion Sort Test"
+echo "Quicksort Sort Test"
 
 ./generate 10000 > data.txt
 ./quicksort < data.txt > /dev/null

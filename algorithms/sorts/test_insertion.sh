@@ -1,27 +1,27 @@
-echo "Merge Sort Test"
+echo "Insertion Sort Test"
 
 ./generate 10000 > data.txt
 ./insertion < data.txt > /dev/null
-echo "10K"
+echo
 
 ./generate 20000 > data.txt
 ./insertion < data.txt > /dev/null
-echo "20K"
+echo
 
 ./generate 30000 > data.txt
 ./insertion < data.txt > /dev/null
-echo "30K"
+echo
 
 ./generate 40000 > data.txt
 ./insertion < data.txt > /dev/null
-echo "40K"
+echo
 
 ./generate 50000 > data.txt
 ./insertion < data.txt > /dev/null
-echo "50K"
+echo
 
 ./generate 60000 > data.txt
 ./insertion < data.txt > /dev/null
-echo "60K"
+echo
 
 rm data.txt
