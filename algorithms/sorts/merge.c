@@ -1,4 +1,4 @@
-/* merge_sort example */
+/* C Program To Sort page in ascending order using Bubble Sort. */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
