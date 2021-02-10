@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 	// selection sort
 	clock_t start, end;
 	start = clock();
-	
+
 	for (int i = 0; i < size; i++) {
 		min = i;
 		for (int j = i; j < size; j++) {

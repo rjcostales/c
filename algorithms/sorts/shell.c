@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
 			}
 		}
 	}
-	
+
 	end = clock();
 
 	setlocale(LC_NUMERIC, "");
