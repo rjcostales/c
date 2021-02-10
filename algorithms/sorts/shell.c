@@ -1,4 +1,4 @@
-/* C Program To Sort page in ascending order using Shell Sort. */
+/* C Program To Sort array in ascending order using Shell Sort. */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -6,29 +6,37 @@
 #include <locale.h>
 #include "fileutils.h"
 
-int main(int argc, char *argv[])
+void shell_sort(str array[], int n)
 {
-	str tmp, page[MAXSIZE];
-	int i, j, k, size = read(page);
-	fprintf(stderr, "%s %d records\n", argv[0], size);
+	int i, j, k;
 
-	// shell sort
-	clock_t start, end;
-	start = clock();
-
-	for (i = size / 2; i > 0; i /= 2) {
-		for (j = i; j < size; j++) {
+	for (i = n / 2; i > 0; i /= 2) {
+		for (j = i; j < n; j++) {
 			for (k = j - i; k >= 0; k = k - i) {
-				if (strcmp(page[k+i], page[k]) > 0)
+				if (strcmp(array[k+i], array[k]) > 0)
 					break;
 				 else {
-					tmp = page[k];
-					page[k] = page[k+i];
-					page[k+i] = tmp;
+					str tmp = array[k];
+					array[k] = array[k+i];
+					array[k+i] = tmp;
 				 }
 			}
 		}
 	}
+}
+
+int main(int argc, char *argv[])
+{
+	str page[MAXSIZE];
+	int size = read(page);
+	fprintf(stderr, "%s %d records\n", argv[0], size);
+
+	shell_sort(page, size);
+
+	clock_t start, end;
+	start = clock();
+
+	shell_sort(page, size);
 
 	end = clock();
 
