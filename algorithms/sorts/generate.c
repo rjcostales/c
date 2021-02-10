@@ -9,7 +9,7 @@
 int main(int argc, char *argv[])
 {
 	const char characters[] =
-		 "0123456789 ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz";
+		"0123456789 ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz";
 	char buffer[BUF] = { '\0' };
 	int seed = 1234567890;
 	int n = LEN;

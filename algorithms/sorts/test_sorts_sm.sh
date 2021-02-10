@@ -11,6 +11,9 @@ echo ""
 ./insertion < data.txt > /dev/null
 echo ""
 
+./shell < data.txt > /dev/null
+echo ""
+
 ./merge < data.txt > /dev/null
 echo ""
 

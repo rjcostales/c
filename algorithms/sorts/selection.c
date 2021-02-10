@@ -14,6 +14,7 @@ int main(int argc, char *argv[])
 	// selection sort
 	clock_t start, end;
 	start = clock();
+	
 	for (int i = 0; i < size; i++) {
 		min = i;
 		for (int j = i; j < size; j++) {
@@ -24,12 +25,13 @@ int main(int argc, char *argv[])
 		page[i] = page[min];
 		page[min] = tmp;
 	}
+
 	end = clock();
 
 	setlocale(LC_NUMERIC, "");
 	fprintf(stderr, "execution time: %0.6f secs.\n", ELAPSE_TIME(end - start));
 
-#ifdef write
+#ifdef WRITE
 	write(page);
 #endif
 

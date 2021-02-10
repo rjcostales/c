@@ -22,7 +22,9 @@ int main(int argc, char *argv[])
 
 	clock_t start, end;
 	start = clock();
+
 	qsort(page, size, sizeof(const char *), compare);
+
 	end = clock();
 
 	setlocale(LC_NUMERIC, "");

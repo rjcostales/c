@@ -56,7 +56,9 @@ int main(int argc, char *argv[])
 
 	clock_t start, end;
 	start = clock();
+
 	merge_sort(page, size);
+
 	end = clock();
 
 	setlocale(LC_NUMERIC, "");

@@ -14,6 +14,7 @@ int main(int argc, char *argv[])
 	// insertion sort
 	clock_t start, end;
 	start = clock();
+
 	for (i = 1; i < size; i++) {
 		tmp = page[i];
 		j = i;
@@ -23,6 +24,7 @@ int main(int argc, char *argv[])
 		}
 		page[j] = tmp;
 	}
+
 	end = clock();
 
 	setlocale(LC_NUMERIC, "");
