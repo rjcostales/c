@@ -31,16 +31,14 @@ void merge_sort(str array[], int size)
 		int i = size / 2;
 		int j = size - i;
 
+		// divide
 		str left[i];
 		str right[j];
 
 		memcpy(left, array, i * sizeof(str));
 		memcpy(right, array + i, j * sizeof(str));
 
-		// for (int n = 0; n < i; n++) left[n] = array[n];
-		// str *tmp= &array[i];
-		// for (int n = 0; n < j; n++) right[n] = tmp[n];
-
+		// sort left and right
 		merge_sort(left, i);
 		merge_sort(right, j);
 

@@ -1,6 +1,6 @@
 echo "Sort Test"
 
-./generate 20000 $RANDOM > data.txt
+./generate 20000 > data.txt
 
 ./bubble < data.txt > /dev/null
 echo ""
