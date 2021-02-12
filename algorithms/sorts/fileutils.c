@@ -3,7 +3,7 @@
 #include <string.h>
 #include "fileutils.h"
 
-typedef char *str;
+typedef char* str;
 
 int read(str strings[])
 {
@@ -11,7 +11,7 @@ int read(str strings[])
 	char line[MAXLINE];
 
 	for (i = 0; fgets(line, MAXLINE, stdin); i++) {
-		strings[i] = calloc(strlen(line) + 1, sizeof(char));
+		strings[i] = malloc(strlen(line) + 1);
 		strcpy(strings[i], line);
 	}
 	return i;

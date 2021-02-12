@@ -6,16 +6,7 @@
 #include <locale.h>
 #include "fileutils.h"
 
-void swap(str* a, str* b)
-{
-	printf("%p %p\n", a, b);
-
-	str tmp = *a;
-	*a = *b;
-	*b = tmp;
-
-	printf("%p %p %p\n", a, b, tmp);
-}
+inline void swap(str *a, str *b) { str tmp = *a; *a = *b; *b = tmp; }
 
 void bubble_sort(str array[], int n)
 {
@@ -23,9 +14,6 @@ void bubble_sort(str array[], int n)
 		for (int j = 0; j < n - i - 1; ++j) {
 			if (strcmp(array[j], array[j + 1]) > 0) {
 				swap(&array[j], &array[j + 1]);
-				// str tmp = array[j];
-				// array[j] = array[j + 1];
-				// array[j + 1] = tmp;
 			}
 		}
 	}

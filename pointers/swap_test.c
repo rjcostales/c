@@ -2,11 +2,13 @@
 #include <stdlib.h>
 #include <string.h>
 
+typedef char* str;
+
 void swap(str* a, str* b)
 {
-	str *tmp = a;
-	a = b;
-	b = *tmp;
+	str tmp = *a;
+	*a = *b;
+	*b = tmp;
 }
 
 int main(int argc, char *argv[])
@@ -20,16 +22,23 @@ int main(int argc, char *argv[])
 	str e = "";
 
 	array[0] = calloc(strlen(a) + 1, sizeof(char));
-	strcpy(strings[0], a);
+	strcpy(array[0], a);
 	array[1] = calloc(strlen(b) + 1, sizeof(char));
-	strcpy(strings[1], b);
+	strcpy(array[1], b);
 	array[2] = calloc(strlen(c) + 1, sizeof(char));
-	strcpy(strings[2], c);
+	strcpy(array[2], c);
 	array[3] = calloc(strlen(d) + 1, sizeof(char));
-	strcpy(strings[3], d);
+	strcpy(array[3], d);
 	array[4] = calloc(strlen(e) + 1, sizeof(char));
-	strcpy(strings[4], e);
+	strcpy(array[4], e);
 
-	for(int i; i < 5; i++)
-		printf("%s\n", array[i]);
+	for(int i = 0; i < 5; i++)
+		printf("%p %s\n", array[i], array[i]);
+
+	swap(&array[0], &array[4]);
+
+	for(int i = 0; i < 5; i++)
+		printf("%p %s\n", array[i], array[i]);
+
+
 }
