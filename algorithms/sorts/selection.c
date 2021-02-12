@@ -6,6 +6,8 @@
 #include <locale.h>
 #include "fileutils.h"
 
+inline void swap(str *a, str *b) { str tmp = *a; *a = *b; *b = tmp; }
+
 void selection_sort(str array[], int n)
 {
 	int min;
@@ -16,9 +18,7 @@ void selection_sort(str array[], int n)
 			if (strcmp(array[min], array[j]) > 0)
 				min = j;
 		}
-		str tmp = array[i];
-		array[i] = array[min];
-		array[min] = tmp;
+		swap(&array[i], &array[min]);
 	}
 }
 

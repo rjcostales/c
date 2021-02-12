@@ -1,10 +1,12 @@
-/* C Program To Sort array in ascending order using Shell Sort. */
+/* C Program To Sort page in ascending order using Shell Sort. */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
 #include <locale.h>
 #include "fileutils.h"
+
+inline void swap(str *a, str *b) { str tmp = *a; *a = *b; *b = tmp; }
 
 void shell_sort(str array[], int n)
 {
@@ -15,11 +17,8 @@ void shell_sort(str array[], int n)
 			for (k = j - i; k >= 0; k = k - i) {
 				if (strcmp(array[k+i], array[k]) > 0)
 					break;
-				 else {
-					str tmp = array[k];
-					array[k] = array[k+i];
-					array[k+i] = tmp;
-				 }
+				 else
+					swap(&array[k], &array[k+i]);
 			}
 		}
 	}
@@ -30,8 +29,6 @@ int main(int argc, char *argv[])
 	str page[MAXSIZE];
 	int size = read(page);
 	fprintf(stderr, "%s %d records\n", argv[0], size);
-
-	shell_sort(page, size);
 
 	clock_t start, end;
 	start = clock();

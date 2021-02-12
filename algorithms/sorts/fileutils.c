@@ -3,18 +3,18 @@
 #include <string.h>
 #include "fileutils.h"
 
-typedef char *str;
+typedef char* str;
 
 int read(str strings[])
 {
-	int size;
+	int i;
 	char line[MAXLINE];
 
-	for (size = 0; fgets(line, MAXLINE, stdin); size++) {
-		strings[size] = calloc(strlen(line) + 1, sizeof(char));
-		strcpy(strings[size], line);
+	for (i = 0; fgets(line, MAXLINE, stdin); i++) {
+		strings[i] = malloc(strlen(line) + 1);
+		strcpy(strings[i], line);
 	}
-	return size;
+	return i;
 }
 
 void write(str strings[])

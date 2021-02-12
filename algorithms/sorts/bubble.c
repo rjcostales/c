@@ -6,14 +6,14 @@
 #include <locale.h>
 #include "fileutils.h"
 
+inline void swap(str *a, str *b) { str tmp = *a; *a = *b; *b = tmp; }
+
 void bubble_sort(str array[], int n)
 {
 	for (int i = 0; i < n - 1; ++i) {
 		for (int j = 0; j < n - i - 1; ++j) {
 			if (strcmp(array[j], array[j + 1]) > 0) {
-				str tmp = array[j];
-				array[j] = array[j + 1];
-				array[j + 1] = tmp;
+				swap(&array[j], &array[j + 1]);
 			}
 		}
 	}
