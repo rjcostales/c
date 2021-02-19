@@ -3,8 +3,6 @@
 #include <string.h>
 #include "fileutils.h"
 
-typedef char* str;
-
 int read(str strings[])
 {
 	int i;

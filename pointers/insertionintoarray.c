@@ -1,23 +1,24 @@
 #include <stdio.h>
 #define max 100
-void main()
+
+int main(int argc, char *argv[])
 {
 	int p[max], n,i,k,j;
 
 	printf("Enter length of array:");
-	scanf("%d",&n);
+	scanf("%d", &n);
 
 	printf("Enter %d elements of array\n",n);
 
 	for(i=0; i<=n-1; i++ )
-		scanf("%d",&p[i]);
+		scanf("%d", &p[i]);
 
 	printf("\nThe array is:\n");
 	for(i = 0; i<=n-1; i++)
-		printf("%d\n",p[i]);
+		printf("%d\n", p[i]);
 
 	printf("\nEnter position where to insert:");
-	scanf("%d",&k);
+	scanf("%d", &k);
 	k--;/*The position is always one value higher than the subscript, so it is decrementeddecremented by one*/
 	for(j=n-1; j>=k; j--)
 		  p[j+1]=p[j];

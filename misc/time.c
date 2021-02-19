@@ -12,7 +12,11 @@ int main()
 	printf("Current GMT   time and date: %s", asctime(gmtime(&rawtime)));
 
 	time_t epoch = 0;
-	printf("%ld seconds since the epoch began\n", (long) epoch);
+	long seconds = rawtime - epoch;
+	printf("%ld seconds since the epoch began\n", seconds);
+	printf("%ld days since the epoch began\n", seconds / 86400);
+	printf("%ld years since the epoch began\n", seconds /
+					((86400 * 365) + (86400 / 4))) ;
 	printf("%s", asctime(gmtime(&epoch)));
 
 	return 0;
