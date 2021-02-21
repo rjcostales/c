@@ -14,7 +14,7 @@ int fib(int n)
 	case 2: return 1;
 	case 3: return 2;
 	default:
-		return fib(n - 3) * 3 + fib(n - 4) * 2;
+		return 3 * fib(n - 3) + 2 * fib(n - 4);
 	}
 }
 
@@ -29,6 +29,6 @@ int main(int argc, char *argv[])
 
 	setlocale(LC_NUMERIC, "");
 	printf("execution time: %0.6f secs.\t",
-			(float) (end - start) / (float) CLOCKS_PER_SEC);
+	  (float) (end - start) / (float) CLOCKS_PER_SEC);
 	printf("%s(%'d)=%'d in %'lu\n", *argv, n, f, count);
 }

@@ -19,8 +19,7 @@
 
 typedef struct timespec timespec;
 
-inline
-static
+inline static
 timespec diff(timespec start, timespec end);
 int driver(int argc, const char * argv[]);
 

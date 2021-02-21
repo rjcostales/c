@@ -20,7 +20,7 @@ int main(int argc, char **argv)
 			int r = rand();
 
 			for (int j = 0; j < 5; j++) {
-				strings[i][j] = characters[r & 0x3f];
+				strings[i][j] = characters[r & 0x3f]; 
 				r >>= 6;
 			}
 		}
