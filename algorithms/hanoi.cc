@@ -3,8 +3,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void towerOfHanoi(int n, char from_rod,
-						char to_rod, char aux_rod)
+void towerOfHanoi(int n, char from_rod, char to_rod, char aux_rod)
 {
 	if (n == 1)
 	{
@@ -19,7 +18,7 @@ void towerOfHanoi(int n, char from_rod,
 }
 
 // Driver code
-int main()
+int main(int argc, char* argv[]) {
 {
 	int n = 4; // Number of disks
 	towerOfHanoi(n, 'A', 'C', 'B'); // A, B and C are names of rods
