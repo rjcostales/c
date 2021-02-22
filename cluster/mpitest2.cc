@@ -3,7 +3,8 @@
 #include <iostream>
 using namespace std;
 
-int main(int argc, char* argv[]) {
+int main(int argc, char* argv[])
+{
 	int numprocessors, rank, namelen;
 	char processor_name[MPI_MAX_PROCESSOR_NAME];
 
@@ -20,9 +21,9 @@ int main(int argc, char* argv[]) {
 			MPI_Send(&number, 1, MPI_INT, i, 0, MPI_COMM_WORLD);
 	} else {
 		MPI_Recv(&number, 1, MPI_INT, 0, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-		cout << "I am " << processor_name 
-		     << " and got " << number 
-		     << " from node 0." << endl;
+		cout << "I am " << processor_name
+			  << " and got " << number
+			  << " from node 0." << endl;
 	}
 
 	MPI_Finalize();

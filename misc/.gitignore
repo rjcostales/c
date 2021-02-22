@@ -1,9 +1,15 @@
+compfunc
+endiness
 exparser
 filter
 fromhex
+funcptr
+handles
+memory
 s2t
 s4t
 sizes
+struct
 time
 tohex
 types

@@ -25,6 +25,5 @@ int sum(int num, ...)
 
 	va_end(argptr);
 
-
 	return (answer);
 }
