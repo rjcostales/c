@@ -2,9 +2,9 @@
 #include <stdio.h>
 
 void check(int depth) {
-	char c;
-	char *ptr = malloc(1);
-	printf("stack at %p, heap at %p\n", &c, ptr);
+	char c[4];
+	char *ptr = malloc(4);
+	printf("stack at %p, heap at %p\n", &c[0], ptr);
 	if (depth <= 0) return;
 	check(depth-1);
 }

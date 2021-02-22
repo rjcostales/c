@@ -11,7 +11,7 @@ void swap(str* a, str* b)
 	*b = tmp;
 }
 
-int main(int argc, char *argv[])
+int main(int argc, char* argv[])
 {
 	str array[5];
 
@@ -39,6 +39,4 @@ int main(int argc, char *argv[])
 
 	for(int i = 0; i < 5; i++)
 		printf("%p %s\n", array[i], array[i]);
-
-
 }

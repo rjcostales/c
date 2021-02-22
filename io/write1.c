@@ -25,16 +25,11 @@ int main(int argc, char **argv)
 		char *ptr = &buffer[0];
 		for (int n = 0; n < 200; n++) {
 			int r = rand();
-			*ptr++ = characters[r & 0x3f];
-			r >>= 6;
-			*ptr++ = characters[r & 0x3f];
-			r >>= 6;
-			*ptr++ = characters[r & 0x3f];
-			r >>= 6;
-			*ptr++ = characters[r & 0x3f];
-			r >>= 6;
-			*ptr++ = characters[r & 0x3f];
-			r >>= 6;
+			*ptr++ = characters[r & 0x3f]; r >>= 6;
+			*ptr++ = characters[r & 0x3f]; r >>= 6;
+			*ptr++ = characters[r & 0x3f]; r >>= 6;
+			*ptr++ = characters[r & 0x3f]; r >>= 6;
+			*ptr++ = characters[r & 0x3f]; r >>= 6;
 		}
 		buffer[INDEX] = '\n';
 		fputs(buffer, stdout);
