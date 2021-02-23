@@ -22,8 +22,8 @@ int main(int argc, char* argv[])
 	} else {
 		MPI_Recv(&number, 1, MPI_INT, 0, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
 		cout << "I am " << processor_name
-		     << " and got " << number
-		     << " from node 0." << endl;
+			  << " and got " << number
+			  << " from node 0." << endl;
 	}
 
 	MPI_Finalize();
