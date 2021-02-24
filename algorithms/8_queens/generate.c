@@ -6,20 +6,13 @@
 
 #define N 8
 
+inline void swap(int *a, int *b) { int t = *a; *a = *b; *b = t; }
 
 void print(int *array)
 {
 	for (int i = 0; i < 8; i++)
 		printf("%d", array[i]);
 	printf("\n");
-}
-
-void swap(int *a, int *b)
-{
-	int t = *a;
-
-	*a = *b;
-	*b = t;
 }
 
 void generate(int array[])

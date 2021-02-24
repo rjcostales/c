@@ -8,13 +8,7 @@
 
 int queen[8];
 
-void swap(int *a, int *b)
-{
-	char t = *a;
-
-	*a = *b;
-	*b = t;
-}
+inline void swap(int *a, int *b) { char t = *a; *a = *b; *b = t; }
 
 void print(int board[N][N])
 {

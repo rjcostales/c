@@ -14,7 +14,7 @@ int fib(int n)
 	case 2: return 1;
 	case 3: return 2;
 	default:
-		return fib(n - 3) * 3 + fib(n - 4) * 2;
+		return 3 * fib(n - 3) + 2 * fib(n - 4);
 	}
 }
 

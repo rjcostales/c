@@ -1,12 +1,12 @@
-*.exe
-*.out
-
 arrays
 charptr
 compfunc
 endiness
 funcptr
 handles
+insertionintoarray
 matrix
 pointers
+sorts
 struct
+swapstrings

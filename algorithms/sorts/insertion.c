@@ -6,25 +6,31 @@
 #include <locale.h>
 #include "fileutils.h"
 
+void insertion_sort(str array[], int n)
+{
+	int i, j;
+
+	for (i = 1; i < n; i++) {
+		str tmp = array[i];
+		j = i;
+		while (j && (strcmp(array[j - 1], tmp) > 0)) {
+			array[j] = array[j - 1];
+			j--;
+		}
+		array[j] = tmp;
+	}
+}
+
 int main(int argc, char *argv[])
 {
-	str tmp, page[MAXSIZE];
-	int i, j, size = read(page);
+	str page[MAXSIZE];
+	int size = read(page);
 	fprintf(stderr, "%s %d records\n", argv[0], size);
 
-	// insertion sort
 	clock_t start, end;
 	start = clock();
 
-	for (i = 1; i < size; i++) {
-		tmp = page[i];
-		j = i;
-		while (j && (strcmp(page[j - 1], tmp) > 0)) {
-			page[j] = page[j - 1];
-			j--;
-		}
-		page[j] = tmp;
-	}
+	insertion_sort(page, size);
 
 	end = clock();
 

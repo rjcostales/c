@@ -6,26 +6,33 @@
 #include <locale.h>
 #include "fileutils.h"
 
+inline void swap(str *a, str *b) { str tmp = *a; *a = *b; *b = tmp; }
+
+void selection_sort(str array[], int n)
+{
+	int min;
+
+	for (int i = 0; i < n; i++) {
+		min = i;
+		for (int j = i; j < n; j++) {
+			if (strcmp(array[min], array[j]) > 0)
+				min = j;
+		}
+		swap(&array[i], &array[min]);
+	}
+}
+
 int main(int argc, char *argv[])
 {
-	str tmp, page[MAXSIZE];
-	int min, size = read(page);
+	str page[MAXSIZE];
+	int size = read(page);
 	fprintf(stderr, "%s %d records\n", argv[0], size);
 
 	// selection sort
 	clock_t start, end;
 	start = clock();
 
-	for (int i = 0; i < size; i++) {
-		min = i;
-		for (int j = i; j < size; j++) {
-			if (strcmp(page[min], page[j]) > 0)
-				min = j;
-		}
-		tmp = page[i];
-		page[i] = page[min];
-		page[min] = tmp;
-	}
+	selection_sort(page, size);
 
 	end = clock();
 

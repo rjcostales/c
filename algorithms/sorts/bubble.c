@@ -6,24 +6,29 @@
 #include <locale.h>
 #include "fileutils.h"
 
+inline void swap(str *a, str *b) { str tmp = *a; *a = *b; *b = tmp; }
+
+void bubble_sort(str array[], int n)
+{
+	for (int i = 0; i < n - 1; ++i) {
+		for (int j = 0; j < n - i - 1; ++j) {
+			if (strcmp(array[j], array[j + 1]) > 0) {
+				swap(&array[j], &array[j + 1]);
+			}
+		}
+	}
+}
+
 int main(int argc, char *argv[])
 {
-	str tmp, page[MAXSIZE];
+	str page[MAXSIZE];
 	int size = read(page);
 	fprintf(stderr, "%s %d records\n", argv[0], size);
 
 	clock_t start, end;
 	start = clock();
 
-	for (int i = 0; i < size - 1; ++i) {
-		for (int j = 0; j < size - i - 1; ++j) {
-			if (strcmp(page[j], page[j + 1]) > 0) {
-				tmp = page[j];
-				page[j] = page[j + 1];
-				page[j + 1] = tmp;
-			}
-		}
-	}
+	bubble_sort(page, size);
 
 	end = clock();
 
@@ -33,6 +38,5 @@ int main(int argc, char *argv[])
 #ifdef WRITE
 	write(page);
 #endif
-
 	return 0;
 }
