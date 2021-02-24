@@ -1,5 +1,5 @@
 CC     = gcc
-CFLAGS = -std=c11 -Wall -Ofast
+CFLAGS = -Ofast -Wall -std=c11
 
 SRCS   := $(wildcard *.c)
 HDRS   := $(wildcard *.h)

@@ -6,4 +6,7 @@ int main(int argc, char *argv[])
 	int n2 = 2;
 	int dummy = scanf("%d,%d", &n1, &n2);
 	printf("n=%d, o=%d, scanf=%d.\n", n1, n2, dummy);
+	scanf("%d,%d", &n1, &n2);
+	printf("n=%d, o=%d, scanf=%d.\n", n1, n2, dummy);
+
 }
