@@ -1,14 +1,8 @@
-CC     = gcc
-CFLAGS = -Ofast -Wall -std=c11
+CC = gcc
+obj = read write write1 write2 write3
+src = *.c *.h
 
-SRCS   := $(wildcard *.c)
-HDRS   := $(wildcard *.h)
-TGTS   := $(patsubst %.c,%,$(SRCS))
-
-all: $(TGTS)
-
-$(TGTS): $(SRCS)
-	$(CC) $(CFLAGS) $@.c -o $@
+all: $(obj)
 
 clean:
-	rm -rf $(TGTS) *.out *.exe
+	rm -f $(obj)

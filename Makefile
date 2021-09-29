@@ -5,7 +5,9 @@ all:  $(SUBDIRS)
 
 $(SUBDIRS):
 	$(MAKE) --silent clean -C $@
-	$(MAKE) all -C $@
+	$(MAKE) -C $@
 	$(MAKE) --silent clean -C $@
 
 .PHONY: all $(SUBDIRS)
+
+clean:

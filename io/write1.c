@@ -1,43 +1,16 @@
 #include <stdio.h>
-#include "io.h"
+#include <stdlib.h>
+#include <time.h>
 
-// int seed = 1234567890;
-int seed = 0;
-
-int rand()
+int main(int argc, char *argv[])
 {
-	// Numeric Recipies
-	// int a    = 1664525;
-	// int c    = 1013904223;
-	// primes
-	const int a = 655541;
-	const int c = 2147483629;
-	seed = (a * seed + c) & 0xffffffff;
-	return seed;
-}
+    char string[1001] = { '\0' };
 
-int main(int argc, char **argv)
-{
-	const char characters[] = STR64;
-	char buffer[BUFFER] = { '\0' };
+    srand(time(0));
 
-	for (int i = 0; i < LEN; i++) {
-		char *ptr = &buffer[0];
-		for (int n = 0; n < 200; n++) {
-			int r = rand();
-			*ptr++ = characters[r & 0x3f];
-			r >>= 6;
-			*ptr++ = characters[r & 0x3f];
-			r >>= 6;
-			*ptr++ = characters[r & 0x3f];
-			r >>= 6;
-			*ptr++ = characters[r & 0x3f];
-			r >>= 6;
-			*ptr++ = characters[r & 0x3f];
-			r >>= 6;
-		}
-		buffer[INDEX] = '\n';
-		fputs(buffer, stdout);
-	}
-	return seed;
+    for (int i = 0; i < 1000; i++)
+        string[i] = rand() % 95 + ' ';
+
+    for (int n = 0; n < 1000000; n++)
+        printf("%s", string);
 }

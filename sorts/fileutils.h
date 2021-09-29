@@ -1,3 +1,6 @@
+/*
+ *
+ */
 #define MAXLINE 1024
 #define MAXSIZE 65536
 

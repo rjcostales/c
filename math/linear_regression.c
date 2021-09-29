@@ -34,8 +34,8 @@ int linreg(int n, const float x[], const float y[],
 	*b = (sumy * sumx2 - sumx * sumxy) / denom;
 	if (r != NULL) {
 		*r = (sumxy - sumx * sumy / n) /
-				sqrt((sumx2 - square(sumx) / n) *
-				(sumy2 - square(sumy) / n));
+			 sqrt((sumx2 - square(sumx) / n) *
+				  (sumy2 - square(sumy) / n));
 	}
 
 	return 0;

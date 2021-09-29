@@ -7,7 +7,7 @@ TGTS   := $(patsubst %.c,%,$(SRCS))
 
 all:	$(TGTS)
 
-$(TGTS):
+$(TGTS): *.c
 	$(CC) $(CFLAGS) $@.c -o $@
 
 exparser:

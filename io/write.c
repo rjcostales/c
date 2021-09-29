@@ -3,17 +3,17 @@
 #include <time.h>
 #include "io.h"
 
-int main(int argc, char **argv)
+int main(int argc, char* argv[])
 {
-	char buffer[BUFFER] = { '\0' };
+    char string[BUF] = { '\0' };
 
-	srand(time(0));
+    srand(time(0));
 
-	for (int i = 0; i < MAX; i++)
-		buffer[i] = rand() % 95 + ' ';
+    for (int i = 0; i < BUF; i++)
+        string[i] = rand() % 95 + ' ';
 
-	buffer[INDEX] = '\n';
+    for (int n = 0; n < LEN; n++)
+        puts(string);
 
-	for (int n = 0; n < LEN; n++)
-		fputs(buffer, stdout);
+    return 0;
 }

@@ -4,7 +4,7 @@
 
 int main ()
 {
-	char str[] ="This is a comma, delimeted, file";
+	char str[] = "This is a comma, delimeted, file";
 	char *pch;
 
 	printf ("Splitting string \"%s\" into tokens:\n",str);

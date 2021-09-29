@@ -8,7 +8,7 @@ TGTS  := $(shell grep -w main *.c|sed 's/.c:.*//')
 
 all: $(TGTS)
 
-$(TGTS): $(OBJS)
+$(TGTS): $(OBJS) *.c
 	$(CC) $(CFLAGS) $@.c $(OBJS) -o $@
 
 $(OBJS):

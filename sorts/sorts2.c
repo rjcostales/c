@@ -62,13 +62,13 @@ void merge_sort(int array[], int size)
 
 void shell_sort(int array[], int n)
 {
-	for (int size_l = n / 2; size_l > 0; size_l /= 2) {
-		for (int j = size_l; j < n; j++) {
-			for (int a = j - size_l; a >= 0; a = a - size_l) {
-				if (array[a+size_l] > array[a])
+	for (int i = n / 2; i > 0; i /= 2) {
+		for (int j = i; j < n; j++) {
+			for (int a = j - i; a >= 0; a = a - i) {
+				if (array[a+i] > array[a])
 					break;
 				 else {
-					swap(&array[a], &array[a+size_l]);
+					swap(&array[a], &array[a+i]);
 				}
 			}
 		}
@@ -91,8 +91,7 @@ int main(int argc, char *argv[])
 	start = clock();
 	merge_sort(page, SIZE);
 	end = clock();
-	fprintf(stdout,
-			  "merge sort execution time: %0.6f secs.\n",
+	fprintf(stdout, "merge sort execution time: %0.6f secs.\n",
 			  ELAPSE_TIME(end - start));
 
 	FILE* f1 = fopen("merge.dat", "w");
@@ -106,8 +105,7 @@ int main(int argc, char *argv[])
 	start = clock();
 	shell_sort(page, SIZE);
 	end = clock();
-	fprintf(stdout,
-		 	  "shell sort execution time: %0.6f secs.\n",
+	fprintf(stdout, "shell sort execution time: %0.6f secs.\n",
 			  ELAPSE_TIME(end - start));
 
 	FILE* f2 = fopen("shell.dat", "w");

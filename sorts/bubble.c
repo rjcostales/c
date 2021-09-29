@@ -38,5 +38,6 @@ int main(int argc, char *argv[])
 #ifdef WRITE
 	write(page);
 #endif
+
 	return 0;
 }

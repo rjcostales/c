@@ -1,8 +1,14 @@
+/*
+ * Example of stdlib - quicksort
+ *
+ * Use stdlib quick sort to sort an array of string pointers.
+ *
+ * Jesse Costales
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-#include <locale.h>
 #include "fileutils.h"
 
 static int compare(const void *a, const void *b)
@@ -27,8 +33,8 @@ int main(int argc, char *argv[])
 
 	end = clock();
 
-	setlocale(LC_NUMERIC, "");
-	fprintf(stderr, "execution time: %0.6f secs.\n", ELAPSE_TIME(end - start));
+	fprintf(stderr, "execution time: %0.6f secs.\n",
+			ELAPSE_TIME(end - start));
 
 #ifdef WRITE
 	write(page);
