@@ -1,17 +1,17 @@
 echo "Fibonacci Test"
 echo ""
 
-./fibonacci1 40
+./fib1 40
 echo ""
 
-./fibonacci2 40
+./fib2 40
 echo ""
 
-./fibonacci3 40
+./fib3 40
 echo ""
 
-./fibonacci4 40
+./fib4 40
 echo ''
 
-./fibonacciT 40
+./fibT 40
 echo ''
