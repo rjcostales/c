@@ -10,7 +10,7 @@ all:	$(TGTS)
 $(TGTS):
 	$(CC) $(CFLAGS) $@.c -o $@
 
-endianness:
+endianess:
 	$(CC) $(CFLAGS) -o $@ $@.c -Wno-sequence-point
 
 exparser:

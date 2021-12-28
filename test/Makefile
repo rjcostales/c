@@ -9,7 +9,7 @@ TGTS  := $(patsubst %.c,%,$(SRCS))
 all:	$(TGTS)
 
 $(TGTS):	$(OBJS)
-	$(CC) $(CFLAGS) $@.c $(OBJS) -o $@
+	$(CC) $(CFLAGS) $@.c -o $@
 
 #$(OBJS):
 #	$(CC) $(CFLAGS) -c sorts.c
