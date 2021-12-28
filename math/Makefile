@@ -11,7 +11,7 @@ TGTS   := $(shell grep -w main *.c|sed 's/.c:.*//')
 all: $(TGTS)
 
 $(TGTS): math.o
-	$(CC) $(CFLAGS) $@.c $< -o $@ $(LIBS) $(NOWARN)
+	$(CC) $(CFLAGS) $@.c -o $@ $< $(LIBS) $(NOWARN)
 
 math.o:
 	$(CC) $(CFLAGS) -c math.c -o $@

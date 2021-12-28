@@ -9,7 +9,7 @@ TGTS  := csv
 all: $(TGTS) $(OBJS)
 
 strtest: strfunc.o
-	$(CC) $(CFLAGS) $@.c $< -o $@
+	$(CC) $(CFLAGS) $@.c -o $@ $<
 
 strfunc.o:
 	$(CC) $(CFLAGS) -c strfunc.c -o $@
