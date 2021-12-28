@@ -3,7 +3,7 @@ CFLAGS = -Ofast -Wall -std=c11
 
 SRCS   := $(wildcard *.c)
 HDRS   := $(wildcard *.h)
-TGTS   := $(patsubst %.c,%,$(SRCS))
+TGTS   := $(shell grep -w main *.c|sed 's/.c:.*//')
 
 all:	$(TGTS)
 
