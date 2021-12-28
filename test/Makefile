@@ -1,17 +1,17 @@
 CC     = gcc
-CFLAGS = -Ofast -Wall -std=c11
+CFLAGS = -Ofast -w -std=c11
 
-SRCS   := $(wildcard *.c)
-# HDRS   := $(wildcard *.h)
-TGTS   := $(patsubst %.c,%,$(SRCS))
-# OBJS   := $(patsubst %.h,%.o,$(HDRS))
+SRCS  := $(wildcard *.c)
+#HDRS  := $(wildcard *.h)
+TGTS  := $(patsubst %.c,%,$(SRCS))
+#OBJS  := $(patsubst %.h,%.o,$(HDRS))
 
 all:	$(TGTS)
 
 $(TGTS):	$(OBJS)
 	$(CC) $(CFLAGS) $@.c $(OBJS) -o $@
 
-# $(OBJS):
+#$(OBJS):
 #	$(CC) $(CFLAGS) -c sorts.c
 
 clean:

@@ -1,5 +1,6 @@
 CC     = gcc
 CFLAGS = -Ofast -Wall -std=c11
+NOWARN = -Wno-implicit-function-declaration
 
 SRCS   := $(wildcard *.c)
 HDRS   := $(wildcard *.h)
@@ -9,7 +10,7 @@ TGTS   := $(patsubst %.c,%,$(SRCS))
 all: $(TGTS)
 
 $(TGTS): $(SRCS)
-	$(CC) $(CFLAGS) $@.c -o $@
+	$(CC) $(CFLAGS) $@.c -o $@ $(NOWARN)
 
 clean:
 	rm -rf $(TGTS) *.out *.exe

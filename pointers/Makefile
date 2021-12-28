@@ -11,7 +11,10 @@ $(TGTS):
 	$(CC) $(CFLAGS) $@.c -o $@
 
 struct:
-	$(CC) $(CFLAGS) -Wno-format -o $@ $@.c
+	$(CC) $(CFLAGS) -o $@ $@.c -Wno-format
+
+insertintoarray:
+	$(CC) $(CFLAGS) -o $@ $@.c -Wno-unused-result
 
 clean:
 	rm -rf $(TGTS) *.out *.exe

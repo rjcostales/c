@@ -7,14 +7,20 @@ TGTS   := $(patsubst %.c,%,$(SRCS))
 
 all:	$(TGTS)
 
-$(TGTS): *.c
+$(TGTS):
 	$(CC) $(CFLAGS) $@.c -o $@
 
+endianness:
+	$(CC) $(CFLAGS) -o $@ $@.c -Wno-sequence-point
+
 exparser:
-	$(CC) $(CFLAGS) -Wno-unused-result -Wno-maybe-uninitialized -o $@ $@.c
+	$(CC) $(CFLAGS) -o $@ $@.c -Wno-unused-result -Wno-maybe-uninitialized
+
+struct:
+	$(CC) $(CFLAGS) -o $@ $@.c -Wno-format
 
 xmas:
-	$(CC) $(CFLAGS) -Wno-implicit-int -Wno-logical-not-parentheses -o $@ $@.c
+	$(CC) $(CFLAGS) -o $@ $@.c -Wno-implicit-int -Wno-logical-not-parentheses
 
 clean:
 	rm -rf $(TGTS) *.out *.exe

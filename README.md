@@ -1,17 +1,14 @@
 # Project & Code Collection
 
 * algorithms
-* algorithms/8_queens
 * benchmarks
 * fibonacci
-* games
-* io
-* little_c
-* little_c/test
-* math
-* math/benchmarks
-* math/fibonacci
+* games     - small text base games
+* io        - write, read, copy & remove
+* little_c  - Little C Interpreter
+* math      - primes, fibonacci, arc length & area
 * misc
 * pointers
-* sorts
-* string
+* sorts     - bubble, insertion, selection, merge & quick sorts
+* string    - string function using pointers
+* test

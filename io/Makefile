@@ -1,8 +1,17 @@
-CC = gcc
-obj = read write write1 write2 write3
-src = *.c *.h
+CC     = gcc
+CFLAGS = -Ofast -Wall -std=c11
+LIBS   = -lm
+NOWARN = -Wno-unused-result
 
-all: $(obj)
+SRCS   := $(wildcard *.c)
+HDRS   := $(wildcard *.h)
+OBJS   := $(wildcard *.o)
+TGTS   := $(shell grep -w main *.c|sed 's/.c:.*//' | sort -u)
+
+all: $(TGTS)
+
+$(TGTS):
+	$(CC) $(CFLAGS) $@.c -o $@ $(LIBS) $(NOWARN)
 
 clean:
-	rm -f $(obj)
+	rm -rf $(TGTS) $(OBJS) *.o *.out *.exe

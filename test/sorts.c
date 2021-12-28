@@ -73,7 +73,7 @@ int main(int argc, char *argv[])
 
 	selection(array, size);
 
-	// for (int i = 0; i < size; i++) printf("%i\t%0.4f\n", i, array[i]);
+	for (int i = 0; i < size; i++) printf("%i\t%0.4f\n", i, array[i]);
 
 	return 0;
 }

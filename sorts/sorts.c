@@ -10,12 +10,14 @@
 #define ELAPSE_TIME(X) ((float) (X) / (float) CLOCKS_PER_SEC)
 
 static inline
-void swap(int *a, int *b) { int tmp = *a; *a = *b; *b = tmp; }
+void swap(int *a, int *b) {
+	int tmp = *a; *a = *b; *b = tmp;
+}
 
 static inline
 void merge(int* array, int* left, int* right, int size_l, int size_r)
 {
-	int  a = 0, l = 0, r = 0;
+	int a = 0, l = 0, r = 0;
 
 	while (l < size_l && r < size_r) {
 		if (left[l] < right[r])
@@ -67,7 +69,7 @@ void shell_sort(int array[], int n)
 			for (int a = j - size_l; a >= 0; a = a - size_l) {
 				if (array[a+size_l] > array[a])
 					break;
-				 else {
+				else {
 					swap(&array[a], &array[a+size_l]);
 				}
 			}
@@ -107,7 +109,7 @@ int main(int argc, char *argv[])
 	shell_sort(page, SIZE);
 	end = clock();
 	fprintf(stdout,
-		 	  "shell sort execution time: %0.6f secs.\n",
+			  "shell sort execution time: %0.6f secs.\n",
 			  ELAPSE_TIME(end - start));
 
 	FILE* f2 = fopen("shell.dat", "w");

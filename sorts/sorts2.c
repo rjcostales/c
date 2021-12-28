@@ -10,12 +10,14 @@
 #define ELAPSE_TIME(X) ((float) (X) / (float) CLOCKS_PER_SEC)
 
 static inline
-void swap(int *a, int *b) { int tmp = *a; *a = *b; *b = tmp; }
+void swap(int *a, int *b) {
+	int tmp = *a; *a = *b; *b = tmp;
+}
 
 static inline
 void merge(int* array, int* left, int* right, int size_l, int size_r)
 {
-	int  a = 0, l = 0, r = 0;
+	int a = 0, l = 0, r = 0;
 
 	while (l < size_l && r < size_r) {
 		if (left[l] < right[r])
@@ -67,7 +69,7 @@ void shell_sort(int array[], int n)
 			for (int a = j - i; a >= 0; a = a - i) {
 				if (array[a+i] > array[a])
 					break;
-				 else {
+				else {
 					swap(&array[a], &array[a+i]);
 				}
 			}

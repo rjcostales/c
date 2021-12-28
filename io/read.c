@@ -5,10 +5,10 @@
 
 int main(int argc, char * argv[])
 {
-    char string[MAX];
+	char string[MAX];
 
-    for (int n = 0; n < LEN; n++)
-        fgets(string, MAX, stdin);
+	for (int n = 0; n < LEN; n++)
+		fgets(string, MAX, stdin);
 
-    return 0;
+	return 0;
 }
