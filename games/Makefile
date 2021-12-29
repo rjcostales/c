@@ -1,5 +1,5 @@
 CC     = gcc
-CFLAGS = -Ofast -Wall -std=c11
+CFLAGS = -Ofast -Wall -std=gnu17
 NOWARN = -Wno-implicit-function-declaration
 
 SRCS   := $(wildcard *.c)

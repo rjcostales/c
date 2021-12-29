@@ -1,6 +1,6 @@
 # Universal Makefile ver. 1.0
 CC     = gcc
-CFLAGS = -Ofast -Wall -std=c11
+CFLAGS = -Ofast -Wall -std=gnu17
 
 SRCS := $(wildcard *.c)
 HDRS := $(wildcard *.h)
@@ -16,4 +16,4 @@ $(OBJS): $(SRCS) $(HDRS)
 	$(CC) -c $(CFLAGS) $*.c
 
 clean:
-	rm -rf $(TGTS) $(OBJS) *.o *.out *.exe
+	rm -rf $(TGTS) $(OBJS) *.out *.exe

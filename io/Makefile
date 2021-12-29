@@ -1,6 +1,6 @@
 CC     = gcc
 LIBS   = -lm
-CFLAGS = -Ofast -Wall -std=c11
+CFLAGS = -Ofast -Wall -std=gnu17
 NOWARN = -Wno-unused-result
 
 SRCS   := $(wildcard *.c)
@@ -14,4 +14,4 @@ $(TGTS): $(SRCS) $(HDRS)
 	$(CC) $(CFLAGS) $@.c -o $@ $(LIBS) $(NOWARN)
 
 clean:
-	rm -rf $(TGTS) $(OBJS) *.o *.out *.exe
+	rm -rf $(TGTS) $(OBJS) *.out *.exe

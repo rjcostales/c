@@ -8,10 +8,10 @@
 typedef char* str;
 
 typedef struct sum {
-	int   n;
+	int n;
 	float x;
 	float x2;
-	float xy ;
+	float xy;
 	float y;
 	float y2;
 } sum;

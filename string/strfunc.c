@@ -1,5 +1,6 @@
 #include <string.h>
 #include <ctype.h>
+#include "strfunc.h"
 
 char *rtrim(char *s)
 {

@@ -1,5 +1,5 @@
 CC     = gcc
-CFLAGS = -Ofast -Wall -std=c11 -DWRITE
+CFLAGS = -Ofast -Wall -std=gnu17 -DWRITE
 
 SRCS  := $(wildcard *.c)
 HDRS  := $(wildcard *.h)
@@ -9,7 +9,7 @@ TGTS  := $(shell grep -w main *.c|sed 's/.c:.*//')
 all: $(TGTS) $(OBJS)
 
 $(TGTS): $(SRCS) $(HDRS) $(OBJS)
-	$(CC) $(CFLAGS) $@.c $(OBJS) -o $@
+	$(CC) $(CFLAGS) $@.c -o $@ $(OBJS)
 
 $(OBJS): $(HDRS)
 	$(CC) $(CFLAGS) -c fileutils.c

@@ -1,6 +1,6 @@
 CC     = gcc
 LIBS   = -lm
-CFLAGS = -Ofast -Wall -std=c11
+CFLAGS = -Ofast -Wall -std=gnu17
 NOWARN = -Wno-unused-variable -Wno-uninitialized
 
 SRCS   := $(wildcard *.c)
@@ -17,4 +17,4 @@ $(OBJS):
 	$(CC) $(CFLAGS) -c math.c
 
 clean:
-	rm -rf $(TGTS) $(OBJS) *.o *.out *.exe
+	rm -rf $(TGTS) $(OBJS) *.out *.exe

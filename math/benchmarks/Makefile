@@ -1,5 +1,5 @@
 CC     = gcc
-CFLAGS = -Ofast -Wall -std=c11
+CFLAGS = -Ofast -Wall -std=gnu17
 LIBS   = -lm
 
 SRCS  := $(wildcard *.c)
