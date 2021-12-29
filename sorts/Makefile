@@ -3,8 +3,8 @@ CFLAGS = -Ofast -Wall -std=c11 -DWRITE
 
 SRCS  := $(wildcard *.c)
 HDRS  := $(wildcard *.h)
-OBJS  := fileutils.o
 TGTS  := $(shell grep -w main *.c|sed 's/.c:.*//')
+OBJS  := fileutils.o
 
 all: $(TGTS)
 

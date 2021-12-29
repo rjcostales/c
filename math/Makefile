@@ -1,16 +1,16 @@
 CC     = gcc
-CFLAGS = -Ofast -Wall -std=c11
 LIBS   = -lm
+CFLAGS = -Ofast -Wall -std=c11
 NOWARN = -Wno-unused-variable -Wno-uninitialized
 
 SRCS   := $(wildcard *.c)
 HDRS   := $(wildcard *.h)
-OBJS   := $(wildcard *.o)
+OBJS   :=  math.o
 TGTS   := $(shell grep -w main *.c|sed 's/.c:.*//')
 
-all: $(TGTS)
+all: $(TGTS) $(OBJS)
 
-$(TGTS): math.o
+$(TGTS): $(OBJS)
 	$(CC) $(CFLAGS) $@.c -o $@ $< $(LIBS) $(NOWARN)
 
 math.o:

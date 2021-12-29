@@ -5,9 +5,9 @@ SRCS   := $(wildcard *.c)
 HDRS   := $(wildcard *.h)
 TGTS   := $(shell grep -w main *.c|sed 's/.c:.*//')
 
-all:	$(TGTS)
+all: $(TGTS) $(OBJS)
 
-$(TGTS):
+$(filter-out struct insertintoarray, $(TGTS)): $(OBJS)
 	$(CC) $(CFLAGS) $@.c -o $@
 
 struct:

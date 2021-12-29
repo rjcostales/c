@@ -1,6 +1,6 @@
 CC     = gcc
-CFLAGS = -Ofast -Wall -std=c11
 LIBS   = -lm
+CFLAGS = -Ofast -Wall -std=c11
 NOWARN = -Wno-unused-result
 
 SRCS   := $(wildcard *.c)

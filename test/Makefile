@@ -2,7 +2,7 @@ CC     = gcc
 CFLAGS = -Ofast -w -std=c11
 
 SRCS  := $(wildcard *.c)
-#HDRS  := $(wildcard *.h)
+HDRS  := $(wildcard *.h)
 TGTS   := $(shell grep -w main *.c|sed 's/.c:.*//')
 #OBJS  := $(patsubst %.h,%.o,$(HDRS))
 
