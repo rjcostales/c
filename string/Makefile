@@ -1,6 +1,6 @@
 CC	    = gcc
 CFLAGS = -Ofast -Wall -std=gnu17
-NOWARN =  -Wno-implicit-function-declaration -Wno-format
+NOWARN = -Wno-implicit-function-declaration -Wno-format
 
 SRCS := $(wildcard *.c)
 HDRS := $(wildcard *.h)

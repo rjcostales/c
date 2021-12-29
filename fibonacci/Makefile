@@ -1,4 +1,4 @@
-CC = gcc
+CC   = gcc
 TGTS = fib0 fib1 fib2 fib3 fib4 fibT
 SRCS = *.c
 
