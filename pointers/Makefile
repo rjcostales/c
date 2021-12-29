@@ -7,7 +7,7 @@ TGTS   := $(shell grep -w main *.c|sed 's/.c:.*//')
 
 all: $(TGTS) $(OBJS)
 
-$(filter-out struct insertintoarray, $(TGTS)): $(OBJS)
+$(filter-out struct insertintoarray, $(TGTS)): $(SRCS) $(HDRS)
 	$(CC) $(CFLAGS) $@.c -o $@
 
 struct:

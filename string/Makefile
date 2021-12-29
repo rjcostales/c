@@ -1,5 +1,6 @@
 CC	    = gcc
 CFLAGS = -Ofast -Wall -std=c11
+NOWARN =  -Wno-implicit-function-declaration -Wno-format
 
 SRCS  := $(wildcard *.c)
 HDRS  := $(wildcard *.h)
@@ -8,14 +9,14 @@ OBJS  := strfunc.o
 
 all: $(TGTS) $(OBJS)
 
-$(filter-out strtok, $(TGTS)): $(OBJS)
-	$(CC) $(CFLAGS) $@.c -o $@ $< $(LIBS) $(NOWARN)
+$(filter-out strtok, $(TGTS)): $(SRCS) $(HDRS) $(OBJS)
+	$(CC) $(CFLAGS) $@.c -o $@ $(OBJS)
 
 strtok: strfunc.o
-	$(CC) $(CFLAGS) $@.c -o $@ $(OBJS) -Wno-implicit-function-declaration -Wno-format
+	$(CC) $(CFLAGS) $@.c -o $@ $(OBJS) $(NOWARN)
 
-strfunc.o:
-	$(CC) $(CFLAGS) -c strfunc.c -o $@
+$(OBJS):
+	$(CC) $(CFLAGS) -c strfunc.c
 
 clean:
 	rm -rf $(TGTS) $(OBJS) *.o *.out *.exe

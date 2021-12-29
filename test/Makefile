@@ -6,9 +6,9 @@ HDRS  := $(wildcard *.h)
 TGTS   := $(shell grep -w main *.c|sed 's/.c:.*//')
 #OBJS  := $(patsubst %.h,%.o,$(HDRS))
 
-all:	$(TGTS)
+all: $(TGTS)
 
-$(TGTS):	$(OBJS)
+$(TGTS): $(SRCS) $(HDRS)
 	$(CC) $(CFLAGS) $@.c -o $@
 
 #$(OBJS):

@@ -1,6 +1,7 @@
 /* strtok example */
 #include <stdio.h>
 #include <string.h>
+#include "strfunc.h"
 
 int main ()
 {

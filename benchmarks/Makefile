@@ -6,9 +6,9 @@ SRCS  := $(wildcard *.c)
 HDRS  := $(wildcard *.h)
 TGTS  := $(patsubst %.c,%,$(SRCS))
 
-all:$(TGTS)
+all: $(TGTS) $(OBJS)
 
-$(TGTS): *.c
+$(TGTS): $(SRCS) $(HDRS)
 	$(CC) $(CFLAGS) $@.c -o $@ $(LIBS)
 
 clean:

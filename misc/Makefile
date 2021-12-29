@@ -7,7 +7,7 @@ TGTS   := $(patsubst %.c,%,$(SRCS))
 
 all: $(TGTS) $(OBJS)
 
-$(filter-out endianess exparser struct xmas, $(TGTS)): $(OBJS)
+$(filter-out endianess exparser struct xmas, $(TGTS)): $(SRCS) $(HDRS)
 	$(CC) $(CFLAGS) $@.c -o $@
 
 endianess:

@@ -5,16 +5,16 @@ NOWARN = -Wno-unused-variable -Wno-uninitialized
 
 SRCS   := $(wildcard *.c)
 HDRS   := $(wildcard *.h)
-OBJS   :=  math.o
+OBJS   := math.o
 TGTS   := $(shell grep -w main *.c|sed 's/.c:.*//')
 
 all: $(TGTS) $(OBJS)
 
-$(TGTS): $(OBJS)
-	$(CC) $(CFLAGS) $@.c -o $@ $< $(LIBS) $(NOWARN)
+$(TGTS): $(SRCS) $(HDRS) $(OBJS)
+	$(CC) $(CFLAGS) $@.c -o $@ $(OBJS) $(LIBS) $(NOWARN)
 
-math.o:
-	$(CC) $(CFLAGS) -c math.c -o $@
+$(OBJS):
+	$(CC) $(CFLAGS) -c math.c
 
 clean:
 	rm -rf $(TGTS) $(OBJS) *.o *.out *.exe

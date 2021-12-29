@@ -8,9 +8,9 @@ HDRS   := $(wildcard *.h)
 OBJS   := $(wildcard *.o)
 TGTS   := $(shell grep -w main *.c|sed 's/.c:.*//' | sort -u)
 
-all: $(TGTS)
+all: $(TGTS) $(OBJS)
 
-$(TGTS):
+$(TGTS): $(SRCS) $(HDRS)
 	$(CC) $(CFLAGS) $@.c -o $@ $(LIBS) $(NOWARN)
 
 clean:

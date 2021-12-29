@@ -7,6 +7,8 @@ TGTS   := $(patsubst %.c,%,$(SRCS))
 
 all: $(TGTS)
 
+$(TGTS): $(SRCS) $(HDRS)
+
 $(TGTS): $(SRCS)
 	$(CC) $(CFLAGS) $@.c -o $@
 
