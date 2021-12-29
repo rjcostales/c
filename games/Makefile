@@ -4,12 +4,15 @@ NOWARN = -Wno-implicit-function-declaration
 
 SRCS := $(wildcard *.c)
 HDRS := $(wildcard *.h)
+
 OBJS := $(wildcard *.o)
-TGTS := $(patsubst %.c,%,$(SRCS))
+EXES := $(shell grep -w main *.c|sed 's/.c:.*//')
 
-all: $(TGTS) $(OBJS)
+TGTS := $(EXES) $(OBJS)
 
-$(TGTS): $(SRCS) $(HDRS)
+all: $(TGTS)
+
+$(EXES): $(SRCS)
 	$(CC) $(CFLAGS) $@.c -o $@ $(NOWARN)
 
 clean:

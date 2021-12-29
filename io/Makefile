@@ -1,17 +1,19 @@
 CC     = gcc
-LIBS   = -lm
 CFLAGS = -Ofast -Wall -std=gnu17
 NOWARN = -Wno-unused-result
 
 SRCS := $(wildcard *.c)
 HDRS := $(wildcard *.h)
+
 OBJS := $(wildcard *.o)
-TGTS := $(shell grep -w main *.c|sed 's/.c:.*//' | sort -u)
+EXES := $(patsubst %.c,%,$(SRCS))
 
-all: $(TGTS) $(OBJS)
+TGTS := $(EXES) $(OBJS)
 
-$(TGTS): $(SRCS) $(HDRS)
-	$(CC) $(CFLAGS) $@.c -o $@ $(LIBS) $(NOWARN)
+all: $(TGTS)
+
+$(EXES): $(SRCS)
+	$(CC) $(CFLAGS) $@.c -o $@ $(NOWARN)
 
 clean:
-	rm -rf $(TGTS) $(OBJS) *.out *.exe
+	rm -rf $(TGTS) *.out *.exe

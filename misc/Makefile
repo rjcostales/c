@@ -3,24 +3,28 @@ CFLAGS = -Ofast -Wall -std=gnu17
 
 SRCS := $(wildcard *.c)
 HDRS := $(wildcard *.h)
-TGTS := $(patsubst %.c,%,$(SRCS))
 
-all: $(TGTS) $(OBJS)
+OBJS := $(wildcard *.o)
+EXES := $(shell grep -w main *.c|sed 's/.c:.*//')
 
-$(filter-out endianess exparser struct xmas, $(TGTS)): $(SRCS) $(HDRS)
+TGTS := $(EXES) $(OBJS)
+
+all: $(TGTS)
+
+$(filter-out endianess exparser struct xmas, $(EXES)): $(SRCS)
 	$(CC) $(CFLAGS) $@.c -o $@
 
-endianess:
+endianess: endianess.c
 	$(CC) $(CFLAGS) $@.c -o $@ -Wno-sequence-point
 
-exparser:
+exparser: exparser.c
 	$(CC) $(CFLAGS) $@.c -o $@ -Wno-unused-result -Wno-maybe-uninitialized
 
-struct:
+struct: struct.c
 	$(CC) $(CFLAGS) $@.c -o $@ -Wno-format
 
-xmas:
+xmas: xmas.c
 	$(CC) $(CFLAGS) $@.c -o $@ -Wno-implicit-int -Wno-logical-not-parentheses
 
 clean:
-	rm -rf $(TGTS) $(OBJS) *.out *.exe
+	rm -rf $(TGTS) *.out *.exe

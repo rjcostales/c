@@ -1,6 +1,7 @@
 CC   = gcc
-TGTS = fib0 fib1 fib2 fib3 fib4 fibT
+
 SRCS = *.c
+EXES = fib0 fib1 fib2 fib3 fib4 fibT
 
 all: $(TGTS)
 
@@ -23,4 +24,4 @@ fibT: fibonacciT.c
 	$(CC) fibonacciT.c -o fibT
 
 clean:
-	rm -f $(TGTS)
+	rm -f $(TGTS) *.out *.exe

@@ -4,16 +4,19 @@ CFLAGS = -Ofast -Wall -std=gnu17
 
 SRCS := $(wildcard *.c)
 HDRS := $(wildcard *.h)
+
 OBJS := $(patsubst %.c,%.o,$(SRCS))
-TGTS = lc
+EXEC = lc
 
-all: $(TGTS) $(OBJS)
+TGTS := $(EXEC) $(OBJS)
 
-$(TGTS): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(TGTS)
+all: $(TGTS)
+
+$(EXEC): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(EXEC)
 
 $(OBJS): $(SRCS) $(HDRS)
 	$(CC) $(CFLAGS) -c $*.c
 
 clean:
-	rm -rf $(TGTS) $(OBJS) *.out *.exe
+	rm -rf $(TGTS) *.out *.exe

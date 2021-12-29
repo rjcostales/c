@@ -3,19 +3,22 @@ CFLAGS = -Ofast -Wall -std=gnu17
 
 SRCS := $(wildcard *.c)
 HDRS := $(wildcard *.h)
+
 OBJS := $(wildcard *.o)
-TGTS := $(shell grep -w main *.c|sed 's/.c:.*//')
+EXES := $(shell grep -w main *.c|sed 's/.c:.*//')
 
-all: $(TGTS) $(OBJS)
+TGTS := $(EXES) $(OBJS)
 
-$(filter-out struct insertintoarray, $(TGTS)): $(SRCS) $(HDRS)
+all: $(TGTS)
+
+$(filter-out struct insertintoarray, $(EXES)): $(SRCS)
 	$(CC) $(CFLAGS) $@.c -o $@
 
-struct:
+struct: struct.c
 	$(CC) $(CFLAGS) $@.c -o $@ -Wno-format
 
-insertintoarray:
+insertintoarray: insertintoarray.c
 	$(CC) $(CFLAGS) $@.c -o $@ -Wno-unused-result
 
 clean:
-	rm -rf $(TGTS) $(OBJS) *.out *.exe
+	rm -rf $(TGTS) *.out *.exe

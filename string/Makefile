@@ -4,19 +4,22 @@ NOWARN = -Wno-implicit-function-declaration -Wno-format
 
 SRCS := $(wildcard *.c)
 HDRS := $(wildcard *.h)
-TGTS := $(shell grep -w main *.c|sed 's/.c:.*//')
+
 OBJS := strfunc.o
+EXES := $(shell grep -w main *.c|sed 's/.c:.*//')
 
-all: $(TGTS) $(OBJS)
+TGTS := $(EXES) $(OBJS)
 
-$(filter-out strtok, $(TGTS)): $(SRCS) $(HDRS) $(OBJS)
+all: $(TGTS)
+
+$(filter-out strtok, $(EXES)): $(SRCS) $(HDRS) $(OBJS)
 	$(CC) $(CFLAGS) $@.c -o $@ $(OBJS)
 
 strtok: $(SRCS) $(HDRS) $(OBJS)
 	$(CC) $(CFLAGS) $@.c -o $@ $(OBJS) $(NOWARN)
 
-$(OBJS): $(SRCS) $(HDRS)
+$(OBJS): strfunc.c $(HDRS)
 	$(CC) $(CFLAGS) -c strfunc.c
 
 clean:
-	rm -rf $(TGTS) $(OBJS) *.out *.exe
+	rm -rf $(TGTS) *.out *.exe

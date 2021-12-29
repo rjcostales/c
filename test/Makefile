@@ -3,16 +3,16 @@ CFLAGS = -Ofast -w -std=gnu17
 
 SRCS := $(wildcard *.c)
 HDRS := $(wildcard *.h)
-TGTS := $(shell grep -w main *.c|sed 's/.c:.*//')
-#OBJS := $(patsubst %.h,%.o,$(HDRS))
+
+OBJS := $(wildcard *.o)
+EXES := $(shell grep -w main *.c|sed 's/.c:.*//')
+
+TGTS := $(EXES) $(OBJS)
 
 all: $(TGTS)
 
-$(TGTS): $(SRCS) $(HDRS)
+$(EXES): $(SRCS)
 	$(CC) $(CFLAGS) $@.c -o $@
-
-#$(OBJS):
-#	$(CC) $(CFLAGS) -c sorts.c
 
 clean:
 	rm -rf $(TGTS)  *.out *.exe
