@@ -4,7 +4,7 @@ CFLAGS = -Ofast -w -std=gnu17
 SRCS := $(wildcard *.c)
 HDRS := $(wildcard *.h)
 TGTS := $(shell grep -w main *.c|sed 's/.c:.*//')
-#OBJS  := $(patsubst %.h,%.o,$(HDRS))
+#OBJS := $(patsubst %.h,%.o,$(HDRS))
 
 all: $(TGTS)
 

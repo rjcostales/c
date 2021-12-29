@@ -1,10 +1,10 @@
 CC     = gcc
 CFLAGS = -Ofast -Wall -std=gnu17 -DWRITE
 
-SRCS  := $(wildcard *.c)
-HDRS  := $(wildcard *.h)
-OBJS  := fileutils.o
-TGTS  := $(shell grep -w main *.c|sed 's/.c:.*//')
+SRCS := $(wildcard *.c)
+HDRS := $(wildcard *.h)
+OBJS := fileutils.o
+TGTS := $(shell grep -w main *.c|sed 's/.c:.*//')
 
 all: $(TGTS) $(OBJS)
 

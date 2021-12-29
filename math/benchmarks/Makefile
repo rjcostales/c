@@ -2,9 +2,9 @@ CC     = gcc
 CFLAGS = -Ofast -Wall -std=gnu17
 LIBS   = -lm
 
-SRCS  := $(wildcard *.c)
-HDRS  := $(wildcard *.h)
-TGTS  := $(patsubst %.c,%,$(SRCS))
+SRCS := $(wildcard *.c)
+HDRS := $(wildcard *.h)
+TGTS := $(patsubst %.c,%,$(SRCS))
 
 all:$(TGTS)
 
