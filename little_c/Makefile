@@ -1,5 +1,5 @@
 # Universal Makefile ver. 1.0
-CC	    = gcc
+CC     = gcc
 CFLAGS = -Ofast -Wall -std=gnu17
 
 SRCS := $(wildcard *.c)
