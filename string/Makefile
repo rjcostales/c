@@ -13,10 +13,10 @@ TGTS := $(EXES) $(OBJS)
 all: $(TGTS)
 
 $(filter-out strtok, $(EXES)): $(SRCS) $(HDRS) $(OBJS)
-	$(CC) $(CFLAGS) $@.c -o $@ $(OBJS)
+	$(CC) $(CFLAGS) -o $@ $@.c $(OBJS)
 
 strtok: $(SRCS) $(HDRS) $(OBJS)
-	$(CC) $(CFLAGS) $@.c -o $@ $(OBJS) $(NOWARN)
+	$(CC) $(CFLAGS) -o $@ $@.c $(OBJS) $(NOWARN)
 
 $(OBJS): strfunc.c $(HDRS)
 	$(CC) $(CFLAGS) -c strfunc.c

@@ -14,9 +14,9 @@ TGTS := $(EXES) $(OBJS)
 all: $(TGTS)
 
 $(EXES): $(SRCS) $(OBJS)
-	$(CC) $(CFLAGS) $@.c -o $@ $(OBJS) $(LIBS) $(NOWARN)
+	$(CC) $(CFLAGS) -o $@ $@.c $(OBJS) $(LIBS) $(NOWARN)
 
-$(OBJS): math.c math.h
+$(OBJS): math.c $(HDRS)
 	$(CC) $(CFLAGS) -c math.c
 
 clean:

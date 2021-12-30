@@ -12,19 +12,19 @@ TGTS := $(EXES) $(OBJS)
 all: $(TGTS)
 
 $(filter-out endianess exparser struct xmas, $(EXES)): $(SRCS)
-	$(CC) $(CFLAGS) $@.c -o $@
+	$(CC) $(CFLAGS) -o $@ $@.c
 
 endianess: endianess.c
-	$(CC) $(CFLAGS) $@.c -o $@ -Wno-sequence-point
+	$(CC) $(CFLAGS) -o $@ $@.c -Wno-sequence-point
 
 exparser: exparser.c
-	$(CC) $(CFLAGS) $@.c -o $@ -Wno-unused-result -Wno-maybe-uninitialized
+	$(CC) $(CFLAGS) -o $@ $@.c -Wno-unused-result -Wno-maybe-uninitialized
 
 struct: struct.c
-	$(CC) $(CFLAGS) $@.c -o $@ -Wno-format
+	$(CC) $(CFLAGS) -o $@ $@.c -Wno-format
 
 xmas: xmas.c
-	$(CC) $(CFLAGS) $@.c -o $@ -Wno-implicit-int -Wno-logical-not-parentheses
+	$(CC) $(CFLAGS) -o $@ $@.c -Wno-implicit-int -Wno-logical-not-parentheses
 
 clean:
 	rm -rf $(TGTS) *.out *.exe

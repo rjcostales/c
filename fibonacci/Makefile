@@ -6,22 +6,22 @@ EXES = fib0 fib1 fib2 fib3 fib4 fibT
 all: $(TGTS)
 
 fib0: fibonacci0.c
-	$(CC) fibonacci0.c -o fib0
+	$(CC) -o fib0 fibonacci0.c
 
 fib1: fibonacci1.c
-	$(CC) fibonacci1.c -o fib1
+	$(CC) -o fib1 fibonacci1.c
 
 fib2: fibonacci2.c
-	$(CC) fibonacci2.c -o fib2
+	$(CC) -o fib2 fibonacci2.c
 
 fib3: fibonacci3.c
-	$(CC) fibonacci3.c -o fib3
+	$(CC) -o fib3 fibonacci3.c
 
 fib4: fibonacci4.c
-	$(CC) fibonacci4.c -o fib4
+	$(CC) -o fib4 fibonacci4.c
 
 fibT: fibonacciT.c
-	$(CC) fibonacciT.c -o fibT
+	$(CC) -o fibT fibonacciT.c
 
 clean:
 	rm -f $(TGTS) *.out *.exe

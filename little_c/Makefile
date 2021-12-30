@@ -13,7 +13,7 @@ TGTS := $(EXEC) $(OBJS)
 all: $(TGTS)
 
 $(EXEC): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(EXEC)
+	$(CC) $(CFLAGS) -o $(EXEC) $(OBJS)
 
 $(OBJS): $(SRCS) $(HDRS)
 	$(CC) $(CFLAGS) -c $*.c

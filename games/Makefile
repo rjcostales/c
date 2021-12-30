@@ -13,7 +13,7 @@ TGTS := $(EXES) $(OBJS)
 all: $(TGTS)
 
 $(EXES): $(SRCS)
-	$(CC) $(CFLAGS) $@.c -o $@ $(NOWARN)
+	$(CC) $(CFLAGS) -o $@ $@.c $(NOWARN)
 
 clean:
 	rm -rf $(TGTS) *.out *.exe

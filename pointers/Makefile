@@ -12,13 +12,13 @@ TGTS := $(EXES) $(OBJS)
 all: $(TGTS)
 
 $(filter-out struct insertintoarray, $(EXES)): $(SRCS)
-	$(CC) $(CFLAGS) $@.c -o $@
+	$(CC) $(CFLAGS) -o $@ $@.c
 
 struct: struct.c
-	$(CC) $(CFLAGS) $@.c -o $@ -Wno-format
+	$(CC) $(CFLAGS) -o $@ $@.c -Wno-format
 
 insertintoarray: insertintoarray.c
-	$(CC) $(CFLAGS) $@.c -o $@ -Wno-unused-result
+	$(CC) $(CFLAGS) -o $@ $@.c -Wno-unused-result
 
 clean:
 	rm -rf $(TGTS) *.out *.exe
