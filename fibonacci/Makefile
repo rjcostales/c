@@ -1,9 +1,9 @@
-CC   = gcc
+CC   = gcc -Ofast -Wall -std=gnu17
 
 SRCS = *.c
 EXES = fib0 fib1 fib2 fib3 fib4 fibT
 
-all: $(TGTS)
+all: $(EXES)
 
 fib0: fibonacci0.c
 	$(CC) -o fib0 fibonacci0.c
@@ -24,4 +24,4 @@ fibT: fibonacciT.c
 	$(CC) -o fibT fibonacciT.c
 
 clean:
-	rm -f $(TGTS) *.out *.exe
+	rm -f $(EXES) *.out *.exe

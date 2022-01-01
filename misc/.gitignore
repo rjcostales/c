@@ -1,4 +1,6 @@
+ascii
 compfunc
+endianess
 endiness
 exparser
 filter
@@ -13,5 +15,6 @@ struct
 time
 tohex
 types
+unicode
 vatest
 xmas

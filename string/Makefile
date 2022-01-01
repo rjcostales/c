@@ -23,3 +23,8 @@ $(OBJS): strfunc.c $(HDRS)
 
 clean:
 	rm -rf $(TGTS) *.out *.exe
+
+print:
+	echo SRCS $(SRCS)
+	echo HDRS $(HDRS)
+	echo TGTS $(TGTS)

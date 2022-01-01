@@ -5,7 +5,7 @@ SRCS := $(wildcard *.c)
 HDRS := $(wildcard *.h)
 
 OBJS := $(wildcard *.o)
-EXES := $(shell grep -w main *.c|sed 's/.c:.*//')
+EXES := $(shell grep -w main *.c|sed 's/.c:.*//' | sort -u)
 
 TGTS := $(EXES) $(OBJS)
 
@@ -28,3 +28,8 @@ xmas: xmas.c
 
 clean:
 	rm -rf $(TGTS) *.out *.exe
+
+print:
+	echo SRCS $(SRCS)
+	echo HDRS $(HDRS)
+	echo TGTS $(TGTS)

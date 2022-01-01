@@ -16,3 +16,8 @@ $(EXES): $(SRCS)
 
 clean:
 	rm -rf $(TGTS) *.out *.exe
+
+print:
+	echo $(SRCS)
+	echo $(HDRS)
+	echo $(TGTS)

@@ -3,6 +3,7 @@
 
 int main(int argc, char *argv[])
 {
-	for (int i = 1; i < 256; i++)
-		printf("%c\n", i);
+	for (int i = ' '; i < 127; i++)
+		printf("%c", i);
+	printf("\n");
 }
