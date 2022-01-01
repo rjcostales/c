@@ -15,7 +15,7 @@ $(EXES): $(SRCS)
 	$(CC) $(CFLAGS) -o $@ $@.c
 
 clean:
-	rm -rf $(TGTS)  *.out *.exe
+	rm -rf $(TGTS) *.out *.exe
 
 print:
 	echo SRCS $(SRCS)
