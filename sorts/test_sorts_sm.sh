@@ -19,3 +19,5 @@ echo ""
 
 ./bubble < data.txt > /dev/null
 echo ""
+
+rm data.txt

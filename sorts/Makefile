@@ -16,14 +16,14 @@ $(TGTS): $(SRCS) $(HDRS)
 $(filter-out quicksort generate, $(EXES)): $(SRCS) $(OBJS)
 	$(CC) $(CFLAGS) -DSORT_NAME=$@_sort -o $@ sort.c $(OBJS)
 
-quicksort generate: $(OBJS)
+quicksort generate: fileutils.c sortutils.c $(OBJS)
 	$(CC) $(CFLAGS) -o $@ $@.c $(OBJS)
 
 $(OBJS): $(SRCS) $(HDRS)
 	$(CC) $(CFLAGS) -c fileutils.c sortutils.c
 
 clean:
-	rm -rf $(TGTS) *.o *.txt *.out *.exe
+	rm -rf $(TGTS) *.out *.exe
 
 print:
 	echo SRCS $(SRCS)

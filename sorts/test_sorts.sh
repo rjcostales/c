@@ -19,3 +19,5 @@ echo ""
 
 ./quicksort < data.txt
 echo ""
+
+rm data.txt
