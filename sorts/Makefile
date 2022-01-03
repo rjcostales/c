@@ -4,8 +4,8 @@ CFLAGS = -Ofast -Wall -std=gnu17 -DWRITE
 SRCS := $(wildcard *.c)
 HDRS := $(wildcard *.h)
 
-OBJS := fileutils.o
-EXES := $(shell grep -w main *.c|sed 's/.c:.*//')
+OBJS := fileutils.o sortutils.o
+EXES := bubble merge insertion selection shell quicksort generate
 
 TGTS := $(EXES) $(OBJS)
 
@@ -13,14 +13,17 @@ all: $(TGTS)
 
 $(TGTS): $(SRCS) $(HDRS)
 
-$(EXES): $(SRCS) $(OBJS)
+$(filter-out quicksort generate, $(EXES)): $(SRCS) $(OBJS)
+	$(CC) $(CFLAGS) -DSORT_NAME=$@_sort -o $@ sort.c $(OBJS)
+
+quicksort generate: $(OBJS)
 	$(CC) $(CFLAGS) -o $@ $@.c $(OBJS)
 
-$(OBJS): fileutils.c $(HDRS)
-	$(CC) $(CFLAGS) -c fileutils.c
+$(OBJS): $(SRCS) $(HDRS)
+	$(CC) $(CFLAGS) -c fileutils.c sortutils.c
 
 clean:
-	rm -rf $(TGTS) *.out *.exe
+	rm -rf $(TGTS) *.o *.txt *.out *.exe
 
 print:
 	echo SRCS $(SRCS)

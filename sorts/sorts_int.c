@@ -10,12 +10,12 @@
 #define ELAPSE_TIME(X) ((float) (X) / (float) CLOCKS_PER_SEC)
 
 static inline
-void swap(int *a, int *b) {
+void swap_int(int *a, int *b) {
 	int tmp = *a; *a = *b; *b = tmp;
 }
 
 static inline
-void merge(int* array, int* left, int* right, int size_l, int size_r)
+void merge_int(int* array, int* left, int* right, int size_l, int size_r)
 {
 	int a = 0, l = 0, r = 0;
 
@@ -34,7 +34,7 @@ void merge(int* array, int* left, int* right, int size_l, int size_r)
 		array[a++] = right[r++];
 }
 
-void merge_sort(int array[], int size)
+void merge_sort_int(int array[], int size)
 {
 	if (size <= 1) return; // nothing to sort
 
@@ -52,25 +52,25 @@ void merge_sort(int array[], int size)
 	memcpy(right, array + size_l, size_r * sizeof(int));
 
 	// sort left and right
-	merge_sort(left, size_l);
-	merge_sort(right, size_r);
+	merge_sort_int(left, size_l);
+	merge_sort_int(right, size_r);
 
-	merge(array, left, right, size_l, size_r);
+	merge_int(array, left, right, size_l, size_r);
 
 	// deallocate
 	free(left);
 	free(right);
 }
 
-void shell_sort(int array[], int n)
+void shell_sort_int(int array[], int n)
 {
-	for (int i = n / 2; i > 0; i /= 2) {
-		for (int j = i; j < n; j++) {
-			for (int a = j - i; a >= 0; a = a - i) {
-				if (array[a+i] > array[a])
+	for (int size_l = n / 2; size_l > 0; size_l /= 2) {
+		for (int j = size_l; j < n; j++) {
+			for (int a = j - size_l; a >= 0; a = a - size_l) {
+				if (array[a+size_l] > array[a])
 					break;
 				else {
-					swap(&array[a], &array[a+i]);
+					swap_int(&array[a], &array[a+size_l]);
 				}
 			}
 		}
@@ -91,12 +91,13 @@ int main(int argc, char *argv[])
 	for (int i = 0; i < SIZE; i++ ) page[i] = rand();
 
 	start = clock();
-	merge_sort(page, SIZE);
+	merge_sort_int(page, SIZE);
 	end = clock();
-	fprintf(stdout, "merge sort execution time: %0.6f secs.\n",
+	fprintf(stdout,
+			  "merge_int sort execution time: %0.6f secs.\n",
 			  ELAPSE_TIME(end - start));
 
-	FILE* f1 = fopen("merge.dat", "w");
+	FILE* f1 = fopen("merge_int.dat", "w");
 	for (int i = 0; i < SIZE; i++ )
 		fprintf(f1, "%i\n", page[i]);
 	fclose(f1);
@@ -105,9 +106,10 @@ int main(int argc, char *argv[])
 	for (int i = 0; i < SIZE; i++ ) page[i] = rand();
 
 	start = clock();
-	shell_sort(page, SIZE);
+	shell_sort_int(page, SIZE);
 	end = clock();
-	fprintf(stdout, "shell sort execution time: %0.6f secs.\n",
+	fprintf(stdout,
+			  "shell sort execution time: %0.6f secs.\n",
 			  ELAPSE_TIME(end - start));
 
 	FILE* f2 = fopen("shell.dat", "w");

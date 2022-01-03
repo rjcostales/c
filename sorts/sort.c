@@ -5,19 +5,9 @@
 #include <time.h>
 #include <locale.h>
 #include "fileutils.h"
+#include "sortutils.h"
 
-inline void swap(str *a, str *b) { str tmp = *a; *a = *b; *b = tmp; }
-
-void bubble_sort(str array[], int n)
-{
-	for (int i = 0; i < n - 1; ++i) {
-		for (int j = 0; j < n - i - 1; ++j) {
-			if (strcmp(array[j], array[j + 1]) > 0) {
-				swap(&array[j], &array[j + 1]);
-			}
-		}
-	}
-}
+#define SORT SORT_NAME
 
 int main(int argc, char *argv[])
 {
@@ -28,7 +18,7 @@ int main(int argc, char *argv[])
 	clock_t start, end;
 	start = clock();
 
-	bubble_sort(page, size);
+	SORT(page, size);
 
 	end = clock();
 
