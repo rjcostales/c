@@ -1,22 +1,23 @@
-CC     = gcc
+CC     = gcc-10
 CFLAGS = -Ofast -Wall -std=gnu17 -DWRITE
 
 SRCS := $(wildcard *.c)
 HDRS := $(wildcard *.h)
 
 OBJS := fileutils.o sortutils.o
-EXES := bubble merge insertion selection shell quicksort generate
+EXES := generate quicksort sorts_int
+SORT := bubble merge insertion selection shell
 
-TGTS := $(EXES) $(OBJS)
+TGTS := $(SORT) $(EXES) $(OBJS)
 
 all: $(TGTS)
 
 $(TGTS): $(SRCS) $(HDRS)
 
-$(filter-out quicksort generate, $(EXES)): $(SRCS) $(OBJS)
+$(SORT): $(SRCS) $(OBJS)
 	$(CC) $(CFLAGS) -DSORT_NAME=$@_sort -o $@ sort.c $(OBJS)
 
-quicksort generate: fileutils.c sortutils.c $(OBJS)
+$(EXES): $(SRCS) $(OBJS)
 	$(CC) $(CFLAGS) -o $@ $@.c $(OBJS)
 
 $(OBJS): $(SRCS) $(HDRS)

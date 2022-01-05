@@ -1,4 +1,4 @@
-CC     = gcc
+CC     = gcc-10
 LIBS   = -lm
 CFLAGS = -Ofast -Wall -std=gnu17
 NOWARN = -Wno-unused-variable -Wno-uninitialized

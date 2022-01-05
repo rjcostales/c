@@ -1,4 +1,4 @@
-CC     = gcc
+CC     = gcc-10
 CFLAGS = -Ofast -Wall -std=gnu17
 LIBS   = -lm
 
