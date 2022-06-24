@@ -1,6 +1,5 @@
 .vscode/
 build/
-test/
 
 *.o
 *.out
@@ -9,3 +8,10 @@ test/
 *.log
 *.dat
 *.txt
+
+test/
+test.c
+
+xxxx.c
+yyyy.c
+zzzz.c
