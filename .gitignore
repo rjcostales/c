@@ -1,6 +1,5 @@
 .vscode/
 build/
-test/
 
 *.o
 *.out
