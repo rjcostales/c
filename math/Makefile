@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 CC     = gcc-10
+=======
+CC     = gcc
+>>>>>>> 238493a (update)
 LIBS   = -lm
 CFLAGS = -Ofast -Wall -std=gnu17
 NOWARN = -Wno-unused-variable -Wno-uninitialized

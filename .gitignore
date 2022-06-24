@@ -1,3 +1,7 @@
+.vscode/
+build/
+test/
+
 *.o
 *.out
 *.exe

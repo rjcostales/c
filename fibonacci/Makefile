@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 CC   = gcc-10 -Ofast -Wall -std=gnu17
+=======
+CC   = gcc -Ofast -Wall -std=gnu17
+>>>>>>> 238493a (update)
 
 SRCS = *.c
 EXES = fib0 fib1 fib2 fib3 fib4 fibT

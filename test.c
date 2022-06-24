@@ -1,14 +1,5 @@
-l//
-//  main.c
-//  CF.TimingsHighResC01
-//
-//  Created by Alan Sampson on 2/14/21.
-//
-//  MARK: - Reference.
-//  @see: https://www.manpagez.com/man/3/clock_gettime/
-//
-
 #include <stdio.h>
+<<<<<<< HEAD
 #include <stdlib.h>
 #include <stdbool.h>
 #include <stdint.h>
@@ -216,3 +207,12 @@ timespec diff(timespec start, timespec end) {
 
 	return temp;
 }
+=======
+
+int main()
+{
+   int a = 1;
+   a = 2;
+   printf("a = %d\n", a);
+}
+>>>>>>> 238493a (update)
