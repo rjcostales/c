@@ -20,37 +20,41 @@ main(int argc, char *argv[])
 	printf("size of uint32_t :%u\n", (int) sizeof(uint32_t));
 	printf("size of uint64_t :%u\n", (int) sizeof(uint64_t));
 
-	printf("short\n");
-	printf("short max        :%'i\n", SHRT_MAX);
-	printf("short min        :%'i\n", SHRT_MIN);
-	printf("short unsiged    :%'u\n", USHRT_MAX);
+	printf("\nshort\n");
+	printf("short max     :%'i\n", SHRT_MAX);
+	printf("short min     :%'i\n", SHRT_MIN);
+	printf("short unsiged :%'u\n", USHRT_MAX);
 
-	printf("short decimal    :%'d\n", USHRT_MAX);
-	printf("short hexadecimal:0x%x\n", USHRT_MAX);
-	printf("short octal      :o%o\n", USHRT_MAX);
+	printf("short decimal :%'d\n", USHRT_MAX);
+	printf("short hex     :0x%x\n", USHRT_MAX);
+	printf("short octal   :o%o\n", USHRT_MAX);
 
-	printf("int\n");
-	printf("int max          :%'i\n", INT_MAX);
-	printf("int min          :%'i\n", INT_MIN);
-	printf("int unsiged      :%'u\n", UINT_MAX);
+	printf("\nint\n");
+	printf("int max       :%'i\n", INT_MAX);
+	printf("int min       :%'i\n", INT_MIN);
+	printf("int unsiged   :%'u\n", UINT_MAX);
 
-	printf("int decimal      :%d\n", UINT_MAX);
-	printf("int hexadecimal  :0x%x\n", UINT_MAX);
-	printf("int octal        :o%o\n", UINT_MAX);
+	printf("int decimal   :%d\n", UINT_MAX);
+	printf("int hex       :0x%x\n", UINT_MAX);
+	printf("int octal     :o%o\n", UINT_MAX);
 
-	printf("long\n");
-	printf("long max         :%'li\n", LONG_MAX);
-	printf("long min         :%'li\n", LONG_MIN);
-	printf("long unsiged     :%'lu\n", ULONG_MAX);
+	printf("\nlong\n");
+	printf("long max      :%'li\n", LONG_MAX);
+	printf("long min      :%'li\n", LONG_MIN);
+	printf("long unsiged  :%'lu\n", ULONG_MAX);
 
-	printf("long decimal     :%'ld\n", ULONG_MAX);
-	printf("long hexadecimal :0x%lx\n", ULONG_MAX);
-	printf("long octal       :o%lo\n", ULONG_MAX);
+	printf("long decimal  :%'ld\n", ULONG_MAX);
+	printf("long hex      :0x%lx\n", ULONG_MAX);
+	printf("long octal    :o%lo\n", ULONG_MAX);
 
-	printf("floating point\n");
-	printf("float            :%le\n", 1.0 / FLT_MAX);
-	printf("double           :%le\n", 1.0 / DBL_MAX);
+	printf("\nfloating point\n");
+	printf("float  :%le\t%le\n", FLT_MIN, FLT_MAX);
+	printf("double :%le\t%le\n", DBL_MIN, DBL_MAX);
 
-	printf("float            :%f\t%f\n", FLT_MIN, FLT_MAX);
-	printf("double           :%f\t%f\n", DBL_MIN, DBL_MAX);
+	printf("float  :%f\n", FLT_MIN);
+	printf("double :%f\n", DBL_MIN);
+
+	printf("float  :%f\n", FLT_MAX);
+	printf("double :%f\n", DBL_MAX);
+
 }
