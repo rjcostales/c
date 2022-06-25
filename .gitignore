@@ -10,7 +10,7 @@ build/
 *.dat
 *.txt
 
-test/
+work/
 test.c
 
 xxxx.c
