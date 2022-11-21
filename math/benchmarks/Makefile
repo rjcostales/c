@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-CC     = gcc-10
-=======
 CC     = gcc
->>>>>>> 238493a (update)
 CFLAGS = -Ofast -Wall -std=gnu17
 LIBS   = -lm
 
