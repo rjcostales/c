@@ -11,4 +11,3 @@
 * pointers
 * sorts     - bubble, insertion, selection, merge & quick sorts
 * string    - string function using pointers
-* test
