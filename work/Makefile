@@ -1,4 +1,4 @@
-CC     = gcc-10
+CC     = gcc
 CFLAGS = -Ofast -w -std=gnu17
 
 SRCS := $(wildcard *.c)

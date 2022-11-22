@@ -1,6 +1,6 @@
 .vscode/
 build/
-test/
+*.code-workspace
 
 *.o
 *.out
@@ -9,3 +9,12 @@ test/
 *.log
 *.dat
 *.txt
+
+test/
+test.c
+
+xxxx.c
+yyyy.c
+zzzz.c
+
+.indent.pro
