@@ -6,10 +6,10 @@
 
 void swap(str *a, str *b) { str tmp = *a; *a = *b; *b = tmp; }
 
-void bubble_sort(str array[], int n)
+void bubble_sort(str array[], int size)
 {
-	for (int i = 0; i < n - 1; ++i) {
-		for (int j = 0; j < n - i - 1; ++j) {
+	for (int i = 0; i < size - 1; ++i) {
+		for (int j = 0; j < size - i - 1; ++j) {
 			if (strcmp(array[j], array[j + 1]) > 0) {
 				swap(&array[j], &array[j + 1]);
 			}
@@ -17,13 +17,13 @@ void bubble_sort(str array[], int n)
 	}
 }
 
-void selection_sort(str array[], int n)
+void selection_sort(str array[], int size)
 {
 	int min;
 
-	for (int i = 0; i < n; i++) {
+	for (int i = 0; i < size; i++) {
 		min = i;
-		for (int j = i; j < n; j++) {
+		for (int j = i; j < size; j++) {
 			if (strcmp(array[min], array[j]) > 0)
 				min = j;
 		}
@@ -31,11 +31,11 @@ void selection_sort(str array[], int n)
 	}
 }
 
-void insertion_sort(str array[], int n)
+void insertion_sort(str array[], int size)
 {
 	int i, j;
 
-	for (i = 1; i < n; i++) {
+	for (i = 1; i < size; i++) {
 		str tmp = array[i];
 		j = i;
 		while (j && (strcmp(array[j - 1], tmp) > 0)) {
@@ -46,12 +46,12 @@ void insertion_sort(str array[], int n)
 	}
 }
 
-void shell_sort(str array[], int n)
+void shell_sort(str array[], int size)
 {
 	int i, j, k;
 
-	for (i = n / 2; i > 0; i /= 2) {
-		for (j = i; j < n; j++) {
+	for (i = size / 2; i > 0; i /= 2) {
+		for (j = i; j < size; j++) {
 			for (k = j - i; k >= 0; k = k - i) {
 				if (strcmp(array[k+i], array[k]) > 0)
 					break;
